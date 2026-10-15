@@ -63,7 +63,7 @@ ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(
 <body${GA_ID ? ` data-ga="${GA_ID}"` : ''}>
 <a class="skip" href="#inhoud">Naar de inhoud</a>
 <header class="site"><div class="wrap">
-<a class="logo" href="/" aria-label="${SITE.name}, naar de homepage">${LOGO}<span>${BRAND}</span></a>
+<a class="logo" href="/">${LOGO}<span>${BRAND}</span></a>
 <nav class="main" aria-label="Hoofdmenu">${NAV.map(([h, t, c]) => `<a href="${h}"${c ? ` class="${c}"` : ''}${(p.navPath || p.path).startsWith(h) ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('')}</nav>
 </div></header>
 <main id="inhoud"><div class="wrap">
