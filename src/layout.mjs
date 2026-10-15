@@ -9,7 +9,7 @@ const G = GA_ID ? { script: ' https://www.googletagmanager.com', connect: ' http
 
 export const SITE = {
   name: 'VerduurzaamMatch', domain: 'https://verduurzaammatch.nl', email: 'info@boekhoudmatch.nl',
-  tagline: 'Verduurzamen? Begin bij de juiste stap.', updated: '2026-10-15', theme: '#0a4f49', owner: 'Dave West',
+  tagline: 'Verduurzamen? Begin bij de juiste stap.', updated: '2026-10-15', theme: '#0a4f49', owner: 'Redactie VerduurzaamMatch',
 };
 export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 export const BRAND = 'Verduurzaam<b>Match</b>.nl';

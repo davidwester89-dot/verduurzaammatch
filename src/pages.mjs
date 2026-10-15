@@ -6,7 +6,7 @@ const eur = (n) => '€ ' + n.toLocaleString('nl-NL');
 const src = (...keys) => `<p class="src">Bron: ${keys.map((k) => `<a href="${SOURCES[k].url}" rel="noopener">${esc(SOURCES[k].title)}</a>`).join(' · ')}. Gecontroleerd op 15 oktober 2026.</p>`;
 const jaren = (t) => (t ? `${t.join('–')} jaar` : '–');
 const ORG = { '@type': 'Organization', name: SITE.name, url: SITE.domain + '/' };
-const PERSON = { '@type': 'Person', name: SITE.owner, url: SITE.domain + '/over/' };
+
 const img = (slug, alt) => `<div class="hero-img"><img src="/img/${slug}-1200.webp" srcset="/img/${slug}-600.webp 600w, /img/${slug}-1200.webp 1200w" sizes="(max-width:760px) 100vw, 740px" width="1200" height="630" alt="${esc(alt)}" fetchpriority="high"></div>`;
 const matchCta = `<div class="offerte"><h3>Welke stap past bij jouw huis?</h3><p>Vijf vragen, direct advies met kosten en terugverdientijd.</p><a class="btn sun" href="/verduurzaam-match/">Doe de verduurzaam-match</a></div>`;
 
@@ -120,7 +120,7 @@ ${matchCta}${src('batterij')}`,
 
 export const gidsPages = GIDSEN.map((g) => ({
   path: `/${g.slug}/`, title: g.title, h1: g.h1, crumb: g.crumb, description: g.description, og: g.slug, parents: [['/gidsen/', 'Gidsen']], navPath: '/gidsen/', ogType: 'article',
-  schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, image: `${SITE.domain}/og/${g.slug}.png`, datePublished: '2026-10-15', dateModified: SITE.updated, author: PERSON, publisher: ORG, inLanguage: 'nl' }],
+  schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, image: `${SITE.domain}/og/${g.slug}.png`, datePublished: '2026-10-15', dateModified: SITE.updated, author: ORG, publisher: ORG, inLanguage: 'nl' }],
   body: `<article><h1>${esc(g.h1)}</h1>${img(g.slug, g.alt)}<p class="src">Door ${SITE.owner} · 15 oktober 2026</p>${g.body()}</article>`,
 }));
 
@@ -219,7 +219,7 @@ export const privacy = {
   path: '/privacy/', title: 'Privacy en cookies | VerduurzaamMatch', h1: 'Privacy en cookies', crumb: 'Privacy', og: 'home',
   description: 'Hoe VerduurzaamMatch met je gegevens omgaat: geen account, geen tracking zonder toestemming.',
   body: `<article><h1>Privacy en cookies</h1>
-<p>VerduurzaamMatch is een website van ${SITE.owner}. Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
+<p>Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
 <h2>Welke gegevens?</h2><p>Je antwoorden in de verduurzaam-match blijven in je browser. We slaan ze niet op en sturen ze nergens heen.</p>
 <h2 id="cookies">Cookies en statistieken</h2><p>We gebruiken geen tracking- of advertentiecookies. Zetten we later Google Analytics aan, dan alleen na jouw toestemming via een melding. Je keuze bewaren we 12 maanden in je browser en je kunt hem altijd wijzigen.</p>
 <h2>Links naar aanbieders</h2><p>Klik je door naar een aanbieder of vraag je daar een offerte aan, dan geldt de privacyverklaring van die aanbieder.</p>
