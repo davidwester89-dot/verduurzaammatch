@@ -8,7 +8,7 @@ const jaren = (t) => (t ? `${t.join('–')} jaar` : '–');
 const ORG = { '@type': 'Organization', name: SITE.name, url: SITE.domain + '/' };
 
 const img = (slug, alt) => `<div class="hero-img"><img src="/img/${slug}-1200.webp" srcset="/img/${slug}-600.webp 600w, /img/${slug}-1200.webp 1200w" sizes="(max-width:760px) 100vw, 740px" width="1200" height="630" alt="${esc(alt)}" fetchpriority="high"></div>`;
-const matchCta = `<div class="offerte"><h3>Welke stap past bij jouw huis?</h3><p>Vijf vragen, direct advies met kosten en terugverdientijd.</p><a class="btn sun" href="/verduurzaam-match/">Doe de verduurzaam-match</a></div>`;
+const matchCta = `<div class="offerte"><h3>Welke stap past bij jouw huis?</h3><p>Vijf vragen, direct advies met kosten en terugverdientijd.</p><a class="btn sun" href="/verduurzaam-match/">Doe de VerduurzaamMatch</a></div>`;
 
 function tabel(id) {
   const m = MAATREGELEN[id];
@@ -127,13 +127,13 @@ export const gidsPages = GIDSEN.map((g) => ({
 export const gidsHub = {
   path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, warmtepomp, zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home',
   description: 'Korte gidsen over spouw-, dak- en vloerisolatie, de hybride warmtepomp, zonnepanelen na 2027 en de thuisbatterij.',
-  body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="" loading="lazy"><h3>${esc(g.crumb)}</h3><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>`,
+  body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>`,
 };
 
 // ---- Home ----
 export const home = {
   path: '/', title: 'VerduurzaamMatch: welke verduurzaming past bij jouw huis?', og: 'home',
-  description: 'Isoleren, warmtepomp, zonnepanelen of thuisbatterij? Doe de verduurzaam-match en zie welke stap eerst, met kosten en terugverdientijd van Milieu Centraal.',
+  description: 'Isoleren, warmtepomp, zonnepanelen of thuisbatterij? Doe de VerduurzaamMatch en zie welke stap eerst, met kosten en terugverdientijd van Milieu Centraal.',
   schema: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.domain + '/', inLanguage: 'nl', publisher: ORG }],
   body: `<section class="hero"><h1><span class="brand">${BRAND}</span><span class="sr"> – </span><span class="tagline" style="display:block">${esc(SITE.tagline)}</span></h1>
 <p class="lead">Vijf vragen over je huis. Je ziet welke maatregel het meeste oplevert, wat hij kost en hoe snel je hem terugverdient.</p>
@@ -149,13 +149,13 @@ ${img('home', 'Huis met geïsoleerd dak, warmtepomp en zonnepanelen')}</section>
 };
 
 // ---- Quiz ----
-const fs = Object.entries(VRAGEN).map(([k, v]) => `<fieldset><legend>${esc(v.label)}</legend><div class="opts">${Object.entries(v.opties).map(([ok, ol]) => `<label><input type="radio" name="${k}" value="${ok}" required><span>${esc(ol)}</span></label>`).join('')}</div></fieldset>`).join('');
+const fs = Object.entries(VRAGEN).map(([k, v]) => `<fieldset><legend>${esc(v.label)}</legend><div class="opts">${(v.volgorde ? v.volgorde.map((ok) => [ok, v.opties[ok]]) : Object.entries(v.opties)).map(([ok, ol]) => `<label><input type="radio" name="${k}" value="${ok}" required><span>${esc(ol)}</span></label>`).join('')}</div></fieldset>`).join('');
 export const quiz = {
-  path: '/verduurzaam-match/', title: 'Verduurzaam-match: welke stap eerst voor jouw huis?', h1: 'Verduurzaam-match', crumb: 'Verduurzaam-match', og: 'match',
+  path: '/verduurzaam-match/', title: 'VerduurzaamMatch: welke stap eerst voor jouw huis?', h1: 'VerduurzaamMatch', crumb: 'VerduurzaamMatch', og: 'match',
   description: 'Vijf vragen over je woning. Direct advies welke verduurzaming eerst, met kosten, ISDE-subsidie en terugverdientijd.',
   scripts: ['/js/quiz.js'],
-  schema: [{ '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Verduurzaam-match', applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' }, url: SITE.domain + '/verduurzaam-match/' }],
-  body: `<h1>Verduurzaam-match</h1><p class="lead">Welke stap levert in jouw huis het meeste op?</p>
+  schema: [{ '@context': 'https://schema.org', '@type': 'WebApplication', name: 'VerduurzaamMatch', applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' }, url: SITE.domain + '/verduurzaam-match/' }],
+  body: `<h1>VerduurzaamMatch</h1><p class="lead">Welke stap levert in jouw huis het meeste op?</p>
 <form class="quiz" id="form" novalidate>${fs}<button class="btn" type="submit">Toon mijn advies</button></form>
 <div class="result" id="result" aria-live="polite"></div>
 <noscript><p class="note">Zet JavaScript aan voor het advies, of lees de <a href="/gidsen/">gidsen</a>.</p></noscript>
@@ -181,7 +181,8 @@ export const subsidie = {
 </tbody></table></div>
 <p><strong>Twee maatregelen = dubbel.</strong> Voer je binnen 24 maanden een tweede isolatiemaatregel uit, of combineer je met een warmtepomp, dan verdubbelt het isolatiebedrag. Biobased materiaal geeft een extra bonus.</p>
 <h2>Warmtepomp</h2>
-<p>Lucht-waterwarmtepomp in 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Een hybride van 4 kW levert zo € 2.125 op. Je krijgt altijd minimaal € 500.</p>
+<p>Lucht-waterwarmtepomp in 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Een hybride van 4 kW met A+++-label levert zo € 2.125 op. Je krijgt altijd minimaal € 500.</p>
+<p class="src">Bedragen per m², minimale en maximale oppervlakken en de biobased bonus: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/isolatiemaatregelen" rel="noopener">ISDE isolatiemaatregelen</a> ("Subsidiebedrag voor uitvoering in 2025 of later"). Warmtepomp (€ 225 per kW en € 200 A+++-bonus in 2026, vast deel € 1.025 in het rekenvoorbeeld) en alle 2027-bedragen: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/isde-wat-wijzigt-er-2027" rel="noopener">ISDE: wat wijzigt er vanaf 2027?</a>. Minimaal € 500: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp" rel="noopener">ISDE warmtepomp</a>. Gecontroleerd op 16 oktober 2026.</p>
 <h2>Wat verandert er in 2027?</h2>
 <div class="tbl"><table><thead><tr><th></th><th>2026</th><th>2027 (voorgenomen)</th></tr></thead><tbody>
 <tr><td>Lucht-waterwarmtepomp per kW</td><td>€ 225</td><td>€ 120</td></tr>
@@ -198,7 +199,7 @@ ${matchCta}${src('isde', 'isdeIsolatie', 'isdeWp', 'isde2027', 'saldering')}</ar
 
 // ---- Statisch ----
 export const over = {
-  path: '/over/', title: 'Over ons | VerduurzaamMatch', h1: 'Over ons', crumb: 'Over ons', og: 'home',
+  path: '/over/', title: 'Over VerduurzaamMatch: wie we zijn en hoe we werken', h1: 'Over ons', crumb: 'Over ons', og: 'home',
   description: 'Wie er achter VerduurzaamMatch zit en hoe ons team elke week werkt: bronnen, onafhankelijkheid en partnerlinks.',
   schema: [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'Over VerduurzaamMatch', about: ORG }],
   body: `<article><h1>Over ons</h1><p class="lead">VerduurzaamMatch helpt huiseigenaren kiezen welke verduurzaming eerst. Ons team werkt daar elke week aan.</p>
@@ -209,26 +210,28 @@ export const over = {
 
 export const bronnen = {
   path: '/bronnen/', title: 'Bronnen en cijfers | VerduurzaamMatch', h1: 'Bronnen en cijfers', crumb: 'Bronnen', og: 'home',
-  description: 'Alle bronnen achter de cijfers op VerduurzaamMatch: Milieu Centraal, RVO en Rijksoverheid.',
-  body: `<article><h1>Bronnen en cijfers</h1><p>Alle kosten, besparingen en subsidies komen van deze pagina's. Gecontroleerd op 15 oktober 2026.</p>
+  description: 'Alle bronnen achter de cijfers op VerduurzaamMatch: Milieu Centraal, RVO, Rijksoverheid en het Nationaal Warmtefonds.',
+  body: `<article><h1>Bronnen en cijfers</h1><p>Alle kosten, besparingen en subsidies komen van deze pagina's. Gecontroleerd op 16 oktober 2026.</p>
 <ul>${Object.values(SOURCES).map((s) => `<li><a href="${s.url}" rel="noopener">${esc(s.title)}</a></li>`).join('')}</ul>
 <h2>Uitgangspunten</h2><ul><li>Besparing bij een gasprijs van € 1,37 per m³ (verwachting Milieu Centraal voor 2026-2040).</li><li>Terugverdientijd = kosten gedeeld door besparing per jaar, met en zonder subsidie.</li><li>Warmtepomp en hr++-glas: cijfers voor een hoekwoning. Appartement: cijfers van een tussenwoning.</li></ul></article>`,
 };
 
 export const privacy = {
   path: '/privacy/', title: 'Privacy en cookies | VerduurzaamMatch', h1: 'Privacy en cookies', crumb: 'Privacy', og: 'home',
-  description: 'Hoe VerduurzaamMatch met je gegevens omgaat: geen account, geen tracking zonder toestemming.',
+  description: 'Hoe VerduurzaamMatch met je gegevens omgaat: geen account, Google Analytics alleen na jouw toestemming en altijd in te trekken.',
   body: `<article><h1>Privacy en cookies</h1>
 <p>Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
-<h2>Welke gegevens?</h2><p>Je antwoorden in de verduurzaam-match blijven in je browser. We slaan ze niet op en sturen ze nergens heen.</p>
-<h2 id="cookies">Cookies en statistieken</h2><p>We gebruiken geen tracking- of advertentiecookies. Zetten we later Google Analytics aan, dan alleen na jouw toestemming via een melding. Je keuze bewaren we 12 maanden in je browser en je kunt hem altijd wijzigen.</p>
+<h2>Welke gegevens?</h2><p>Je antwoorden in de VerduurzaamMatch blijven in je browser. We slaan ze niet op en sturen ze nergens heen.</p>
+<h2 id="cookies">Cookies en statistieken</h2><p>We gebruiken geen advertentiecookies. Voor statistieken gebruiken we Google Analytics 4 (meet-ID G-RE5YBMSK4D), maar alleen als je in de cookiemelding op "Accepteren" klikt. Zonder toestemming laden we Google Analytics niet en gaat er niets naar Google.</p>
+<p>Geef je toestemming, dan plaatst Google Analytics cookies (zoals <code>_ga</code>) en meten we welke pagina's bezocht worden en op welke knoppen en partnerlinks wordt geklikt. Google Analytics 4 slaat geen IP-adressen op; die worden alleen gebruikt om een globale locatie te bepalen en daarna weggegooid. We gebruiken de gegevens alleen voor statistieken, niet voor advertenties, en bewaren ze maximaal 14 maanden. Google verwerkt de gegevens als verwerker; zie het <a href="https://policies.google.com/privacy" rel="noopener">privacybeleid van Google</a>.</p>
+<p>Je keuze bewaren we 12 maanden in je browser (localStorage). Je kunt je toestemming altijd intrekken via <a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a> (ook onderaan elke pagina). Dan stoppen we Google Analytics en wissen we de <code>_ga</code>-cookies.</p>
 <h2>Links naar aanbieders</h2><p>Klik je door naar een aanbieder of vraag je daar een offerte aan, dan geldt de privacyverklaring van die aanbieder.</p>
 <h2>Hosting</h2><p>De site draait op GitHub Pages. GitHub verwerkt technische gegevens zoals je IP-adres om de site te leveren.</p>
 <h2>Je rechten</h2><p>Je mag vragen welke gegevens we van je hebben en die laten verwijderen. Een klacht kun je indienen bij de Autoriteit Persoonsgegevens.</p></article>`,
 };
 
 export const disclaimer = {
-  path: '/disclaimer/', title: 'Disclaimer | VerduurzaamMatch', h1: 'Disclaimer', crumb: 'Disclaimer', og: 'home',
+  path: '/disclaimer/', title: 'Disclaimer: zo lees je de cijfers op VerduurzaamMatch', h1: 'Disclaimer', crumb: 'Disclaimer', og: 'home',
   description: 'Uitkomsten op VerduurzaamMatch zijn een indicatie op basis van gemiddelden.',
   body: `<article><h1>Disclaimer</h1><p>Kosten, besparingen en terugverdientijden zijn gemiddelden van Milieu Centraal. Jouw huis en energieprijs kunnen anders uitvallen. Subsidiebedragen kunnen wijzigen; check altijd rvo.nl voor je koopt.</p>
 <p>VerduurzaamMatch is geen installateur en geeft geen persoonlijk advies. Laat je woning beoordelen door een vakbedrijf.</p>

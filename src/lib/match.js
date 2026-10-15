@@ -1,11 +1,11 @@
-// Verduurzaam-match: welke stap eerst? Regels volgen het advies van Milieu Centraal:
+// VerduurzaamMatch: welke stap eerst? Regels volgen het advies van Milieu Centraal:
 // eerst de plekken zonder isolatie, dan (hybride) warmtepomp, zonnepanelen vooral bij eigen verbruik, thuisbatterij zelden.
 // Partnerlinks of vergoedingen spelen hier NOOIT mee (zie test/match.test.js).
 import { MAATREGELEN, terugverdien } from './maatregelen.js';
 
 export const VRAGEN = {
   woning: { label: 'Wat voor woning heb je?', opties: { tussen: 'Tussenwoning', hoek: 'Hoekwoning', twee: '2-onder-1-kap', vrij: 'Vrijstaand', app: 'Appartement' } },
-  bouwjaar: { label: 'Bouwjaar?', opties: { voor1975: 'Voor 1975', '1975': '1975 – 1991', '1992': '1992 – 1999', '2000': '2000 of later' } },
+  bouwjaar: { label: 'Bouwjaar?', opties: { voor1975: 'Voor 1975', '1975': '1975 – 1991', '1992': '1992 – 1999', '2000': '2000 of later' }, volgorde: ['voor1975', '1975', '1992', '2000'] },
   label: { label: 'Energielabel?', opties: { AB: 'A of B', C: 'C', DE: 'D of E', FG: 'F of G', onbekend: 'Weet ik niet' } },
   budget: { label: 'Budget?', opties: { laag: 'Tot € 2.500', midden: '€ 2.500 – 7.500', hoog: 'Meer dan € 7.500' } },
   doel: { label: 'Wat wil je vooral?', opties: { rekening: 'Lagere energierekening', comfort: 'Warmer en comfortabeler', gasvrij: 'Van het gas af', zonnestroom: 'Eigen stroom opwekken' } },
