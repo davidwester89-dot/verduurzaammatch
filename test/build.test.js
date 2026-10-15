@@ -23,3 +23,4 @@ test('blog: index bestaat, posts in sitemap, hub alleen geïndexeerd met posts',
   if (POSTS.length) { assert.ok(!hub.includes('noindex')); assert.ok(sm.includes('/blog/</loc>')); for (const b of POSTS) { assert.ok(sm.includes(`/blog/${b.slug}/`)); assert.ok(b.title.length < 60, b.title); assert.ok(existsSync(`dist/blog/${b.slug}/index.html`)); } }
   else { assert.ok(hub.includes('noindex')); assert.ok(!sm.includes('/blog/')); }
 });
+test('nergens Dave West in de build', () => { const out = execSync('grep -rli "dave west" dist || true').toString().trim(); assert.equal(out, ''); });
