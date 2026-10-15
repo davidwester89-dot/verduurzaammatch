@@ -20,6 +20,7 @@ const NAV = [
   ['/verduurzaam-match/', 'Start de match', 'nav-cta'],
   ['/subsidie-isde/', 'Subsidie'],
   ['/gidsen/', 'Gidsen'],
+  ['/blog/', 'Blog'],
   ['/over/', 'Over ons'],
 ];
 const CSS = readFileSync(new URL('./assets/css/style.css', import.meta.url), 'utf8')
