@@ -13,6 +13,7 @@ cpSync('src/lib', join(OUT, 'js/lib'), { recursive: true });
 cpSync('src/assets/img', join(OUT, 'img'), { recursive: true });
 cpSync('src/assets/og', join(OUT, 'og'), { recursive: true });
 cpSync('src/assets/icons', OUT, { recursive: true });
+cpSync('src/root', OUT, { recursive: true });
 write(join(OUT, 'CNAME'), 'verduurzaammatch.nl\n');
 write(join(OUT, '.nojekyll'), '');
 write(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE.domain}/sitemap.xml\n`);
