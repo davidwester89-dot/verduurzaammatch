@@ -1,0 +1,21 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { match, niveau } from '../src/lib/match.js';
+import { MAATREGELEN, terugverdien } from '../src/lib/maatregelen.js';
+import { PARTNERLINKS, uitgaand } from '../src/lib/partnerlinks.js';
+const A = { woning: 'hoek', bouwjaar: 'voor1975', label: 'onbekend', budget: 'midden', doel: 'rekening' };
+test('oud huis: eerst spouwmuurisolatie', () => assert.equal(match(A)[0].id, 'spouw'));
+test('label gaat voor bouwjaar', () => assert.equal(niveau({ bouwjaar: 'voor1975', label: 'AB' }), 'goed'));
+test('goed geïsoleerd + gasvrij: volledig elektrisch', () => assert.equal(match({ ...A, bouwjaar: '2000', doel: 'gasvrij' })[0].id, 'allelectric'));
+test('appartement: geen spouw of zonnepanelen bovenaan', () => { const r = match({ ...A, woning: 'app' }); assert.notEqual(r[0].id, 'spouw'); assert.ok(!r.some((x) => x.id === 'zon')); });
+test('zonnestroom-doel bij goed huis: zonnepanelen eerst', () => assert.equal(match({ ...A, bouwjaar: '2000', doel: 'zonnestroom' })[0].id, 'zon'));
+test('max 3 resultaten en onvolledig gooit', () => { assert.equal(match(A).length, 3); assert.throws(() => match({ ...A, doel: '' })); });
+test('terugverdientijd spouw hoek = MC-cijfers', () => assert.deepEqual(terugverdien(MAATREGELEN.spouw, 'hoek'), [2, 3]));
+test('MC-cijfers ongewijzigd', () => { assert.equal(MAATREGELEN.dak.kosten.vrij, 10000); assert.equal(MAATREGELEN.hybride.subsidie.hoek, 2125); });
+test('partnerlinks leeg en match leest ze niet', () => {
+  assert.deepEqual(PARTNERLINKS, {});
+  assert.ok(!readFileSync(new URL('../src/lib/match.js', import.meta.url), 'utf8').includes('partnerlinks'));
+  assert.equal(uitgaand('quatt').partner, false);
+  assert.equal(uitgaand('quatt', { quatt: 'https://x' }).rel, 'sponsored noopener');
+});

@@ -1,0 +1,82 @@
+import { readFileSync } from 'node:fs';
+import { GA_ID as GA_CONFIG } from './analytics.config.mjs';
+import { GA_ID_RE } from './lib/consent.js';
+import { networkFor } from './network.mjs';
+
+export const GA_ID = (process.env.GA_ID ?? GA_CONFIG).trim();
+if (GA_ID && !GA_ID_RE.test(GA_ID)) throw new Error(`Ongeldige GA_ID "${GA_ID}"`);
+const G = GA_ID ? { script: ' https://www.googletagmanager.com', connect: ' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com', img: ' https://*.google-analytics.com https://www.googletagmanager.com' } : { script: '', connect: '', img: '' };
+
+export const SITE = {
+  name: 'VerduurzaamMatch', domain: 'https://verduurzaammatch.nl', email: 'info@boekhoudmatch.nl',
+  tagline: 'Verduurzamen? Begin bij de juiste stap.', updated: '2026-10-15', theme: '#0a4f49', owner: 'Dave West',
+};
+export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+export const BRAND = 'Verduurzaam<b>Match</b>.nl';
+// Logo: huisje met blad, teal vlak.
+export const LOGO = '<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="4" fill="#3c9a5f"/><path d="M8 20 20 9l12 11v12H8z" fill="#fff"/><path d="M15 30c0-7 4-11 11-12-1 7-4 11-11 12z" fill="#0e6b63"/><path d="M15 30l6-7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>';
+
+const NAV = [
+  ['/verduurzaam-match/', 'Start de match', 'nav-cta'],
+  ['/subsidie-isde/', 'Subsidie'],
+  ['/gidsen/', 'Gidsen'],
+  ['/over/', 'Over ons'],
+];
+const CSS = readFileSync(new URL('./assets/css/style.css', import.meta.url), 'utf8')
+  .replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').replace(/;}/g, '}');
+
+export function networkFooter() {
+  return `<div class="net"><p class="fh">Ook van ons</p><ul>${networkFor('verduurzaammatch.nl').map((s) => `<li><a href="${s.url}">${s.logo}</a> <span>· ${esc(s.wat)}</span></li>`).join('')}</ul></div>`;
+}
+
+export function layout(p) {
+  const url = SITE.domain + (p.path === '/404.html' ? '/' : p.path);
+  const trail = p.path === '/' || p.path === '/404.html' ? [] : [['/', 'Home'], ...(p.parents || []), [p.path, p.crumb || p.h1]];
+  const crumbs = trail.length ? `<nav class="crumbs" aria-label="Kruimelpad">${trail.map(([h, t], i) => (i === trail.length - 1 ? `<span aria-current="page">${esc(t)}</span>` : `<a href="${h}">${esc(t)}</a>`)).join(' › ')}</nav>` : '';
+  const ld = [
+    ...(trail.length ? [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: trail.map(([h, t], i) => ({ '@type': 'ListItem', position: i + 1, name: t, item: SITE.domain + h })) }] : []),
+    ...(p.schema || []),
+  ];
+  const og = `${SITE.domain}/og/${p.og || 'home'}.png`;
+  return `<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'${G.script}; style-src 'self' 'unsafe-inline'; img-src 'self' data:${G.img}; connect-src 'self'${G.connect}; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>${esc(p.title)}</title>
+<meta name="description" content="${esc(p.description)}">
+${p.noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`}
+<meta property="og:site_name" content="${SITE.name}"><meta property="og:locale" content="nl_NL"><meta property="og:type" content="${p.ogType || 'website'}">
+<meta property="og:title" content="${esc(p.title)}"><meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${url}">
+<meta property="og:image" content="${og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${og}">
+<meta name="theme-color" content="${SITE.theme}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>${CSS}</style>
+${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(/</g, '\\u003c')}</script>`).join('\n')}
+</head>
+<body${GA_ID ? ` data-ga="${GA_ID}"` : ''}>
+<a class="skip" href="#inhoud">Naar de inhoud</a>
+<header class="site"><div class="wrap">
+<a class="logo" href="/" aria-label="${SITE.name}, naar de homepage">${LOGO}<span>${BRAND}</span></a>
+<nav class="main" aria-label="Hoofdmenu">${NAV.map(([h, t, c]) => `<a href="${h}"${c ? ` class="${c}"` : ''}${(p.navPath || p.path).startsWith(h) ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('')}</nav>
+</div></header>
+<main id="inhoud"><div class="wrap">
+${crumbs}
+${p.body}
+</div></main>
+<footer class="site"><div class="wrap">
+<div class="cols">
+<div><a class="logo" href="/">${LOGO}<span>${BRAND}</span></a><p>${esc(SITE.tagline)}</p></div>
+<div><p class="fh">Isoleren</p><ul><li><a href="/spouwmuurisolatie-kosten/">Spouwmuurisolatie</a></li><li><a href="/dakisolatie-kosten/">Dakisolatie</a></li><li><a href="/vloerisolatie-kosten/">Vloerisolatie</a></li></ul></div>
+<div><p class="fh">Energie</p><ul><li><a href="/hybride-warmtepomp-kosten/">Hybride warmtepomp</a></li><li><a href="/zonnepanelen-na-2027/">Zonnepanelen na 2027</a></li><li><a href="/thuisbatterij-terugverdienen/">Thuisbatterij</a></li><li><a href="/subsidie-isde/">ISDE-subsidie</a></li></ul></div>
+<div><p class="fh">Over</p><ul><li><a href="/over/">Over ons</a></li><li><a href="/bronnen/">Bronnen</a></li><li><a href="/privacy/">Privacy en cookies</a></li>${GA_ID ? '<li><a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a></li>' : ''}<li><a href="/disclaimer/">Disclaimer</a></li><li><a href="mailto:${SITE.email}">Contact</a></li></ul></div>
+</div>
+${networkFooter()}
+</div></footer>
+${[...(GA_ID ? ['/js/consent.js'] : []), ...(p.scripts || [])].map((s) => `<script type="module" src="${s}"></script>`).join('\n')}
+</body>
+</html>`;
+}
