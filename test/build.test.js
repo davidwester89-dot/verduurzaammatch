@@ -17,3 +17,9 @@ test('met GA_ID: consent-script en CSP, geen gtag.js in HTML', () => {
   const h = execSync(`node --input-type=module -e "const {layout}=await import('./src/layout.mjs');const P=await import('./src/pages.mjs');process.stdout.write(layout(P.home))"`, { env: { ...process.env, GA_ID: 'G-TEST1234' } }).toString();
   assert.ok(h.includes('/js/consent.js')); assert.ok(h.includes('data-ga="G-TEST1234"')); assert.ok(!h.includes('gtag/js'));
 });
+test('blog: index bestaat, posts in sitemap, hub alleen geïndexeerd met posts', async () => {
+  const { POSTS } = await import('../src/blog.mjs');
+  const hub = r('/blog/index.html'); const sm = r('/sitemap.xml');
+  if (POSTS.length) { assert.ok(!hub.includes('noindex')); assert.ok(sm.includes('/blog/</loc>')); for (const b of POSTS) { assert.ok(sm.includes(`/blog/${b.slug}/`)); assert.ok(b.title.length < 60, b.title); assert.ok(existsSync(`dist/blog/${b.slug}/index.html`)); } }
+  else { assert.ok(hub.includes('noindex')); assert.ok(!sm.includes('/blog/')); }
+});
