@@ -16,6 +16,9 @@ export const SOURCES = {
   isdeIsolatie: { title: 'RVO – ISDE isolatiemaatregelen', url: 'https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/isolatiemaatregelen' },
   isdeWp: { title: 'RVO – ISDE warmtepomp', url: 'https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp' },
   isde2027: { title: 'RVO – ISDE: wat wijzigt er vanaf 2027?', url: 'https://www.rvo.nl/subsidies-financiering/isde/isde-wat-wijzigt-er-2027' },
+  warmtefondsVoorwaarden: { title: 'Nationaal Warmtefonds – Voorwaarden Energiebespaarlening', url: 'https://www.warmtefonds.nl/particulieren/voorwaarden-energiebespaarlening' },
+  warmtefondsNul: { title: 'Nationaal Warmtefonds – Energiebespaarlening 0%', url: 'https://www.warmtefonds.nl/particulieren/energiebespaarlening-nul-procent' },
+  warmtefondsRente: { title: 'Nationaal Warmtefonds – Actuele rentetarieven', url: 'https://www.warmtefonds.nl/particulieren/actuele-rentetarieven' },
   saldering: { title: 'Rijksoverheid – Salderingsregeling stopt per 1 januari 2027', url: 'https://www.rijksoverheid.nl/onderwerpen/energie-thuis/salderingsregeling' },
 };
 

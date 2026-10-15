@@ -6,7 +6,7 @@ export const POSTS = (await Promise.all(files.map(async (f) => (await import(new
   .sort((a, b) => b.date.localeCompare(a.date));
 const ORG = { '@type': 'Organization', name: SITE.name, url: SITE.domain + '/' };
 const datum = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
-const cta = `<div class="offerte"><h3>Welke stap past bij jouw huis?</h3><p>Vijf vragen, direct advies met kosten en terugverdientijd.</p><a class="btn sun" href="/verduurzaam-match/">Doe de verduurzaam-match</a></div>`;
+const cta = `<div class="offerte"><h3>Welke stap past bij jouw huis?</h3><p>Vijf vragen, direct advies met kosten en terugverdientijd.</p><a class="btn sun" href="/verduurzaam-match/">Doe de VerduurzaamMatch</a></div>`;
 export const blogPages = POSTS.map((b) => ({
   path: `/blog/${b.slug}/`, title: b.title, h1: b.title, crumb: b.title, description: b.description, og: b.image || 'home',
   parents: [['/blog/', 'Blog']], navPath: '/blog/', ogType: 'article', lastmod: b.date,
@@ -16,5 +16,5 @@ export const blogPages = POSTS.map((b) => ({
 export const blogHub = {
   path: '/blog/', title: 'Blog: nieuws over verduurzamen en subsidie', h1: 'Blog', crumb: 'Blog', og: 'home', noindex: POSTS.length === 0,
   description: 'Wekelijks nieuws en uitleg over isoleren, warmtepompen, zonnepanelen, thuisbatterijen en subsidie zoals de ISDE.',
-  body: `<h1>Blog</h1>${POSTS.length ? `<div class="grid">${POSTS.map((b) => `<a class="card link" href="/blog/${b.slug}/">${b.image ? `<img src="/img/${b.image}-600.webp" width="600" height="315" alt="" loading="lazy">` : ''}<h3>${esc(b.title)}</h3><p>${datum(b.date)} · ${esc(b.description)}</p></a>`).join('')}</div>` : '<p>Binnenkort verschijnt hier elke week een nieuw artikel. Lees intussen de <a href="/gidsen/">gidsen</a>.</p>'}`,
+  body: `<h1>Blog</h1>${POSTS.length ? `<div class="grid">${POSTS.map((b) => `<a class="card link" href="/blog/${b.slug}/">${b.image ? `<img src="/img/${b.image}-600.webp" width="600" height="315" alt="" loading="lazy">` : ''}<h2 class="h3">${esc(b.title)}</h2><p>${datum(b.date)} · ${esc(b.description)}</p></a>`).join('')}</div>` : '<p>Binnenkort verschijnt hier elke week een nieuw artikel. Lees intussen de <a href="/gidsen/">gidsen</a>.</p>'}`,
 };
