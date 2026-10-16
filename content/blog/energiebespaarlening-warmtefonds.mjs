@@ -20,5 +20,5 @@ export default {
 <p>Woon je in een appartement? Dan kan ook je VvE lenen bij het Warmtefonds.</p>
 <h2>Combineren met subsidie</h2>
 <p>Voor isolatie en warmtepompen kun je daarnaast ISDE-subsidie aanvragen. Lees wat je terugkrijgt in onze gids <a href="/subsidie-isde/">ISDE-subsidie 2026</a>. Bekijk ook wat <a href="/spouwmuurisolatie-kosten/">spouwmuurisolatie</a> of een <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp</a> kost.</p>
-<p class="src">Bron: <a href="https://www.warmtefonds.nl/particulieren/voorwaarden-energiebespaarlening" rel="noopener">Nationaal Warmtefonds, voorwaarden Energiebespaarlening</a> · <a href="https://www.warmtefonds.nl/particulieren/energiebespaarlening-nul-procent" rel="noopener">Energiebespaarlening 0%</a>. Gecontroleerd op 15 oktober 2026. Voorwaarden kunnen wijzigen; check altijd de actuele offerte.</p>`,
+<p class="src">Bron: <a href="https://www.warmtefonds.nl/particulieren/voorwaarden-energiebespaarlening" rel="noopener">Nationaal Warmtefonds, voorwaarden Energiebespaarlening</a> · <a href="https://www.warmtefonds.nl/particulieren/energiebespaarlening-nul-procent" rel="noopener">Energiebespaarlening 0%</a>.</p>`,
 };
