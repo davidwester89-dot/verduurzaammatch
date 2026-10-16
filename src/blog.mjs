@@ -14,7 +14,7 @@ export const blogPages = POSTS.map((b) => ({
   body: `<article><h1>${esc(b.title)}</h1>${b.image ? `<div class="hero-img"><img src="/img/${b.image}-1200.webp" srcset="/img/${b.image}-600.webp 600w, /img/${b.image}-1200.webp 1200w" sizes="(max-width:760px) 100vw, 740px" width="1200" height="630" alt="" fetchpriority="high"></div>` : ''}<p class="src">Door ${esc(b.author || 'Redactie VerduurzaamMatch')} · ${datum(b.date)}</p>${b.body}${cta}</article>`,
 }));
 export const blogHub = {
-  path: '/blog/', title: 'Blog: nieuws over verduurzamen en subsidie', h1: 'Blog', crumb: 'Blog', og: 'home', stamp: POSTS.length ? { updated: POSTS.map((b) => b.updated || b.date).sort().at(-1) } : null, noindex: POSTS.length === 0,
+  path: '/blog/', title: 'Verduurzamen nieuws en subsidie | VerduurzaamMatch', h1: 'Blog', crumb: 'Blog', og: 'home', stamp: POSTS.length ? { updated: POSTS.map((b) => b.updated || b.date).sort().at(-1) } : null, noindex: POSTS.length === 0,
   description: 'Wekelijks nieuws en uitleg over isoleren, warmtepompen, zonnepanelen, thuisbatterijen en subsidie zoals de ISDE.',
   body: `<h1>Blog</h1>${POSTS.length ? `<div class="grid">${POSTS.map((b) => `<a class="card link" href="/blog/${b.slug}/">${b.image ? `<img src="/img/${b.image}-600.webp" width="600" height="315" alt="" loading="lazy">` : ''}<h2 class="h3">${esc(b.title)}</h2><p>${datum(b.date)} · ${esc(b.description)}</p></a>`).join('')}</div>` : '<p>Binnenkort verschijnt hier elke week een nieuw artikel. Lees intussen de <a href="/gidsen/">gidsen</a>.</p>'}`,
 };
