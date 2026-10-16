@@ -142,6 +142,7 @@ ${img('home', 'Huis met geïsoleerd dak, warmtepomp en zonnepanelen')}</section>
 <h2>Zo werkt het</h2>
 <ol class="steps"><li>Beantwoord 5 vragen over je woning en je doel.</li><li>Zie welke stap eerst, met kosten, subsidie en terugverdientijd.</li><li>Lees de gids en vraag offertes aan.</li></ol>
 <div class="note"><strong>Let op 2027:</strong> de salderingsregeling stopt op 1 januari en de ISDE voor warmtepompen gaat waarschijnlijk omlaag. <a href="/subsidie-isde/">Wat dat betekent</a></div>
+<p>Geen spaargeld? Met de <a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a> leen je met een verzamelinkomen onder € 60.000 tegen 0% rente.</p>
 <h2>Gidsen</h2>
 <div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="" loading="lazy"><h3>${esc(g.crumb)}</h3><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
 <h2>Waarom VerduurzaamMatch?</h2>
