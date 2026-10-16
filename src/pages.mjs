@@ -1,11 +1,10 @@
-import { SITE, esc, BRAND } from './layout.mjs';
+import { SITE, esc, BRAND, ORG, fmtDate } from './layout.mjs';
 import { MAATREGELEN, SOURCES, WONINGEN, CHECKED, terugverdien } from './lib/maatregelen.js';
 import { VRAGEN } from './lib/match.js';
 
 const eur = (n) => '€ ' + n.toLocaleString('nl-NL');
-const src = (...keys) => `<p class="src">Bron: ${keys.map((k) => `<a href="${SOURCES[k].url}" rel="noopener">${esc(SOURCES[k].title)}</a>`).join(' · ')}. Gecontroleerd op 15 oktober 2026.</p>`;
+const src = (...keys) => `<p class="src">Bron: ${keys.map((k) => `<a href="${SOURCES[k].url}" rel="noopener">${esc(SOURCES[k].title)}</a>`).join(' · ')}. Gecontroleerd op ${fmtDate(CHECKED)}.</p>`;
 const jaren = (t) => (t ? `${t.join('–')} jaar` : '–');
-const ORG = { '@type': 'Organization', name: SITE.name, url: SITE.domain + '/' };
 
 const img = (slug, alt) => `<div class="hero-img"><img src="/img/${slug}-1200.webp" srcset="/img/${slug}-600.webp 600w, /img/${slug}-1200.webp 1200w" sizes="(max-width:760px) 100vw, 740px" width="1200" height="630" alt="${esc(alt)}" fetchpriority="high"></div>`;
 const matchCta = `<div class="offerte"><h3>Welke stap past bij jouw huis?</h3><p>Vijf vragen, direct advies met kosten en terugverdientijd.</p><a class="btn sun" href="/verduurzaam-match/">Doe de VerduurzaamMatch</a></div>`;
@@ -20,7 +19,7 @@ function tabel(id) {
 // ---- Gidsen ----
 export const GIDSEN = [
   {
-    slug: 'spouwmuurisolatie-kosten', id: 'spouw', crumb: 'Spouwmuurisolatie',
+    slug: 'spouwmuurisolatie-kosten', updated: '2026-10-15', id: 'spouw', crumb: 'Spouwmuurisolatie',
     title: 'Spouwmuurisolatie kosten: prijs, subsidie en besparing',
     h1: 'Spouwmuurisolatie kosten: prijs, subsidie en besparing',
     description: 'Wat kost spouwmuurisolatie per woningtype, hoeveel ISDE-subsidie krijg je en hoe snel verdien je het terug? Cijfers van Milieu Centraal.',
@@ -35,7 +34,7 @@ export const GIDSEN = [
 ${matchCta}${src('spouw', 'isdeIsolatie')}`,
   },
   {
-    slug: 'dakisolatie-kosten', id: 'dak', crumb: 'Dakisolatie',
+    slug: 'dakisolatie-kosten', updated: '2026-10-16', id: 'dak', crumb: 'Dakisolatie',
     title: 'Dakisolatie kosten: prijzen, subsidie en terugverdientijd',
     h1: 'Dakisolatie kosten: prijzen, subsidie en terugverdientijd',
     description: 'Kosten van dakisolatie voor een schuin dak per woningtype, de ISDE-subsidie en wat je per jaar bespaart. Met cijfers van Milieu Centraal.',
@@ -49,7 +48,7 @@ ${matchCta}${src('spouw', 'isdeIsolatie')}`,
 ${matchCta}${src('dak', 'isdeIsolatie')}`,
   },
   {
-    slug: 'vloerisolatie-kosten', id: 'vloer', crumb: 'Vloerisolatie',
+    slug: 'vloerisolatie-kosten', updated: '2026-10-15', id: 'vloer', crumb: 'Vloerisolatie',
     title: 'Vloerisolatie kosten: wat betaal en bespaar je?',
     h1: 'Vloerisolatie kosten: wat betaal en bespaar je?',
     description: 'Vloerisolatie per woningtype: kosten, ISDE-subsidie, besparing en terugverdientijd. Plus wanneer je kruipruimte geschikt is.',
@@ -63,7 +62,7 @@ ${matchCta}${src('dak', 'isdeIsolatie')}`,
 ${matchCta}${src('vloer', 'isdeIsolatie')}`,
   },
   {
-    slug: 'hybride-warmtepomp-kosten', id: 'hybride', crumb: 'Hybride warmtepomp',
+    slug: 'hybride-warmtepomp-kosten', updated: '2026-10-16', id: 'hybride', crumb: 'Hybride warmtepomp',
     title: 'Hybride warmtepomp kosten en subsidie in 2026',
     h1: 'Hybride warmtepomp kosten en subsidie in 2026',
     description: 'Wat kost een hybride of volledig elektrische warmtepomp, hoeveel ISDE krijg je in 2026 en wat verandert er in 2027? Cijfers van Milieu Centraal en RVO.',
@@ -85,7 +84,7 @@ ${matchCta}${src('hybride', 'allelectric', 'isde2027')}`;
     },
   },
   {
-    slug: 'zonnepanelen-na-2027', id: 'zon', crumb: 'Zonnepanelen na 2027',
+    slug: 'zonnepanelen-na-2027', updated: '2026-10-15', id: 'zon', crumb: 'Zonnepanelen na 2027',
     title: 'Zonnepanelen na 2027: lonen ze zonder saldering?',
     h1: 'Zonnepanelen na 2027: lonen ze zonder saldering?',
     description: 'De salderingsregeling stopt op 1 januari 2027. Wat leveren zonnepanelen daarna op en hoe snel verdien je ze terug? Cijfers van Milieu Centraal.',
@@ -103,7 +102,7 @@ ${matchCta}${src('hybride', 'allelectric', 'isde2027')}`;
 ${matchCta}${src('zon', 'saldering')}`,
   },
   {
-    slug: 'thuisbatterij-terugverdienen', id: 'batterij', crumb: 'Thuisbatterij',
+    slug: 'thuisbatterij-terugverdienen', updated: '2026-10-16', id: 'batterij', crumb: 'Thuisbatterij',
     title: 'Thuisbatterij terugverdienen: wanneer loont het?',
     h1: 'Thuisbatterij terugverdienen: wanneer loont het?',
     description: 'Na het einde van de saldering lijkt een thuisbatterij logisch. Verdien je hem terug? Het eerlijke antwoord, met de bron.',
@@ -119,13 +118,14 @@ ${matchCta}${src('batterij')}`,
 ];
 
 export const gidsPages = GIDSEN.map((g) => ({
-  path: `/${g.slug}/`, title: g.title, h1: g.h1, crumb: g.crumb, description: g.description, og: g.slug, parents: [['/gidsen/', 'Gidsen']], navPath: '/gidsen/', ogType: 'article',
-  schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, image: `${SITE.domain}/og/${g.slug}.png`, datePublished: '2026-10-15', dateModified: SITE.updated, author: ORG, publisher: ORG, inLanguage: 'nl' }],
+  path: `/${g.slug}/`, title: g.title, h1: g.h1, crumb: g.crumb, description: g.description, og: g.slug, parents: [['/gidsen/', 'Gidsen']], navPath: '/gidsen/', ogType: 'article', ogAlt: g.alt, lastmod: g.updated,
+  article: { date: '2026-10-15', updated: g.updated }, stamp: { checked: CHECKED, updated: g.updated },
+  schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, image: `${SITE.domain}/og/${g.slug}.png`, datePublished: '2026-10-15', dateModified: g.updated, author: ORG, publisher: ORG, inLanguage: 'nl' }],
   body: `<article><h1>${esc(g.h1)}</h1>${img(g.slug, g.alt)}<p class="src">Door ${SITE.owner} · 15 oktober 2026</p>${g.body()}</article>`,
 }));
 
 export const gidsHub = {
-  path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, warmtepomp, zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home',
+  path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, warmtepomp, zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', stamp: { updated: GIDSEN.map((g) => g.updated).sort().at(-1) },
   description: 'Korte gidsen over spouw-, dak- en vloerisolatie, de hybride warmtepomp, zonnepanelen na 2027 en de thuisbatterij.',
   body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>`,
 };
@@ -134,7 +134,7 @@ export const gidsHub = {
 export const home = {
   path: '/', title: 'VerduurzaamMatch: welke verduurzaming past bij jouw huis?', og: 'home',
   description: 'Isoleren, warmtepomp, zonnepanelen of thuisbatterij? Doe de VerduurzaamMatch en zie welke stap eerst, met kosten en terugverdientijd van Milieu Centraal.',
-  schema: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.domain + '/', inLanguage: 'nl', publisher: ORG }],
+  // Organization en WebSite staan op elke pagina (layout.mjs, siteGraph).
   body: `<section class="hero"><h1><span class="brand">${BRAND}</span><span class="sr"> – </span><span class="tagline" style="display:block">${esc(SITE.tagline)}</span></h1>
 <p class="lead">Vijf vragen over je huis. Je ziet welke maatregel het meeste oplevert, wat hij kost en hoe snel je hem terugverdient.</p>
 <div class="actions"><a class="btn sun" href="/verduurzaam-match/">Start de match</a><a class="btn ghost" href="/subsidie-isde/">Subsidie bekijken</a></div>
@@ -157,15 +157,20 @@ export const quiz = {
   scripts: ['/js/quiz.js'],
   schema: [{ '@context': 'https://schema.org', '@type': 'WebApplication', name: 'VerduurzaamMatch', applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' }, url: SITE.domain + '/verduurzaam-match/' }],
   body: `<h1>VerduurzaamMatch</h1><p class="lead">Welke stap levert in jouw huis het meeste op?</p>
-<form class="quiz" id="form" novalidate>${fs}<button class="btn" type="submit">Toon mijn advies</button></form>
+<form class="quiz" id="form" novalidate>
+<div class="qprog"><p id="q-prog">0 van ${Object.keys(VRAGEN).length} vragen beantwoord</p><div class="qbar" role="progressbar" aria-label="Voortgang" aria-valuemin="0" aria-valuemax="${Object.keys(VRAGEN).length}" aria-valuenow="0"><span id="q-bar"></span></div></div>
+<p class="resume" id="q-resume" hidden>Je vorige antwoorden staan er weer (alleen bewaard op dit apparaat). <button type="button" class="linkbtn" data-reset>Opnieuw beginnen</button></p>
+${fs}<button class="btn" type="submit">Toon mijn advies</button></form>
 <div class="result" id="result" aria-live="polite"></div>
+<div class="share" id="share" hidden><button type="button" class="btn ghost" id="share-btn">Deel of bewaar: kopieer de link</button> <button type="button" class="linkbtn" data-reset>Opnieuw beginnen</button> <span id="share-ok" class="src" role="status"></span>
+<p class="src">Je antwoorden staan in de link en blijven alleen op dit apparaat bewaard. Geen account, geen e-mail.</p></div>
 <noscript><p class="note">Zet JavaScript aan voor het advies, of lees de <a href="/gidsen/">gidsen</a>.</p></noscript>
 ${src('spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon', 'batterij')}`,
 };
 
 // ---- Subsidie ----
 export const subsidie = {
-  path: '/subsidie-isde/', title: 'ISDE-subsidie 2026: bedragen en wijzigingen in 2027', h1: 'ISDE-subsidie 2026', crumb: 'ISDE-subsidie', og: 'subsidie-isde',
+  path: '/subsidie-isde/', title: 'ISDE-subsidie 2026: bedragen en wijzigingen in 2027', h1: 'ISDE-subsidie 2026', crumb: 'ISDE-subsidie', og: 'subsidie-isde', lastmod: '2026-10-16', stamp: { checked: CHECKED, updated: '2026-10-16' },
   description: 'Alle ISDE-bedragen voor isolatie, glas en warmtepompen in 2026, de verdubbeling bij twee maatregelen en wat er in 2027 verandert. Bron: RVO.',
   body: `<article><h1>ISDE-subsidie 2026: bedragen en wijzigingen</h1>${img('subsidie-isde', 'Huis met een euroteken en een vinkje voor subsidie')}
 <p class="lead">Met de ISDE krijg je als eigenaar-bewoner geld terug voor isolatie, een warmtepomp of een zonneboiler. Je vraagt het aan ná de installatie, binnen 24 maanden.</p>
@@ -210,9 +215,9 @@ export const over = {
 };
 
 export const bronnen = {
-  path: '/bronnen/', title: 'Bronnen en cijfers | VerduurzaamMatch', h1: 'Bronnen en cijfers', crumb: 'Bronnen', og: 'home',
+  path: '/bronnen/', title: 'Bronnen en cijfers | VerduurzaamMatch', h1: 'Bronnen en cijfers', crumb: 'Bronnen', og: 'home', stamp: { checked: '2026-10-16' },
   description: 'Alle bronnen achter de cijfers op VerduurzaamMatch: Milieu Centraal, RVO, Rijksoverheid en het Nationaal Warmtefonds.',
-  body: `<article><h1>Bronnen en cijfers</h1><p>Alle kosten, besparingen en subsidies komen van deze pagina's. Gecontroleerd op 16 oktober 2026.</p>
+  body: `<article><h1>Bronnen en cijfers</h1><p>Alle kosten, besparingen en subsidies komen van deze pagina's.</p>
 <ul>${Object.values(SOURCES).map((s) => `<li><a href="${s.url}" rel="noopener">${esc(s.title)}</a></li>`).join('')}</ul>
 <h2>Uitgangspunten</h2><ul><li>Besparing bij een gasprijs van € 1,37 per m³ (verwachting Milieu Centraal voor 2026-2040).</li><li>Terugverdientijd = kosten gedeeld door besparing per jaar, met en zonder subsidie.</li><li>Warmtepomp en hr++-glas: cijfers voor een hoekwoning. Appartement: cijfers van een tussenwoning.</li></ul></article>`,
 };
@@ -223,7 +228,7 @@ export const privacy = {
   body: `<article><h1>Privacy en cookies</h1>
 <p>Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
 <h2>Wie is verantwoordelijk?</h2><p>Verantwoordelijk voor de verwerking van persoonsgegevens op deze site: VerduurzaamMatch.nl, <a href="mailto:info@verduurzaammatch.nl">info@verduurzaammatch.nl</a>.</p>
-<h2>Welke gegevens?</h2><p>Je antwoorden in de VerduurzaamMatch blijven in je browser. We slaan ze niet op en sturen ze nergens heen.</p>
+<h2>Welke gegevens?</h2><p>Je antwoorden in de VerduurzaamMatch blijven in je browser. We slaan ze niet op en sturen ze nergens heen. Zodat je later verder kunt, bewaart je browser ze in de lokale opslag (<code>verduurzaammatch-check-v1</code>, maximaal 90 dagen); wij kunnen daar niet bij. “Opnieuw beginnen” wist ze.</p>
 <h2 id="cookies">Cookies en statistieken</h2><p>We gebruiken geen advertentiecookies. Voor statistieken gebruiken we Google Analytics 4 (meet-ID G-RE5YBMSK4D), maar alleen als je in de cookiemelding op "Accepteren" klikt. Zonder toestemming laden we Google Analytics niet en gaat er niets naar Google.</p>
 <p>Geef je toestemming, dan plaatst Google Analytics cookies (zoals <code>_ga</code>) en meten we welke pagina's bezocht worden en op welke knoppen en partnerlinks wordt geklikt. Google Analytics 4 slaat geen IP-adressen op; die worden alleen gebruikt om een globale locatie te bepalen en daarna weggegooid. We gebruiken de gegevens alleen voor statistieken, niet voor advertenties, en bewaren ze maximaal 14 maanden. Google verwerkt de gegevens als verwerker; zie het <a href="https://policies.google.com/privacy" rel="noopener">privacybeleid van Google</a>.</p>
 <p>Je keuze bewaren we 12 maanden in je browser (localStorage). Je kunt je toestemming altijd intrekken via <a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a> (ook onderaan elke pagina). Dan stoppen we Google Analytics en wissen we de <code>_ga</code>-cookies.</p>

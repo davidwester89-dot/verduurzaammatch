@@ -1,2 +1,2 @@
 { "name": "verduurzaammatch", "version": "1.0.0", "private": true, "type": "module",
-  "scripts": { "test": "node --test test/", "build": "node build.mjs", "images": "python3 scripts/images.py", "serve": "python3 -m http.server 8081 --directory dist" } }
+  "scripts": { "test": "node --test --test-concurrency=1 test/", "build": "node build.mjs", "images": "python3 scripts/images.py", "serve": "python3 -m http.server 8081 --directory dist" } }

@@ -3,6 +3,8 @@ export default {
   title: 'Energiebespaarlening 2026: 0% rente onder € 60.000',
   description: 'Lenen voor isolatie, warmtepomp of zonnepanelen via het Warmtefonds: bedragen, looptijden en wanneer je 0% rente krijgt. Bijgewerkt oktober 2026.',
   date: '2026-10-16',
+  updated: '2026-10-16',
+  checked: '2026-10-16', // rentetabel en voorwaarden nagekeken op 16-10 (commit 'renteoverzicht 12 okt')
   author: 'Redactie VerduurzaamMatch',
   image: 'energiebespaarlening-warmtefonds',
   body: `<p>Wil je je huis isoleren of een warmtepomp nemen, maar heb je het geld niet direct liggen? Dan kun je de Energiebespaarlening van het Nationaal Warmtefonds gebruiken. Dat is een stichting zonder winstoogmerk, opgericht op initiatief van de Rijksoverheid. Hieronder staan de voorwaarden zoals het Warmtefonds ze op 15 oktober 2026 publiceert.</p>

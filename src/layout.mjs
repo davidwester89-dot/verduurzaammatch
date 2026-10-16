@@ -36,8 +36,11 @@ export function layout(p) {
   const crumbs = trail.length ? `<nav class="crumbs" aria-label="Kruimelpad">${trail.map(([h, t], i) => (i === trail.length - 1 ? `<span aria-current="page">${esc(t)}</span>` : `<a href="${h}">${esc(t)}</a>`)).join(' › ')}</nav>` : '';
   const ld = [
     ...(trail.length ? [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: trail.map(([h, t], i) => ({ '@type': 'ListItem', position: i + 1, name: t, item: SITE.domain + h })) }] : []),
+    siteGraph(),
     ...(p.schema || []),
   ];
+  // Vaste mobiele knop naar de check (niet op de check zelf en niet op de 404).
+  const hasCta = !p.noCta && p.path !== '/verduurzaam-match/' && p.path !== '/404.html';
   const og = `${SITE.domain}/og/${p.og || 'home'}.png`;
   return `<!doctype html>
 <html lang="nl">
@@ -51,16 +54,17 @@ export function layout(p) {
 <meta name="description" content="${esc(p.description)}">
 ${p.noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`}
 <meta property="og:site_name" content="${SITE.name}"><meta property="og:locale" content="nl_NL"><meta property="og:type" content="${p.ogType || 'website'}">
-<meta property="og:title" content="${esc(p.title)}"><meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${url}">
-<meta property="og:image" content="${og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${og}">
+<meta property="og:title" content="${esc(p.ogTitle || p.title)}"><meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${url}">
+<meta property="og:image" content="${og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(p.ogAlt || p.h1 || p.title)}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(p.ogTitle || p.title)}"><meta name="twitter:description" content="${esc(p.description)}"><meta name="twitter:image" content="${og}">
+${p.article ? `<meta property="article:published_time" content="${p.article.date}"><meta property="article:modified_time" content="${p.article.updated}">` : ''}
 <meta name="theme-color" content="${SITE.theme}">
 <meta name="e08923fead07e26" content="c805cc3c2262098e1a99fce841da04b0" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>${CSS}</style>
 ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head>
-<body${GA_ID ? ` data-ga="${GA_ID}"` : ''}>
+<body${hasCta ? ' class="has-cta"' : ''}${GA_ID ? ` data-ga="${GA_ID}"` : ''}>
 <a class="skip" href="#inhoud">Naar de inhoud</a>
 <header class="site"><div class="wrap">
 <a class="logo" href="/">${LOGO}<span>${BRAND}</span></a>
@@ -68,7 +72,8 @@ ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(
 </div></header>
 <main id="inhoud"><div class="wrap">
 ${crumbs}
-${p.body}
+${withStamp(p.body, p.stamp)}
+${foutGezien(url)}
 </div></main>
 <footer class="site"><div class="wrap">
 <div class="cols">
@@ -79,7 +84,37 @@ ${p.body}
 </div>
 ${networkFooter()}
 </div></footer>
+${hasCta ? `<a class="stickycta" href="/verduurzaam-match/" data-cta="sticky_check">Doe de check in 2 minuten</a>` : ''}
 ${[...(GA_ID ? ['/js/consent.js'] : []), ...(p.scripts || [])].map((s) => `<script type="module" src="${s}"></script>`).join('\n')}
 </body>
 </html>`;
+}
+
+export const ORG = { '@type': 'Organization', '@id': SITE.domain + '/#org', name: SITE.name, url: SITE.domain + '/', email: SITE.email, logo: { '@type': 'ImageObject', url: SITE.domain + '/apple-touch-icon.png' } };
+/** Organization + WebSite op elke pagina (één graaf, vaste @id's). */
+export function siteGraph() {
+  return { '@context': 'https://schema.org', '@graph': [ORG, { '@type': 'WebSite', '@id': SITE.domain + '/#website', name: SITE.name, url: SITE.domain + '/', inLanguage: 'nl-NL', publisher: { '@id': SITE.domain + '/#org' } }] };
+}
+const MND = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
+export const fmtDate = (iso) => { const [y, m, d] = iso.split('-').map(Number); return `${d} ${MND[m - 1]} ${y}`; };
+const SCHILD = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>';
+/** Badge 'Gecontroleerd op' + 'Laatst bijgewerkt': alleen echte datums; ontbreekt er een, dan tonen we die niet. */
+export function stampHtml(stamp) {
+  if (!stamp || (!stamp.checked && !stamp.updated)) return '';
+  const t = (d) => `<time datetime="${d}">${fmtDate(d)}</time>`;
+  return `<p class="stamp">${stamp.checked ? `<span class="badge-ok">${SCHILD}Gecontroleerd op ${t(stamp.checked)}</span>` : ''}${stamp.updated ? `<span class="upd">Laatst bijgewerkt ${t(stamp.updated)}</span>` : ''}</p>`;
+}
+/** Badge direct onder de h1 (na de openingsafbeelding en de auteursregel als die er staan). */
+export function withStamp(body, stamp) {
+  const html = stampHtml(stamp);
+  if (!html) return body;
+  const m = body.match(/<\/h1>(<div class="hero-img">[\s\S]*?<\/div>)?(<p class="src">Door [\s\S]*?<\/p>)?/);
+  if (!m) return html + body;
+  const end = m.index + m[0].length;
+  return body.slice(0, end) + html + body.slice(end);
+}
+/** 'Fout gezien?': mailto met de pagina-URL al ingevuld. */
+export function foutGezien(url) {
+  const q = `subject=${encodeURIComponent(`Fout gezien op ${url.replace(/^https?:\/\//, '')}`)}&body=${encodeURIComponent(`Pagina: ${url}\n\nWat klopt er niet?\n`)}`;
+  return `<p class="report">Fout gezien? <a href="mailto:${SITE.email}?${q}" data-cta="report_error">Laat het ons weten</a>.</p>`;
 }
