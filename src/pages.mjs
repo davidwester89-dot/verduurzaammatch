@@ -200,7 +200,7 @@ export const subsidie = {
 <h2>Zonnepanelen en thuisbatterij</h2><p>Geen ISDE. Zonnepanelen hebben 0% btw. De salderingsregeling stopt op 1 januari 2027.</p>
 <h2>Zo vraag je het aan</h2><ol class="steps"><li>Check de meldcodelijst vóór je koopt.</li><li>Laat meldcode en m² op de factuur zetten en maak een foto van het werk.</li><li>Vraag aan via rvo.nl met DigiD, binnen 24 maanden.</li></ol>
 <h2>Veelgestelde vragen</h2><h3>Hoe lang blijft de ISDE-subsidie?</h3><p>De ISDE loopt ook in 2027. Aanvragen voor 2027 kan vanaf dinsdag 5 januari 2027, 12:00 uur. Een aantal bedragen verandert dan; zie <a href="/isde-2027/">ISDE 2027</a>.</p><h3>Wanneer vraag ik de ISDE aan?</h3><p>Na de installatie. Je vraagt uiterlijk binnen 24 maanden na de installatie aan, via rvo.nl met DigiD (de app of DigiD met sms-controle).</p><h3>Mag ik zelf isoleren en dan subsidie krijgen?</h3><p>Nee. Voor isolatie moet een bouw- of installatiebedrijf het volledige werk uitvoeren. Ook een warmtepomp mag je niet zelf installeren.</p><h3>Wie kan ISDE aanvragen?</h3><p>Eigenaar-bewoners: je bent eigenaar van de woning en woont er zelf. Voor isolatie moet de woning gebouwd zijn vóór 1 januari 2019.</p><h3>Hoe lang duurt de beoordeling?</h3><p>RVO probeert binnen 8 weken te beslissen. Lukt dat niet, dan krijg je na ongeveer 7 weken een brief dat de termijn wordt verlengd.</p><h3>Wat heb ik nodig bij de aanvraag?</h3><p>De meldcode van het product, een factuur en betaalbewijs, en bij isolatie een foto van het werk op je adres en het aantal m² op de factuur.</p>
-${matchCta}${src('isde', 'isdeIsolatie', 'isdeWp', 'isde2027', 'saldering')}</article>`,
+${matchCta}${src('isde', 'isdeIsolatie', 'isdeWp', 'isde2027', 'saldering')}${toolLinks('isde')}</article>`,
 };
 
 
@@ -228,12 +228,12 @@ export const isde2027 = {
 <p>Hr++-glas wordt in 2027 juist hoger gesubsidieerd. Meer over glas: <a href="/glasisolatie-kosten/">glasisolatie kosten</a>.</p>
 <h2>Elektrische kookvoorziening</h2><p>Gekocht vóór 1 januari 2027? Dan kun je nog subsidie aanvragen, binnen 24 maanden na aanschaf.</p>
 <p>De bedragen en voorwaarden van nu staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a>. Wat een warmtepomp kost: <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a>.</p>
-${matchCta}<p class="src">Bron: <a href="${SOURCES.isde2027.url}" rel="noopener">${esc(SOURCES.isde2027.title)}</a> (door RVO gecontroleerd op 14 oktober 2026). Door ons gecontroleerd op 16 oktober 2026.</p></article>`,
+${matchCta}<p class="src">Bron: <a href="${SOURCES.isde2027.url}" rel="noopener">${esc(SOURCES.isde2027.title)}</a> (door RVO gecontroleerd op 14 oktober 2026). Door ons gecontroleerd op 16 oktober 2026.</p>${toolLinks('isde')}</article>`,
 };
 
 // ---- Glasisolatie ----
 export const glasisolatie = {
-  path: '/glasisolatie-kosten/', title: 'Glasisolatie kosten 2026: hr++ of triple glas?', h1: 'Glasisolatie kosten', crumb: 'Glasisolatie', og: 'home', lastmod: '2026-10-16', stamp: { checked: '2026-10-16', updated: '2026-10-16' },
+  path: '/glasisolatie-kosten/', title: 'Glasisolatie kosten 2026: hr++ of triple glas?', h1: 'Glasisolatie kosten', crumb: 'Glasisolatie', og: 'glasisolatie-kosten', lastmod: '2026-10-16', stamp: { checked: '2026-10-16', updated: '2026-10-16' },
   description: 'Wat kost hr++-glas, wat bespaar je en hoeveel ISDE krijg je in 2026 en 2027? Hr++ of triple glas, met cijfers van Milieu Centraal en RVO.',
   body: `<article><h1>Glasisolatie kosten: hr++ of triple glas?</h1>
 <p class="lead">Nog enkel of oud dubbel glas? Dan levert nieuw glas comfort en een lagere energierekening op.</p>
@@ -253,7 +253,7 @@ export const glasisolatie = {
 </tbody></table></div>
 <ul><li>Minimaal 3 m², maximaal 45 m² glas.</li><li>Hr++: U-waarde maximaal 1,2. Triple en vacuüm: maximaal 0,7.</li><li>Je mag twee keer subsidie voor glas aanvragen, binnen 24 maanden na het eerste glas.</li><li>Triple glas in nieuwe kozijnen uiterlijk 31 december 2026 gekocht en in 2027 geplaatst? Dan geldt nog € 111 per m². Zie <a href="/isde-2027/">ISDE 2027</a>.</li></ul>
 <h2>Offertes</h2><ol class="steps"><li>Nodig minstens twee bedrijven uit voor advies bij je thuis.</li><li>Vraag of je kozijnen geschikt zijn voor het dikkere glas.</li><li>Laat meldcode en m² op de factuur zetten (zie de <a href="/subsidie-isde/">ISDE-voorwaarden</a>).</li></ol>
-${matchCta}${src('glas', 'isdeIsolatie', 'isde2027')}</article>`,
+${matchCta}${src('glas', 'isdeIsolatie', 'isde2027')}${toolLinks('glas')}</article>`,
 };
 
 // ---- Statisch ----

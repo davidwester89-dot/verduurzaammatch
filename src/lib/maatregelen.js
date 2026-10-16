@@ -43,7 +43,7 @@ export const MAATREGELEN = {
     kort: 'Warmere voeten en minder vocht uit de kruipruimte.',
   },
   glas: {
-    naam: 'Hr++-glas', soort: 'isolatie', gids: '/subsidie-isde/', bron: 'glas', alleenHoek: true,
+    naam: 'Hr++-glas', soort: 'isolatie', gids: '/glasisolatie-kosten/', bron: 'glas', alleenHoek: true,
     // MC: hoekwoning, 22 m2. Besparing € 90 vanaf dubbel glas, € 350 vanaf enkel glas.
     kosten: T(4700, 4700, 4700, 4700), subsidie: T(550, 550, 550, 550), besparing: T(90, 90, 90, 90), besparingMax: 350,
     kort: 'Vooral zinvol als je nog enkel of oud dubbel glas hebt.',
