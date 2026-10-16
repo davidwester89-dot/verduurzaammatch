@@ -26,8 +26,7 @@ export function valideer(a) {
 }
 
 /** Geeft de top 3 maatregelen met kosten, subsidie, besparing en terugverdientijd. */
-export function match(a) {
-  if (!valideer(a)) throw new Error('Onvolledige antwoorden');
+function scores(a) {
   const n = niveau(a);
   const slechtMatig = n === 'slecht' || n === 'matig';
   const app = a.woning === 'app';
@@ -44,16 +43,38 @@ export function match(a) {
   for (const [id, m] of Object.entries(MAATREGELEN)) {
     if (m.kosten && m.kosten[a.woning] - m.subsidie[a.woning] > BUDGET_MAX[a.budget]) s[id] -= 30;
   }
+  return s;
+}
+function top3(s, woning) {
   return Object.entries(s).filter(([, v]) => v > 0).sort((x, y) => y[1] - x[1]).slice(0, 3)
     .map(([id]) => {
       const m = MAATREGELEN[id];
       return {
-        id, naam: m.naam, kort: m.kort, gids: m.gids, bron: m.bron, hoek: !!m.alleenHoek, app,
-        kosten: m.kosten ? m.kosten[a.woning] : null,
-        subsidie: m.subsidie ? m.subsidie[a.woning] : null,
-        besparing: m.besparing ? m.besparing[a.woning] : null,
+        id, naam: m.naam, kort: m.kort, gids: m.gids, bron: m.bron, hoek: !!m.alleenHoek, app: woning === 'app',
+        kosten: m.kosten ? m.kosten[woning] : null,
+        subsidie: m.subsidie ? m.subsidie[woning] : null,
+        besparing: m.besparing ? m.besparing[woning] : null,
         besparingMax: m.besparingMax || null,
-        terugverdien: terugverdien(m, a.woning),
+        terugverdien: terugverdien(m, woning),
       };
     });
+}
+
+/** Geeft de top 3 maatregelen met kosten, subsidie, besparing en terugverdientijd. */
+export function match(a) {
+  if (!valideer(a)) throw new Error('Onvolledige antwoorden');
+  return top3(scores(a), a.woning);
+}
+
+/**
+ * Tussentijds advies tijdens de stap-voor-stap-check. Ontbrekende antwoorden tellen neutraal:
+ * bouwjaar/label onbekend → isolatieniveau 'matig' (zelfde terugval als de match), geen budgetgrens, geen doelbonus.
+ * Zonder woningtype geen voorlopig advies.
+ */
+export function voorlopig(a) {
+  if (!(a.woning in VRAGEN.woning.opties)) return null;
+  const b = Object.fromEntries(Object.entries(a).filter(([k, v]) => k in VRAGEN && v in VRAGEN[k].opties));
+  const n = Object.keys(b).length;
+  const s = scores({ budget: 'hoog', ...b });
+  return { beantwoord: n, top: top3(s, b.woning) };
 }
