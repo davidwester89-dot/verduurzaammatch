@@ -61,6 +61,8 @@ test('nieuwe pagina\'s: in sitemap, eigen OG, bron + controledatum, WebApplicati
 test('links: elke gids naar rekentools en vergelijken, check naar vergelijken', () => {
   for (const g of GIDSEN) { const h = r(`/${g.slug}/index.html`); assert.ok(h.includes('href="/vergelijken/"'), g.slug); if (g.id !== 'batterij') assert.ok(h.includes('href="/terugverdientijd-berekenen/?m='), g.slug); }
   assert.ok(r('/verduurzaam-match/index.html').includes('href="/vergelijken/"'));
+  for (const p of ['/subsidie-isde/', '/isde-2027/', '/glasisolatie-kosten/']) assert.ok(r(p + 'index.html').includes('href="/isde-subsidie-berekenen/"'), p);
+  assert.match(r('/glasisolatie-kosten/index.html'), /og:image" content="https:\/\/verduurzaammatch\.nl\/og\/glasisolatie-kosten\.png"/);
 });
 test('iconen: één set, inline, decoratief, geen externe requests', () => {
   assert.throws(() => icoon('bestaatniet'));

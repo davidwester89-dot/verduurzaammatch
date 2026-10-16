@@ -21,8 +21,8 @@ export const TOOLS = [
 ];
 /** Blok met links naar de rekentools, voor in de gidsen. */
 export function toolLinks(id) {
-  const t = id === 'batterij' ? [] : TOOLS.filter((x) => !(x.path === '/isde-subsidie-berekenen/' && id === 'zon'));
-  return `<div class="tools"><p class="fh">${icoon('rekenmachine')} Zelf rekenen</p><ul>${t.map((x) => `<li><a href="${x.path}${id && x.path !== '/isde-subsidie-berekenen/' ? `?m=${id}` : ''}">${esc(x.crumb)}</a></li>`).join('')}<li><a href="/vergelijken/">Alle maatregelen vergelijken</a></li></ul></div>`;
+  const t = id === 'batterij' ? [] : id === 'isde' ? [TOOLS[2]] : TOOLS.filter((x) => !(x.path === '/isde-subsidie-berekenen/' && id === 'zon'));
+  return `<div class="tools"><p class="fh">${icoon('rekenmachine')} Zelf rekenen</p><ul>${t.map((x) => `<li><a href="${x.path}${id && id !== 'isde' && x.path !== '/isde-subsidie-berekenen/' ? `?m=${id}` : ''}">${esc(x.crumb)}</a></li>`).join('')}<li><a href="/vergelijken/">Alle maatregelen vergelijken</a></li></ul></div>`;
 }
 
 // ---- Besparing ----
