@@ -1,4 +1,6 @@
-import { match } from './lib/match.js';
+import { match, voorlopig } from './lib/match.js';
+import { icoon } from './lib/iconen.js';
+const ICOON = { spouw: 'muur', dak: 'dak', vloer: 'vloer', glas: 'glas', hybride: 'warmtepomp', allelectric: 'stekker', zon: 'zon', batterij: 'batterij' };
 import { SOURCES } from './lib/maatregelen.js';
 import { PARTNERLINKS, AANBIEDERS, uitgaand } from './lib/partnerlinks.js';
 import { bewaar, laad, wis } from './lib/opslag.js';
@@ -14,7 +16,7 @@ function offerte(id) {
 function kaart(r, i) {
   const nums = r.kosten == null ? '' : `<div class="nums"><div><b>${eur(r.kosten)}</b><span>kosten</span></div>${r.subsidie ? `<div><b>${eur(r.subsidie)}</b><span>subsidie</span></div>` : ''}<div><b>${eur(r.besparing)}${r.besparingMax ? '–' + eur(r.besparingMax).slice(2) : ''}</b><span>besparing per jaar</span></div><div><b>${r.terugverdien.join('–')} jaar</b><span>terugverdientijd</span></div></div>`;
   const noot = r.hoek ? '<p class="src">Cijfers voor een hoekwoning.</p>' : r.app && r.kosten != null ? '<p class="src">Cijfers voor een tussenwoning; overleg met je VvE.</p>' : '';
-  return `<div class="card${i === 0 ? ' first' : ''}">${i === 0 ? '<span class="badge">Begin hiermee</span>' : `<span class="badge">Stap ${i + 1}</span>`}<h3>${r.naam}</h3><p>${r.kort}</p>${nums}${noot}${offerte(r.id)}<a class="more" href="${r.gids}">Lees de gids</a> · <a href="${SOURCES[r.bron].url}" rel="noopener">Bron</a></div>`;
+  return `<div class="card${i === 0 ? ' first' : ''}">${i === 0 ? '<span class="badge">Begin hiermee</span>' : `<span class="badge">Stap ${i + 1}</span>`}<h3>${icoon(ICOON[r.id])} ${r.naam}</h3><p>${r.kort}</p>${nums}${noot}${offerte(r.id)}<a class="more" href="${r.gids}">Lees de gids</a> · <a href="${SOURCES[r.bron].url}" rel="noopener">Bron</a></div>`;
 }
 
 // Antwoorden: in de URL (deelbaar) en in localStorage (alleen op dit apparaat). Geen account, niets naar ons.
@@ -60,8 +62,36 @@ if (start) {
 }
 voortgang();
 
+// Stap voor stap: één vraag tegelijk, met tussentijds advies. Zonder JS staan alle vragen onder elkaar.
+const sets = [...form.querySelectorAll('fieldset[data-q]')];
+const tussen = document.getElementById('q-tussen'), nav = document.getElementById('q-nav'), submit = document.getElementById('q-submit');
+let stap = 0;
+function eersteOpen() { const i = sets.findIndex((f) => !f.querySelector('input:checked')); return i < 0 ? sets.length - 1 : i; }
+function toonStap(i, focus) {
+  stap = Math.max(0, Math.min(sets.length - 1, i));
+  sets.forEach((f, j) => f.classList.toggle('nu', j === stap));
+  nav.hidden = stap === 0;
+  submit.hidden = Object.keys(antwoorden()).length < VELDEN.length;
+  if (focus) {
+    sets[stap].querySelector('input:checked, input')?.focus({ preventScroll: true });
+    const top = form.getBoundingClientRect().top;
+    if (top < 0 || top > innerHeight / 2) form.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  }
+}
+function tussenAdvies() {
+  const v = voorlopig(antwoorden());
+  if (!v || v.beantwoord >= VELDEN.length) { tussen.hidden = true; return; }
+  tussen.hidden = false;
+  tussen.innerHTML = `<p><strong>Voorlopig advies</strong> <span class="src">na ${v.beantwoord} van ${VELDEN.length} vragen; kan nog veranderen</span></p><ol>${v.top.map((r) => `<li>${icoon(ICOON[r.id])} ${r.naam}</li>`).join('')}</ol>`;
+}
+form.classList.add('stap');
+toonStap(eersteOpen(), false); tussenAdvies();
+document.getElementById('q-terug').addEventListener('click', () => toonStap(stap - 1, true));
+
 form.addEventListener('change', (e) => {
-  voortgang();
+  voortgang(); tussenAdvies();
+  const i = sets.indexOf(e.target.closest('fieldset'));
+  if (i === stap) setTimeout(() => toonStap(Object.keys(antwoorden()).length === VELDEN.length && i === sets.length - 1 ? i : Math.min(i + 1, eersteOpen() > i ? eersteOpen() : i + 1), true), matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 180);
   if (!e.isTrusted) return;
   const q = query();
   setUrl(`${location.pathname}?${q}`);
