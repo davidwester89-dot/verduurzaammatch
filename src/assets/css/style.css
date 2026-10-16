@@ -89,3 +89,19 @@ footer .net b{color:var(--sun)}
 .consent-btn{min-height:48px;padding:8px 20px;font-size:16px;font-weight:700;border-radius:4px;border:2px solid var(--teal);background:var(--teal);color:#fff;cursor:pointer}
 .consent-btn[data-c=no]{background:#fff;color:var(--teal)}
 @media (max-width:760px){nav.main{width:100%;overflow-x:auto;flex-wrap:nowrap;margin:0 -10px}nav.main a{white-space:nowrap}}
+/* Quick wins 16-10: voortgang, bewaarde antwoorden, delen, controlebadge, Fout gezien?, vaste mobiele knop */
+.qprog{margin:0 0 18px}.qprog p{margin:0 0 6px;font-weight:700}
+.qbar{height:8px;border-radius:99px;background:var(--mint);overflow:hidden}.qbar span{display:block;height:100%;width:0;background:var(--leaf);transition:width .2s}
+@media(prefers-reduced-motion:reduce){.qbar span{transition:none}}
+.resume{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;background:var(--mint);border-radius:4px;padding:10px 14px;margin:0 0 18px;font-size:15px}
+.resume[hidden],.share[hidden]{display:none}
+.linkbtn{background:none;border:0;padding:0 4px;min-height:44px;color:var(--teal);text-decoration:underline;font:inherit;cursor:pointer}
+.share{margin:8px 0 24px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}.share p{flex-basis:100%;margin:0}
+.stamp{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0 0 18px;font-size:15px;color:var(--muted)}
+.badge-ok{display:inline-flex;align-items:center;gap:6px;background:var(--mint);color:var(--teal-d);font-weight:700;border-radius:99px;padding:4px 12px}
+.badge-ok svg{width:16px;height:16px;flex:none}
+.report{margin:40px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
+.stickycta{display:none}
+@media(max-width:899px){.stickycta{display:flex;justify-content:center;align-items:center;position:fixed;left:10px;right:10px;bottom:10px;min-height:52px;background:var(--teal);color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:99px;font-size:17px;box-shadow:0 8px 24px rgba(10,40,30,.25);z-index:5}.stickycta:hover,.stickycta:focus{background:var(--teal-d);color:#fff}body.has-cta{padding-bottom:76px}}
+body.has-consent .stickycta{display:none}
+@media print{.stickycta,.report{display:none}}
