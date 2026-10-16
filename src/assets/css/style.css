@@ -105,3 +105,35 @@ footer .net b{color:var(--sun)}
 @media(max-width:899px){.stickycta{display:flex;justify-content:center;align-items:center;position:fixed;left:10px;right:10px;bottom:10px;min-height:52px;background:var(--teal);color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:99px;font-size:17px;box-shadow:0 8px 24px rgba(10,40,30,.25);z-index:5}.stickycta:hover,.stickycta:focus{background:var(--teal-d);color:#fff}body.has-cta{padding-bottom:76px}}
 body.has-consent .stickycta{display:none}
 @media print{.stickycta,.report{display:none}}
+/* Ronde 2: iconen, rekentools, vergelijking, stap-voor-stap-check */
+.ico{width:22px;height:22px;flex:none;vertical-align:-4px;color:var(--teal)}
+.ico.h{width:36px;height:36px;vertical-align:-5px}.ico.big{width:40px;height:40px;margin-bottom:6px}
+.offerte .ico,nav .ico{color:inherit}
+.calc{background:#fff;padding:18px;border-radius:2px 10px 10px 2px;border-left:5px solid var(--leaf);display:grid;gap:14px}
+.calc.row{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.calc fieldset{border:0;padding:0;margin:0}.calc legend{font-weight:700;margin-bottom:8px}
+.fld{display:grid;gap:4px}.fld span{font-weight:600}.fld small{font-weight:400;color:var(--muted)}
+.fld select,.fld input{min-height:48px;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:4px;background:#fff;color:var(--ink);width:100%}
+.fld select:focus,.fld input:focus{outline:3px solid var(--sun);border-color:var(--teal)}
+.m2{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.checks{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.checks label,.chk{display:flex;align-items:center;gap:10px;min-height:48px;padding:6px 12px;border:2px solid var(--line);border-radius:4px;background:#fff;cursor:pointer}
+.checks label:has(input:checked){border-color:var(--teal);background:var(--mint)}
+.checks input,.chk input{width:20px;height:20px;accent-color:var(--teal)}
+.out{margin:16px 0}
+.tools{background:var(--mint);padding:14px 16px;border-radius:2px 10px 10px 2px;margin:20px 0}.tools ul{margin:4px 0 0;padding-left:20px}.tools .fh{font-weight:700;margin:0}
+table.sort th button{all:unset;cursor:pointer;font-weight:700;display:block;min-height:28px}
+table.sort th button:focus-visible{outline:3px solid var(--sun)}
+table.sort th[aria-sort=ascending] button:after{content:" ▲"}table.sort th[aria-sort=descending] button:after{content:" ▼"}
+table.sort tbody th{font-weight:600;white-space:nowrap}table.sort tbody th a{display:inline-flex;gap:6px;align-items:center;padding:4px 0}
+.quiz legend .ico{margin-right:6px}
+.quiz.stap fieldset{display:none}.quiz.stap fieldset.nu{display:block;animation:in .2s ease-out}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.quiz.stap fieldset.nu{animation:none}}
+.stapnav{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 16px}.stapnav[hidden]{display:none}
+.tussen{background:#fff;border:2px dashed var(--line);padding:12px 16px;border-radius:4px;margin:0 0 18px}.tussen[hidden]{display:none}
+.tussen ol{margin:6px 0 0;padding-left:22px}.tussen p{margin:0}
+.opts label .ico{margin-right:6px}
+.btn[hidden]{display:none}
+table.sort tbody th,table.sort thead th:first-child{position:sticky;left:0;z-index:1;background:#fff;box-shadow:1px 0 0 var(--line)}table.sort thead th:first-child{background:var(--mint)}
+@media(max-width:600px){table.sort tbody th{white-space:normal;min-width:150px}}
