@@ -17,6 +17,14 @@ art={
 'subsidie-isde':ground+house+f'<circle cx="900" cy="230" r="110" fill="{S}"/><text x="900" y="275" text-anchor="middle" font-family="Georgia,serif" font-size="140" font-weight="700" fill="{D}">€</text><circle cx="300" cy="230" r="70" fill="{L}"/><path d="M265 232l25 25 45-50" stroke="#fff" stroke-width="14" fill="none" stroke-linecap="round"/>',
 'energiebespaarlening-warmtefonds':ground+house+f'<g transform="translate(830 170)"><rect width="250" height="160" rx="14" fill="{W}" stroke="{D}" stroke-width="8"/><text x="125" y="115" text-anchor="middle" font-family="Georgia,serif" font-size="96" font-weight="700" fill="{T}">0%</text></g><circle cx="250" cy="250" r="80" fill="{S}"/><text x="250" y="290" text-anchor="middle" font-family="Georgia,serif" font-size="110" font-weight="700" fill="{D}">€</text>',
 }
+calc=f'<g transform="translate(470 120)"><rect width="260" height="400" rx="22" fill="{W}" stroke="{D}" stroke-width="10"/><rect x="30" y="30" width="200" height="90" rx="8" fill="{M}"/>'+''.join(f'<rect x="{30+(i%3)*70}" y="{150+(i//3)*70}" width="55" height="55" rx="8" fill="{T if i!=8 else S}"/>' for i in range(9))+'</g>'
+def label(t):return f'<text x="600" y="600" text-anchor="middle" font-family="Georgia,serif" font-size="44" font-weight="700" fill="{W}">{t}</text>'
+art['rekentools']=ground+calc+label('Rekentools')
+art['besparing-berekenen']=ground+calc+f'<circle cx="930" cy="250" r="100" fill="{S}"/><text x="930" y="292" text-anchor="middle" font-family="Georgia,serif" font-size="120" font-weight="700" fill="{D}">€</text>'+label('Besparing berekenen')
+art['terugverdientijd-berekenen']=ground+calc+f'<circle cx="930" cy="260" r="110" fill="{W}" stroke="{D}" stroke-width="10"/><path d="M930 190v70l50 35" stroke="{T}" stroke-width="14" fill="none" stroke-linecap="round"/>'+label('Terugverdientijd berekenen')
+art['isde-subsidie-berekenen']=ground+calc+f'<circle cx="930" cy="260" r="100" fill="{L}"/><path d="M885 262l30 30 55-60" stroke="#fff" stroke-width="16" fill="none" stroke-linecap="round"/>'+label('ISDE-subsidie berekenen')
+art['vergelijken']=ground+f'<rect x="250" y="110" width="700" height="400" fill="{W}" stroke="{D}" stroke-width="8"/>'+''.join(f'<rect x="250" y="{110+i*80}" width="700" height="80" fill="{M if i==0 else W}" stroke="{D}" stroke-width="3"/>' for i in range(5))+''.join(f'<rect x="460" y="{210+i*80}" width="{[380,250,450,160][i]}" height="30" rx="6" fill="{[L,T,S,L][i]}"/>' for i in range(4))+label('Alle maatregelen vergelijken')
+art['glasisolatie-kosten']=sun+ground+f'<g transform="translate(400 130)"><rect width="400" height="420" fill="{W}" stroke="{D}" stroke-width="14"/><rect x="30" y="30" width="160" height="170" fill="#bfe3f0" stroke="{D}" stroke-width="6"/><rect x="210" y="30" width="160" height="170" fill="#bfe3f0" stroke="{D}" stroke-width="6"/><rect x="30" y="220" width="160" height="170" fill="#bfe3f0" stroke="{D}" stroke-width="6"/><rect x="210" y="220" width="160" height="170" fill="#bfe3f0" stroke="{D}" stroke-width="6"/>'+''.join(f'<path d="M{x} {y}l40-40" stroke="#fff" stroke-width="8" stroke-linecap="round"/>' for x,y in ((60,110),(240,110),(60,300),(240,300)))+'</g>'+f'<text x="1000" y="400" text-anchor="middle" font-family="Georgia,serif" font-size="90" font-weight="700" fill="{T}">hr++</text>'
 art['match']=art['home']
 os.makedirs('src/assets/img',exist_ok=True);os.makedirs('src/assets/og',exist_ok=True);os.makedirs('src/assets/icons',exist_ok=True)
 tmp=tempfile.mkdtemp()
@@ -25,7 +33,7 @@ def shot(svg,out,w,h):
     subprocess.run(['google-chrome','--headless=new','--no-sandbox','--disable-gpu','--hide-scrollbars','--force-device-scale-factor=1',f'--window-size={w},{h}',f'--screenshot={out}','file://'+f],capture_output=True)
 for k,svg in art.items():
     png=f'src/assets/og/{k}.png'; shot(svg,png,1200,630)
-    if k!='match':
+    if k not in ('match','rekentools','besparing-berekenen','terugverdientijd-berekenen','isde-subsidie-berekenen','vergelijken'):
         im=Image.open(png).convert('RGB')
         for w in (1200,600): im.resize((w,int(w*630/1200)),Image.LANCZOS).save(f'src/assets/img/{k}-{w}.webp','WEBP',quality=82)
 logo='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="4" fill="#3c9a5f"/><path d="M8 20 20 9l12 11v12H8z" fill="#fff"/><path d="M15 30c0-7 4-11 11-12-1 7-4 11-11 12z" fill="#0e6b63"/></svg>'
