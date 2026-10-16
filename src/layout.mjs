@@ -20,6 +20,7 @@ const NAV = [
   ['/verduurzaam-match/', 'Start de match', 'nav-cta'],
   ['/subsidie-isde/', 'Subsidie'],
   ['/gidsen/', 'Gidsen'],
+  ['/rekentools/', 'Rekentools'],
   ['/blog/', 'Blog'],
   ['/over/', 'Over ons'],
 ];
@@ -80,6 +81,7 @@ ${foutGezien(url)}
 <div><a class="logo" href="/">${LOGO}<span>${BRAND}</span></a><p>${esc(SITE.tagline)}</p></div>
 <div><p class="fh">Isoleren</p><ul><li><a href="/spouwmuurisolatie-kosten/">Spouwmuurisolatie</a></li><li><a href="/dakisolatie-kosten/">Dakisolatie</a></li><li><a href="/vloerisolatie-kosten/">Vloerisolatie</a></li></ul></div>
 <div><p class="fh">Energie</p><ul><li><a href="/hybride-warmtepomp-kosten/">Hybride warmtepomp</a></li><li><a href="/zonnepanelen-na-2027/">Zonnepanelen na 2027</a></li><li><a href="/thuisbatterij-terugverdienen/">Thuisbatterij</a></li><li><a href="/subsidie-isde/">ISDE-subsidie</a></li></ul></div>
+<div><p class="fh">Rekenen</p><ul><li><a href="/besparing-berekenen/">Besparing</a></li><li><a href="/terugverdientijd-berekenen/">Terugverdientijd</a></li><li><a href="/isde-subsidie-berekenen/">ISDE berekenen</a></li><li><a href="/vergelijken/">Vergelijken</a></li></ul></div>
 <div><p class="fh">Over</p><ul><li><a href="/over/">Over ons</a></li><li><a href="/bronnen/">Bronnen</a></li><li><a href="/privacy/">Privacy en cookies</a></li>${GA_ID ? '<li><a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a></li>' : ''}<li><a href="/disclaimer/">Disclaimer</a></li><li><a href="mailto:${SITE.email}">Contact</a></li></ul></div>
 </div>
 ${networkFooter()}
