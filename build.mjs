@@ -6,7 +6,7 @@ import { blogHub, blogPages } from './src/blog.mjs';
 const OUT = 'dist';
 rmSync(OUT, { recursive: true, force: true });
 const write = (p, s) => { mkdirSync(dirname(p), { recursive: true }); writeFileSync(p, s); };
-export const pages = [P.home, P.quiz, P.subsidie, P.gidsHub, ...P.gidsPages, blogHub, ...blogPages, P.over, P.bronnen, P.privacy, P.disclaimer, P.notfound];
+export const pages = [P.home, P.quiz, P.subsidie, P.isde2027, P.glasisolatie, P.gidsHub, ...P.gidsPages, blogHub, ...blogPages, P.over, P.bronnen, P.privacy, P.disclaimer, P.notfound];
 for (const p of pages) write(p.path.endsWith('.html') ? join(OUT, p.path) : join(OUT, p.path, 'index.html'), layout(p));
 cpSync('src/assets/js', join(OUT, 'js'), { recursive: true });
 cpSync('src/lib', join(OUT, 'js/lib'), { recursive: true });

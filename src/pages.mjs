@@ -49,7 +49,7 @@ ${matchCta}${src('dak', 'isdeIsolatie')}`,
   },
   {
     slug: 'vloerisolatie-kosten', updated: '2026-10-15', id: 'vloer', crumb: 'Vloerisolatie',
-    title: 'Vloerisolatie kosten: wat betaal en bespaar je?',
+    title: 'Vloerisolatie kosten 2026: prijs, subsidie, besparing',
     h1: 'Vloerisolatie kosten: wat betaal en bespaar je?',
     description: 'Vloerisolatie per woningtype: kosten, ISDE-subsidie, besparing en terugverdientijd. Plus wanneer je kruipruimte geschikt is.',
     alt: 'Kruipruimte met isolatieplaten tegen de onderkant van de vloer',
@@ -63,9 +63,9 @@ ${matchCta}${src('vloer', 'isdeIsolatie')}`,
   },
   {
     slug: 'hybride-warmtepomp-kosten', updated: '2026-10-16', id: 'hybride', crumb: 'Hybride warmtepomp',
-    title: 'Hybride warmtepomp kosten en subsidie in 2026',
+    title: 'Hybride warmtepomp kosten 2026: subsidie en 2027',
     h1: 'Hybride warmtepomp kosten en subsidie in 2026',
-    description: 'Wat kost een hybride of volledig elektrische warmtepomp, hoeveel ISDE krijg je in 2026 en wat verandert er in 2027? Cijfers van Milieu Centraal en RVO.',
+    description: 'Wat kost een hybride of volledig elektrische warmtepomp, hoeveel ISDE krijg je in 2026 en waarom kopen vóór 2027 € 105 per kW kan schelen (voorgenomen).',
     alt: 'Buitenunit van een warmtepomp naast een woning met cv-ketel binnen',
     body: () => {
       const h = MAATREGELEN.hybride, a = MAATREGELEN.allelectric;
@@ -79,7 +79,7 @@ ${matchCta}${src('vloer', 'isdeIsolatie')}`,
 <h2>Hybride of volledig elektrisch?</h2>
 <ul><li><strong>Hybride:</strong> kan bijna altijd, ook bij matige isolatie.</li><li><strong>Volledig elektrisch:</strong> pas bij redelijke isolatie (dak en vloer Rc 2,5 of meer, geïsoleerde spouw en hr++-glas).</li><li>Is je cv-ketel nog goed? Begin dan eerst met isoleren.</li></ul>
 <h2>Subsidie: 2026 en 2027</h2>
-<p>In 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Vanaf 2027 wil het kabinet de subsidie voor de lucht-waterwarmtepomp verlagen naar € 120 per kW. Koop je vóór 31 december 2026 en installeer je in 2027, dan geldt het bedrag van 2026. Die wijzigingen zijn nog voorgenomen.</p>
+<p>In 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Vanaf 2027 wil het kabinet de subsidie voor de lucht-waterwarmtepomp verlagen naar € 120 per kW. Koop je vóór 31 december 2026 en installeer je in 2027, dan geldt het bedrag van 2026. Die wijzigingen zijn nog voorgenomen; zie <a href="/isde-2027/">ISDE 2027</a>.</p>
 ${matchCta}${src('hybride', 'allelectric', 'isde2027')}`;
     },
   },
@@ -132,8 +132,8 @@ export const gidsHub = {
 
 // ---- Home ----
 export const home = {
-  path: '/', title: 'VerduurzaamMatch: welke verduurzaming past bij jouw huis?', og: 'home',
-  description: 'Isoleren, warmtepomp, zonnepanelen of thuisbatterij? Doe de VerduurzaamMatch en zie welke stap eerst, met kosten en terugverdientijd van Milieu Centraal.',
+  path: '/', title: 'Huis verduurzamen: wat eerst? | VerduurzaamMatch', og: 'home',
+  description: 'Isoleren, warmtepomp of zonnepanelen: welke stap eerst bij jouw huis? Doe de gratis match en zie kosten, ISDE-subsidie en terugverdientijd.',
   // Organization en WebSite staan op elke pagina (layout.mjs, siteGraph).
   body: `<section class="hero"><h1><span class="brand">${BRAND}</span><span class="sr"> – </span><span class="tagline" style="display:block">${esc(SITE.tagline)}</span></h1>
 <p class="lead">Vijf vragen over je huis. Je ziet welke maatregel het meeste oplevert, wat hij kost en hoe snel je hem terugverdient.</p>
@@ -141,7 +141,7 @@ export const home = {
 ${img('home', 'Huis met geïsoleerd dak, warmtepomp en zonnepanelen')}</section>
 <h2>Zo werkt het</h2>
 <ol class="steps"><li>Beantwoord 5 vragen over je woning en je doel.</li><li>Zie welke stap eerst, met kosten, subsidie en terugverdientijd.</li><li>Lees de gids en vraag offertes aan.</li></ol>
-<div class="note"><strong>Let op 2027:</strong> de salderingsregeling stopt op 1 januari en de ISDE voor warmtepompen gaat waarschijnlijk omlaag. <a href="/subsidie-isde/">Wat dat betekent</a></div>
+<div class="note"><strong>Let op 2027:</strong> de salderingsregeling stopt op 1 januari en de ISDE voor warmtepompen gaat waarschijnlijk omlaag. <a href="/isde-2027/">Wat dat betekent</a></div>
 <p>Geen spaargeld? Met de <a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a> leen je met een verzamelinkomen onder € 60.000 tegen 0% rente.</p>
 <h2>Gidsen</h2>
 <div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="" loading="lazy"><h3>${esc(g.crumb)}</h3><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
@@ -170,8 +170,8 @@ ${src('spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon', 'batteri
 
 // ---- Subsidie ----
 export const subsidie = {
-  path: '/subsidie-isde/', title: 'ISDE-subsidie 2026: bedragen en wijzigingen in 2027', h1: 'ISDE-subsidie 2026', crumb: 'ISDE-subsidie', og: 'subsidie-isde', lastmod: '2026-10-16', stamp: { checked: CHECKED, updated: '2026-10-16' },
-  description: 'Alle ISDE-bedragen voor isolatie, glas en warmtepompen in 2026, de verdubbeling bij twee maatregelen en wat er in 2027 verandert. Bron: RVO.',
+  path: '/subsidie-isde/', title: 'ISDE-subsidie 2026: alle bedragen en voorwaarden', h1: 'ISDE-subsidie 2026', crumb: 'ISDE-subsidie', og: 'subsidie-isde', lastmod: '2026-10-16', stamp: { checked: CHECKED, updated: '2026-10-16' },
+  description: 'Alle ISDE-bedragen van 2026 voor isolatie, glas en warmtepompen, de verdubbeling bij twee maatregelen en hoe je aanvraagt. Bron: RVO.',
   body: `<article><h1>ISDE-subsidie 2026: bedragen en wijzigingen</h1>${img('subsidie-isde', 'Huis met een euroteken en een vinkje voor subsidie')}
 <p class="lead">Met de ISDE krijg je als eigenaar-bewoner geld terug voor isolatie, een warmtepomp of een zonneboiler. Je vraagt het aan ná de installatie, binnen 24 maanden.</p>
 <h2>Isolatie</h2>
@@ -182,7 +182,7 @@ export const subsidie = {
 <tr><td>Zolder- of vlieringvloer</td><td>€ 4</td><td>20 – 130 m²</td></tr>
 <tr><td>Vloer</td><td>€ 5,50</td><td>20 – 130 m²</td></tr>
 <tr><td>Bodem</td><td>€ 3</td><td>20 – 130 m²</td></tr>
-<tr><td>Hr++-glas</td><td>€ 25</td><td>3 – 45 m²</td></tr>
+<tr><td><a href="/glasisolatie-kosten/">Hr++-glas</a></td><td>€ 25</td><td>3 – 45 m²</td></tr>
 <tr><td>Triple- of vacuümglas met nieuwe kozijnen</td><td>€ 111</td><td>3 – 45 m²</td></tr>
 </tbody></table></div>
 <p><strong>Twee maatregelen = dubbel.</strong> Voer je binnen 24 maanden een tweede isolatiemaatregel uit, of combineer je met een warmtepomp, dan verdubbelt het isolatiebedrag. Biobased materiaal geeft een extra bonus.</p>
@@ -190,23 +190,70 @@ export const subsidie = {
 <p>Lucht-waterwarmtepomp in 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Een hybride van 4 kW met A+++-label levert zo € 2.125 op. Je krijgt altijd minimaal € 500.</p>
 <p class="src">Bedragen per m², minimale en maximale oppervlakken en de biobased bonus: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/isolatiemaatregelen" rel="noopener">ISDE isolatiemaatregelen</a> ("Subsidiebedrag voor uitvoering in 2025 of later"). Warmtepomp (€ 225 per kW en € 200 A+++-bonus in 2026, vast deel € 1.025 in het rekenvoorbeeld) en alle 2027-bedragen: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/isde-wat-wijzigt-er-2027" rel="noopener">ISDE: wat wijzigt er vanaf 2027?</a>. Minimaal € 500: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp" rel="noopener">ISDE warmtepomp</a>. Gecontroleerd op 16 oktober 2026.</p>
 <h2>Wat verandert er in 2027?</h2>
-<div class="tbl"><table><thead><tr><th></th><th>2026</th><th>2027 (voorgenomen)</th></tr></thead><tbody>
-<tr><td>Lucht-waterwarmtepomp per kW</td><td>€ 225</td><td>€ 120</td></tr>
-<tr><td>A+++-bonus</td><td>€ 200</td><td>€ 250</td></tr>
-<tr><td>Bonus slimme aansturing</td><td>–</td><td>€ 200</td></tr>
-<tr><td>Hr++-glas per m²</td><td>€ 25</td><td>€ 30</td></tr>
-<tr><td>Triple-/vacuümglas met kozijnen per m²</td><td>€ 111</td><td>€ 55</td></tr>
-</tbody></table></div>
-<p>Koop je een warmtepomp of triple glas uiterlijk 31 december 2026 en installeer je in 2027? Dan geldt het bedrag van 2026, met bewijs van aankoop.</p>
+<p>Vanaf 2027 gaat de ISDE voor lucht-waterwarmtepompen en triple glas omlaag en voor hr++-glas omhoog. Die wijzigingen zijn nog voorgenomen. Alle bedragen en de overgangsregeling staan op <a href="/isde-2027/">ISDE 2027: dit verandert er</a>.</p>
 <h2>Zonnepanelen en thuisbatterij</h2><p>Geen ISDE. Zonnepanelen hebben 0% btw. De salderingsregeling stopt op 1 januari 2027.</p>
 <h2>Zo vraag je het aan</h2><ol class="steps"><li>Check de meldcodelijst vóór je koopt.</li><li>Laat meldcode en m² op de factuur zetten en maak een foto van het werk.</li><li>Vraag aan via rvo.nl met DigiD, binnen 24 maanden.</li></ol>
+<h2>Veelgestelde vragen</h2><h3>Hoe lang blijft de ISDE-subsidie?</h3><p>De ISDE loopt ook in 2027. Aanvragen voor 2027 kan vanaf dinsdag 5 januari 2027, 12:00 uur. Een aantal bedragen verandert dan; zie <a href="/isde-2027/">ISDE 2027</a>.</p><h3>Wanneer vraag ik de ISDE aan?</h3><p>Na de installatie. Je vraagt uiterlijk binnen 24 maanden na de installatie aan, via rvo.nl met DigiD (de app of DigiD met sms-controle).</p><h3>Mag ik zelf isoleren en dan subsidie krijgen?</h3><p>Nee. Voor isolatie moet een bouw- of installatiebedrijf het volledige werk uitvoeren. Ook een warmtepomp mag je niet zelf installeren.</p><h3>Wie kan ISDE aanvragen?</h3><p>Eigenaar-bewoners: je bent eigenaar van de woning en woont er zelf. Voor isolatie moet de woning gebouwd zijn vóór 1 januari 2019.</p><h3>Hoe lang duurt de beoordeling?</h3><p>RVO probeert binnen 8 weken te beslissen. Lukt dat niet, dan krijg je na ongeveer 7 weken een brief dat de termijn wordt verlengd.</p><h3>Wat heb ik nodig bij de aanvraag?</h3><p>De meldcode van het product, een factuur en betaalbewijs, en bij isolatie een foto van het werk op je adres en het aantal m² op de factuur.</p>
 ${matchCta}${src('isde', 'isdeIsolatie', 'isdeWp', 'isde2027', 'saldering')}</article>`,
+};
+
+
+// ---- ISDE 2027 (voorgenomen) ----
+export const isde2027 = {
+  path: '/isde-2027/', title: 'ISDE 2027: dit verandert er (warmtepomp en glas)', h1: 'ISDE 2027', crumb: 'ISDE 2027', og: 'subsidie-isde', lastmod: '2026-10-16', stamp: { checked: '2026-10-16', updated: '2026-10-16' },
+  parents: [['/subsidie-isde/', 'ISDE-subsidie']],
+  description: 'Vanaf 2027 € 120 per kW voor lucht-water, € 200 bonus voor een slimme warmtepomp en meer voor hr++-glas. Koop vóór 31-12 voor het bedrag van 2026.',
+  body: `<article><h1>ISDE 2027: dit verandert er</h1>
+<p class="lead">De ISDE verandert per 1 januari 2027. Aanvragen kan vanaf dinsdag 5 januari 2027, 12:00 uur. <strong>Alle bedragen hieronder zijn voorgenomen</strong>: RVO werkt de pagina bij zodra ze definitief zijn.</p>
+<h2>Bedragen 2026 en 2027 (voorgenomen)</h2>
+<div class="tbl"><table><thead><tr><th></th><th>2026</th><th>2027 (voorgenomen)</th></tr></thead><tbody>
+<tr><td>Lucht-waterwarmtepomp per kW</td><td>€ 225</td><td>€ 120</td></tr>
+<tr><td>Bonus A+++-label</td><td>€ 200</td><td>€ 250</td></tr>
+<tr><td>Bonus slimme warmtepomp (EEBus, S2 of Matter)</td><td>–</td><td>€ 200</td></tr>
+<tr><td>Hr++-glas per m²</td><td>€ 25</td><td>€ 30</td></tr>
+<tr><td>Triple- of vacuümglas in nieuwe kozijnen per m²</td><td>€ 111</td><td>€ 55</td></tr>
+<tr><td>Elektrische kookvoorziening</td><td>wel subsidie</td><td>geen subsidie</td></tr>
+</tbody></table></div>
+<p>De bedragen per kW voor andere soorten warmtepompen blijven gelijk. De bonus voor een slimme warmtepomp krijg je één keer.</p>
+<h2>Rekenvoorbeeld van RVO</h2>
+<p>Slimme lucht-waterwarmtepomp van 4 kW met A+++-label in 2027: € 1.025 + 4 × € 120 + € 250 + € 200 = <strong>€ 1.955</strong>. Volgens de bedragen van 2026 is dat € 1.025 + 4 × € 225 + € 200 = € 2.125.</p>
+<h2>Kopen vóór 1 januari 2027: overgangsregeling</h2>
+<ul><li>Koop je een warmtepomp uiterlijk 31 december 2026 en laat je hem in 2027 installeren? Dan krijg je € 225 per kW (2026) in plaats van € 120.</li><li>Hetzelfde geldt voor triple- of vacuümglas in nieuwe kozijnen: € 111 in plaats van € 55 per m².</li><li>Je levert bewijs van aankoop in 2026 mee, zoals een getekende offerte of opdrachtbevestiging.</li><li>Bij een warmtepomp gekocht in 2026 krijg je niet de slimme bonus en niet de hogere A+++-bonus.</li></ul>
+<p>Hr++-glas wordt in 2027 juist hoger gesubsidieerd. Meer over glas: <a href="/glasisolatie-kosten/">glasisolatie kosten</a>.</p>
+<h2>Elektrische kookvoorziening</h2><p>Gekocht vóór 1 januari 2027? Dan kun je nog subsidie aanvragen, binnen 24 maanden na aanschaf.</p>
+<p>De bedragen en voorwaarden van nu staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a>. Wat een warmtepomp kost: <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a>.</p>
+${matchCta}<p class="src">Bron: <a href="${SOURCES.isde2027.url}" rel="noopener">${esc(SOURCES.isde2027.title)}</a> (door RVO gecontroleerd op 14 oktober 2026). Door ons gecontroleerd op 16 oktober 2026.</p></article>`,
+};
+
+// ---- Glasisolatie ----
+export const glasisolatie = {
+  path: '/glasisolatie-kosten/', title: 'Glasisolatie kosten 2026: hr++ of triple glas?', h1: 'Glasisolatie kosten', crumb: 'Glasisolatie', og: 'home', lastmod: '2026-10-16', stamp: { checked: '2026-10-16', updated: '2026-10-16' },
+  description: 'Wat kost hr++-glas, wat bespaar je en hoeveel ISDE krijg je in 2026 en 2027? Hr++ of triple glas, met cijfers van Milieu Centraal en RVO.',
+  body: `<article><h1>Glasisolatie kosten: hr++ of triple glas?</h1>
+<p class="lead">Nog enkel of oud dubbel glas? Dan levert nieuw glas comfort en een lagere energierekening op.</p>
+<h2>Kosten en besparing hr++-glas</h2>
+<p>Volgens Milieu Centraal kost hr++-glas in bestaande kozijnen voor alle ramen van een gemiddelde hoekwoning (22 m²) ongeveer <strong>€ 4.700</strong>. Na subsidie blijft er ongeveer € 4.150 over.</p>
+<div class="tbl"><table><thead><tr><th>Je had</th><th>Besparing gas per jaar</th><th>Besparing per jaar</th></tr></thead><tbody>
+<tr><td>Dubbel glas</td><td>ca. 70 m³</td><td>ca. € 90</td></tr>
+<tr><td>Enkel glas</td><td>ca. 260 m³</td><td>ca. € 350</td></tr>
+</tbody></table></div>
+<p>Bij een gasprijs van € 1,37 per m³. Vervang je maar een deel van het glas, dan zijn kosten en subsidie ongeveer naar rato.</p>
+<h2>Hr++, triple of vacuüm?</h2>
+<ul><li><strong>Kozijnen nog goed:</strong> kies hr++-glas. Het is net zo duur als gewoon dubbel glas.</li><li><strong>Nieuwe kozijnen:</strong> triple glas. Kozijnen met triple glas zijn zo'n 4,5% duurder dan met hr++, maar de subsidie is veel hoger.</li><li><strong>Monument of smal kozijn:</strong> vacuümglas isoleert als triple, maar is een stuk duurder.</li><li>Enkel glas raadt Milieu Centraal aan altijd te vervangen.</li></ul>
+<h2>ISDE-subsidie voor glas</h2>
+<div class="tbl"><table><thead><tr><th>Glas</th><th>2026</th><th>2027 (voorgenomen)</th></tr></thead><tbody>
+<tr><td>Hr++-glas (of triple/vacuüm zonder nieuwe kozijnen)</td><td>€ 25 per m²</td><td>€ 30 per m²</td></tr>
+<tr><td>Triple- of vacuümglas in nieuwe kozijnen</td><td>€ 111 per m²</td><td>€ 55 per m²</td></tr>
+</tbody></table></div>
+<ul><li>Minimaal 3 m², maximaal 45 m² glas.</li><li>Hr++: U-waarde maximaal 1,2. Triple en vacuüm: maximaal 0,7.</li><li>Je mag twee keer subsidie voor glas aanvragen, binnen 24 maanden na het eerste glas.</li><li>Triple glas in nieuwe kozijnen uiterlijk 31 december 2026 gekocht en in 2027 geplaatst? Dan geldt nog € 111 per m². Zie <a href="/isde-2027/">ISDE 2027</a>.</li></ul>
+<h2>Offertes</h2><ol class="steps"><li>Nodig minstens twee bedrijven uit voor advies bij je thuis.</li><li>Vraag of je kozijnen geschikt zijn voor het dikkere glas.</li><li>Laat meldcode en m² op de factuur zetten (zie de <a href="/subsidie-isde/">ISDE-voorwaarden</a>).</li></ol>
+${matchCta}${src('glas', 'isdeIsolatie', 'isde2027')}</article>`,
 };
 
 // ---- Statisch ----
 export const over = {
   path: '/over/', title: 'Over VerduurzaamMatch: wie we zijn en hoe we werken', h1: 'Over ons', crumb: 'Over ons', og: 'home',
-  description: 'Wie er achter VerduurzaamMatch zit en hoe ons team elke week werkt: bronnen, onafhankelijkheid en partnerlinks.',
+  description: 'Wie achter VerduurzaamMatch zit, hoe we bronnen (RVO, Milieu Centraal) controleren en hoe we onafhankelijk blijven.',
   schema: [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'Over VerduurzaamMatch', about: ORG }],
   body: `<article><h1>Over ons</h1><p class="lead">VerduurzaamMatch helpt huiseigenaren kiezen welke verduurzaming eerst. Ons team werkt daar elke week aan.</p>
 <h2>Wat we elke week doen</h2><ul><li><strong>Cijfers checken</strong> bij Milieu Centraal en RVO: kosten, besparing en subsidiebedragen.</li><li><strong>Nieuwe regels volgen</strong>, zoals het einde van de saldering en de ISDE-wijzigingen voor 2027.</li><li><strong>Gidsen bijwerken</strong> zodra er iets verandert.</li><li><strong>De match testen</strong>, zodat het advies klopt met de bronnen.</li></ul>
