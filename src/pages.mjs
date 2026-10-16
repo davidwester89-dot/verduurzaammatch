@@ -1,6 +1,9 @@
 import { SITE, esc, BRAND, ORG, fmtDate } from './layout.mjs';
 import { MAATREGELEN, SOURCES, WONINGEN, CHECKED, terugverdien } from './lib/maatregelen.js';
 import { VRAGEN } from './lib/match.js';
+import { icoon } from './lib/iconen.js';
+import { toolLinks } from './tools.mjs';
+const ICOON_VRAAG = { woning: 'huis', bouwjaar: 'kalender', label: 'label', budget: 'euro', doel: 'doel' };
 
 const eur = (n) => '€ ' + n.toLocaleString('nl-NL');
 const src = (...keys) => `<p class="src">Bron: ${keys.map((k) => `<a href="${SOURCES[k].url}" rel="noopener">${esc(SOURCES[k].title)}</a>`).join(' · ')}. Gecontroleerd op ${fmtDate(CHECKED)}.</p>`;
@@ -121,7 +124,7 @@ export const gidsPages = GIDSEN.map((g) => ({
   path: `/${g.slug}/`, title: g.title, h1: g.h1, crumb: g.crumb, description: g.description, og: g.slug, parents: [['/gidsen/', 'Gidsen']], navPath: '/gidsen/', ogType: 'article', ogAlt: g.alt, lastmod: g.updated,
   article: { date: '2026-10-15', updated: g.updated }, stamp: { checked: CHECKED, updated: g.updated },
   schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, image: `${SITE.domain}/og/${g.slug}.png`, datePublished: '2026-10-15', dateModified: g.updated, author: ORG, publisher: ORG, inLanguage: 'nl' }],
-  body: `<article><h1>${esc(g.h1)}</h1>${img(g.slug, g.alt)}<p class="src">Door ${SITE.owner} · 15 oktober 2026</p>${g.body()}</article>`,
+  body: `<article><h1>${esc(g.h1)}</h1>${img(g.slug, g.alt)}<p class="src">Door ${SITE.owner} · 15 oktober 2026</p>${g.body()}${toolLinks(g.id)}</article>`,
 }));
 
 export const gidsHub = {
@@ -150,21 +153,24 @@ ${img('home', 'Huis met geïsoleerd dak, warmtepomp en zonnepanelen')}</section>
 };
 
 // ---- Quiz ----
-const fs = Object.entries(VRAGEN).map(([k, v]) => `<fieldset><legend>${esc(v.label)}</legend><div class="opts">${(v.volgorde ? v.volgorde.map((ok) => [ok, v.opties[ok]]) : Object.entries(v.opties)).map(([ok, ol]) => `<label><input type="radio" name="${k}" value="${ok}" required><span>${esc(ol)}</span></label>`).join('')}</div></fieldset>`).join('');
+const fs = Object.entries(VRAGEN).map(([k, v], i) => `<fieldset data-q="${k}"${i === 0 ? ' class="nu"' : ''}><legend>${icoon(ICOON_VRAAG[k])}${esc(v.label)}</legend><div class="opts">${(v.volgorde ? v.volgorde.map((ok) => [ok, v.opties[ok]]) : Object.entries(v.opties)).map(([ok, ol]) => `<label><input type="radio" name="${k}" value="${ok}" required><span>${esc(ol)}</span></label>`).join('')}</div></fieldset>`).join('');
 export const quiz = {
   path: '/verduurzaam-match/', title: 'VerduurzaamMatch: welke stap eerst voor jouw huis?', h1: 'VerduurzaamMatch', crumb: 'VerduurzaamMatch', og: 'match',
   description: 'Vijf vragen over je woning. Direct advies welke verduurzaming eerst, met kosten, ISDE-subsidie en terugverdientijd.',
   scripts: ['/js/quiz.js'],
   schema: [{ '@context': 'https://schema.org', '@type': 'WebApplication', name: 'VerduurzaamMatch', applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' }, url: SITE.domain + '/verduurzaam-match/' }],
   body: `<h1>VerduurzaamMatch</h1><p class="lead">Welke stap levert in jouw huis het meeste op?</p>
-<form class="quiz" id="form" novalidate>
+<form class="quiz stap" id="form" novalidate>
 <div class="qprog"><p id="q-prog">0 van ${Object.keys(VRAGEN).length} vragen beantwoord</p><div class="qbar" role="progressbar" aria-label="Voortgang" aria-valuemin="0" aria-valuemax="${Object.keys(VRAGEN).length}" aria-valuenow="0"><span id="q-bar"></span></div></div>
 <p class="resume" id="q-resume" hidden>Je vorige antwoorden staan er weer (alleen bewaard op dit apparaat). <button type="button" class="linkbtn" data-reset>Opnieuw beginnen</button></p>
-${fs}<button class="btn" type="submit">Toon mijn advies</button></form>
+<div class="tussen" id="q-tussen" aria-live="polite" hidden></div>
+${fs}<div class="stapnav" id="q-nav" hidden><button type="button" class="btn ghost" id="q-terug">Vorige vraag</button></div><button class="btn" type="submit" id="q-submit" hidden>Toon mijn advies</button></form>
+<noscript><style>.quiz.stap fieldset{display:block}.quiz .btn[hidden]{display:inline-flex}</style></noscript>
 <div class="result" id="result" aria-live="polite"></div>
 <div class="share" id="share" hidden><button type="button" class="btn ghost" id="share-btn">Deel of bewaar: kopieer de link</button> <button type="button" class="linkbtn" data-reset>Opnieuw beginnen</button> <span id="share-ok" class="src" role="status"></span>
 <p class="src">Je antwoorden staan in de link en blijven alleen op dit apparaat bewaard. Geen account, geen e-mail.</p></div>
 <noscript><p class="note">Zet JavaScript aan voor het advies, of lees de <a href="/gidsen/">gidsen</a>.</p></noscript>
+<p>Alles naast elkaar zien? <a href="/vergelijken/">Vergelijk alle maatregelen</a> of gebruik de <a href="/rekentools/">rekentools</a>.</p>
 ${src('spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon', 'batterij')}`,
 };
 
