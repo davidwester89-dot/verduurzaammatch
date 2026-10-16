@@ -44,7 +44,7 @@ ${matchCta}${src('spouw', 'isdeIsolatie')}`,
 <h2>Kosten en terugverdientijd</h2>${tabel('dak')}
 <p>Isolatie van een schuin dak naar Rd 3,8, uitbesteed. Zelf doen kost bij een hoekwoning zo'n € 1.700 aan materiaal.</p>
 <h2>Welke aanpak?</h2>
-<ul><li><strong>Zolder bewoond:</strong> isoleer het dak, van binnen of bij nieuwe pannen van buiten.</li><li><strong>Zolder alleen opslag:</strong> isoleer de zoldervloer. Even veel besparing, lagere kosten.</li><li><strong>Plat dak:</strong> altijd van buiten, door een vakbedrijf.</li></ul>
+<ul><li><strong>Zolder bewoond:</strong> isoleer het dak, van binnen of bij nieuwe pannen van buiten.</li><li><strong>Zolder alleen opslag:</strong> isoleer de zoldervloer. Evenveel besparing, lagere kosten.</li><li><strong>Plat dak:</strong> altijd van buiten, door een vakbedrijf.</li></ul>
 <h2>Subsidie</h2><p>ISDE: € 16,25 per m² dakisolatie (minimaal 20 m², maximaal 200 m²), € 4 per m² voor een zoldervloer. Bij een tweede maatregel binnen 24 maanden verdubbelt het.</p>
 ${matchCta}${src('dak', 'isdeIsolatie')}`,
   },
@@ -78,9 +78,9 @@ ${matchCta}${src('vloer', 'isdeIsolatie')}`,
 </tbody></table></div>
 <p>Cijfers voor een hoekwoning: hybride bij matige isolatie, volledig elektrisch bij goede isolatie. Inclusief btw en plaatsen.</p>
 <h2>Hybride of volledig elektrisch?</h2>
-<ul><li><strong>Hybride:</strong> kan bijna altijd, ook bij matige isolatie.</li><li><strong>Volledig elektrisch:</strong> pas bij redelijke isolatie: dak en vloer Rc 2,5 of meer, geïsoleerde spouw en hr++-glas.</li><li>Is je cv-ketel nog goed? Begin dan eerst met isoleren.</li></ul>
+<ul><li><strong>Hybride:</strong> kan bijna altijd, ook bij matige isolatie.</li><li><strong>Volledig elektrisch:</strong> pas bij redelijke isolatie (dak en vloer Rc 2,5 of meer, geïsoleerde spouw en hr++-glas).</li><li>Is je cv-ketel nog goed? Begin dan eerst met isoleren.</li></ul>
 <h2>Subsidie: 2026 en 2027</h2>
-<p>In 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Vanaf 2027 wil het kabinet de lucht-waterwarmtepomp verlagen naar € 120 per kW. Koop je vóór 31 december 2026 en installeer je in 2027, dan geldt het bedrag van 2026. Die wijzigingen zijn nog voorgenomen.</p>
+<p>In 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Vanaf 2027 wil het kabinet de subsidie voor de lucht-waterwarmtepomp verlagen naar € 120 per kW. Koop je vóór 31 december 2026 en installeer je in 2027, dan geldt het bedrag van 2026. Die wijzigingen zijn nog voorgenomen.</p>
 ${matchCta}${src('hybride', 'allelectric', 'isde2027')}`;
     },
   },
@@ -112,7 +112,7 @@ ${matchCta}${src('zon', 'saldering')}`,
 <h2>Waarom niet?</h2>
 <ul><li>Een batterij is duur ten opzichte van wat je bespaart op stroom.</li><li>In de zomer wek je meer op dan de batterij kan opslaan, in de winter te weinig om hem te vullen.</li><li>Dat geldt ook voor grotere batterijen die handelen op de energiemarkt.</li></ul>
 <h2>Wanneer kan het wel?</h2>
-<p>Als je minder afhankelijk van het net wilt zijn of veel stroom 's avonds gebruikt. Weet dan dat het een keuze is, geen investering. Isoleren of een warmtepomp leveren meer op.</p>
+<p>Als je minder afhankelijk van het net wilt zijn of veel stroom 's avonds gebruikt. Weet dan dat het een keuze is, geen investering. Isoleren of een warmtepomp levert meer op.</p>
 <h2>Eerst dit</h2><ol class="steps"><li>Isoleer de plekken zonder isolatie.</li><li>Overweeg een (hybride) warmtepomp.</li><li>Verbruik zonnestroom slim op het moment zelf.</li></ol>
 ${matchCta}${src('batterij')}`,
   },
@@ -234,7 +234,7 @@ export const privacy = {
 export const disclaimer = {
   path: '/disclaimer/', title: 'Disclaimer: zo lees je de cijfers op VerduurzaamMatch', h1: 'Disclaimer', crumb: 'Disclaimer', og: 'home',
   description: 'Uitkomsten op VerduurzaamMatch zijn een indicatie op basis van gemiddelden.',
-  body: `<article><h1>Disclaimer</h1><p>Kosten, besparingen en terugverdientijden zijn gemiddelden van Milieu Centraal. Jouw huis en energieprijs kunnen anders uitvallen. Subsidiebedragen kunnen wijzigen; check altijd rvo.nl voor je koopt.</p>
+  body: `<article><h1>Disclaimer</h1><p>Kosten, besparingen en terugverdientijden zijn gemiddelden van Milieu Centraal. Jouw huis en energieprijs kunnen anders uitvallen. Subsidiebedragen kunnen wijzigen; check altijd rvo.nl vóór je koopt.</p>
 <p>VerduurzaamMatch is geen installateur en geeft geen persoonlijk advies. Laat je woning beoordelen door een vakbedrijf.</p>
 <p>Partnerlinks hebben het label "partnerlink" en hebben nooit invloed op het advies of de volgorde.</p></article>`,
 };
