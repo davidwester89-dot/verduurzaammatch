@@ -221,6 +221,7 @@ export const privacy = {
   description: 'Hoe VerduurzaamMatch met je gegevens omgaat: geen account, Google Analytics alleen na jouw toestemming en altijd in te trekken.',
   body: `<article><h1>Privacy en cookies</h1>
 <p>Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
+<h2>Wie is verantwoordelijk?</h2><p>Verantwoordelijk voor de verwerking van persoonsgegevens op deze site: VerduurzaamMatch.nl, <a href="mailto:info@verduurzaammatch.nl">info@verduurzaammatch.nl</a>.</p>
 <h2>Welke gegevens?</h2><p>Je antwoorden in de VerduurzaamMatch blijven in je browser. We slaan ze niet op en sturen ze nergens heen.</p>
 <h2 id="cookies">Cookies en statistieken</h2><p>We gebruiken geen advertentiecookies. Voor statistieken gebruiken we Google Analytics 4 (meet-ID G-RE5YBMSK4D), maar alleen als je in de cookiemelding op "Accepteren" klikt. Zonder toestemming laden we Google Analytics niet en gaat er niets naar Google.</p>
 <p>Geef je toestemming, dan plaatst Google Analytics cookies (zoals <code>_ga</code>) en meten we welke pagina's bezocht worden en op welke knoppen en partnerlinks wordt geklikt. Google Analytics 4 slaat geen IP-adressen op; die worden alleen gebruikt om een globale locatie te bepalen en daarna weggegooid. We gebruiken de gegevens alleen voor statistieken, niet voor advertenties, en bewaren ze maximaal 14 maanden. Google verwerkt de gegevens als verwerker; zie het <a href="https://policies.google.com/privacy" rel="noopener">privacybeleid van Google</a>.</p>

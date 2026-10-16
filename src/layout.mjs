@@ -8,7 +8,7 @@ if (GA_ID && !GA_ID_RE.test(GA_ID)) throw new Error(`Ongeldige GA_ID "${GA_ID}"`
 const G = GA_ID ? { script: ' https://www.googletagmanager.com', connect: ' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com', img: ' https://*.google-analytics.com https://www.googletagmanager.com' } : { script: '', connect: '', img: '' };
 
 export const SITE = {
-  name: 'VerduurzaamMatch', domain: 'https://verduurzaammatch.nl', email: 'info@boekhoudmatch.nl',
+  name: 'VerduurzaamMatch', domain: 'https://verduurzaammatch.nl', email: 'info@verduurzaammatch.nl',
   tagline: 'Verduurzamen? Begin bij de juiste stap.', updated: '2026-10-15', theme: '#0a4f49', owner: 'Redactie VerduurzaamMatch',
 };
 export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
