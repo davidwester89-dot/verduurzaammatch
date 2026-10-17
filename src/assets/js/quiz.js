@@ -4,6 +4,8 @@ const ICOON = { spouw: 'muur', dak: 'dak', vloer: 'vloer', glas: 'glas', hybride
 import { SOURCES } from './lib/maatregelen.js';
 import { PARTNERLINKS, AANBIEDERS, uitgaand } from './lib/partnerlinks.js';
 import { bewaar, laad, wis } from './lib/opslag.js';
+import { LEADS, ROUTING } from './lib/leads.config.js';
+import { categorieVan } from './lib/leads.js';
 const form = document.getElementById('form');
 const out = document.getElementById('result');
 const eur = (n) => '€ ' + n.toLocaleString('nl-NL');
@@ -13,10 +15,16 @@ function offerte(id) {
   if (!ids.length) return '';
   return '<p><strong>Offerte aanvragen:</strong> ' + ids.map((a) => { const l = uitgaand(a); return `<a href="${l.href}" rel="${l.rel}" data-vendor="${a}">${l.naam}</a><span class="partner">partnerlink</span>`; }).join(' · ') + '</p>';
 }
+// Offerteknop per maatregel (leadtest): alleen als er een goedgekeurde offertepartner is. Verandert niets aan de volgorde.
+function offerteLead(id, i) {
+  const c = categorieVan(id);
+  if (!c || !ROUTING[c]) return '';
+  return `<p class="leadlink"><a class="${i === 0 ? 'btn' : 'more'}" href="/offerte/?m=${c}" data-lead="${c}" data-pos="match_${i + 1}">Offertes aanvragen</a> <span class="partner">partnerlink</span></p>`;
+}
 function kaart(r, i) {
   const nums = r.kosten == null ? '' : `<div class="nums"><div><b>${eur(r.kosten)}</b><span>kosten</span></div>${r.subsidie ? `<div><b>${eur(r.subsidie)}</b><span>subsidie</span></div>` : ''}<div><b>${eur(r.besparing)}${r.besparingMax ? '–' + eur(r.besparingMax).slice(2) : ''}</b><span>besparing per jaar</span></div><div><b>${r.terugverdien.join('–')} jaar</b><span>terugverdientijd</span></div></div>`;
   const noot = r.hoek ? '<p class="src">Cijfers voor een hoekwoning.</p>' : r.app && r.kosten != null ? '<p class="src">Cijfers voor een tussenwoning; overleg met je VvE.</p>' : '';
-  return `<div class="card${i === 0 ? ' first' : ''}">${i === 0 ? '<span class="badge">Begin hiermee</span>' : `<span class="badge">Stap ${i + 1}</span>`}<h3>${icoon(ICOON[r.id])} ${r.naam}</h3><p>${r.kort}</p>${nums}${noot}${offerte(r.id)}<a class="more" href="${r.gids}">Lees de gids</a> · <a href="${SOURCES[r.bron].url}" rel="noopener">Bron</a></div>`;
+  return `<div class="card${i === 0 ? ' first' : ''}">${i === 0 ? '<span class="badge">Begin hiermee</span>' : `<span class="badge">Stap ${i + 1}</span>`}<h3>${icoon(ICOON[r.id])} ${r.naam}</h3><p>${r.kort}</p>${nums}${noot}${offerte(r.id)}${offerteLead(r.id, i)}<a class="more" href="${r.gids}">Lees de gids</a> · <a href="${SOURCES[r.bron].url}" rel="noopener">Bron</a></div>`;
 }
 
 // Antwoorden: in de URL (deelbaar) en in localStorage (alleen op dit apparaat). Geen account, niets naar ons.
@@ -40,7 +48,7 @@ function vul(q) {
 function toon(scroll) {
   let res;
   try { res = match(antwoorden()); } catch { out.innerHTML = `<p class="note">Beantwoord alle ${VELDEN.length} vragen.</p>`; document.getElementById('share').hidden = true; return; }
-  out.innerHTML = '<h2>Jouw advies</h2>' + res.map(kaart).join('') + '<p class="src">Terugverdientijd met – zonder subsidie. Gemiddelden van Milieu Centraal, gasprijs € 1,37/m³.</p>';
+  out.innerHTML = '<h2>Jouw advies</h2>' + res.map(kaart).join('') + '<p class="src">Terugverdientijd met – zonder subsidie. Gemiddelden van Milieu Centraal, gasprijs € 1,37/m³.</p>' + (Object.keys(LEADS).length ? '<p class="src">Offertes lopen via een offertepartner (partnerlink). Die vergoeding heeft geen invloed op dit advies of de volgorde.</p>' : '');
   document.getElementById('share').hidden = false;
   if (scroll) out.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 }

@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { GA_ID as GA_CONFIG } from './analytics.config.mjs';
 import { GA_ID_RE } from './lib/consent.js';
 import { networkFor } from './network.mjs';
+import { FRAMES, PREVIEW } from './leads.config.mjs';
 
 export const GA_ID = (process.env.GA_ID ?? GA_CONFIG).trim();
 if (GA_ID && !GA_ID_RE.test(GA_ID)) throw new Error(`Ongeldige GA_ID "${GA_ID}"`);
@@ -48,12 +49,12 @@ export function layout(p) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'${G.script}; style-src 'self' 'unsafe-inline'; img-src 'self' data:${G.img}; connect-src 'self'${G.connect}; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'${G.script}; style-src 'self' 'unsafe-inline'; img-src 'self' data:${G.img}; connect-src 'self'${G.connect}; base-uri 'self'; form-action 'self'; object-src 'none'${FRAMES.length ? `; frame-src ${FRAMES.join(' ')}` : ''}">
 <meta name="google-site-verification" content="vpLTwo0-N0GqO3vvlA69EBl9NfO_w4aEQHL92YrRK1k">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>${esc(p.title)}</title>
 <meta name="description" content="${esc(p.description)}">
-${p.noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`}
+${p.noindex || PREVIEW ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`}
 <meta property="og:site_name" content="${SITE.name}"><meta property="og:locale" content="nl_NL"><meta property="og:type" content="${p.ogType || 'website'}">
 <meta property="og:title" content="${esc(p.ogTitle || p.title)}"><meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${url}">
 <meta property="og:image" content="${og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(p.ogAlt || p.h1 || p.title)}">

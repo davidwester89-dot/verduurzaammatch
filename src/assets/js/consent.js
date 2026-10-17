@@ -73,11 +73,12 @@ function open(focus) {
 if (consent.enabled) {
   if (consent.init()) open(false);
   document.addEventListener('click', (e) => {
-    const t = e.target.closest('[data-consent-open], a[data-vendor], a[data-tool]');
+    const t = e.target.closest('[data-consent-open], a[data-vendor], a[data-tool], a[data-lead]');
     if (!t) return;
     if (t.matches('[data-consent-open]')) { e.preventDefault(); open(true); return; }
     if (t.dataset.vendor) track('vendor_click', { vendor: t.dataset.vendor, page: location.pathname, position: t.dataset.pos, cta_type: t.dataset.cta });
     if (t.dataset.tool) track('calculator_use', { tool_name: t.dataset.tool });
+    if (t.dataset.lead) track('lead_cta_click', { maatregel: t.dataset.lead, page: location.pathname, position: t.dataset.pos });
   });
   const tool = TOOLS[location.pathname];
   const form = document.getElementById('form');
