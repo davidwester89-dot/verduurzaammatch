@@ -130,7 +130,9 @@ export const gidsPages = GIDSEN.map((g) => ({
 export const gidsHub = {
   path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, warmtepomp, zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', stamp: { updated: GIDSEN.map((g) => g.updated).sort().at(-1) },
   description: 'Korte gidsen over spouw-, dak- en vloerisolatie, de hybride warmtepomp, zonnepanelen na 2027 en de thuisbatterij.',
-  body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>`,
+  body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
+<h2>Meer gidsen</h2>
+<ul><li><a href="/glasisolatie-kosten/">Glasisolatie kosten: hr++ of triple glas?</a></li><li><a href="/isde-2027/">ISDE 2027: dit verandert er</a></li><li><a href="/subsidie-isde/">ISDE-subsidie in 2026</a></li><li><a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a></li></ul>`,
 };
 
 // ---- Home ----
