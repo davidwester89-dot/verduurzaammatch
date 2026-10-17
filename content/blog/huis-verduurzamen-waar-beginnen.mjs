@@ -8,13 +8,14 @@ export default {
   checked: '2026-10-17',
   author: 'Redactie VerduurzaamMatch',
   image: 'huis-verduurzamen-waar-beginnen',
-  body: `<p>Isoleren, een warmtepomp, zonnepanelen, een thuisbatterij: iedereen roept iets anders. En het zijn grote bedragen, dus je wilt niet met de verkeerde stap beginnen. Gelukkig is de basis simpel. Milieu Centraal zet het op een rij, en daar volgen we hier de lijn van.</p>
+  body: `<p>Je huis verduurzamen, maar waar begin je? Isoleren, een warmtepomp, zonnepanelen, een thuisbatterij: iedereen roept iets anders. En het zijn grote bedragen, dus je wilt niet met de verkeerde stap beginnen. Gelukkig is de basis simpel. Milieu Centraal zet het op een rij, en daar volgen we hier de lijn van.</p>
 <p><strong>Kort gezegd:</strong> eerst isoleren en ventileren, dan zuinig verwarmen met een (hybride) warmtepomp, en zonnepanelen als aanvulling. Een thuisbatterij komt als laatste, als hij al zinvol is.</p>
-<h2>Waarom de volgorde uitmaakt</h2>
+<p>Wil je weten wat bij jouw huis eerst komt? Doe de <a href="/verduurzaam-match/">VerduurzaamMatch</a>.</p>
+<h2>Huis verduurzamen: waarom de volgorde uitmaakt</h2>
 <p>Hoe minder warmte je huis nodig heeft, hoe minder energie je gebruikt. Daarom noemt Milieu Centraal isoleren, ventileren en zonwering de basis van een energiezuinig huis.</p>
-<p>Er is ook een praktische reden. Een warmtepomp levert minder heet water dan een cv-ketel. Een goed geïsoleerd huis kun je warm krijgen met water van 50 graden of minder. Daarom moet je huis voor een volledig elektrische warmtepomp volgens Milieu Centraal redelijk tot goed geïsoleerd zijn.</p>
+<p>Er is ook een praktische reden. Een warmtepomp levert minder heet water dan een cv-ketel: hij verwarmt met water van 50 graden of minder. Dan moeten je isolatie en radiatoren dat aankunnen. Daarom moet je huis voor een volledig elektrische warmtepomp volgens Milieu Centraal redelijk tot goed geïsoleerd zijn.</p>
 <p>De volgorde staat niet in beton. Milieu Centraal raadt aan om in te stappen op een logisch moment: als je toch gaat verbouwen, je keuken vervangt of je cv-ketel oud wordt. Dan is het vaak goedkoper en voorkom je dubbel werk.</p>
-<h2>Stap 1: isoleren (dak, spouw, vloer, glas)</h2>
+<h2>Stap 1: isoleren. Wat eerst?</h2>
 <p>Begin bij de delen van je huis die nog niet geïsoleerd zijn en waar je in de winter stookt. Daar gaat de meeste warmte verloren. Weet je niet wat er al gedaan is? Kijk naar het bouwjaar. Volgens Milieu Centraal is een huis uit 2000 of later al goed geïsoleerd.</p>
 <p>Dit kosten de vier bekendste isolatiestappen volgens Milieu Centraal, met de ISDE-subsidie van RVO:</p>
 <div class="tbl"><table><thead><tr><th>Maatregel</th><th>Kosten</th><th>ISDE</th><th>Besparing per jaar</th></tr></thead><tbody>
@@ -28,7 +29,7 @@ export default {
 <p><strong>Vergeet ventileren niet.</strong> Een beter geïsoleerd huis wordt ook dichter. Zonder goede ventilatie wordt de lucht sneller vochtig en vervuild, met kans op schimmel en houtrot. Pak ventilatie daarom samen met isolatie aan. En zonwering aan de buitenkant houdt je huis in de zomer koel.</p>
 <h2>Eerst isoleren, dan warmtepomp?</h2>
 <p>Ja, in de meeste gevallen. Maar je hoeft niet te wachten tot alles perfect is.</p>
-<ul><li><strong>Hybride warmtepomp:</strong> werkt samen met je cv-ketel en kan volgens Milieu Centraal ook in een matig geïsoleerd huis. Hij scheelt zo'n 70 procent gas. Voor een hoekwoning: € 6.200, met € 2.125 ISDE, en zo'n € 600 besparing per jaar. Zie <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a>.</li>
+<ul><li><strong>Hybride warmtepomp:</strong> werkt samen met je cv-ketel en kan volgens Milieu Centraal ook in een matig geïsoleerd huis. Hij scheelt zo'n 60 à 70 procent gas. Voor een matig geïsoleerde hoekwoning: € 6.200, met € 2.125 ISDE, en zo'n € 600 besparing per jaar. Zie <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a>.</li>
 <li><strong>Volledig elektrische warmtepomp:</strong> pas als je huis redelijk tot goed geïsoleerd is en je radiatoren groot of krachtig genoeg zijn.</li></ul>
 <p>Isoleren of warmtepomp, als je moet kiezen? Is je cv-ketel nog goed, begin dan met isoleren. Een cv-ketel gaat gemiddeld twaalf tot vijftien jaar mee. Is die van jou bijna op? Dan is dat het moment om naar een hybride of volledige warmtepomp te kijken.</p>
 <p>Check ook het warmteplan van je gemeente. Word je binnen een paar jaar aangesloten op een warmtenet, dan is het volgens Milieu Centraal zonde om nu een warmtepomp te kopen.</p>
@@ -38,7 +39,7 @@ export default {
 <p>De salderingsregeling stopt per 1 januari 2027. Daarna loont het vooral als je de stroom zelf gebruikt. Milieu Centraal rekent met 8 panelen voor € 3.200 en zo'n € 190 besparing per jaar vanaf 2027, bij 30% eigen verbruik. Lees meer in <a href="/zonnepanelen-na-2027/">zonnepanelen na 2027</a>.</p>
 <p>Een thuisbatterij verdien je volgens Milieu Centraal nu hoogstwaarschijnlijk niet terug. Zie <a href="/thuisbatterij-terugverdienen/">thuisbatterij terugverdienen</a>.</p>
 <h2>Subsidie en financiering per stap</h2>
-<ul><li><strong>Isolatie:</strong> ISDE-subsidie van RVO. Doe je binnen 24 maanden een tweede isolatiemaatregel, of combineer je met een warmtepomp, dan verdubbelt het bedrag voor isolatie.</li>
+<ul><li><strong>Isolatie:</strong> ISDE-subsidie van RVO. Doe je binnen 24 maanden een tweede isolatiemaatregel, of combineer je met een warmtepomp (of een zonneboiler of warmtenet), dan verdubbelt het bedrag voor isolatie. Sinds 2026 krijg je ook ISDE voor ventilatie als je die met isolatie combineert.</li>
 <li><strong>Warmtepomp:</strong> ook ISDE. Voor een hybride van 4 kW met A+++-label is dat € 2.125.</li>
 <li><strong>Zonnepanelen en thuisbatterij:</strong> geen ISDE. Op zonnepanelen betaal je 0% btw.</li>
 <li><strong>Lenen:</strong> geen geld liggen? Met de <a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a> kun je isolatie en een warmtepomp financieren, onder een bepaald inkomen tegen 0% rente.</li></ul>
