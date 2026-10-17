@@ -3,6 +3,8 @@ import { MAATREGELEN, SOURCES, WONINGEN, CHECKED, terugverdien } from './lib/maa
 import { VRAGEN } from './lib/match.js';
 import { icoon } from './lib/iconen.js';
 import { toolLinks } from './tools.mjs';
+import { leadCta, privacyOffertes } from './offerte.mjs';
+import { LEADS_AAN } from './leads.config.mjs';
 const ICOON_VRAAG = { woning: 'huis', bouwjaar: 'kalender', label: 'label', budget: 'euro', doel: 'doel' };
 
 const eur = (n) => '€ ' + n.toLocaleString('nl-NL');
@@ -124,7 +126,7 @@ export const gidsPages = GIDSEN.map((g) => ({
   path: `/${g.slug}/`, title: g.title, h1: g.h1, crumb: g.crumb, description: g.description, og: g.slug, parents: [['/gidsen/', 'Gidsen']], navPath: '/gidsen/', ogType: 'article', ogAlt: g.alt, lastmod: g.updated,
   article: { date: '2026-10-15', updated: g.updated }, stamp: { checked: CHECKED, updated: g.updated },
   schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, image: `${SITE.domain}/og/${g.slug}.png`, datePublished: '2026-10-15', dateModified: g.updated, author: ORG, publisher: ORG, inLanguage: 'nl' }],
-  body: `<article><h1>${esc(g.h1)}</h1>${img(g.slug, g.alt)}<p class="src">Door ${SITE.owner} · 15 oktober 2026</p>${g.body()}${toolLinks(g.id)}</article>`,
+  body: `<article><h1>${esc(g.h1)}</h1>${img(g.slug, g.alt)}<p class="src">Door ${SITE.owner} · 15 oktober 2026</p>${g.body()}${leadCta(g.id)}${toolLinks(g.id)}</article>`,
 }));
 
 export const gidsHub = {
@@ -255,7 +257,7 @@ export const glasisolatie = {
 </tbody></table></div>
 <ul><li>Minimaal 3 m², maximaal 45 m² glas.</li><li>Hr++: U-waarde maximaal 1,2. Triple en vacuüm: maximaal 0,7.</li><li>Je mag twee keer subsidie voor glas aanvragen, binnen 24 maanden na het eerste glas.</li><li>Triple glas in nieuwe kozijnen uiterlijk 31 december 2026 gekocht en in 2027 geplaatst? Dan geldt nog € 111 per m². Zie <a href="/isde-2027/">ISDE 2027</a>.</li></ul>
 <h2>Offertes</h2><ol class="steps"><li>Nodig minstens twee bedrijven uit voor advies bij je thuis.</li><li>Vraag of je kozijnen geschikt zijn voor het dikkere glas.</li><li>Laat meldcode en m² op de factuur zetten (zie de <a href="/subsidie-isde/">ISDE-voorwaarden</a>).</li></ol>
-${matchCta}${src('glas', 'isdeIsolatie', 'isde2027')}${toolLinks('glas')}</article>`,
+${matchCta}${leadCta('glas')}${src('glas', 'isdeIsolatie', 'isde2027')}${toolLinks('glas')}</article>`,
 };
 
 // ---- Statisch ----
@@ -288,6 +290,7 @@ export const privacy = {
 <p>Geef je toestemming, dan plaatst Google Analytics cookies (zoals <code>_ga</code>) en meten we welke pagina's bezocht worden en op welke knoppen en partnerlinks wordt geklikt. Google Analytics 4 slaat geen IP-adressen op; die worden alleen gebruikt om een globale locatie te bepalen en daarna weggegooid. We gebruiken de gegevens alleen voor statistieken, niet voor advertenties, en bewaren ze maximaal 14 maanden. Google verwerkt de gegevens als verwerker; zie het <a href="https://policies.google.com/privacy" rel="noopener">privacybeleid van Google</a>.</p>
 <p>Je keuze bewaren we 12 maanden in je browser (localStorage). Je kunt je toestemming altijd intrekken via <a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a> (ook onderaan elke pagina). Dan stoppen we Google Analytics en wissen we de <code>_ga</code>-cookies.</p>
 <h2>Links naar aanbieders</h2><p>Klik je door naar een aanbieder of vraag je daar een offerte aan, dan geldt de privacyverklaring van die aanbieder.</p>
+${privacyOffertes()}
 <h2>Hosting</h2><p>De site draait op GitHub Pages. GitHub verwerkt technische gegevens zoals je IP-adres om de site te leveren.</p>
 <h2>Je rechten</h2><p>Je mag vragen welke gegevens we van je hebben en die laten verwijderen. Een klacht kun je indienen bij de Autoriteit Persoonsgegevens.</p></article>`,
 };
@@ -297,7 +300,7 @@ export const disclaimer = {
   description: 'Uitkomsten op VerduurzaamMatch zijn een indicatie op basis van gemiddelden.',
   body: `<article><h1>Disclaimer</h1><p>Kosten, besparingen en terugverdientijden zijn gemiddelden van Milieu Centraal. Jouw huis en energieprijs kunnen anders uitvallen. Subsidiebedragen kunnen wijzigen; check altijd rvo.nl vóór je koopt.</p>
 <p>VerduurzaamMatch is geen installateur en geeft geen persoonlijk advies. Laat je woning beoordelen door een vakbedrijf.</p>
-<p>Partnerlinks hebben het label "partnerlink" en hebben nooit invloed op het advies of de volgorde.</p></article>`,
+<p>Partnerlinks hebben het label "partnerlink" en hebben nooit invloed op het advies of de volgorde.</p>${LEADS_AAN ? '<p>Offertes vraag je aan via een offertepartner. VerduurzaamMatch is geen partij bij de offerte of de opdracht en ontvangt een vergoeding per aanvraag.</p>' : ''}</article>`,
 };
 
 export const notfound = {
