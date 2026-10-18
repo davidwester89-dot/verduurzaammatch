@@ -9,7 +9,7 @@ import { GIDSEN } from '../src/pages.mjs';
 import { CHECKED } from '../src/lib/maatregelen.js';
 execSync('node build.mjs', { stdio: 'ignore' });
 const files = [];
-const walk = (d) => readdirSync(d).forEach((f) => { const p = join(d, f); statSync(p).isDirectory() ? walk(p) : p.endsWith('.html') && files.push(p); });
+const walk = (d) => readdirSync(d).forEach((f) => { const p = join(d, f); statSync(p).isDirectory() ? walk(p) : p.endsWith('.html') && !/\/google[0-9a-f]+\.html$/.test(p) && files.push(p); });
 walk('dist');
 const pages = files.map((f) => [f, readFileSync(f, 'utf8')]).filter(([, h]) => !h.includes('name="robots" content="noindex"'));
 const mem = () => { const m = new Map(); return { getItem: (k) => (m.has(k) ? m.get(k) : null), setItem: (k, v) => m.set(k, String(v)), removeItem: (k) => m.delete(k) }; };
