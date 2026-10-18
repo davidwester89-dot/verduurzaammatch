@@ -16,6 +16,7 @@ cpSync('src/assets/og', join(OUT, 'og'), { recursive: true });
 cpSync('src/assets/icons', OUT, { recursive: true });
 cpSync('src/root', OUT, { recursive: true });
 write(join(OUT, 'CNAME'), 'verduurzaammatch.nl\n');
+write(join(OUT, 'google5be727237a44c762.html'), 'google-site-verification: google5be727237a44c762.html');
 write(join(OUT, '.nojekyll'), '');
 write(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE.domain}/sitemap.xml\n`);
 write(join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.filter((p) => !p.noindex).map((p) => `<url><loc>${SITE.domain}${p.path}</loc><lastmod>${p.lastmod || SITE.updated}</lastmod></url>`).join('\n')}\n</urlset>\n`);
