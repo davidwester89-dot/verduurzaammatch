@@ -49,7 +49,6 @@ export function layout(p) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'${G.script}; style-src 'self' 'unsafe-inline'; img-src 'self' data:${G.img}; connect-src 'self'${G.connect}; base-uri 'self'; form-action 'self'; object-src 'none'">
-<meta name="google-site-verification" content="vpLTwo0-N0GqO3vvlA69EBl9NfO_w4aEQHL92YrRK1k">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>${esc(p.title)}</title>
 <meta name="description" content="${esc(p.description)}">
