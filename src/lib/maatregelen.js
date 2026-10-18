@@ -9,7 +9,7 @@ export const SOURCES = {
   vloer: { title: 'Milieu Centraal – Vloerisolatie', url: 'https://www.milieucentraal.nl/energie-besparen/isoleren-en-besparen/vloerisolatie/' },
   glas: { title: 'Milieu Centraal – Triple-, hr++- of vacuümglas', url: 'https://www.milieucentraal.nl/energie-besparen/isoleren-en-besparen/triple-hr-of-vacuumglas/' },
   hybride: { title: 'Milieu Centraal – Hybride warmtepomp', url: 'https://www.milieucentraal.nl/energie-besparen/duurzaam-verwarmen-en-koelen/hybride-warmtepomp/' },
-  allelectric: { title: 'Milieu Centraal – Volledig elektrische warmtepomp', url: 'https://www.milieucentraal.nl/energie-besparen/duurzaam-verwarmen-en-koelen/volledige-warmtepomp/' },
+  allelectric: { title: 'Milieu Centraal – Volledig elektrische warmtepomp', url: 'https://www.milieucentraal.nl/energie-besparen/duurzaam-verwarmen-en-koelen/volledig-elektrische-warmtepomp/' },
   zon: { title: 'Milieu Centraal – Kosten en opbrengst zonnepanelen', url: 'https://www.milieucentraal.nl/energie-besparen/zonnepanelen/kosten-en-opbrengst-zonnepanelen/' },
   batterij: { title: 'Milieu Centraal – Thuisbatterij', url: 'https://www.milieucentraal.nl/energie-besparen/zonnepanelen/thuisbatterij-zonne-energie-opslaan/' },
   isde: { title: 'RVO – ISDE voor woningeigenaren', url: 'https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren' },

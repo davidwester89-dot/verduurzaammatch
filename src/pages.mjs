@@ -124,15 +124,15 @@ export const gidsPages = GIDSEN.map((g) => ({
   path: `/${g.slug}/`, title: g.title, h1: g.h1, crumb: g.crumb, description: g.description, og: g.slug, parents: [['/gidsen/', 'Gidsen']], navPath: '/gidsen/', ogType: 'article', ogAlt: g.alt, lastmod: g.updated,
   article: { date: '2026-10-15', updated: g.updated }, stamp: { checked: CHECKED, updated: g.updated },
   schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, image: `${SITE.domain}/og/${g.slug}.png`, datePublished: '2026-10-15', dateModified: g.updated, author: ORG, publisher: ORG, inLanguage: 'nl' }],
-  body: `<article><h1>${esc(g.h1)}</h1>${img(g.slug, g.alt)}<p class="src">Door ${SITE.owner} · 15 oktober 2026</p>${g.body()}${toolLinks(g.id)}</article>`,
+  body: `<article><h1>${esc(g.h1)}</h1>${img(g.slug, g.alt)}<p class="src">Door ${SITE.owner} · 15 oktober 2026</p>${g.body()}<p>Weet je nog niet welke stap eerst? Lees <a href="/blog/huis-verduurzamen-waar-beginnen/">Huis verduurzamen: welke maatregel eerst?</a></p>${toolLinks(g.id)}</article>`,
 }));
 
 export const gidsHub = {
   path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, warmtepomp, zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', stamp: { updated: GIDSEN.map((g) => g.updated).sort().at(-1) },
   description: 'Korte gidsen over spouw-, dak- en vloerisolatie, de hybride warmtepomp, zonnepanelen na 2027 en de thuisbatterij.',
-  body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
+  body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="${esc(g.alt)}" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
 <h2>Meer gidsen</h2>
-<ul><li><a href="/glasisolatie-kosten/">Glasisolatie kosten: hr++ of triple glas?</a></li><li><a href="/isde-2027/">ISDE 2027: dit verandert er</a></li><li><a href="/subsidie-isde/">ISDE-subsidie in 2026</a></li><li><a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a></li></ul>`,
+<ul><li><a href="/blog/huis-verduurzamen-waar-beginnen/">Huis verduurzamen: welke maatregel eerst?</a></li><li><a href="/glasisolatie-kosten/">Glasisolatie kosten: hr++ of triple glas?</a></li><li><a href="/isde-2027/">ISDE 2027: dit verandert er</a></li><li><a href="/subsidie-isde/">ISDE-subsidie in 2026</a></li><li><a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a></li></ul>`,
 };
 
 // ---- Home ----
@@ -140,16 +140,17 @@ export const home = {
   path: '/', title: 'Huis verduurzamen: wat eerst? | VerduurzaamMatch', og: 'home',
   description: 'Isoleren, warmtepomp of zonnepanelen: welke stap eerst bij jouw huis? Doe de gratis match en zie kosten, ISDE-subsidie en terugverdientijd.',
   // Organization en WebSite staan op elke pagina (layout.mjs, siteGraph).
-  body: `<section class="hero"><h1><span class="brand">${BRAND}</span><span class="sr"> – </span><span class="tagline" style="display:block">${esc(SITE.tagline)}</span></h1>
+  body: `<section class="hero"><p class="brand">${BRAND}</p><h1 class="tagline">${esc(SITE.tagline)}</h1>
 <p class="lead">Vijf vragen over je huis. Je ziet welke maatregel het meeste oplevert, wat hij kost en hoe snel je hem terugverdient.</p>
 <div class="actions"><a class="btn sun" href="/verduurzaam-match/">Start de match</a><a class="btn ghost" href="/subsidie-isde/">Subsidie bekijken</a></div>
 ${img('home', 'Huis met geïsoleerd dak, warmtepomp en zonnepanelen')}</section>
 <h2>Zo werkt het</h2>
 <ol class="steps"><li>Beantwoord 5 vragen over je woning en je doel.</li><li>Zie welke stap eerst, met kosten, subsidie en terugverdientijd.</li><li>Lees de gids en vraag offertes aan.</li></ol>
+<p>Twijfel je waar je begint? Lees <a href="/blog/huis-verduurzamen-waar-beginnen/">Huis verduurzamen: welke maatregel eerst?</a></p>
 <div class="note"><strong>Let op 2027:</strong> de salderingsregeling stopt op 1 januari en de ISDE voor warmtepompen gaat waarschijnlijk omlaag. <a href="/isde-2027/">Wat dat betekent</a></div>
 <p>Geen spaargeld? Met de <a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a> leen je met een verzamelinkomen onder € 60.000 tegen 0% rente.</p>
 <h2>Gidsen</h2>
-<div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="" loading="lazy"><h3>${esc(g.crumb)}</h3><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
+<div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="${esc(g.alt)}" loading="lazy"><h3>${esc(g.crumb)}</h3><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
 <h2>Waarom VerduurzaamMatch?</h2>
 <ul><li><strong>Cijfers van Milieu Centraal en RVO</strong>, met bronlink.</li><li><strong>Volgorde op wat het oplevert</strong>, nooit op vergoeding.</li><li><strong>Gratis en zonder account.</strong></li></ul>`,
 };

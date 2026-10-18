@@ -8,6 +8,7 @@ export default {
   checked: '2026-10-17',
   author: 'Redactie VerduurzaamMatch',
   image: 'huis-verduurzamen-waar-beginnen',
+  alt: 'Huis met genummerde stappen: 1 dakisolatie, 2 ventilatie, 3 warmtepomp en 4 zonnepanelen',
   body: `<p>Je huis verduurzamen, maar waar begin je? Isoleren, een warmtepomp, zonnepanelen, een thuisbatterij: iedereen roept iets anders. En het zijn grote bedragen, dus je wilt niet met de verkeerde stap beginnen. Gelukkig is de basis simpel. Milieu Centraal zet het op een rij, en daar volgen we hier de lijn van.</p>
 <p><strong>Kort gezegd:</strong> eerst isoleren en ventileren, dan zuinig verwarmen met een (hybride) warmtepomp, en zonnepanelen als aanvulling. Een thuisbatterij komt als laatste, als hij al zinvol is.</p>
 <p>Wil je weten wat bij jouw huis eerst komt? Doe de <a href="/verduurzaam-match/">VerduurzaamMatch</a>.</p>

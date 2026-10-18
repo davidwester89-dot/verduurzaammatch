@@ -7,6 +7,7 @@ export default {
   checked: '2026-10-16', // rentetabel en voorwaarden nagekeken op 16-10 (commit 'renteoverzicht 12 okt')
   author: 'Redactie VerduurzaamMatch',
   image: 'energiebespaarlening-warmtefonds',
+  alt: 'Huis met een euroteken en een bord met 0% rente',
   body: `<p>Wil je je huis isoleren of een warmtepomp nemen, maar heb je het geld niet direct liggen? Dan kun je de Energiebespaarlening van het Nationaal Warmtefonds gebruiken. Dat is een stichting zonder winstoogmerk, opgericht op initiatief van de Rijksoverheid. Hieronder staan de voorwaarden zoals het Warmtefonds ze op 15 oktober 2026 publiceert.</p>
 <h2>Hoeveel kun je lenen?</h2>
 <ul><li>Minimaal € 1.000 en maximaal € 29.000.</li><li>Looptijd van 7, 10 of 15 jaar. Leen je meer dan € 15.000, dan kan ook 20 jaar.</li><li>De rente staat vast voor de hele looptijd. Er zijn geen andere kosten dan rente.</li></ul>

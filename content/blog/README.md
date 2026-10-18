@@ -8,6 +8,7 @@ export default {
   description: 'Meta-omschrijving 120-155 tekens.',
   date: '2026-10-20',                // ISO, publicatiedatum
   author: 'Redactie VerduurzaamMatch',
+  alt: 'Beschrijvende alt-tekst van de afbeelding', // verplicht als image is gezet
   image: 'spouwmuurisolatie-kosten', // optioneel: bestaande naam uit src/assets/img (-600/-1200.webp) en src/assets/og (.png)
   body: `<p>HTML-inhoud, h2's, bronnenlinks…</p>`,
 };
