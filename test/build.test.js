@@ -9,7 +9,7 @@ test('geen noindex behalve 404, canonicals aanwezig', () => {
   assert.ok(r('/404.html').includes('noindex'));
 });
 test('H1 home = tagline, logo geen H1', () => { const h = r('/index.html'); assert.match(h, /<p class="brand">Verduurzaam<b>Match<\/b>\.nl<\/p><h1 class="tagline">Verduurzamen\? Begin bij de juiste stap\.<\/h1>/); assert.equal((h.match(/<h1[\s>]/g) || []).length, 1); });
-test('titels < 60 tekens', () => { for (const p of ['/index.html', '/verduurzaam-match/index.html', '/subsidie-isde/index.html', '/spouwmuurisolatie-kosten/index.html', '/dakisolatie-kosten/index.html', '/vloerisolatie-kosten/index.html', '/hybride-warmtepomp-kosten/index.html', '/zonnepanelen-na-2027/index.html', '/thuisbatterij-terugverdienen/index.html']) { const t = r(p).match(/<title>(.*?)<\/title>/)[1]; assert.ok(t.length < 60, `${p}: ${t}`); } });
+test('titels < 60 tekens', () => { for (const p of ['/index.html', '/verduurzaam-match/index.html', '/subsidie-isde/index.html', '/spouwmuurisolatie-kosten/index.html', '/dakisolatie-kosten/index.html', '/vloerisolatie-kosten/index.html', '/hybride-warmtepomp-kosten/index.html', '/zonnepanelen-na-2027/index.html']) { const t = r(p).match(/<title>(.*?)<\/title>/)[1]; assert.ok(t.length < 60, `${p}: ${t}`); } });
 test('sitemap, robots, CNAME', () => { assert.ok(r('/sitemap.xml').includes('/spouwmuurisolatie-kosten/')); assert.ok(r('/robots.txt').includes('Sitemap:')); assert.equal(r('/CNAME').trim(), 'verduurzaammatch.nl'); });
 test('netwerkfooter: boekhoudmatch en shopmatch, geen goodfellas/kassa', () => { const h = r('/index.html'); assert.ok(h.includes('Ook van ons')); assert.ok(h.includes('https://boekhoudmatch.nl/')); assert.ok(h.includes('https://shopmatch.nl/')); assert.ok(h.includes('https://warmtepompenmatch.nl/')); assert.ok(h.includes('https://thuisaccumatch.nl/')); assert.ok(!/goodfellas|kassamatch\.nl/i.test(h)); });
 test('geen GA zonder ID, en og-afbeeldingen bestaan', () => { assert.ok(!r('/index.html').includes('gtag/js')); assert.ok(r('/index.html').includes('data-ga="G-RE5YBMSK4D"')); for (const s of ['home', 'match', 'subsidie-isde', 'spouwmuurisolatie-kosten']) assert.ok(existsSync(`dist/og/${s}.png`)); });
@@ -24,3 +24,13 @@ test('blog: index bestaat, posts in sitemap, hub alleen geïndexeerd met posts',
   else { assert.ok(hub.includes('noindex')); assert.ok(!sm.includes('/blog/')); }
 });
 test('nergens Dave West in de build', () => { const out = execSync('grep -rli "dave west" dist || true').toString().trim(); assert.equal(out, ''); });
+test('thuisbatterij-terugverdienen: doorverwijzing naar ThuisaccuMatch, niet in sitemap, geen interne links', () => {
+  const to = 'https://thuisaccumatch.nl/thuisaccu-terugverdientijd/';
+  const h = r('/thuisbatterij-terugverdienen/index.html');
+  assert.ok(h.includes(`<meta http-equiv="refresh" content="0; url=${to}">`));
+  assert.ok(h.includes(`<link rel="canonical" href="${to}">`));
+  assert.ok(h.includes('<meta name="robots" content="noindex">'));
+  assert.ok(h.includes(`<a href="${to}">`));
+  assert.ok(!r('/sitemap.xml').includes('thuisbatterij-terugverdienen'));
+  for (const p of ['/index.html', '/gidsen/index.html', '/vergelijken/index.html', '/blog/huis-verduurzamen-waar-beginnen/index.html']) assert.ok(!r(p).includes('href="/thuisbatterij-terugverdienen/"'), p);
+});

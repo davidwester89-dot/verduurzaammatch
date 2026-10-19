@@ -83,7 +83,7 @@ ${matchCta}${src('vloer', 'isdeIsolatie')}`,
 <ul><li><strong>Hybride:</strong> kan bijna altijd, ook bij matige isolatie.</li><li><strong>Volledig elektrisch:</strong> pas bij redelijke isolatie (dak en vloer Rc 2,5 of meer, geïsoleerde spouw en hr++-glas).</li><li>Is je cv-ketel nog goed? Begin dan eerst met isoleren.</li></ul>
 <h2>Subsidie: 2026 en 2027</h2>
 <p>In 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Vanaf 2027 wil het kabinet de subsidie voor de lucht-waterwarmtepomp verlagen naar € 120 per kW. Koop je vóór 31 december 2026 en installeer je in 2027, dan geldt het bedrag van 2026. Die wijzigingen zijn nog voorgenomen; zie <a href="/isde-2027/">ISDE 2027</a>. Alleen de warmtepomp-ISDE? Zie <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE-subsidie warmtepomp 2026</a> op WarmtepompenMatch.</p>
-<h2>Merk en type kiezen</h2><p>Weet je dat een warmtepomp bij je huis past, maar twijfel je over het merk of het vermogen? Op <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">WarmtepompenMatch</a> vergelijk je merken, zie je <a href="https://warmtepompenmatch.nl/hybride-of-all-electric/">hybride of all-electric</a> en <a href="https://warmtepompenmatch.nl/warmtepomp-kosten/">wat een warmtepomp kost</a>, en reken je de <a href="https://warmtepompenmatch.nl/warmtepomp-terugverdientijd/">terugverdientijd</a> uit met je eigen gasverbruik.</p>
+<h2>Merk en type kiezen</h2><p>Weet je dat een warmtepomp bij je huis past, maar twijfel je over het merk of het vermogen? Met de <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">warmtepomp-keuzehulp</a> op WarmtepompenMatch vergelijk je merken, zie je <a href="https://warmtepompenmatch.nl/hybride-of-all-electric/">hybride of all-electric</a> en <a href="https://warmtepompenmatch.nl/warmtepomp-kosten/">wat een warmtepomp kost</a>, en reken je de <a href="https://warmtepompenmatch.nl/warmtepomp-terugverdientijd/">terugverdientijd</a> uit met je eigen gasverbruik.</p>
 ${matchCta}${src('hybride', 'allelectric', 'isde2027')}`;
     },
   },
@@ -105,19 +105,6 @@ ${matchCta}${src('hybride', 'allelectric', 'isde2027')}`;
 <ol class="steps"><li>Leg panelen oost-west: meer stroom in de ochtend en avond.</li><li>Verschuif verbruik naar de middag (wasmachine, vaatwasser, auto laden).</li><li>Kijk naar je contract: terugleververgoeding en terugleverkosten verschillen sterk. Meer daarover lees je bij <a href="https://thuisaccumatch.nl/salderingsregeling-stopt-2027/">het einde van salderen</a>, de <a href="https://thuisaccumatch.nl/einde-salderen-berekenen/">rekentool einde salderen</a> en <a href="https://thuisaccumatch.nl/terugleverkosten/">terugleverkosten</a> op ThuisaccuMatch.</li></ol>
 ${matchCta}${src('zon', 'saldering')}`,
   },
-  {
-    slug: 'thuisbatterij-terugverdienen', updated: '2026-10-19', id: 'batterij', crumb: 'Thuisbatterij',
-    title: 'Thuisbatterij terugverdienen: wanneer loont het?',
-    h1: 'Thuisbatterij terugverdienen: wanneer loont het?',
-    description: 'Verdien je een thuisbatterij terug na 2027? Het korte antwoord van Milieu Centraal, en waar je kosten, merken en terugverdientijd vindt.',
-    alt: 'Thuisbatterij aan de muur, gekoppeld aan zonnepanelen',
-    body: () => `<p class="lead">Kort antwoord: volgens Milieu Centraal verdien je een thuisbatterij nu hoogstwaarschijnlijk niet terug.</p>
-<p>Een batterij is duur ten opzichte van wat je bespaart. In de zomer wek je meer op dan hij kan opslaan, in de winter te weinig om hem te vullen. Wil je minder afhankelijk zijn van het net, dan is het vooral een keuze, geen investering.</p>
-<h2>Eerst dit</h2><ol class="steps"><li>Isoleer de plekken zonder isolatie, bijvoorbeeld <a href="/spouwmuurisolatie-kosten/">de spouwmuur</a>.</li><li>Overweeg een <a href="/hybride-warmtepomp-kosten/">(hybride) warmtepomp</a>.</li><li>Verbruik zonnestroom op het moment zelf; zie <a href="/zonnepanelen-na-2027/">zonnepanelen na 2027</a>.</li></ol>
-<h2>Toch een thuisbatterij?</h2><p>Alles over thuisaccu's staat op onze zustersite ThuisaccuMatch:</p>
-<ul><li><a href="https://thuisaccumatch.nl/thuisaccu-terugverdientijd/">Verdien je een thuisaccu terug?</a> Rekenvoorbeelden na het einde van salderen.</li><li><a href="https://thuisaccumatch.nl/blog/thuisbatterij-rendabel-2027/">Thuisbatterij rendabel in 2027?</a> Per situatie uitgerekend.</li><li><a href="https://thuisaccumatch.nl/thuisaccu-kosten/">Wat kost een thuisaccu?</a> Prijzen per kWh en per merk.</li><li><a href="https://thuisaccumatch.nl/thuisaccu-keuzehulp/">Thuisaccu-keuzehulp</a>, <a href="https://thuisaccumatch.nl/stekkerbatterij-of-vaste-thuisaccu/">stekkerbatterij of vaste thuisaccu</a> en <a href="https://thuisaccumatch.nl/merken/">alle merken</a>.</li></ul>
-${src('batterij')}`,
-  },
 ];
 
 export const gidsPages = GIDSEN.map((g) => ({
@@ -128,8 +115,8 @@ export const gidsPages = GIDSEN.map((g) => ({
 }));
 
 export const gidsHub = {
-  path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, warmtepomp, zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', stamp: { updated: GIDSEN.map((g) => g.updated).sort().at(-1) },
-  description: 'Korte gidsen over spouw-, dak- en vloerisolatie, de hybride warmtepomp en zonnepanelen na 2027, plus een kort overzicht over de thuisbatterij.',
+  path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, warmtepomp, zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', lastmod: '2026-10-19', stamp: { updated: GIDSEN.map((g) => g.updated).sort().at(-1) },
+  description: 'Korte gidsen over spouw-, dak- en vloerisolatie, de hybride warmtepomp en zonnepanelen na 2027, met verwijzingen naar warmtepomp- en thuisaccugidsen.',
   body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="${esc(g.alt)}" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
 <p class="src">Verdieping: <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">warmtepomp kiezen op WarmtepompenMatch</a> · <a href="https://thuisaccumatch.nl/thuisaccu-keuzehulp/">thuisaccu kiezen op ThuisaccuMatch</a></p>
 <h2>Meer gidsen</h2>
@@ -181,9 +168,9 @@ ${src('spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon', 'batteri
 
 // ---- Subsidie ----
 export const subsidie = {
-  path: '/subsidie-isde/', title: 'ISDE-subsidie 2026: alle bedragen en voorwaarden', h1: 'ISDE-subsidie 2026', crumb: 'ISDE-subsidie', og: 'subsidie-isde', lastmod: '2026-10-16', stamp: { checked: CHECKED, updated: '2026-10-16' },
-  description: 'Alle ISDE-bedragen van 2026 voor isolatie, glas en warmtepompen, de verdubbeling bij twee maatregelen en hoe je aanvraagt. Bron: RVO.',
-  body: `<article><h1>ISDE-subsidie 2026: bedragen en wijzigingen</h1>${img('subsidie-isde', 'Huis met een euroteken en een vinkje voor subsidie')}
+  path: '/subsidie-isde/', title: 'ISDE-subsidie isolatie 2026: bedragen en voorwaarden', h1: 'ISDE-subsidie isolatie 2026', crumb: 'ISDE-subsidie', og: 'subsidie-isde', lastmod: '2026-10-19', stamp: { checked: CHECKED, updated: '2026-10-19' },
+  description: 'ISDE-subsidie voor isolatie en glas in 2026: bedragen per m², de verdubbeling bij twee maatregelen en hoe je aanvraagt. Bron: RVO.',
+  body: `<article><h1>ISDE-subsidie isolatie 2026: bedragen en voorwaarden</h1>${img('subsidie-isde', 'Huis met een euroteken en een vinkje voor subsidie')}
 <p class="lead">Met de ISDE krijg je als eigenaar-bewoner geld terug voor isolatie, een warmtepomp of een zonneboiler. Je vraagt het aan ná de installatie, binnen 24 maanden.</p>
 <h2>Isolatie</h2>
 <div class="tbl"><table><thead><tr><th>Maatregel</th><th>Per m²</th><th>Oppervlak</th></tr></thead><tbody>
@@ -211,7 +198,7 @@ ${matchCta}${src('isde', 'isdeIsolatie', 'isdeWp', 'isde2027', 'saldering')}${to
 
 // ---- ISDE 2027 (voorgenomen) ----
 export const isde2027 = {
-  path: '/isde-2027/', title: 'ISDE 2027: dit verandert er (warmtepomp en glas)', h1: 'ISDE 2027', crumb: 'ISDE 2027', og: 'subsidie-isde', lastmod: '2026-10-16', stamp: { checked: '2026-10-16', updated: '2026-10-16' },
+  path: '/isde-2027/', title: 'ISDE 2027: dit verandert er (warmtepomp en glas)', h1: 'ISDE 2027', crumb: 'ISDE 2027', og: 'subsidie-isde', lastmod: '2026-10-19', stamp: { checked: '2026-10-16', updated: '2026-10-19' },
   parents: [['/subsidie-isde/', 'ISDE-subsidie']],
   description: 'Vanaf 2027 € 120 per kW voor lucht-water, € 200 bonus voor een slimme warmtepomp en meer voor hr++-glas. Koop vóór 31-12 voor het bedrag van 2026.',
   body: `<article><h1>ISDE 2027: dit verandert er</h1>
@@ -232,7 +219,7 @@ export const isde2027 = {
 <ul><li>Koop je een warmtepomp uiterlijk 31 december 2026 en laat je hem in 2027 installeren? Dan krijg je € 225 per kW (2026) in plaats van € 120.</li><li>Hetzelfde geldt voor triple- of vacuümglas in nieuwe kozijnen: € 111 in plaats van € 55 per m².</li><li>Je levert bewijs van aankoop in 2026 mee, zoals een getekende offerte of opdrachtbevestiging.</li><li>Bij een warmtepomp gekocht in 2026 krijg je niet de slimme bonus en niet de hogere A+++-bonus.</li></ul>
 <p>Hr++-glas wordt in 2027 juist hoger gesubsidieerd. Meer over glas: <a href="/glasisolatie-kosten/">glasisolatie kosten</a>.</p>
 <h2>Elektrische kookvoorziening</h2><p>Gekocht vóór 1 januari 2027? Dan kun je nog subsidie aanvragen, binnen 24 maanden na aanschaf.</p>
-<p>De bedragen en voorwaarden van nu staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a>. Wat een warmtepomp kost: <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a>. Alleen de warmtepomp-ISDE, inclusief 2027: <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">WarmtepompenMatch</a>.</p>
+<p>De bedragen en voorwaarden van nu staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a>. Wat een warmtepomp kost: <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a>. Alleen de warmtepomp-ISDE, inclusief 2027: <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE-subsidie warmtepomp 2026</a> op WarmtepompenMatch.</p>
 ${matchCta}<p class="src">Bron: <a href="${SOURCES.isde2027.url}" rel="noopener">${esc(SOURCES.isde2027.title)}</a> (door RVO gecontroleerd op 14 oktober 2026). Door ons gecontroleerd op 16 oktober 2026.</p>${toolLinks('isde')}</article>`,
 };
 

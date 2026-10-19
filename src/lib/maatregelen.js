@@ -65,7 +65,7 @@ export const MAATREGELEN = {
     kort: 'Na 2027 loont het vooral als je de stroom zelf gebruikt.',
   },
   batterij: {
-    naam: 'Thuisbatterij', soort: 'batterij', gids: '/thuisbatterij-terugverdienen/', bron: 'batterij',
+    naam: 'Thuisbatterij', soort: 'batterij', gids: 'https://thuisaccumatch.nl/thuisaccu-terugverdientijd/', bron: 'batterij',
     kosten: null, subsidie: null, besparing: null,
     kort: 'Volgens Milieu Centraal verdien je hem nu hoogstwaarschijnlijk niet terug.',
   },

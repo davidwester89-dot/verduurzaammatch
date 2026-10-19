@@ -9,7 +9,7 @@ export const ICOON_MAATREGEL = { spouw: 'muur', dak: 'dak', vloer: 'vloer', glas
 const eur = (n) => '€ ' + Math.round(n).toLocaleString('nl-NL');
 const jr = (x) => (x == null ? '–' : `${String(x).replace('.', ',')} jaar`);
 const bron = (keys, datum) => `<p class="src">Bron: ${keys.map((k) => `<a href="${SOURCES[k].url}" rel="noopener">${esc(SOURCES[k].title)}</a>`).join(' · ')}. Gecontroleerd op <time datetime="${datum}">${fmtDate(datum)}</time>.</p>`;
-const UPDATED = '2026-10-16';
+const UPDATED = '2026-10-19';
 const woningSelect = (id, def = 'tussen') => `<label class="fld"><span>${icoon('huis')} Woningtype</span><select id="${id}" name="woning">${Object.entries(WONINGEN).map(([k, v]) => `<option value="${k}"${k === def ? ' selected' : ''}>${v}</option>`).join('')}</select></label>`;
 const app = (name, path, description) => ({ '@context': 'https://schema.org', '@type': 'WebApplication', name, description, url: SITE.domain + path, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web', inLanguage: 'nl', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' }, publisher: ORG });
 const base = (p) => ({ parents: [['/rekentools/', 'Rekentools']], navPath: '/rekentools/', lastmod: UPDATED, stamp: { checked: p.checked || CHECKED, updated: UPDATED }, schema: [app(p.h1, p.path, p.description)], ...p });
@@ -30,7 +30,7 @@ const defB = ['spouw', 'dak'];
 const besDef = besparing(defB, 'tussen');
 export const besparingPage = base({
   path: TOOLS[0].path, og: TOOLS[0].og, crumb: TOOLS[0].crumb, h1: TOOLS[0].h1,
-  title: 'Besparing berekenen: wat levert verduurzamen op?',
+  title: 'Besparing verduurzamen berekenen: wat levert het op?',
   description: 'Kies je woningtype en de maatregelen die je overweegt. Je ziet kosten, ISDE-subsidie en besparing per jaar, met cijfers van Milieu Centraal.',
   scripts: ['/js/rekentools.js'],
   body: `<article><h1>${icoon('euro', 'ico h')} Besparing berekenen</h1><p class="lead">Welke isolatie levert nu écht het meeste op? Kies je woningtype en de stappen die je overweegt.</p>
@@ -59,7 +59,7 @@ ${woningSelect('t-woning')}
 </form>
 <div class="out" id="out" aria-live="polite"><div class="nums"><div><b>${jr(tvDef.met)}</b><span>met subsidie</span></div><div><b>${jr(tvDef.zonder)}</b><span>zonder subsidie</span></div><div><b>${eur(MAATREGELEN.spouw.besparing.tussen)}</b><span>besparing per jaar</span></div></div><p class="src">Voorbeeld: spouwmuurisolatie, tussenwoning, gemiddelde prijs.</p></div>
 <h2>Zo rekenen we</h2><ul><li>Terugverdientijd = (kosten − subsidie) ÷ besparing per jaar.</li><li>De besparing per jaar is altijd het gemiddelde van Milieu Centraal (gasprijs € 1,37 per m³). Een duurdere offerte bespaart niet meer.</li><li>Laat je subsidie leeg, dan rekenen we met het gemiddelde ISDE-bedrag. Precies uitrekenen? Gebruik de <a href="/isde-subsidie-berekenen/">ISDE-rekenhulp</a>.</li></ul>
-<p>Alleen een warmtepomp? Reken met je eigen gasverbruik op <a href="https://warmtepompenmatch.nl/terugverdientijd-berekenen/">WarmtepompenMatch</a>.</p>
+<p>Alleen een warmtepomp? Reken met je eigen gasverbruik in de <a href="https://warmtepompenmatch.nl/terugverdientijd-berekenen/">terugverdientijd-rekenhulp voor warmtepompen</a> op WarmtepompenMatch.</p>
 ${bron(['spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon'], CHECKED)}</article>`,
 });
 
@@ -67,8 +67,8 @@ ${bron(['spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon'], CHECK
 const isdeDef = isde({ m2: { spouw: 50, vloer: 45 } });
 export const isdePage = base({
   path: TOOLS[2].path, og: TOOLS[2].og, crumb: TOOLS[2].crumb, h1: TOOLS[2].h1, checked: ISDE_CHECKED,
-  title: 'ISDE-subsidie berekenen 2026: isolatie en warmtepomp',
-  description: 'Bereken je ISDE-subsidie voor spouw-, dak- en vloerisolatie, glas en een warmtepomp in 2026, inclusief de verdubbeling bij twee maatregelen. Tarieven van RVO.',
+  title: 'ISDE-subsidie isolatie berekenen 2026',
+  description: 'Bereken je ISDE-subsidie 2026 voor spouw-, dak- en vloerisolatie en glas, met de verdubbeling bij twee maatregelen. Ook de warmtepomp. Tarieven van RVO.',
   scripts: ['/js/rekentools.js'],
   body: `<article><h1>${icoon('rekenmachine', 'ico h')} ISDE-subsidie berekenen</h1><p class="lead">Vul de m² in per maatregel. Je ziet direct de ISDE-indicatie voor 2026, met de verdubbeling bij twee maatregelen.</p>
 <form class="calc" data-tool="isde" novalidate>
@@ -83,7 +83,7 @@ ${bron(['isdeIsolatie', 'isdeWp', 'isde2027'], ISDE_CHECKED)}</article>`,
 });
 
 export const toolsHub = {
-  path: '/rekentools/', title: 'Rekentools verduurzamen: besparing, terugverdientijd, ISDE', h1: 'Rekentools', crumb: 'Rekentools', og: 'rekentools', lastmod: UPDATED, stamp: { checked: CHECKED, updated: UPDATED },
+  path: '/rekentools/', title: 'Rekentools verduurzamen: besparing, terugverdientijd, ISDE', h1: 'Rekentools', crumb: 'Rekentools', og: 'rekentools', lastmod: '2026-10-16', stamp: { checked: CHECKED, updated: '2026-10-16' },
   description: 'Gratis rekentools: bereken je besparing, de terugverdientijd en je ISDE-subsidie. Met cijfers van Milieu Centraal en RVO, zonder account.',
   body: `<h1>Rekentools</h1><p class="lead">Rekenen met de cijfers van Milieu Centraal en RVO. Gratis, zonder account; je invoer blijft in je browser.</p>
 <div class="grid">${TOOLS.map((t) => `<a class="card link" href="${t.path}">${icoon(t.icon, 'ico big')}<h2 class="h3">${esc(t.crumb)}</h2><p>${esc(t.kort)}</p></a>`).join('')}<a class="card link" href="/vergelijken/">${icoon('tabel', 'ico big')}<h2 class="h3">Alle maatregelen vergelijken</h2><p>Kosten, subsidie, besparing en terugverdientijd naast elkaar, per woningtype.</p></a></div>

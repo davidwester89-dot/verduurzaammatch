@@ -38,7 +38,7 @@ export default {
 <h2>Zonnepanelen: wanneer wel</h2>
 <p>Zonnepanelen zijn een slimme aanvulling, vooral als je veel stroom gebruikt, bijvoorbeeld met een warmtepomp. Stroom van je eigen dak die je zelf gebruikt, is volgens Milieu Centraal drie tot vier keer goedkoper dan stroom van je leverancier.</p>
 <p>De salderingsregeling stopt per 1 januari 2027. Daarna loont het vooral als je de stroom zelf gebruikt. Milieu Centraal rekent met 8 panelen voor € 3.200 en zo'n € 190 besparing per jaar vanaf 2027, bij 30% eigen verbruik. Lees meer in <a href="/zonnepanelen-na-2027/">zonnepanelen na 2027</a>.</p>
-<p>Een thuisbatterij verdien je volgens Milieu Centraal nu hoogstwaarschijnlijk niet terug. Zie <a href="/thuisbatterij-terugverdienen/">thuisbatterij terugverdienen</a> en de rekenvoorbeelden op <a href="https://thuisaccumatch.nl/thuisaccu-terugverdientijd/">ThuisaccuMatch</a>.</p>
+<p>Een thuisbatterij verdien je volgens Milieu Centraal nu hoogstwaarschijnlijk niet terug. Rekenvoorbeelden staan bij <a href="https://thuisaccumatch.nl/thuisaccu-terugverdientijd/">thuisaccu terugverdientijd</a> op ThuisaccuMatch.</p>
 <h2>Subsidie en financiering per stap</h2>
 <ul><li><strong>Isolatie:</strong> ISDE-subsidie van RVO. Doe je binnen 24 maanden een tweede isolatiemaatregel, of combineer je met een warmtepomp (of een zonneboiler of warmtenet), dan verdubbelt het bedrag voor isolatie. Sinds 2026 krijg je ook ISDE voor ventilatie als je die met isolatie combineert.</li>
 <li><strong>Warmtepomp:</strong> ook ISDE. Voor een hybride van 4 kW met A+++-label is dat € 2.125.</li>
