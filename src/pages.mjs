@@ -65,7 +65,7 @@ ${matchCta}${src('dak', 'isdeIsolatie')}`,
 ${matchCta}${src('vloer', 'isdeIsolatie')}`,
   },
   {
-    slug: 'hybride-warmtepomp-kosten', updated: '2026-10-16', id: 'hybride', crumb: 'Hybride warmtepomp',
+    slug: 'hybride-warmtepomp-kosten', updated: '2026-10-19', id: 'hybride', crumb: 'Hybride warmtepomp',
     title: 'Hybride warmtepomp kosten 2026: subsidie en 2027',
     h1: 'Hybride warmtepomp kosten en subsidie in 2026',
     description: 'Wat kost een hybride of volledig elektrische warmtepomp, hoeveel ISDE krijg je in 2026 en waarom kopen vóór 2027 € 105 per kW kan schelen (voorgenomen).',
@@ -83,11 +83,12 @@ ${matchCta}${src('vloer', 'isdeIsolatie')}`,
 <ul><li><strong>Hybride:</strong> kan bijna altijd, ook bij matige isolatie.</li><li><strong>Volledig elektrisch:</strong> pas bij redelijke isolatie (dak en vloer Rc 2,5 of meer, geïsoleerde spouw en hr++-glas).</li><li>Is je cv-ketel nog goed? Begin dan eerst met isoleren.</li></ul>
 <h2>Subsidie: 2026 en 2027</h2>
 <p>In 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Vanaf 2027 wil het kabinet de subsidie voor de lucht-waterwarmtepomp verlagen naar € 120 per kW. Koop je vóór 31 december 2026 en installeer je in 2027, dan geldt het bedrag van 2026. Die wijzigingen zijn nog voorgenomen; zie <a href="/isde-2027/">ISDE 2027</a>.</p>
+<h2>Merk en type kiezen</h2><p>Weet je dat een warmtepomp bij je huis past, maar twijfel je over het merk of het vermogen? Op onze zustersite <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">WarmtepompenMatch</a> vergelijk je merken en reken je de <a href="https://warmtepompenmatch.nl/warmtepomp-terugverdientijd/">terugverdientijd van een warmtepomp</a> uit met je eigen gasverbruik.</p>
 ${matchCta}${src('hybride', 'allelectric', 'isde2027')}`;
     },
   },
   {
-    slug: 'zonnepanelen-na-2027', updated: '2026-10-15', id: 'zon', crumb: 'Zonnepanelen na 2027',
+    slug: 'zonnepanelen-na-2027', updated: '2026-10-19', id: 'zon', crumb: 'Zonnepanelen na 2027',
     title: 'Zonnepanelen na 2027: lonen ze zonder saldering?',
     h1: 'Zonnepanelen na 2027: lonen ze zonder saldering?',
     description: 'De salderingsregeling stopt op 1 januari 2027. Wat leveren zonnepanelen daarna op en hoe snel verdien je ze terug? Cijfers van Milieu Centraal.',
@@ -101,22 +102,21 @@ ${matchCta}${src('hybride', 'allelectric', 'isde2027')}`;
 </tbody></table></div>
 <p>Bij 30% eigen verbruik en panelen van 435 Wp. Zonnepanelen gaan zo'n 25 jaar mee. Er is geen subsidie; je betaalt 0% btw.</p>
 <h2>Zo haal je er meer uit</h2>
-<ol class="steps"><li>Leg panelen oost-west: meer stroom in de ochtend en avond.</li><li>Verschuif verbruik naar de middag (wasmachine, vaatwasser, auto laden).</li><li>Kijk naar je contract: terugleververgoeding en terugleverkosten verschillen sterk.</li></ol>
+<ol class="steps"><li>Leg panelen oost-west: meer stroom in de ochtend en avond.</li><li>Verschuif verbruik naar de middag (wasmachine, vaatwasser, auto laden).</li><li>Kijk naar je contract: terugleververgoeding en terugleverkosten verschillen sterk. Meer daarover lees je bij <a href="https://thuisaccumatch.nl/salderingsregeling-stopt-2027/">het einde van salderen</a> op ThuisaccuMatch.</li></ol>
 ${matchCta}${src('zon', 'saldering')}`,
   },
   {
-    slug: 'thuisbatterij-terugverdienen', updated: '2026-10-16', id: 'batterij', crumb: 'Thuisbatterij',
+    slug: 'thuisbatterij-terugverdienen', updated: '2026-10-19', id: 'batterij', crumb: 'Thuisbatterij',
     title: 'Thuisbatterij terugverdienen: wanneer loont het?',
     h1: 'Thuisbatterij terugverdienen: wanneer loont het?',
-    description: 'Na het einde van de saldering lijkt een thuisbatterij logisch. Verdien je hem terug? Het eerlijke antwoord, met de bron.',
+    description: 'Verdien je een thuisbatterij terug na 2027? Het korte antwoord van Milieu Centraal, en waar je kosten, merken en terugverdientijd vindt.',
     alt: 'Thuisbatterij aan de muur, gekoppeld aan zonnepanelen',
     body: () => `<p class="lead">Kort antwoord: volgens Milieu Centraal verdien je een thuisbatterij nu hoogstwaarschijnlijk niet terug.</p>
-<h2>Waarom niet?</h2>
-<ul><li>Een batterij is duur ten opzichte van wat je bespaart op stroom.</li><li>In de zomer wek je meer op dan de batterij kan opslaan, in de winter te weinig om hem te vullen.</li><li>Dat geldt ook voor grotere batterijen die handelen op de energiemarkt.</li></ul>
-<h2>Wanneer kan het wel?</h2>
-<p>Als je minder afhankelijk van het net wilt zijn of veel stroom 's avonds gebruikt. Weet dan dat het een keuze is, geen investering. Isoleren of een warmtepomp levert meer op.</p>
-<h2>Eerst dit</h2><ol class="steps"><li>Isoleer de plekken zonder isolatie.</li><li>Overweeg een (hybride) warmtepomp.</li><li>Verbruik zonnestroom slim op het moment zelf.</li></ol>
-${matchCta}${src('batterij')}`,
+<p>Een batterij is duur ten opzichte van wat je bespaart. In de zomer wek je meer op dan hij kan opslaan, in de winter te weinig om hem te vullen. Wil je minder afhankelijk zijn van het net, dan is het vooral een keuze, geen investering.</p>
+<h2>Eerst dit</h2><ol class="steps"><li>Isoleer de plekken zonder isolatie, bijvoorbeeld <a href="/spouwmuurisolatie-kosten/">de spouwmuur</a>.</li><li>Overweeg een <a href="/hybride-warmtepomp-kosten/">(hybride) warmtepomp</a>.</li><li>Verbruik zonnestroom op het moment zelf; zie <a href="/zonnepanelen-na-2027/">zonnepanelen na 2027</a>.</li></ol>
+<h2>Toch een thuisbatterij?</h2><p>Alles over thuisaccu's staat op onze zustersite ThuisaccuMatch:</p>
+<ul><li><a href="https://thuisaccumatch.nl/thuisaccu-terugverdientijd/">Verdien je een thuisaccu terug?</a> Rekenvoorbeelden na het einde van salderen.</li><li><a href="https://thuisaccumatch.nl/thuisaccu-kosten/">Wat kost een thuisaccu?</a> Prijzen per kWh en per merk.</li><li><a href="https://thuisaccumatch.nl/thuisaccu-keuzehulp/">Thuisaccu-keuzehulp</a> en <a href="https://thuisaccumatch.nl/merken/">alle merken</a>.</li></ul>
+${src('batterij')}`,
   },
 ];
 
@@ -129,7 +129,7 @@ export const gidsPages = GIDSEN.map((g) => ({
 
 export const gidsHub = {
   path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, warmtepomp, zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', stamp: { updated: GIDSEN.map((g) => g.updated).sort().at(-1) },
-  description: 'Korte gidsen over spouw-, dak- en vloerisolatie, de hybride warmtepomp, zonnepanelen na 2027 en de thuisbatterij.',
+  description: 'Korte gidsen over spouw-, dak- en vloerisolatie, de hybride warmtepomp en zonnepanelen na 2027, plus een kort overzicht over de thuisbatterij.',
   body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="${esc(g.alt)}" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
 <h2>Meer gidsen</h2>
 <ul><li><a href="/blog/huis-verduurzamen-waar-beginnen/">Huis verduurzamen: welke maatregel eerst?</a></li><li><a href="/glasisolatie-kosten/">Glasisolatie kosten: hr++ of triple glas?</a></li><li><a href="/isde-2027/">ISDE 2027: dit verandert er</a></li><li><a href="/subsidie-isde/">ISDE-subsidie in 2026</a></li><li><a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a></li></ul>`,
