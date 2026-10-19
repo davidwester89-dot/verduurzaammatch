@@ -3,7 +3,7 @@ export default {
   title: 'Zonnepanelen kosten 2026: prijs per paneel en installatie',
   h1: 'Zonnepanelen kosten in 2026: prijs per paneel, installatie en terugverdientijd',
   description: 'Wat kosten zonnepanelen in 2026? Prijs per paneel en per wattpiek, wat er in de installatie zit, de btw en hoe snel je ze terugverdient, ook na 2027.',
-  date: '2026-10-20',
+  date: '2026-10-19',
   checked: '2026-10-19',
   author: 'Redactie VerduurzaamMatch',
   image: 'zonnepanelen-na-2027',
