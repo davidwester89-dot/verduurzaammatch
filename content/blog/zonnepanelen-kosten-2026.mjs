@@ -9,7 +9,7 @@ export default {
   image: 'zonnepanelen-na-2027',
   alt: 'Zonnepanelen op een schuin dak met de zon erboven',
   body: `<p>Je wilt zonnepanelen, maar je weet niet of een offerte van € 4.000 normaal is of veel te duur. En sinds bekend is dat salderen stopt, vraag je je af of ze nog wel lonen. Hier lees je wat zonnepanelen in 2026 kosten volgens Milieu Centraal, wat er in die prijs zit en hoe snel je ze terugverdient.</p>
-<p><strong>Kort gezegd:</strong> 6 panelen kosten zo'n € 2.500, 8 panelen € 3.200 en 10 panelen € 3.800, inclusief omvormer en installatie. Je betaalt 0% btw. Vanaf 2027 verdien je ze in ongeveer 15 tot 17 jaar terug, bij een levensduur van 25 jaar.</p>
+<p><strong>Kort gezegd:</strong> 6 panelen kosten zo'n € 2.500, 8 panelen € 3.200 en 10 panelen € 3.800, inclusief omvormer en installatie. Je betaalt 0% btw. Vanaf 2027 verdien je ze in ongeveer 15 tot 17 jaar terug (onze eigen rekensom: kosten gedeeld door besparing), bij een levensduur van 25 jaar.</p>
 <p>Weet je nog niet of zonnepanelen bij jouw huis de eerste stap zijn? Doe de <a href="/verduurzaam-match/">VerduurzaamMatch</a>.</p>
 <h2>Wat kosten zonnepanelen in 2026?</h2>
 <p>Milieu Centraal geeft richtprijzen voor drie sets. Dat is de gemiddelde prijs van zonnepanelen en een omvormer, inclusief installatie. Milieu Centraal baseert die op de kostenkentallen van RVO.</p>
@@ -43,7 +43,7 @@ export default {
 <p>Je hebt 0% btw betaald, dus je hoeft niets terug te vragen. Heb je geen btw-identificatienummer en is het vermogen van je panelen niet meer dan 15.000 wattpiek? Dan hoef je volgens de Belastingdienst niets te doen. Een landelijke subsidie op zonnepanelen is er niet.</p>
 <h2>Terugverdientijd nu en na 2027</h2>
 <p>De salderingsregeling stopt per 1 januari 2027. Daarna krijg je voor teruggeleverde stroom nog maar weinig: bij een vast of variabel contract volgens Milieu Centraal zo'n 1,25 cent per kWh. Zonnestroom loont dan vooral als je hem zelf gebruikt.</p>
-<p>Deel je de kosten door de besparing vanaf 2027, dan kom je uit op ongeveer 15 jaar voor 6 panelen, 17 jaar voor 8 en 15 jaar voor 10. Zonnepanelen gaan zo'n 25 jaar mee, dus binnen die tijd verdien je ze terug.</p>
+<p>Deel je de kosten door de besparing vanaf 2027, dan kom je uit op ongeveer 15 jaar voor 6 panelen, 17 jaar voor 8 en 15 jaar voor 10. Dat is onze eigen rekensom. Milieu Centraal rekent ook de vervanging van de omvormer mee, dus hun terugverdientijd kan anders uitvallen. Zonnepanelen gaan zo'n 25 jaar mee, dus binnen die tijd verdien je ze terug.</p>
 <p>Milieu Centraal rekent vanaf 2027 met een stroomprijs van 21 cent per kWh. Op ThuisaccuMatch zie je ook € 0,26 per kWh: dat is de prijs die het CBS in september 2026 mat. Beide zijn geldig. De eerste is het uitgangspunt van Milieu Centraal voor de jaren zonder saldering, de tweede een gemeten prijs. Met een hogere stroomprijs verdien je je panelen sneller terug.</p>
 <p>Zo haal je meer uit je panelen:</p>
 <ul><li>Leg ze oost-west als dat kan: je wekt dan ook 's ochtends en 's avonds op.</li>
