@@ -101,6 +101,7 @@ ${matchCta}${src('hybride', 'allelectric', 'isde2027')}`;
 <tr><td>10</td><td>€ 3.800</td><td>3.800 kWh</td><td>€ 260</td><td>15 jaar</td></tr>
 </tbody></table></div>
 <p>Bij 30% eigen verbruik en panelen van 435 Wp (Milieu Centraal, huidige voorbeelden). Zonnepanelen gaan zo'n 25 jaar mee. Er is geen subsidie; je betaalt 0% btw. Op ThuisaccuMatch zie je ook een ouder Milieu Centraal-voorbeeld met ongeveer 3.500 kWh voor 10 panelen; beide voorbeelden zijn geldig, met ander wattpiek.</p>
+<p>Wat een installatie nu kost, per paneel en per wattpiek, lees je in <a href="/blog/zonnepanelen-kosten-2026/">zonnepanelen kosten in 2026</a>.</p>
 <h2>Zo haal je er meer uit</h2>
 <ol class="steps"><li>Leg panelen oost-west: meer stroom in de ochtend en avond.</li><li>Verschuif verbruik naar de middag (wasmachine, vaatwasser, auto laden).</li><li>Kijk naar je contract: terugleververgoeding en terugleverkosten verschillen sterk. Meer daarover lees je bij <a href="https://thuisaccumatch.nl/salderingsregeling-stopt-2027/">het einde van salderen</a>, de <a href="https://thuisaccumatch.nl/einde-salderen-berekenen/">rekentool einde salderen</a> en <a href="https://thuisaccumatch.nl/terugleverkosten/">terugleverkosten</a> op ThuisaccuMatch.</li></ol>
 ${matchCta}${src('zon', 'saldering')}`,
@@ -120,7 +121,7 @@ export const gidsHub = {
   body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="${esc(g.alt)}" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
 <p class="src">Verdieping: <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">warmtepomp kiezen op WarmtepompenMatch</a> · <a href="https://thuisaccumatch.nl/thuisaccu-keuzehulp/">thuisaccu kiezen op ThuisaccuMatch</a></p>
 <h2>Meer gidsen</h2>
-<ul><li><a href="/blog/huis-verduurzamen-waar-beginnen/">Huis verduurzamen: welke maatregel eerst?</a></li><li><a href="/glasisolatie-kosten/">Glasisolatie kosten: hr++ of triple glas?</a></li><li><a href="/isde-2027/">ISDE 2027: dit verandert er</a></li><li><a href="/subsidie-isde/">ISDE-subsidie in 2026</a></li><li><a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a></li></ul>`,
+<ul><li><a href="/blog/huis-verduurzamen-waar-beginnen/">Huis verduurzamen: welke maatregel eerst?</a></li><li><a href="/glasisolatie-kosten/">Glasisolatie kosten: hr++ of triple glas?</a></li><li><a href="/blog/zonnepanelen-kosten-2026/">Zonnepanelen kosten in 2026: prijs per paneel en installatie</a></li><li><a href="/isde-2027/">ISDE 2027: dit verandert er</a></li><li><a href="/subsidie-isde/">ISDE-subsidie in 2026</a></li><li><a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a></li></ul>`,
 };
 
 // ---- Home ----

@@ -59,6 +59,7 @@ ${woningSelect('t-woning')}
 </form>
 <div class="out" id="out" aria-live="polite"><div class="nums"><div><b>${jr(tvDef.met)}</b><span>met subsidie</span></div><div><b>${jr(tvDef.zonder)}</b><span>zonder subsidie</span></div><div><b>${eur(MAATREGELEN.spouw.besparing.tussen)}</b><span>besparing per jaar</span></div></div><p class="src">Voorbeeld: spouwmuurisolatie, tussenwoning, gemiddelde prijs.</p></div>
 <h2>Zo rekenen we</h2><ul><li>Terugverdientijd = (kosten − subsidie) ÷ besparing per jaar.</li><li>De besparing per jaar is altijd het gemiddelde van Milieu Centraal (gasprijs € 1,37 per m³). Een duurdere offerte bespaart niet meer.</li><li>Laat je subsidie leeg, dan rekenen we met het gemiddelde ISDE-bedrag. Precies uitrekenen? Gebruik de <a href="/isde-subsidie-berekenen/">ISDE-rekenhulp</a>.</li></ul>
+<p>Nog geen offerte voor zonnepanelen? In <a href="/blog/zonnepanelen-kosten-2026/">zonnepanelen kosten in 2026</a> zie je wat een installatie nu kost.</p>
 <p>Alleen een warmtepomp? Reken met je eigen gasverbruik in de <a href="https://warmtepompenmatch.nl/terugverdientijd-berekenen/">terugverdientijd-rekenhulp voor warmtepompen</a> op WarmtepompenMatch.</p>
 ${bron(['spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon'], CHECKED)}</article>`,
 });
