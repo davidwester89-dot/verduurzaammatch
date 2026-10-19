@@ -43,8 +43,8 @@ export default {
 <p>Je hebt 0% btw betaald, dus je hoeft niets terug te vragen. Heb je geen btw-identificatienummer en is het vermogen van je panelen niet meer dan 15.000 wattpiek? Dan hoef je volgens de Belastingdienst niets te doen. Een landelijke subsidie op zonnepanelen is er niet.</p>
 <h2>Terugverdientijd nu en na 2027</h2>
 <p>De salderingsregeling stopt per 1 januari 2027. Daarna krijg je voor teruggeleverde stroom nog maar weinig: bij een vast of variabel contract volgens Milieu Centraal zo'n 1,25 cent per kWh. Zonnestroom loont dan vooral als je hem zelf gebruikt.</p>
-<p>Deel je de kosten door de besparing vanaf 2027, dan kom je uit op ongeveer 15 jaar voor 6 panelen, 17 jaar voor 8 en 15 jaar voor 10. Dat is onze eigen rekensom. Milieu Centraal rekent ook de vervanging van de omvormer mee, dus hun terugverdientijd kan anders uitvallen. Zonnepanelen gaan zo'n 25 jaar mee, dus binnen die tijd verdien je ze terug.</p>
-<p>Milieu Centraal rekent vanaf 2027 met een stroomprijs van 21 cent per kWh. Op ThuisaccuMatch zie je ook € 0,26 per kWh: dat is de prijs die het CBS in september 2026 mat. Beide zijn geldig. De eerste is het uitgangspunt van Milieu Centraal voor de jaren zonder saldering, de tweede een gemeten prijs. Met een hogere stroomprijs verdien je je panelen sneller terug.</p>
+<p>Deel je de kosten door de besparing vanaf 2027, dan kom je uit op ongeveer 15 jaar voor 6 panelen, 17 jaar voor 8 en 15 jaar voor 10. Dat is onze eigen rekensom. Milieu Centraal rekent ook de vervanging van de omvormer mee. Zonnepanelen gaan zo'n 25 jaar mee, dus binnen die tijd verdien je ze terug.</p>
+<p>Milieu Centraal rekent vanaf 2027 met een stroomprijs van 21 cent per kWh, het uitgangspunt voor de jaren zonder saldering. Met een hogere stroomprijs verdien je je panelen sneller terug.</p>
 <p>Zo haal je meer uit je panelen:</p>
 <ul><li>Leg ze oost-west als dat kan: je wekt dan ook 's ochtends en 's avonds op.</li>
 <li>Draai de wasmachine en vaatwasser overdag.</li>
