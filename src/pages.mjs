@@ -72,18 +72,18 @@ ${matchCta}${src('vloer', 'isdeIsolatie')}`,
     alt: 'Buitenunit van een warmtepomp naast een woning met cv-ketel binnen',
     body: () => {
       const h = MAATREGELEN.hybride, a = MAATREGELEN.allelectric;
-      return `<p class="lead">Een hybride warmtepomp werkt samen met je cv-ketel en bespaart zo'n 60 à 70% gas voor verwarming.</p>
+      return `<p class="lead">Een hybride warmtepomp werkt samen met je cv-ketel en bespaart zo'n 60 à 70% gas voor verwarming (Milieu Centraal).</p>
 <h2>Kosten en terugverdientijd</h2>
-<div class="tbl"><table><thead><tr><th>Type</th><th>Kosten</th><th>Subsidie 2026</th><th>Besparing per jaar</th><th>Terugverdientijd</th></tr></thead><tbody>
-<tr><td>Hybride, 4 kW</td><td>${eur(h.kosten.hoek)}</td><td>${eur(h.subsidie.hoek)}</td><td>${eur(h.besparing.hoek)}</td><td>${jaren(terugverdien(h, 'hoek'))}</td></tr>
-<tr><td>Volledig elektrisch, 8 kW</td><td>${eur(a.kosten.hoek)}</td><td>${eur(a.subsidie.hoek)}</td><td>${eur(a.besparing.hoek)}</td><td>${jaren(terugverdien(a, 'hoek'))}</td></tr>
+<div class="tbl"><table><thead><tr><th>Type</th><th>Kosten</th><th>Subsidie 2026</th><th>Besparing per jaar</th><th>Terugverdientijd met subsidie</th></tr></thead><tbody>
+<tr><td>Hybride, 4 kW</td><td>${eur(h.kosten.hoek)}</td><td>${eur(h.subsidie.hoek)}</td><td>${eur(h.besparing.hoek)}</td><td>6,8 jaar</td></tr>
+<tr><td>Volledig elektrisch, 8 kW</td><td>${eur(a.kosten.hoek)}</td><td>${eur(a.subsidie.hoek)}</td><td>${eur(a.besparing.hoek)}</td><td>9,0 jaar</td></tr>
 </tbody></table></div>
-<p>Cijfers voor een hoekwoning: hybride bij matige isolatie, volledig elektrisch bij goede isolatie. Inclusief btw en plaatsen.</p>
+<p>Cijfers voor een hoekwoning: hybride bij matige isolatie, volledig elektrisch bij goede isolatie. Inclusief btw en plaatsen. Terugverdientijd = (kosten − subsidie) ÷ besparing, met de gepubliceerde besparing van Milieu Centraal (€ 600 / € 1.000). Zonder subsidie is dat 10,3 respectievelijk 12,0 jaar. Op WarmtepompenMatch valt all-electric korter uit (ongeveer 8,8 jaar) omdat daar het vastrecht gas (€ 360 per jaar) meerekent.</p>
 <h2>Hybride of volledig elektrisch?</h2>
 <ul><li><strong>Hybride:</strong> kan bijna altijd, ook bij matige isolatie.</li><li><strong>Volledig elektrisch:</strong> pas bij redelijke isolatie (dak en vloer Rc 2,5 of meer, geïsoleerde spouw en hr++-glas).</li><li>Is je cv-ketel nog goed? Begin dan eerst met isoleren.</li></ul>
 <h2>Subsidie: 2026 en 2027</h2>
-<p>In 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Vanaf 2027 wil het kabinet de subsidie voor de lucht-waterwarmtepomp verlagen naar € 120 per kW. Koop je vóór 31 december 2026 en installeer je in 2027, dan geldt het bedrag van 2026. Die wijzigingen zijn nog voorgenomen; zie <a href="/isde-2027/">ISDE 2027</a>.</p>
-<h2>Merk en type kiezen</h2><p>Weet je dat een warmtepomp bij je huis past, maar twijfel je over het merk of het vermogen? Op onze zustersite <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">WarmtepompenMatch</a> vergelijk je merken en reken je de <a href="https://warmtepompenmatch.nl/warmtepomp-terugverdientijd/">terugverdientijd van een warmtepomp</a> uit met je eigen gasverbruik.</p>
+<p>In 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Vanaf 2027 wil het kabinet de subsidie voor de lucht-waterwarmtepomp verlagen naar € 120 per kW. Koop je vóór 31 december 2026 en installeer je in 2027, dan geldt het bedrag van 2026. Die wijzigingen zijn nog voorgenomen; zie <a href="/isde-2027/">ISDE 2027</a>. Alleen de warmtepomp-ISDE? Zie <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE-subsidie warmtepomp 2026</a> op WarmtepompenMatch.</p>
+<h2>Merk en type kiezen</h2><p>Weet je dat een warmtepomp bij je huis past, maar twijfel je over het merk of het vermogen? Op <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">WarmtepompenMatch</a> vergelijk je merken, zie je <a href="https://warmtepompenmatch.nl/hybride-of-all-electric/">hybride of all-electric</a> en <a href="https://warmtepompenmatch.nl/warmtepomp-kosten/">wat een warmtepomp kost</a>, en reken je de <a href="https://warmtepompenmatch.nl/warmtepomp-terugverdientijd/">terugverdientijd</a> uit met je eigen gasverbruik.</p>
 ${matchCta}${src('hybride', 'allelectric', 'isde2027')}`;
     },
   },
@@ -100,9 +100,9 @@ ${matchCta}${src('hybride', 'allelectric', 'isde2027')}`;
 <tr><td>8</td><td>€ 3.200</td><td>3.000 kWh</td><td>€ 190</td><td>17 jaar</td></tr>
 <tr><td>10</td><td>€ 3.800</td><td>3.800 kWh</td><td>€ 260</td><td>15 jaar</td></tr>
 </tbody></table></div>
-<p>Bij 30% eigen verbruik en panelen van 435 Wp. Zonnepanelen gaan zo'n 25 jaar mee. Er is geen subsidie; je betaalt 0% btw.</p>
+<p>Bij 30% eigen verbruik en panelen van 435 Wp (Milieu Centraal, huidige voorbeelden). Zonnepanelen gaan zo'n 25 jaar mee. Er is geen subsidie; je betaalt 0% btw. Op ThuisaccuMatch zie je ook een ouder Milieu Centraal-voorbeeld met ongeveer 3.500 kWh voor 10 panelen; beide voorbeelden zijn geldig, met ander wattpiek.</p>
 <h2>Zo haal je er meer uit</h2>
-<ol class="steps"><li>Leg panelen oost-west: meer stroom in de ochtend en avond.</li><li>Verschuif verbruik naar de middag (wasmachine, vaatwasser, auto laden).</li><li>Kijk naar je contract: terugleververgoeding en terugleverkosten verschillen sterk. Meer daarover lees je bij <a href="https://thuisaccumatch.nl/salderingsregeling-stopt-2027/">het einde van salderen</a> op ThuisaccuMatch.</li></ol>
+<ol class="steps"><li>Leg panelen oost-west: meer stroom in de ochtend en avond.</li><li>Verschuif verbruik naar de middag (wasmachine, vaatwasser, auto laden).</li><li>Kijk naar je contract: terugleververgoeding en terugleverkosten verschillen sterk. Meer daarover lees je bij <a href="https://thuisaccumatch.nl/salderingsregeling-stopt-2027/">het einde van salderen</a>, de <a href="https://thuisaccumatch.nl/einde-salderen-berekenen/">rekentool einde salderen</a> en <a href="https://thuisaccumatch.nl/terugleverkosten/">terugleverkosten</a> op ThuisaccuMatch.</li></ol>
 ${matchCta}${src('zon', 'saldering')}`,
   },
   {
@@ -115,7 +115,7 @@ ${matchCta}${src('zon', 'saldering')}`,
 <p>Een batterij is duur ten opzichte van wat je bespaart. In de zomer wek je meer op dan hij kan opslaan, in de winter te weinig om hem te vullen. Wil je minder afhankelijk zijn van het net, dan is het vooral een keuze, geen investering.</p>
 <h2>Eerst dit</h2><ol class="steps"><li>Isoleer de plekken zonder isolatie, bijvoorbeeld <a href="/spouwmuurisolatie-kosten/">de spouwmuur</a>.</li><li>Overweeg een <a href="/hybride-warmtepomp-kosten/">(hybride) warmtepomp</a>.</li><li>Verbruik zonnestroom op het moment zelf; zie <a href="/zonnepanelen-na-2027/">zonnepanelen na 2027</a>.</li></ol>
 <h2>Toch een thuisbatterij?</h2><p>Alles over thuisaccu's staat op onze zustersite ThuisaccuMatch:</p>
-<ul><li><a href="https://thuisaccumatch.nl/thuisaccu-terugverdientijd/">Verdien je een thuisaccu terug?</a> Rekenvoorbeelden na het einde van salderen.</li><li><a href="https://thuisaccumatch.nl/thuisaccu-kosten/">Wat kost een thuisaccu?</a> Prijzen per kWh en per merk.</li><li><a href="https://thuisaccumatch.nl/thuisaccu-keuzehulp/">Thuisaccu-keuzehulp</a> en <a href="https://thuisaccumatch.nl/merken/">alle merken</a>.</li></ul>
+<ul><li><a href="https://thuisaccumatch.nl/thuisaccu-terugverdientijd/">Verdien je een thuisaccu terug?</a> Rekenvoorbeelden na het einde van salderen.</li><li><a href="https://thuisaccumatch.nl/blog/thuisbatterij-rendabel-2027/">Thuisbatterij rendabel in 2027?</a> Per situatie uitgerekend.</li><li><a href="https://thuisaccumatch.nl/thuisaccu-kosten/">Wat kost een thuisaccu?</a> Prijzen per kWh en per merk.</li><li><a href="https://thuisaccumatch.nl/thuisaccu-keuzehulp/">Thuisaccu-keuzehulp</a>, <a href="https://thuisaccumatch.nl/stekkerbatterij-of-vaste-thuisaccu/">stekkerbatterij of vaste thuisaccu</a> en <a href="https://thuisaccumatch.nl/merken/">alle merken</a>.</li></ul>
 ${src('batterij')}`,
   },
 ];
@@ -131,6 +131,7 @@ export const gidsHub = {
   path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, warmtepomp, zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', stamp: { updated: GIDSEN.map((g) => g.updated).sort().at(-1) },
   description: 'Korte gidsen over spouw-, dak- en vloerisolatie, de hybride warmtepomp en zonnepanelen na 2027, plus een kort overzicht over de thuisbatterij.',
   body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="${esc(g.alt)}" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
+<p class="src">Verdieping: <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">warmtepomp kiezen op WarmtepompenMatch</a> · <a href="https://thuisaccumatch.nl/thuisaccu-keuzehulp/">thuisaccu kiezen op ThuisaccuMatch</a></p>
 <h2>Meer gidsen</h2>
 <ul><li><a href="/blog/huis-verduurzamen-waar-beginnen/">Huis verduurzamen: welke maatregel eerst?</a></li><li><a href="/glasisolatie-kosten/">Glasisolatie kosten: hr++ of triple glas?</a></li><li><a href="/isde-2027/">ISDE 2027: dit verandert er</a></li><li><a href="/subsidie-isde/">ISDE-subsidie in 2026</a></li><li><a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a></li></ul>`,
 };
@@ -151,6 +152,7 @@ ${img('home', 'Huis met geïsoleerd dak, warmtepomp en zonnepanelen')}</section>
 <p>Geen spaargeld? Met de <a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a> leen je met een verzamelinkomen onder € 60.000 tegen 0% rente.</p>
 <h2>Gidsen</h2>
 <div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="${esc(g.alt)}" loading="lazy"><h3>${esc(g.crumb)}</h3><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
+<p class="src">Verdieping: <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">warmtepomp kiezen op WarmtepompenMatch</a> · <a href="https://thuisaccumatch.nl/thuisaccu-keuzehulp/">thuisaccu kiezen op ThuisaccuMatch</a></p>
 <h2>Waarom VerduurzaamMatch?</h2>
 <ul><li><strong>Cijfers van Milieu Centraal en RVO</strong>, met bronlink.</li><li><strong>Volgorde op wat het oplevert</strong>, nooit op vergoeding.</li><li><strong>Gratis en zonder account.</strong></li></ul>`,
 };
@@ -196,7 +198,7 @@ export const subsidie = {
 </tbody></table></div>
 <p><strong>Twee maatregelen = dubbel.</strong> Voer je binnen 24 maanden een tweede isolatiemaatregel uit, of combineer je met een warmtepomp, dan verdubbelt het isolatiebedrag. Biobased materiaal geeft een extra bonus.</p>
 <h2>Warmtepomp</h2>
-<p>Lucht-waterwarmtepomp in 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Een hybride van 4 kW met A+++-label levert zo € 2.125 op. Je krijgt altijd minimaal € 500.</p>
+<p>Lucht-waterwarmtepomp in 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Een hybride van 4 kW met A+++-label levert zo € 2.125 op. Je krijgt altijd minimaal € 500. Alleen de warmtepomp? Zie <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE-subsidie warmtepomp 2026</a> op WarmtepompenMatch.</p>
 <p class="src">Bedragen per m², minimale en maximale oppervlakken en de biobased bonus: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/isolatiemaatregelen" rel="noopener">ISDE isolatiemaatregelen</a> ("Subsidiebedrag voor uitvoering in 2025 of later"). Warmtepomp (€ 225 per kW en € 200 A+++-bonus in 2026, vast deel € 1.025 in het rekenvoorbeeld) en alle 2027-bedragen: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/isde-wat-wijzigt-er-2027" rel="noopener">ISDE: wat wijzigt er vanaf 2027?</a>. Minimaal € 500: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp" rel="noopener">ISDE warmtepomp</a>. Gecontroleerd op 16 oktober 2026.</p>
 <h2>Wat verandert er in 2027?</h2>
 <p>Vanaf 2027 gaat de ISDE voor lucht-waterwarmtepompen en triple glas omlaag en voor hr++-glas omhoog. Die wijzigingen zijn nog voorgenomen. Alle bedragen en de overgangsregeling staan op <a href="/isde-2027/">ISDE 2027: dit verandert er</a>.</p>
@@ -230,7 +232,7 @@ export const isde2027 = {
 <ul><li>Koop je een warmtepomp uiterlijk 31 december 2026 en laat je hem in 2027 installeren? Dan krijg je € 225 per kW (2026) in plaats van € 120.</li><li>Hetzelfde geldt voor triple- of vacuümglas in nieuwe kozijnen: € 111 in plaats van € 55 per m².</li><li>Je levert bewijs van aankoop in 2026 mee, zoals een getekende offerte of opdrachtbevestiging.</li><li>Bij een warmtepomp gekocht in 2026 krijg je niet de slimme bonus en niet de hogere A+++-bonus.</li></ul>
 <p>Hr++-glas wordt in 2027 juist hoger gesubsidieerd. Meer over glas: <a href="/glasisolatie-kosten/">glasisolatie kosten</a>.</p>
 <h2>Elektrische kookvoorziening</h2><p>Gekocht vóór 1 januari 2027? Dan kun je nog subsidie aanvragen, binnen 24 maanden na aanschaf.</p>
-<p>De bedragen en voorwaarden van nu staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a>. Wat een warmtepomp kost: <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a>.</p>
+<p>De bedragen en voorwaarden van nu staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a>. Wat een warmtepomp kost: <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a>. Alleen de warmtepomp-ISDE, inclusief 2027: <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">WarmtepompenMatch</a>.</p>
 ${matchCta}<p class="src">Bron: <a href="${SOURCES.isde2027.url}" rel="noopener">${esc(SOURCES.isde2027.title)}</a> (door RVO gecontroleerd op 14 oktober 2026). Door ons gecontroleerd op 16 oktober 2026.</p>${toolLinks('isde')}</article>`,
 };
 
@@ -275,7 +277,7 @@ export const bronnen = {
   description: 'Alle bronnen achter de cijfers op VerduurzaamMatch: Milieu Centraal, RVO, Rijksoverheid en het Nationaal Warmtefonds.',
   body: `<article><h1>Bronnen en cijfers</h1><p>Alle kosten, besparingen en subsidies komen van deze pagina's.</p>
 <ul>${Object.values(SOURCES).map((s) => `<li><a href="${s.url}" rel="noopener">${esc(s.title)}</a></li>`).join('')}</ul>
-<h2>Uitgangspunten</h2><ul><li>Besparing bij een gasprijs van € 1,37 per m³ (verwachting Milieu Centraal voor 2026-2040).</li><li>Terugverdientijd = kosten gedeeld door besparing per jaar, met en zonder subsidie.</li><li>Warmtepomp en hr++-glas: cijfers voor een hoekwoning. Appartement: cijfers van een tussenwoning.</li></ul></article>`,
+<h2>Uitgangspunten</h2><ul><li>Besparing bij een gasprijs van € 1,37 per m³ (verwachting Milieu Centraal voor 2026-2040). WarmtepompenMatch leidt uit dezelfde Milieu Centraal-rekenvoorbeelden ongeveer € 1,39 per m³ af; beide prijzen komen van Milieu Centraal.</li><li>Terugverdientijd = kosten gedeeld door besparing per jaar, met en zonder subsidie.</li><li>Warmtepomp en hr++-glas: cijfers voor een hoekwoning. Appartement: cijfers van een tussenwoning.</li></ul></article>`,
 };
 
 export const privacy = {

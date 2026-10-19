@@ -3,7 +3,7 @@ export default {
   title: 'Energiebespaarlening 2026: 0% rente onder € 60.000',
   description: 'Lenen voor isolatie, warmtepomp of zonnepanelen via het Warmtefonds: bedragen, looptijden en wanneer je 0% rente krijgt. Bijgewerkt oktober 2026.',
   date: '2026-10-16',
-  updated: '2026-10-16',
+  updated: '2026-10-19',
   checked: '2026-10-16', // rentetabel en voorwaarden nagekeken op 16-10 (commit 'renteoverzicht 12 okt')
   author: 'Redactie VerduurzaamMatch',
   image: 'energiebespaarlening-warmtefonds',
@@ -20,6 +20,6 @@ export default {
 <ul><li>Je bent eigenaar én bewoner van de woning.</li><li>Het gaat om een bestaande woning, geen nieuwbouw.</li><li>Een aannemer of installateur voert de maatregelen uit.</li><li>Het geld komt in een bouwdepot. Daaruit betaal je de facturen.</li></ul>
 <p>Woon je in een appartement? Dan kan ook je VvE lenen bij het Warmtefonds.</p>
 <h2>Combineren met subsidie</h2>
-<p>Voor isolatie en warmtepompen kun je daarnaast ISDE-subsidie aanvragen. Lees wat je terugkrijgt in onze gids <a href="/subsidie-isde/">ISDE-subsidie 2026</a>. Bekijk ook wat <a href="/spouwmuurisolatie-kosten/">spouwmuurisolatie</a> of een <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp</a> kost.</p>
+<p>Voor isolatie en warmtepompen kun je daarnaast ISDE-subsidie aanvragen. Lees wat je terugkrijgt in onze gids <a href="/subsidie-isde/">ISDE-subsidie 2026</a>. Bekijk ook wat <a href="/spouwmuurisolatie-kosten/">spouwmuurisolatie</a> of een <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp</a> kost. Alle prijzen per type warmtepomp staan op <a href="https://warmtepompenmatch.nl/warmtepomp-kosten/">WarmtepompenMatch</a>.</p>
 <p class="src">Bron: <a href="https://www.warmtefonds.nl/particulieren/voorwaarden-energiebespaarlening" rel="noopener">Nationaal Warmtefonds, voorwaarden Energiebespaarlening</a> · <a href="https://www.warmtefonds.nl/particulieren/energiebespaarlening-nul-procent" rel="noopener">Energiebespaarlening 0%</a>.</p>`,
 };

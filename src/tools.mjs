@@ -47,7 +47,7 @@ ${bron(['spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon'], CHECK
 const tvDef = terugverdientijd({ kosten: MAATREGELEN.spouw.kosten.tussen, subsidie: MAATREGELEN.spouw.subsidie.tussen, besparing: MAATREGELEN.spouw.besparing.tussen });
 export const terugverdienPage = base({
   path: TOOLS[1].path, og: TOOLS[1].og, crumb: TOOLS[1].crumb, h1: TOOLS[1].h1,
-  title: 'Terugverdientijd berekenen: isolatie en warmtepomp',
+  title: 'Terugverdientijd verduurzamen berekenen',
   description: 'Bereken hoe snel je isolatie, een (hybride) warmtepomp of zonnepanelen terugverdient. Met je eigen offerteprijs of het gemiddelde van Milieu Centraal.',
   scripts: ['/js/rekentools.js'],
   body: `<article><h1>${icoon('klok', 'ico h')} Terugverdientijd berekenen</h1><p class="lead">Ben je bang dat je te veel betaalt? Vul je offerteprijs in en zie hoe snel je hem terugverdient.</p>
@@ -59,6 +59,7 @@ ${woningSelect('t-woning')}
 </form>
 <div class="out" id="out" aria-live="polite"><div class="nums"><div><b>${jr(tvDef.met)}</b><span>met subsidie</span></div><div><b>${jr(tvDef.zonder)}</b><span>zonder subsidie</span></div><div><b>${eur(MAATREGELEN.spouw.besparing.tussen)}</b><span>besparing per jaar</span></div></div><p class="src">Voorbeeld: spouwmuurisolatie, tussenwoning, gemiddelde prijs.</p></div>
 <h2>Zo rekenen we</h2><ul><li>Terugverdientijd = (kosten − subsidie) ÷ besparing per jaar.</li><li>De besparing per jaar is altijd het gemiddelde van Milieu Centraal (gasprijs € 1,37 per m³). Een duurdere offerte bespaart niet meer.</li><li>Laat je subsidie leeg, dan rekenen we met het gemiddelde ISDE-bedrag. Precies uitrekenen? Gebruik de <a href="/isde-subsidie-berekenen/">ISDE-rekenhulp</a>.</li></ul>
+<p>Alleen een warmtepomp? Reken met je eigen gasverbruik op <a href="https://warmtepompenmatch.nl/terugverdientijd-berekenen/">WarmtepompenMatch</a>.</p>
 ${bron(['spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon'], CHECKED)}</article>`,
 });
 
@@ -76,7 +77,7 @@ export const isdePage = base({
 <label class="chk"><input type="checkbox" name="samen"> Ik doe binnen 24 maanden nog een tweede isolatiemaatregel of een warmtepomp</label>
 </form>
 <div class="out" id="out" aria-live="polite"><div class="nums"><div><b>${eur(isdeDef.isolatie)}</b><span>isolatie${isdeDef.dubbel ? ' (verdubbeld)' : ''}</span></div><div><b>${eur(isdeDef.warmtepomp)}</b><span>warmtepomp</span></div><div><b>${eur(isdeDef.totaal)}</b><span>totaal ISDE</span></div></div><p class="src">Voorbeeld: 50 m² spouwmuur en 45 m² vloer.</p></div>
-<h2>Zo rekenen we</h2><ul><li>Bedragen per m² en minimale en maximale oppervlakken van RVO, voor uitvoering in 2025 of later. Boven het maximum telt het maximum.</li><li>Vloer en bodem samen minimaal 20 m².</li><li>Twee of meer isolatiemaatregelen, of isolatie met een warmtepomp, binnen 24 maanden: het isolatiebedrag verdubbelt.</li><li>Warmtepomp 2026: € ${ISDE_WP.vast.toLocaleString('nl-NL')} + € ${ISDE_WP.perKw} per kW + € ${ISDE_WP.aplus} bij A+++, minimaal € ${ISDE_WP.minimaal}, volgens het rekenvoorbeeld van RVO. De biobased bonus en meldcode-eisen tellen we niet mee.</li><li>Voor 2027 zijn lagere bedragen voor warmtepompen voorgenomen. Zie <a href="/subsidie-isde/">ISDE-subsidie</a>.</li></ul>
+<h2>Zo rekenen we</h2><ul><li>Bedragen per m² en minimale en maximale oppervlakken van RVO, voor uitvoering in 2025 of later. Boven het maximum telt het maximum.</li><li>Vloer en bodem samen minimaal 20 m².</li><li>Twee of meer isolatiemaatregelen, of isolatie met een warmtepomp, binnen 24 maanden: het isolatiebedrag verdubbelt.</li><li>Warmtepomp 2026: € ${ISDE_WP.vast.toLocaleString('nl-NL')} + € ${ISDE_WP.perKw} per kW + € ${ISDE_WP.aplus} bij A+++, minimaal € ${ISDE_WP.minimaal}, volgens het rekenvoorbeeld van RVO. De biobased bonus en meldcode-eisen tellen we niet mee.</li><li>Voor 2027 zijn lagere bedragen voor warmtepompen voorgenomen. Zie <a href="/subsidie-isde/">ISDE-subsidie</a>. Alleen de warmtepomp: <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE warmtepomp 2026</a> op WarmtepompenMatch.</li></ul>
 <p class="note">Dit is een indicatie. RVO beslist over je aanvraag; check de meldcodelijst vóór je koopt.</p>
 ${bron(['isdeIsolatie', 'isdeWp', 'isde2027'], ISDE_CHECKED)}</article>`,
 });
@@ -102,7 +103,8 @@ export const vergelijkPage = {
   body: `<h1>${icoon('tabel', 'ico h')} Alle maatregelen vergelijken</h1><p class="lead">Welke stap levert in jouw woning het meeste op? Kies je woningtype en sorteer op wat jij belangrijk vindt.</p>
 <form class="calc row" id="vf" novalidate>${woningSelect('v-woning')}</form>
 <div class="tbl"><table class="sort" id="vt"><caption class="sr">Vergelijking per maatregel, sorteerbaar</caption><thead><tr>${KOL.map(([k, t]) => `<th scope="col"><button type="button" data-k="${k}">${t}</button></th>`).join('')}</tr></thead><tbody>${overzichtRijen('tussen')}</tbody></table></div>
-<p class="src">* Cijfers voor een hoekwoning (glas en warmtepompen geeft Milieu Centraal niet per woningtype). Appartement: cijfers van een tussenwoning. Terugverdientijd = (kosten − subsidie) ÷ besparing per jaar, gasprijs € 1,37 per m³. Klik op een kolomkop om te sorteren.</p>
+<p class="src">* Cijfers voor een hoekwoning (glas en warmtepompen geeft Milieu Centraal niet per woningtype). Appartement: cijfers van een tussenwoning. Terugverdientijd = (kosten − subsidie) ÷ besparing per jaar, gasprijs € 1,37 per m³ (Milieu Centraal, verwachting 2026-2040). Klik op een kolomkop om te sorteren.</p>
+<p>Verdieping: <a href="https://warmtepompenmatch.nl/vergelijken/">warmtepompen vergelijken</a> op WarmtepompenMatch · <a href="https://thuisaccumatch.nl/thuisaccu-terugverdientijd/">thuisaccu terugverdienen</a> op ThuisaccuMatch.</p>
 <noscript><p class="note">Zonder JavaScript zie je de tussenwoning. Per woningtype staan de cijfers ook in de <a href="/gidsen/">gidsen</a>.</p></noscript>
 <div class="offerte"><h2 class="h3">Welke stap eerst?</h2><p>Goedkoopst is niet altijd slimst. De check kijkt ook naar je bouwjaar, label, budget en doel.</p><a class="btn sun" href="/verduurzaam-match/">Doe de check in 2 minuten</a></div>
 <p>${TOOLS.map((t) => `<a href="${t.path}">${esc(t.crumb)}</a>`).join(' · ')}</p>
