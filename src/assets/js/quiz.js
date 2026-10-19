@@ -4,7 +4,14 @@ const ICOON = { spouw: 'muur', dak: 'dak', vloer: 'vloer', glas: 'glas', hybride
 import { SOURCES } from './lib/maatregelen.js';
 import { PARTNERLINKS, AANBIEDERS, uitgaand } from './lib/partnerlinks.js';
 import { bewaar, laad, wis } from './lib/opslag.js';
+import { track } from './consent.js';
 const form = document.getElementById('form');
+// Statistieken (alleen na toestemming, zie consent.js): start = eerste eigen antwoord,
+// afgerond = de uitslag verschijnt na een eigen antwoord. Elk één keer per paginaweergave, nooit de antwoorden zelf.
+let qStart = false, qDone = false;
+const quizStart = () => { if (!qStart) { qStart = true; track('quiz_start', {}); } };
+const quizKlaar = (params) => { if (qStart && !qDone) qDone = track('quiz_complete', params); };
+form.addEventListener('change', (e) => { if (e.isTrusted) quizStart(); });
 const out = document.getElementById('result');
 const eur = (n) => '€ ' + n.toLocaleString('nl-NL');
 // Offerteblok per maatregel: pas zichtbaar als er een goedgekeurde partnerlink is.
@@ -42,6 +49,7 @@ function toon(scroll) {
   try { res = match(antwoorden()); } catch { out.innerHTML = `<p class="note">Beantwoord alle ${VELDEN.length} vragen.</p>`; document.getElementById('share').hidden = true; return; }
   out.innerHTML = '<h2>Jouw advies</h2>' + res.map(kaart).join('') + '<p class="src">Terugverdientijd met – zonder subsidie. Gemiddelden van Milieu Centraal, gasprijs € 1,37/m³.</p>';
   document.getElementById('share').hidden = false;
+  quizKlaar({ maatregel: res.length ? res[0].id : 'geen' });
   if (scroll) out.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 }
 function noindexMetParams() {
@@ -97,7 +105,7 @@ form.addEventListener('change', (e) => {
   setUrl(`${location.pathname}?${q}`);
   if (store) bewaar(store, OPSLAG, q, VELDEN);
 });
-form.addEventListener('submit', (e) => { e.preventDefault(); toon(true); });
+form.addEventListener('submit', (e) => { e.preventDefault(); if (e.isTrusted) quizStart(); toon(true); });
 
 document.addEventListener('click', (e) => {
   if (!e.target.closest('[data-reset]')) return;
