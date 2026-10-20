@@ -19,6 +19,8 @@ export const SOURCES = {
   warmtefondsVoorwaarden: { title: 'Nationaal Warmtefonds – Voorwaarden Energiebespaarlening', url: 'https://www.warmtefonds.nl/particulieren/voorwaarden-energiebespaarlening' },
   warmtefondsNul: { title: 'Nationaal Warmtefonds – Energiebespaarlening 0%', url: 'https://www.warmtefonds.nl/particulieren/energiebespaarlening-nul-procent' },
   warmtefondsRente: { title: 'Nationaal Warmtefonds – Actuele rentetarieven', url: 'https://www.warmtefonds.nl/particulieren/actuele-rentetarieven' },
+  stappenplan: { title: 'Milieu Centraal – Stappenplan voor een energiezuinig huis', url: 'https://www.milieucentraal.nl/energie-besparen/energiezuinig-wonen/stappenplan-voor-een-energiezuinig-huis/' },
+  verbeterjehuis: { title: 'Verbeterjehuis – Stap voor stap je huis energiezuinig maken', url: 'https://www.verbeterjehuis.nl/eigen-huis/stap-voor-stap-je-huis-energiezuinig-maken' },
   saldering: { title: 'Rijksoverheid – Salderingsregeling stopt per 1 januari 2027', url: 'https://www.rijksoverheid.nl/onderwerpen/energie-thuis/salderingsregeling' },
 };
 
