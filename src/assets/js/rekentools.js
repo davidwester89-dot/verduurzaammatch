@@ -17,7 +17,7 @@ function reken() {
     if (!ids.length) { out.innerHTML = '<p class="note">Kies minstens één maatregel.</p>'; return; }
     let r; try { r = besparing(ids, f.get('woning')); } catch (e) { out.innerHTML = `<p class="note">${e.message}.</p>`; return; }
     out.innerHTML = nums([[eur(r.kosten), 'kosten'], [eur(r.subsidie), 'subsidie'], [eur(r.besparing), 'besparing per jaar']])
-      + `<div class="tbl"><table><thead><tr><th>Maatregel</th><th>Kosten</th><th>Subsidie</th><th>Besparing</th></tr></thead><tbody>${r.rijen.map((x) => `<tr><td>${x.naam}${x.hoek ? '*' : ''}</td><td>${eur(x.kosten)}</td><td>${x.subsidie ? eur(x.subsidie) : '–'}</td><td>${eur(x.besparing)}</td></tr>`).join('')}</tbody></table></div>${r.rijen.some((x) => x.hoek) ? '<p class="src">* Cijfers voor een hoekwoning.</p>' : ''}`;
+      + `<div class="tbl" tabindex="0" role="region" aria-label="Tabel: Maatregel, Kosten, Subsidie, Besparing"><table><thead><tr><th>Maatregel</th><th>Kosten</th><th>Subsidie</th><th>Besparing</th></tr></thead><tbody>${r.rijen.map((x) => `<tr><td>${x.naam}${x.hoek ? '*' : ''}</td><td>${eur(x.kosten)}</td><td>${x.subsidie ? eur(x.subsidie) : '–'}</td><td>${eur(x.besparing)}</td></tr>`).join('')}</tbody></table></div>${r.rijen.some((x) => x.hoek) ? '<p class="src">* Cijfers voor een hoekwoning.</p>' : ''}`;
   } else if (tool === 'terugverdien') {
     const m = MAATREGELEN[f.get('m')], w = f.get('woning');
     form.kosten.placeholder = `Gemiddelde: € ${m.kosten[w].toLocaleString('nl-NL')}`;

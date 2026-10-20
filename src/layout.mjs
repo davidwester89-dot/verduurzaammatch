@@ -27,6 +27,18 @@ const NAV = [
 const CSS = readFileSync(new URL('./assets/css/style.css', import.meta.url), 'utf8')
   .replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').replace(/;}/g, '}');
 
+const navLinks = (cur) => NAV.map(([h, t, c]) => `<a href="${h}"${c ? ` class="${c}"` : ''}${cur.startsWith(h) ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('');
+
+/** Scrollbare tabellen (.tbl) bereikbaar met het toetsenbord: tabindex + role=region + label uit caption of kolomkoppen; lege kopcel krijgt verborgen tekst. */
+export function a11yTabellen(html) {
+  return html.replace(/<div class="tbl">(\s*<table[^>]*>)([\s\S]*?<\/table>)/g, (m, open, rest) => {
+    const cap = rest.match(/<caption[^>]*>([\s\S]*?)<\/caption>/);
+    const koppen = [...(rest.match(/<thead>[\s\S]*?<\/thead>/)?.[0] || '').matchAll(/<th[^>]*>([\s\S]*?)<\/th>/g)].map((x) => x[1].replace(/<[^>]+>/g, '').trim()).filter(Boolean);
+    const label = cap ? cap[1].replace(/<[^>]+>/g, '').trim() : `Tabel: ${koppen.join(', ')}`;
+    return `<div class="tbl" tabindex="0" role="region" aria-label="${label.replace(/"/g, '&quot;')}">${open}${rest.replace(/<th><\/th>/g, '<th><span class="sr">Onderdeel</span></th>')}`;
+  });
+}
+
 export function networkFooter() {
   return `<div class="net"><p class="fh">Ook van ons</p><ul>${networkFor('verduurzaammatch.nl').map((s) => `<li><a href="${s.url}">${s.logo}</a> <span>· ${esc(s.wat)}</span></li>`).join('')}</ul></div>`;
 }
@@ -68,11 +80,12 @@ ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(
 <a class="skip" href="#inhoud">Naar de inhoud</a>
 <header class="site"><div class="wrap">
 <a class="logo" href="/">${LOGO}<span>${BRAND}</span></a>
-<nav class="main" aria-label="Hoofdmenu">${NAV.map(([h, t, c]) => `<a href="${h}"${c ? ` class="${c}"` : ''}${(p.navPath || p.path).startsWith(h) ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('')}</nav>
+<nav class="main" aria-label="Hoofdmenu">${navLinks(p.navPath || p.path)}</nav>
+<details class="menu"><summary><span class="burger" aria-hidden="true"></span><span class="menu-txt">Menu</span></summary><nav aria-label="Hoofdmenu">${navLinks(p.navPath || p.path)}</nav></details>
 </div></header>
 <main id="inhoud"><div class="wrap">
 ${crumbs}
-${withStamp(p.body, p.stamp)}
+${a11yTabellen(withStamp(p.body, p.stamp))}
 ${foutGezien(url)}
 </div></main>
 <footer class="site"><div class="wrap">
@@ -86,7 +99,7 @@ ${foutGezien(url)}
 ${networkFooter()}
 </div></footer>
 ${hasCta ? `<a class="stickycta" href="/verduurzaam-match/" data-cta="sticky_check">Doe de check in 2 minuten</a>` : ''}
-${[...(GA_ID ? ['/js/consent.js'] : []), ...(p.scripts || [])].map((s) => `<script type="module" src="${s}"></script>`).join('\n')}
+${['/js/menu.js', ...(GA_ID ? ['/js/consent.js'] : []), ...(p.scripts || [])].map((s) => `<script type="module" src="${s}"></script>`).join('\n')}
 </body>
 </html>`;
 }

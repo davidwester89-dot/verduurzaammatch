@@ -5,13 +5,15 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 h1,h2,h3,.logo span{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"DejaVu Serif",serif;letter-spacing:-.01em}
 h1{font-size:clamp(30px,6vw,46px);line-height:1.15;margin:.3em 0 .35em}
+h1,h2{overflow-wrap:break-word;hyphens:auto}
+@media(max-width:400px){h1{font-size:clamp(1.6rem,7.5vw,1.875rem)}}
 h2{font-size:clamp(23px,4vw,30px);line-height:1.25;margin:1.6em 0 .5em;padding-bottom:.25em;border-bottom:3px solid var(--mint)}
 h3,.h3{font-size:21px;margin:1.2em 0 .3em}
 a{color:var(--teal);text-underline-offset:3px}
 a:hover{color:var(--teal-d)}
 img{max-width:100%;height:auto;display:block}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:10px;z-index:9}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:10px 14px;z-index:9;min-height:48px;display:inline-flex;align-items:center}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 header.site{background:var(--teal-d);color:#fff}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap}
@@ -50,6 +52,7 @@ th{background:var(--mint);font-weight:700}
 .tbl{overflow-x:auto}
 .src{font-size:15px;color:var(--muted)}
 .src a{display:inline-block;padding:6px 0}
+.src a,.report a{overflow-wrap:anywhere}
 .note{background:#fff8e4;border-left:5px solid var(--sun);padding:12px 16px;margin:16px 0}
 .hero-img{margin:16px 0 8px;border-radius:2px 14px 14px 2px;overflow:hidden}
 article{max-width:740px}
@@ -69,7 +72,7 @@ article{max-width:740px}
 .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:10px 0}
 .nums div{background:var(--bg);padding:8px 10px}.nums b{display:block;font-size:20px}
 .nums span{font-size:14px;color:var(--muted)}
-.partner{font-size:13px;background:var(--mint);padding:1px 6px;border-radius:3px;margin-left:6px}
+.partner{font-size:15px;background:var(--mint);padding:1px 6px;border-radius:3px;margin-left:6px}
 .offerte{background:var(--teal-d);color:#fff;padding:20px;border-radius:2px 12px 12px 2px;margin:20px 0}
 .offerte h2,.offerte h3{color:#fff;border:0;margin-top:0}
 .offerte a{color:#fff}
@@ -86,9 +89,26 @@ footer .net b{color:var(--sun)}
 .consent{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;background:#fff;color:var(--ink);border-top:5px solid var(--teal);box-shadow:0 6px 30px rgba(0,0,0,.25);padding:16px;max-width:720px;margin:0 auto}
 .consent p{margin:0 0 10px}
 .consent-btns{display:flex;gap:10px;flex-wrap:wrap}
-.consent-btn{min-height:48px;padding:8px 20px;font-size:16px;font-weight:700;border-radius:4px;border:2px solid var(--teal);background:var(--teal);color:#fff;cursor:pointer}
-.consent-btn[data-c=no]{background:#fff;color:var(--teal)}
-@media (max-width:760px){nav.main{width:100%;overflow-x:auto;flex-wrap:nowrap;margin:0 -10px}nav.main a{white-space:nowrap}}
+/* Accepteren en Weigeren even zichtbaar (AP: geen optie met meer nadruk) */
+.consent-btn{min-height:48px;min-width:140px;padding:8px 20px;font-size:16px;font-weight:700;border-radius:4px;border:2px solid var(--teal);background:var(--teal);color:#fff;cursor:pointer}
+.consent a{display:inline-block;padding-block:12px}
+/* Mobiel menu: menuknop (details.menu) zoals de andere match-sites, i.p.v. een scrollstrook die links verbergt */
+header.site{position:relative}
+details.menu{display:none}
+details.menu summary{list-style:none;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 14px;border:2px solid rgba(255,255,255,.55);border-radius:4px;color:#fff;font-weight:700;cursor:pointer}
+details.menu summary::-webkit-details-marker{display:none}
+details.menu summary:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+details.menu .burger,details.menu .burger::before,details.menu .burger::after{display:block;width:18px;height:2px;background:#fff;border-radius:2px;position:relative}
+details.menu .burger::before,details.menu .burger::after{content:"";position:absolute;left:0}
+details.menu .burger::before{top:-6px}details.menu .burger::after{top:6px}
+details.menu[open] .burger{background:transparent}details.menu[open] .burger::before{top:0;transform:rotate(45deg)}details.menu[open] .burger::after{top:0;transform:rotate(-45deg)}
+details.menu nav{position:absolute;left:0;right:0;top:100%;z-index:30;background:var(--teal-d);box-shadow:0 12px 24px rgba(0,0,0,.25);padding:8px 20px 16px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+details.menu nav a{color:#fff;text-decoration:none;display:flex;align-items:center;min-height:48px;padding:0 12px;border:1px solid rgba(255,255,255,.25);border-radius:4px}
+details.menu nav a[aria-current]{box-shadow:inset 0 -3px var(--sun)}
+details.menu nav a.nav-cta{grid-column:1/-1;justify-content:center;background:var(--sun);color:#1b2a1f;font-weight:700;border-color:var(--sun)}
+@media (max-width:760px){nav.main{display:none}details.menu{display:block}header.site .wrap{flex-wrap:nowrap}}
+@media (max-width:374px){.logo{font-size:19px;gap:8px}.logo svg{width:30px;height:30px}details.menu summary{padding:0 12px}details.menu .menu-txt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+@media (max-width:400px){th,td{padding:8px}}
 /* Quick wins 16-10: voortgang, bewaarde antwoorden, delen, controlebadge, Fout gezien?, vaste mobiele knop */
 .qprog{margin:0 0 18px}.qprog p{margin:0 0 6px;font-weight:700}
 .qbar{height:8px;border-radius:99px;background:var(--mint);overflow:hidden}.qbar span{display:block;height:100%;width:0;background:var(--leaf);transition:width .2s}
@@ -122,10 +142,10 @@ body.has-consent .stickycta{display:none}
 .checks input,.chk input{width:20px;height:20px;accent-color:var(--teal)}
 .out{margin:16px 0}
 .tools{background:var(--mint);padding:14px 16px;border-radius:2px 10px 10px 2px;margin:20px 0}.tools ul{margin:4px 0 0;padding-left:20px}.tools .fh{font-weight:700;margin:0}
-table.sort th button{all:unset;cursor:pointer;font-weight:700;display:block;min-height:28px}
+table.sort th button{all:unset;cursor:pointer;font-weight:700;display:flex;align-items:center;min-height:44px}
 table.sort th button:focus-visible{outline:3px solid var(--sun)}
 table.sort th[aria-sort=ascending] button:after{content:" ▲"}table.sort th[aria-sort=descending] button:after{content:" ▼"}
-table.sort tbody th{font-weight:600;white-space:nowrap}table.sort tbody th a{display:inline-flex;gap:6px;align-items:center;padding:4px 0}
+table.sort tbody th{font-weight:600;white-space:nowrap}table.sort tbody th a{display:inline-flex;gap:6px;align-items:center;padding:4px 0;min-height:44px}
 .quiz legend .ico{margin-right:6px}
 .quiz.stap fieldset{display:none}.quiz.stap fieldset.nu{display:block;animation:in .2s ease-out}
 @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}

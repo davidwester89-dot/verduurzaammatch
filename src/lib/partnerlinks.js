@@ -19,5 +19,5 @@ export function uitgaand(id, partnerlinks = PARTNERLINKS) {
   const a = AANBIEDERS[id];
   if (!a) throw new Error('Onbekende aanbieder ' + id);
   const pl = partnerlinks[id];
-  return pl ? { href: pl, rel: 'sponsored noopener', partner: true, naam: a.naam } : { href: a.url, rel: 'noopener', partner: false, naam: a.naam };
+  return pl ? { href: pl, rel: 'sponsored nofollow noopener', partner: true, naam: a.naam } : { href: a.url, rel: 'noopener', partner: false, naam: a.naam };
 }

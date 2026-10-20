@@ -17,5 +17,5 @@ test('partnerlinks leeg en match leest ze niet', () => {
   assert.deepEqual(PARTNERLINKS, {});
   assert.ok(!readFileSync(new URL('../src/lib/match.js', import.meta.url), 'utf8').includes('partnerlinks'));
   assert.equal(uitgaand('quatt').partner, false);
-  assert.equal(uitgaand('quatt', { quatt: 'https://x' }).rel, 'sponsored noopener');
+  assert.equal(uitgaand('quatt', { quatt: 'https://x' }).rel, 'sponsored nofollow noopener');
 });
