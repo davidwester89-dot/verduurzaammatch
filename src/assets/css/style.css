@@ -107,7 +107,9 @@ details.menu nav a{color:#fff;text-decoration:none;display:flex;align-items:cent
 details.menu nav a[aria-current]{box-shadow:inset 0 -3px var(--sun)}
 details.menu nav a.nav-cta{grid-column:1/-1;justify-content:center;background:var(--sun);color:#1b2a1f;font-weight:700;border-color:var(--sun)}
 @media (max-width:760px){nav.main{display:none}details.menu{display:block}header.site .wrap{flex-wrap:nowrap}}
-@media (max-width:374px){.logo{font-size:19px;gap:8px}.logo svg{width:30px;height:30px}details.menu summary{padding:0 12px}details.menu .menu-txt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+details.menu{flex:none}
+@media (max-width:480px){header.site .wrap{gap:10px}header.site .logo{font-size:19px;gap:8px}header.site .logo svg{width:30px;height:30px}details.menu summary{width:48px;padding:0;justify-content:center}details.menu .menu-txt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+@media (max-width:359px){header.site .logo{font-size:17px}}
 @media (max-width:400px){th,td{padding:8px}}
 /* Quick wins 16-10: voortgang, bewaarde antwoorden, delen, controlebadge, Fout gezien?, vaste mobiele knop */
 .qprog{margin:0 0 18px}.qprog p{margin:0 0 6px;font-weight:700}

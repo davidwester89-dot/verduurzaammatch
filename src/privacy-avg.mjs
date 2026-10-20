@@ -8,6 +8,9 @@ const NETWERKEN = [
   { re: /(^|\.)jf79\.net$|ds1\.nl$|daisycon\./, naam: 'Daisycon', privacy: 'https://daisycon.com/en/legal-information/privacy-policy/' },
 ];
 
+/** Privacybeleid van de netwerken (geen affiliate-links; tests laten deze URL's toe). */
+export const NETWERK_PRIVACY = NETWERKEN.map((n) => n.privacy);
+
 /** Welke affiliatenetwerken zitten achter de huidige partnerlinks? Onbekend netwerk = bouwfout, zodat de tekst nooit achterloopt. */
 export function netwerkenVan(partnerlinks) {
   const uit = [];
