@@ -223,9 +223,9 @@ ${src('spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon', 'batteri
 
 // ---- Subsidie ----
 export const subsidie = {
-  path: '/subsidie-isde/', title: 'ISDE subsidie 2026: bedragen isolatie en warmtepomp', h1: 'ISDE subsidie 2026: bedragen voor isolatie en warmtepomp', crumb: 'ISDE-subsidie', og: 'subsidie-isde', lastmod: '2026-10-19', stamp: { checked: '2026-10-19', updated: '2026-10-19' },
-  description: 'ISDE subsidie 2026 voor isolatie, glas en warmtepomp: bedragen per m² en per kW, de verdubbeling bij twee maatregelen en hoe je aanvraagt. Bron: RVO.',
-  body: `<article><h1>ISDE subsidie 2026: bedragen voor isolatie en warmtepomp</h1>${img('subsidie-isde', 'Huis met een euroteken en een vinkje voor subsidie')}
+  path: '/subsidie-isde/', title: 'ISDE-subsidie isolatie 2026: bedragen en voorwaarden', h1: 'ISDE-subsidie isolatie 2026', crumb: 'ISDE-subsidie', og: 'subsidie-isde', lastmod: '2026-10-19', stamp: { checked: '2026-10-19', updated: '2026-10-19' },
+  description: 'ISDE-subsidie 2026 voor isolatie en glas: bedragen per m², de verdubbeling bij twee maatregelen, voorwaarden en hoe je aanvraagt. Bron: RVO.',
+  body: `<article><h1>ISDE-subsidie isolatie 2026</h1>${img('subsidie-isde', 'Huis met een euroteken en een vinkje voor subsidie')}
 <p class="lead">Met de ISDE krijg je als eigenaar-bewoner geld terug voor isolatie, een warmtepomp of een zonneboiler. Je vraagt het aan ná de installatie, binnen 24 maanden.</p>
 <h2>Isolatie</h2>
 <div class="tbl"><table><thead><tr><th>Maatregel</th><th>Per m²</th><th>Oppervlak</th></tr></thead><tbody>
