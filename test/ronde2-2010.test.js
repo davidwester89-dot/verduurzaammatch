@@ -27,3 +27,10 @@ test('privacy: vergoeding is een mogelijkheid ("kunnen ... krijgen"), geen zeker
   assert.doesNotMatch(s, /dan krijgen wij daardoor een vergoeding/);
   assert.match(s, /dan kunnen wij daardoor een vergoeding krijgen/);
 });
+
+test('brontekst (.src) minimaal 16px', () => {
+  const css = read('src/assets/css/style.css');
+  const sizes = [...css.matchAll(/(?:^|\})\s*\.src\{[^}]*font-size:(\d+)px/g)].map((m) => +m[1]);
+  assert.ok(sizes.length > 0);
+  for (const n of sizes) assert.ok(n >= 16, `.src ${n}px`);
+});
