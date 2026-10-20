@@ -1,8 +1,10 @@
-import { SITE, esc, BRAND, ORG, fmtDate } from './layout.mjs';
+import { SITE, esc, BRAND, ORG, fmtDate, GA_ID } from './layout.mjs';
 import { MAATREGELEN, SOURCES, WONINGEN, CHECKED, terugverdien } from './lib/maatregelen.js';
 import { VRAGEN } from './lib/match.js';
 import { icoon } from './lib/iconen.js';
 import { toolLinks } from './tools.mjs';
+import { PRIVACY_UPDATED, cookieTabel, partnerNetwerk, grondslag, doorgifte, bewaartermijnen, rechten } from './privacy-avg.mjs';
+import { PARTNERLINKS } from './lib/partnerlinks.js';
 const ICOON_VRAAG = { woning: 'huis', bouwjaar: 'kalender', label: 'label', budget: 'euro', doel: 'doel' };
 
 const eur = (n) => '€ ' + n.toLocaleString('nl-NL');
@@ -323,18 +325,23 @@ export const bronnen = {
 };
 
 export const privacy = {
-  path: '/privacy/', title: 'Privacy en cookies | VerduurzaamMatch', h1: 'Privacy en cookies', crumb: 'Privacy', og: 'home',
+  path: '/privacy/', title: 'Privacy en cookies | VerduurzaamMatch', h1: 'Privacy en cookies', crumb: 'Privacy', og: 'home', stamp: { updated: PRIVACY_UPDATED },
   description: 'Hoe VerduurzaamMatch met je gegevens omgaat: geen account, Google Analytics alleen na jouw toestemming en altijd in te trekken.',
   body: `<article><h1>Privacy en cookies</h1>
 <p>Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
 <h2>Wie is verantwoordelijk?</h2><p>Verantwoordelijk voor de verwerking van persoonsgegevens op deze site: VerduurzaamMatch.nl, <a href="mailto:info@verduurzaammatch.nl">info@verduurzaammatch.nl</a>.</p>
 <h2>Welke gegevens?</h2><p>Je antwoorden in de VerduurzaamMatch blijven in je browser. We slaan ze niet op en sturen ze nergens heen. Zodat je later verder kunt, bewaart je browser ze in de lokale opslag (<code>verduurzaammatch-check-v1</code>, maximaal 90 dagen); wij kunnen daar niet bij. “Opnieuw beginnen” wist ze.</p>
 <h2 id="cookies">Cookies en statistieken</h2><p>We gebruiken geen advertentiecookies. Voor statistieken gebruiken we Google Analytics 4 (meet-ID G-RE5YBMSK4D), maar alleen als je in de cookiemelding op "Accepteren" klikt. Zonder toestemming laden we Google Analytics niet en gaat er niets naar Google.</p>
-<p>Geef je toestemming, dan plaatst Google Analytics cookies (zoals <code>_ga</code>) en meten we welke pagina's bezocht worden en op welke knoppen en partnerlinks wordt geklikt. Google Analytics 4 slaat geen IP-adressen op; die worden alleen gebruikt om een globale locatie te bepalen en daarna weggegooid. We gebruiken de gegevens alleen voor statistieken, niet voor advertenties, en bewaren ze maximaal 14 maanden. Google verwerkt de gegevens als verwerker; zie het <a href="https://policies.google.com/privacy" rel="noopener">privacybeleid van Google</a>.</p>
+<p>Geef je toestemming, dan plaatst Google Analytics cookies (zoals <code>_ga</code>) en meten we welke pagina's bezocht worden en op welke knoppen en partnerlinks wordt geklikt. Google Analytics 4 slaat geen IP-adressen op; die worden alleen gebruikt om een globale locatie te bepalen en daarna weggegooid. We gebruiken de gegevens alleen voor statistieken, niet voor advertenties (zie <a href="#bewaren">bewaartermijnen</a>). Google verwerkt de gegevens als verwerker; zie het <a href="https://policies.google.com/privacy" rel="noopener">privacybeleid van Google</a>.</p>
 <p>Je keuze bewaren we 12 maanden in je browser (localStorage). Je kunt je toestemming altijd intrekken via <a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a> (ook onderaan elke pagina). Dan stoppen we Google Analytics en wissen we de <code>_ga</code>-cookies.</p>
+<h3>Welke cookies en opslag?</h3>${cookieTabel(GA_ID || 'G-RE5YBMSK4D', 'vm-consent')}
 <h2>Links naar aanbieders</h2><p>Klik je door naar een aanbieder of vraag je daar een offerte aan, dan geldt de privacyverklaring van die aanbieder.</p>
-<h2>Hosting</h2><p>De site draait op GitHub Pages. GitHub verwerkt technische gegevens zoals je IP-adres om de site te leveren.</p>
-<h2>Je rechten</h2><p>Je mag vragen welke gegevens we van je hebben en die laten verwijderen. Een klacht kun je indienen bij de Autoriteit Persoonsgegevens.</p></article>`,
+${partnerNetwerk(SITE.name, PARTNERLINKS)}
+${grondslag()}
+${doorgifte()}
+${bewaartermijnen(14)}
+<h2>Hosting</h2><p>De site draait op GitHub Pages. GitHub verwerkt technische gegevens zoals je IP-adres om de site te leveren (zie het <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">privacybeleid van GitHub</a>).</p>
+${rechten(SITE.email)}</article>`,
 };
 
 export const disclaimer = {
