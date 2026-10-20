@@ -105,6 +105,8 @@ ${['/js/menu.js', ...(GA_ID ? ['/js/consent.js'] : []), ...(p.scripts || [])].ma
 }
 
 export const ORG = { '@type': 'Organization', '@id': SITE.domain + '/#org', name: SITE.name, url: SITE.domain + '/', email: SITE.email, logo: { '@type': 'ImageObject', url: SITE.domain + '/apple-touch-icon.png' } };
+/** Auteur in schema op alle pagina's (huisregel): de redactie; publisher blijft ORG (VerduurzaamMatch). */
+export const AUTHOR = { '@type': 'Organization', name: SITE.owner, url: SITE.domain + '/over/' };
 /** Organization + WebSite op elke pagina (één graaf, vaste @id's). */
 export function siteGraph() {
   return { '@context': 'https://schema.org', '@graph': [ORG, { '@type': 'WebSite', '@id': SITE.domain + '/#website', name: SITE.name, url: SITE.domain + '/', inLanguage: 'nl-NL', publisher: { '@id': SITE.domain + '/#org' } }] };

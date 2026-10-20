@@ -1,5 +1,5 @@
 import { readdirSync, existsSync } from 'node:fs';
-import { SITE, esc, ORG } from './layout.mjs';
+import { SITE, esc, ORG, AUTHOR } from './layout.mjs';
 const DIR = new URL('../content/blog/', import.meta.url);
 const files = existsSync(DIR) ? readdirSync(DIR).filter((f) => f.endsWith('.mjs')) : [];
 export const POSTS = (await Promise.all(files.map(async (f) => (await import(new URL(f, DIR))).default)))
@@ -10,7 +10,7 @@ export const blogPages = POSTS.map((b) => ({
   path: `/blog/${b.slug}/`, title: b.title, h1: b.h1 || b.title, crumb: b.h1 || b.title, description: b.description, og: b.image || 'home',
   parents: [['/blog/', 'Blog']], navPath: '/blog/', ogType: 'article', lastmod: b.updated || b.date, article: { date: b.date, updated: b.updated || b.date },
   stamp: { checked: b.checked || null, updated: b.updated || b.date },
-  schema: [{ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: b.title, description: b.description, mainEntityOfPage: `${SITE.domain}/blog/${b.slug}/`, image: `${SITE.domain}/og/${b.image || 'home'}.png`, datePublished: b.date, dateModified: b.updated || b.date, author: ORG, publisher: ORG, inLanguage: 'nl' }],
+  schema: [{ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: b.title, description: b.description, mainEntityOfPage: `${SITE.domain}/blog/${b.slug}/`, image: `${SITE.domain}/og/${b.image || 'home'}.png`, datePublished: b.date, dateModified: b.updated || b.date, author: AUTHOR, publisher: ORG, inLanguage: 'nl' }],
   body: `<article><h1>${esc(b.h1 || b.title)}</h1>${b.image ? `<div class="hero-img"><img src="/img/${b.image}-1200.webp" srcset="/img/${b.image}-600.webp 600w, /img/${b.image}-1200.webp 1200w" sizes="(max-width:760px) 100vw, 740px" width="1200" height="630" alt="${esc(b.alt || b.title)}" fetchpriority="high"></div>` : ''}<p class="src">Door ${esc(b.author || 'Redactie VerduurzaamMatch')} · ${datum(b.date)}</p>${b.body}${cta}</article>`,
 }));
 export const blogHub = {

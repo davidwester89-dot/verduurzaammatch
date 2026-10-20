@@ -34,3 +34,18 @@ test('brontekst (.src) minimaal 16px', () => {
   assert.ok(sizes.length > 0);
   for (const n of sizes) assert.ok(n >= 16, `.src ${n}px`);
 });
+
+test('schema-auteur op alle pagina\'s: Organization Redactie VerduurzaamMatch; publisher VerduurzaamMatch', () => {
+  execSync('node build.mjs', { env: { ...process.env, BASE: '', PREVIEW: '', GO_LIVE: '1' } });
+  const files = execSync('find dist -name "*.html"').toString().trim().split('\n');
+  let n = 0;
+  const walk = (x, f) => {
+    if (Array.isArray(x)) return x.forEach((y) => walk(y, f));
+    if (!x || typeof x !== 'object') return;
+    if (x.author) { n++; assert.deepEqual(x.author, { '@type': 'Organization', name: 'Redactie VerduurzaamMatch', url: 'https://verduurzaammatch.nl/over/' }, f); }
+    if (x.author && x.publisher) assert.equal(x.publisher.name, 'VerduurzaamMatch', f);
+    Object.values(x).forEach((y) => walk(y, f));
+  };
+  for (const f of files) for (const m of read(f).matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) walk(JSON.parse(m[1]), f);
+  assert.ok(n >= 10, `auteurs: ${n}`);
+});

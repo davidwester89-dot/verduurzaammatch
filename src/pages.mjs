@@ -1,4 +1,4 @@
-import { SITE, esc, BRAND, ORG, fmtDate, GA_ID } from './layout.mjs';
+import { SITE, esc, BRAND, ORG, AUTHOR, fmtDate, GA_ID } from './layout.mjs';
 import { MAATREGELEN, SOURCES, WONINGEN, CHECKED, terugverdien } from './lib/maatregelen.js';
 import { VRAGEN } from './lib/match.js';
 import { icoon } from './lib/iconen.js';
@@ -95,7 +95,7 @@ for (const g of GIDSEN) if (g.faq) GIDSEN_FAQ[g.id] = g.faq;
 export const gidsPages = GIDSEN.map((g) => ({
   path: `/${g.slug}/`, title: g.title, h1: g.h1, crumb: g.crumb, description: g.description, og: g.slug, parents: [['/gidsen/', 'Gidsen']], navPath: '/gidsen/', ogType: 'article', ogAlt: g.alt, lastmod: g.updated,
   article: { date: '2026-10-15', updated: g.updated }, stamp: { checked: CHECKED, updated: g.updated },
-  schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, image: `${SITE.domain}/og/${g.slug}.png`, datePublished: '2026-10-15', dateModified: g.updated, author: ORG, publisher: ORG, inLanguage: 'nl' }]
+  schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, image: `${SITE.domain}/og/${g.slug}.png`, datePublished: '2026-10-15', dateModified: g.updated, author: AUTHOR, publisher: ORG, inLanguage: 'nl' }]
     .concat(g.faq ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
   body: `<article><h1>${esc(g.h1)}</h1>${img(g.slug, g.alt)}<p class="src">Door ${SITE.owner} · 15 oktober 2026</p>${g.body()}<p>Weet je nog niet welke stap eerst? Lees <a href="/blog/huis-verduurzamen-waar-beginnen/">Huis verduurzamen: welke maatregel eerst?</a></p>${toolLinks(g.id)}</article>`,
 }));
@@ -182,8 +182,7 @@ ${src('spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon', 'batteri
 
 // ---- Subsidie ----
 /** Article-schema met de redactie als auteur (byline "Door Redactie VerduurzaamMatch" op de pagina). */
-const REDACTIE = { '@type': 'Organization', name: SITE.owner, url: SITE.domain + '/over/' };
-const redactieArticle = (path, headline, og, datePublished, dateModified) => ({ '@context': 'https://schema.org', '@type': 'Article', headline, mainEntityOfPage: SITE.domain + path, image: `${SITE.domain}/og/${og}.png`, datePublished, dateModified, author: REDACTIE, publisher: ORG, inLanguage: 'nl' });
+const redactieArticle = (path, headline, og, datePublished, dateModified) => ({ '@context': 'https://schema.org', '@type': 'Article', headline, mainEntityOfPage: SITE.domain + path, image: `${SITE.domain}/og/${og}.png`, datePublished, dateModified, author: AUTHOR, publisher: ORG, inLanguage: 'nl' });
 const BYLINE = `<p class="src">Door ${SITE.owner}</p>`;
 export const subsidie = {
   schema: [redactieArticle('/subsidie-isde/', 'ISDE-subsidie isolatie 2026', 'subsidie-isde', '2026-10-15', '2026-10-19')],
