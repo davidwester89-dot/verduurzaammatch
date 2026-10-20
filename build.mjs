@@ -9,7 +9,10 @@ rmSync(OUT, { recursive: true, force: true });
 const write = (p, s) => { mkdirSync(dirname(p), { recursive: true }); writeFileSync(p, s); };
 export const pages = [P.home, P.quiz, P.subsidie, P.isde2027, P.glasisolatie, P.gidsHub, ...P.gidsPages, blogHub, ...blogPages, ...toolPages, P.over, P.bronnen, P.privacy, P.disclaimer, P.notfound];
 // GitHub Pages kent geen server-side 301: oude URL's krijgen een doorverwijspagina (meta refresh 0 + canonical + noindex), buiten de sitemap.
-export const REDIRECTS = [['/thuisbatterij-terugverdienen/', 'https://thuisaccumatch.nl/thuisaccu-terugverdientijd/', 'Thuisaccu terugverdientijd op ThuisaccuMatch']];
+export const REDIRECTS = [
+  ['/thuisbatterij-terugverdienen/', 'https://thuisaccumatch.nl/thuisaccu-terugverdientijd/', 'Thuisaccu terugverdientijd op ThuisaccuMatch'],
+  ['/hybride-warmtepomp-kosten/', 'https://warmtepompenmatch.nl/hybride-warmtepomp-kosten/', 'Hybride warmtepomp kosten op WarmtepompenMatch'],
+];
 const redirectHtml = (to, label) => `<!doctype html>
 <html lang="nl">
 <head>
@@ -18,7 +21,7 @@ const redirectHtml = (to, label) => `<!doctype html>
 <link rel="canonical" href="${to}">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Verhuisd naar ThuisaccuMatch</title>
+<title>Verhuisd: ${label}</title>
 </head>
 <body>
 <p>Deze pagina is verhuisd. Ga naar <a href="${to}">${label}</a>.</p>

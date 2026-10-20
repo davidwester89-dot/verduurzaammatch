@@ -71,49 +71,6 @@ ${matchCta}${src('dak', 'isdeIsolatie')}`,
 ${matchCta}${src('vloer', 'isdeIsolatie')}`,
   },
   {
-    slug: 'hybride-warmtepomp-kosten', updated: '2026-10-19', id: 'hybride', crumb: 'Hybride warmtepomp',
-    title: 'Hybride warmtepomp kosten 2026: prijs en installatie',
-    h1: 'Hybride warmtepomp kosten en subsidie in 2026',
-    description: 'Wat kost een hybride warmtepomp inclusief installatie? Prijs per type en vermogen, ISDE 2026 en wat 2027 verandert. Cijfers van Milieu Centraal en RVO.',
-    faq: [
-      ['Wat kost een hybride warmtepomp inclusief installatie?', 'Een hybride warmtepomp van 4 kW met buitenunit kost zo\'n € 6.200, inclusief btw en plaatsen. Met een nieuwe cv-ketel erbij is dat ongeveer € 8.300. De ISDE-subsidie gaat daar nog af (Milieu Centraal).'],
-      ['Hoeveel subsidie krijg ik in 2026 voor een hybride warmtepomp?', 'Voor een lucht-waterwarmtepomp krijg je in 2026 € 1.025 + € 225 per kW, plus € 200 bij een A+++-label. Voor een hybride van 4 kW met A+++-label is dat € 2.125. Je krijgt altijd minimaal € 500 (RVO).'],
-      ['Welk vermogen heb ik nodig?', 'Een hybride warmtepomp heeft een vermogen van 2 tot 6 kW. Dat hangt af van hoe groot je huis is en hoe goed het geïsoleerd is. Voor een tussenwoning, hoekwoning of kleine 2-onder-1-kapwoning is 4 kW meestal genoeg (Milieu Centraal).'],
-      ['Mag ik een hybride warmtepomp zelf installeren?', 'Niet als je ISDE-subsidie wilt. Een bouw- of installatiebedrijf moet de volledige installatie doen. Daarna vraag je de subsidie aan, binnen 24 maanden (RVO).'],
-    ],
-    alt: 'Buitenunit van een warmtepomp naast een woning met cv-ketel binnen',
-    body: () => {
-      const h = MAATREGELEN.hybride, a = MAATREGELEN.allelectric;
-      return `<p class="lead">Een hybride warmtepomp werkt samen met je cv-ketel en bespaart zo'n 60 à 70% gas voor verwarming (Milieu Centraal).</p>
-<h2>Wat kost een hybride warmtepomp inclusief installatie?</h2>
-<p>Een hybride warmtepomp van 4 kW met buitenunit kost zo'n ${eur(h.kosten.hoek)}. Dat is inclusief btw en plaatsen. Moet je cv-ketel ook vervangen? Dan betaal je samen ongeveer € 8.300. De ISDE-subsidie van ${eur(h.subsidie.hoek)} gaat daar nog af. Je houdt dan zo'n ${eur(h.kosten.hoek - h.subsidie.hoek)} over bij je bestaande ketel, of ${eur(8300 - h.subsidie.hoek)} met een nieuwe ketel.</p>
-<h2>Kosten en terugverdientijd</h2>
-<div class="tbl"><table><thead><tr><th>Type</th><th>Kosten</th><th>Subsidie 2026</th><th>Besparing per jaar</th><th>Terugverdientijd met subsidie</th></tr></thead><tbody>
-<tr><td>Hybride, 4 kW</td><td>${eur(h.kosten.hoek)}</td><td>${eur(h.subsidie.hoek)}</td><td>${eur(h.besparing.hoek)}</td><td>6,8 jaar</td></tr>
-<tr><td>Volledig elektrisch, 8 kW</td><td>${eur(a.kosten.hoek)}</td><td>${eur(a.subsidie.hoek)}</td><td>${eur(a.besparing.hoek)}</td><td>9,0 jaar</td></tr>
-</tbody></table></div>
-<p>Cijfers voor een hoekwoning: hybride bij matige isolatie, volledig elektrisch bij goede isolatie. Inclusief btw en plaatsen. Terugverdientijd = (kosten − subsidie) ÷ besparing, met de gepubliceerde besparing van Milieu Centraal (€ 600 / € 1.000). Zonder subsidie is dat 10,3 respectievelijk 12,0 jaar. Op WarmtepompenMatch valt all-electric korter uit (ongeveer 8,8 jaar) omdat daar het vastrecht gas (€ 360 per jaar) meerekent.</p>
-<h2>Prijs per type en vermogen</h2>
-<div class="tbl"><table><thead><tr><th>Type</th><th>Vermogen</th><th>Prijs (incl. btw en plaatsen)</th><th>Subsidie 2026</th></tr></thead><tbody>
-<tr><td>Hybride, bij je bestaande cv-ketel</td><td>4 kW</td><td>${eur(h.kosten.hoek)}</td><td>${eur(h.subsidie.hoek)}</td></tr>
-<tr><td>Hybride, met nieuwe cv-ketel erbij</td><td>4 kW</td><td>€ 8.300</td><td>${eur(h.subsidie.hoek)}</td></tr>
-<tr><td>Volledig elektrisch, met buitenunit</td><td>8 kW</td><td>${eur(a.kosten.hoek)}</td><td>${eur(a.subsidie.hoek)}</td></tr>
-<tr><td>Volledig elektrisch, met bodembron</td><td>8 kW</td><td>€ 30.000</td><td>€ 4.425</td></tr>
-</tbody></table></div>
-<p>Een hybride warmtepomp heeft een vermogen van 2 tot 6 kW, een volledig elektrische 6 tot 12 kW. Hoeveel je nodig hebt, hangt af van de grootte van je huis en de isolatie. Milieu Centraal rekent met 4 kW voor hybride en 8 kW voor volledig elektrisch. Dat past meestal bij een tussenwoning, hoekwoning of kleine 2-onder-1-kap. Een hybride met een groter vermogen is wat duurder, maar levert ook meer subsidie op: in 2026 krijg je € 225 per kW.</p>
-<h2>Installatiekosten</h2>
-<p>De prijzen hierboven zijn inclusief plaatsen. Milieu Centraal noemt geen apart bedrag voor alleen de installatie. Vraag daarom in elke offerte om een totaalprijs inclusief plaatsen. Zo vergelijk je offertes eerlijk.</p>
-<ul><li><strong>Wat er gebeurt:</strong> binnen komt naast je cv-ketel een kastje van ongeveer 30 × 30 × 60 cm. Buiten komt een buitenunit, iets groter dan een airco, bijvoorbeeld tegen de gevel of op het dak van een schuur.</li><li><strong>Nieuwe ketel tegelijk:</strong> is je cv-ketel aan vervanging toe, dan kun je die meteen met de warmtepomp laten plaatsen. Dat is het verschil tussen € 6.200 en € 8.300.</li><li><strong>Volledig elektrisch:</strong> soms moet je ook radiatoren aanpassen of je stroomaansluiting laten verzwaren. Die kosten komen er dan bij.</li><li><strong>Subsidie:</strong> voor ISDE moet een bouw- of installatiebedrijf de volledige installatie doen. Zelf installeren mag niet.</li></ul>
-<p>Twijfel je of je huis klaar is voor een warmtepomp? Op WarmtepompenMatch lees je <a href="https://warmtepompenmatch.nl/is-mijn-huis-geschikt-voor-een-warmtepomp/">hoe je checkt of je huis geschikt is voor een warmtepomp</a>.</p>
-<h2>Hybride of volledig elektrisch?</h2>
-<ul><li><strong>Hybride:</strong> kan bijna altijd, ook bij matige isolatie.</li><li><strong>Volledig elektrisch:</strong> pas bij redelijke isolatie (dak en vloer Rc 2,5 of meer, geïsoleerde spouw en hr++-glas).</li><li>Is je cv-ketel nog goed? Begin dan eerst met isoleren.</li></ul>
-<h2>Subsidie: 2026 en 2027</h2>
-<p>In 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Vanaf 2027 wil het kabinet de subsidie voor de lucht-waterwarmtepomp verlagen naar € 120 per kW. Koop je vóór 31 december 2026 en installeer je in 2027, dan geldt het bedrag van 2026. Die wijzigingen zijn nog voorgenomen; zie <a href="/isde-2027/">ISDE 2027</a>. Alleen de warmtepomp-ISDE? Zie <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE-subsidie warmtepomp 2026</a> op WarmtepompenMatch.</p>
-<h2>Merk en type kiezen</h2><p>Weet je dat een warmtepomp bij je huis past, maar twijfel je over het merk of het vermogen? Met de <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">warmtepomp-keuzehulp</a> op WarmtepompenMatch vergelijk je merken, zie je <a href="https://warmtepompenmatch.nl/hybride-of-all-electric/">hybride of all-electric</a> en <a href="https://warmtepompenmatch.nl/warmtepomp-kosten/">wat een warmtepomp kost</a>, en reken je de <a href="https://warmtepompenmatch.nl/warmtepomp-terugverdientijd/">terugverdientijd van een warmtepomp</a> uit met je eigen gasverbruik.</p>
-${faqHtml(GIDSEN_FAQ.hybride)}${matchCta}${src('hybride', 'allelectric', 'isdeWp', 'isde2027')}`;
-    },
-  },
-  {
     slug: 'zonnepanelen-na-2027', updated: '2026-10-19', id: 'zon', crumb: 'Zonnepanelen na 2027',
     title: 'Zonnepanelen na 2027: lonen ze zonder saldering?',
     h1: 'Zonnepanelen na 2027: lonen ze zonder saldering?',
@@ -144,8 +101,8 @@ export const gidsPages = GIDSEN.map((g) => ({
 }));
 
 export const gidsHub = {
-  path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, warmtepomp, zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', lastmod: '2026-10-19', stamp: { updated: GIDSEN.map((g) => g.updated).sort().at(-1) },
-  description: 'Korte gidsen over spouw-, dak- en vloerisolatie, de hybride warmtepomp en zonnepanelen na 2027, met verwijzingen naar warmtepomp- en thuisaccugidsen.',
+  path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, glas en zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', lastmod: '2026-10-20', stamp: { updated: GIDSEN.map((g) => g.updated).sort().at(-1) },
+  description: 'Korte gidsen over spouw-, dak-, vloer- en glasisolatie en zonnepanelen na 2027, met verwijzingen naar warmtepomp- en thuisaccugidsen.',
   body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="${esc(g.alt)}" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
 <p class="src">Verdieping: <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">warmtepomp kiezen op WarmtepompenMatch</a> · <a href="https://thuisaccumatch.nl/thuisaccu-keuzehulp/">thuisaccu kiezen op ThuisaccuMatch</a></p>
 <h2>Meer gidsen</h2>
@@ -162,7 +119,7 @@ const homeFaq = [
   ['Hoe verduurzaam je een oud huis?', 'Volgens Milieu Centraal geldt: hoe ouder je huis, hoe slechter het bij de bouw is geïsoleerd. Kijk dus eerst wat er al geïsoleerd is en pak de rest aan, samen met goede ventilatie. Is je huis in 2000 of later gebouwd, dan is het al goed geïsoleerd en kun je meteen door naar je ventilatie.'],
 ];
 export const home = {
-  path: '/', title: 'Huis verduurzamen: wat eerst? | VerduurzaamMatch', og: 'home',
+  path: '/', title: 'Huis verduurzamen: wat eerst? | VerduurzaamMatch', og: 'home', lastmod: '2026-10-20',
   description: 'Huis verduurzamen in 2026: welke stap eerst, wat het kost en welke subsidie of lening je krijgt. Doe de gratis match en zie besparing en terugverdientijd.',
   // Organization en WebSite staan op elke pagina (layout.mjs, siteGraph). FAQPage hoort bij de zichtbare vragen hieronder.
   schema: [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: homeFaq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }],
@@ -255,9 +212,9 @@ ${matchCta}${src('isde', 'isdeIsolatie', 'isdeWp', 'isde2027', 'saldering')}${to
 
 // ---- ISDE 2027 (voorgenomen) ----
 export const isde2027 = {
-  path: '/isde-2027/', title: 'ISDE 2027: dit verandert er (warmtepomp en glas)', h1: 'ISDE 2027', crumb: 'ISDE 2027', og: 'subsidie-isde', lastmod: '2026-10-19', stamp: { checked: '2026-10-16', updated: '2026-10-19' },
+  path: '/isde-2027/', title: 'ISDE 2027: wat verandert er voor glas en warmtepomp?', h1: 'ISDE 2027', crumb: 'ISDE 2027', og: 'subsidie-isde', lastmod: '2026-10-20', stamp: { checked: '2026-10-16', updated: '2026-10-19' },
   parents: [['/subsidie-isde/', 'ISDE-subsidie']],
-  description: 'Vanaf 2027 € 120 per kW voor lucht-water, € 200 bonus voor een slimme warmtepomp en meer voor hr++-glas. Koop vóór 31-12 voor het bedrag van 2026.',
+  description: 'ISDE 2027 (voorgenomen): hr++-glas € 30 per m², triple glas € 55, lucht-waterwarmtepomp € 120 per kW. Koop vóór 31-12 voor het bedrag van 2026.',
   body: `<article><h1>ISDE 2027: dit verandert er</h1>
 <p class="lead">De ISDE verandert per 1 januari 2027. Aanvragen kan vanaf dinsdag 5 januari 2027, 12:00 uur. <strong>Alle bedragen hieronder zijn voorgenomen</strong>: RVO werkt de pagina bij zodra ze definitief zijn.</p>
 <h2>Bedragen 2026 en 2027 (voorgenomen)</h2>
@@ -276,7 +233,7 @@ export const isde2027 = {
 <ul><li>Koop je een warmtepomp uiterlijk 31 december 2026 en laat je hem in 2027 installeren? Dan krijg je € 225 per kW (2026) in plaats van € 120.</li><li>Hetzelfde geldt voor triple- of vacuümglas in nieuwe kozijnen: € 111 in plaats van € 55 per m².</li><li>Je levert bewijs van aankoop in 2026 mee, zoals een getekende offerte of opdrachtbevestiging.</li><li>Bij een warmtepomp gekocht in 2026 krijg je niet de slimme bonus en niet de hogere A+++-bonus.</li></ul>
 <p>Hr++-glas wordt in 2027 juist hoger gesubsidieerd. Meer over glas: <a href="/glasisolatie-kosten/">glasisolatie kosten</a>.</p>
 <h2>Elektrische kookvoorziening</h2><p>Gekocht vóór 1 januari 2027? Dan kun je nog subsidie aanvragen, binnen 24 maanden na aanschaf.</p>
-<p>De bedragen en voorwaarden van nu staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a>. Wat een warmtepomp kost: <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a>. Alleen de warmtepomp-ISDE, inclusief 2027: <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE-subsidie warmtepomp 2026</a> op WarmtepompenMatch.</p>
+<p>De bedragen en voorwaarden van nu staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a>. Wat een warmtepomp kost: <a href="https://warmtepompenmatch.nl/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a> op WarmtepompenMatch. Alleen de warmtepomp-ISDE, inclusief 2027: <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE-subsidie warmtepomp 2026</a> op WarmtepompenMatch.</p>
 ${matchCta}<p class="src">Bron: <a href="${SOURCES.isde2027.url}" rel="noopener">${esc(SOURCES.isde2027.title)}</a> (door RVO gecontroleerd op 14 oktober 2026). Door ons gecontroleerd op 16 oktober 2026.</p>${toolLinks('isde')}</article>`,
 };
 
