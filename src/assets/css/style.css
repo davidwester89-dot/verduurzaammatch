@@ -50,7 +50,7 @@ table{border-collapse:collapse;width:100%;background:#fff;margin:12px 0;font-siz
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 th{background:var(--mint);font-weight:700}
 .tbl{overflow-x:auto}
-.src{font-size:15px;color:var(--muted)}
+.src{font-size:16px;color:var(--muted)}
 .src a{display:inline-block;padding:6px 0}
 .src a,.report a{overflow-wrap:anywhere}
 .note{background:#fff8e4;border-left:5px solid var(--sun);padding:12px 16px;margin:16px 0}
