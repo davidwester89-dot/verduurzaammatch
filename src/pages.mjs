@@ -40,6 +40,7 @@ export const GIDSEN = [
 <ul><li>Je hebt een spouw van 4 tot 6 cm. Huizen van voor 1920 hebben vaak geen spouw.</li><li>De spouw is leeg of matig gevuld (bijvullen kan soms).</li><li>Laat de muur vooraf inspecteren, bijvoorbeeld met een camera.</li></ul>
 <h2>Subsidie</h2><p>ISDE geeft € 5,25 per m² (minimaal 10 m²). Combineer je binnen 24 maanden met een tweede maatregel, dan verdubbelt het bedrag. Kies geen UF-schuim: daarvoor stopte de subsidie per 1 april 2026.</p>
 <h2>Offertes</h2><ol class="steps"><li>Vraag minstens 2 gecertificeerde bedrijven (Insula of SKG-IKOB).</li><li>Laat meldcode en m² op de factuur zetten.</li><li>Maak een foto tijdens het werk voor je ISDE-aanvraag.</li></ol>
+<p>Denk je na het isoleren aan een warmtepomp? Een geïsoleerde spouwmuur is een van de punten die Milieu Centraal noemt voor all-electric. Op WarmtepompenMatch lees je <a href="https://warmtepompenmatch.nl/is-mijn-huis-geschikt-voor-een-warmtepomp/">of je huis geschikt is voor een warmtepomp</a>.</p>
 ${matchCta}${src('spouw', 'isdeIsolatie')}`,
   },
   {
@@ -54,6 +55,7 @@ ${matchCta}${src('spouw', 'isdeIsolatie')}`,
 <h2>Welke aanpak?</h2>
 <ul><li><strong>Zolder bewoond:</strong> isoleer het dak, van binnen of bij nieuwe pannen van buiten.</li><li><strong>Zolder alleen opslag:</strong> isoleer de zoldervloer. Evenveel besparing, lagere kosten.</li><li><strong>Plat dak:</strong> altijd van buiten, door een vakbedrijf.</li></ul>
 <h2>Subsidie</h2><p>ISDE: € 16,25 per m² dakisolatie (minimaal 20 m², maximaal 200 m²), € 4 per m² voor een zoldervloer. Bij een tweede maatregel binnen 24 maanden verdubbelt het.</p>
+<p>Eerst isoleren, dan een warmtepomp? Voor all-electric noemt Milieu Centraal minimaal Rc 2,5 in het dak. Hoe je daarna <a href="https://warmtepompenmatch.nl/hybride-of-all-electric/">kiest tussen een hybride en een volledig elektrische warmtepomp</a>, lees je op WarmtepompenMatch.</p>
 ${matchCta}${src('dak', 'isdeIsolatie')}`,
   },
   {
@@ -68,6 +70,7 @@ ${matchCta}${src('dak', 'isdeIsolatie')}`,
 <h2>Is je kruipruimte geschikt?</h2>
 <ul><li>Minstens 35 cm hoog onder de balken.</li><li>Een luik waar je door kunt.</li><li>Lager of geen kruipruimte? Dan kan bodemisolatie of isolatie op de vloer.</li></ul>
 <h2>Subsidie</h2><p>ISDE: € 5,50 per m² vloerisolatie of € 3 per m² bodemisolatie (samen minimaal 20 m²). Samen met spouwmuurisolatie binnen 24 maanden krijg je het dubbele.</p>
+<p>Ook voor de vloer noemt Milieu Centraal Rc 2,5 als minimum voor een all-electric warmtepomp. Is je huis nog matig geïsoleerd, dan kan een hybride. Zie <a href="https://warmtepompenmatch.nl/hybride-of-all-electric/">hybride of all-electric: wat past na het isoleren</a> op WarmtepompenMatch.</p>
 ${matchCta}${src('vloer', 'isdeIsolatie')}`,
   },
   {
@@ -265,6 +268,7 @@ export const glasisolatie = {
 </tbody></table></div>
 <ul><li>Minimaal 3 m², maximaal 45 m² glas.</li><li>Hr++: U-waarde maximaal 1,2. Triple en vacuüm: maximaal 0,7.</li><li>Je mag twee keer subsidie voor glas aanvragen, binnen 24 maanden na het eerste glas.</li><li>Triple glas in nieuwe kozijnen uiterlijk 31 december 2026 gekocht en in 2027 geplaatst? Dan geldt nog € 111 per m². Zie <a href="/isde-2027/">ISDE 2027</a>.</li></ul>
 <h2>Offertes</h2><ol class="steps"><li>Nodig minstens twee bedrijven uit voor advies bij je thuis.</li><li>Vraag of je kozijnen geschikt zijn voor het dikkere glas.</li><li>Laat meldcode en m² op de factuur zetten (zie de <a href="/subsidie-isde/">ISDE-voorwaarden</a>).</li></ol>
+<p>Hr++-glas hoort bij het minimum dat Milieu Centraal noemt voor een all-electric warmtepomp, samen met dak-, vloer- en spouwisolatie. Op WarmtepompenMatch staan <a href="https://warmtepompenmatch.nl/is-mijn-huis-geschikt-voor-een-warmtepomp/">de isolatie-eisen voor een warmtepomp per bouwjaar</a>.</p>
 ${matchCta}${src('glas', 'isdeIsolatie', 'isde2027')}${toolLinks('glas')}</article>`,
 };
 

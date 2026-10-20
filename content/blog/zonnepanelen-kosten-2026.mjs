@@ -48,7 +48,7 @@ export default {
 <p>Zo haal je meer uit je panelen:</p>
 <ul><li>Leg ze oost-west als dat kan: je wekt dan ook 's ochtends en 's avonds op.</li>
 <li>Draai de wasmachine en vaatwasser overdag.</li>
-<li>Kijk naar je contract: terugleververgoeding en terugleverkosten verschillen per leverancier.</li></ul>
+<li>Kijk naar je contract: terugleververgoeding en terugleverkosten verschillen per leverancier. Hoe die kosten werken en hoe je ze beperkt, lees je bij <a href="https://thuisaccumatch.nl/terugleverkosten/">terugleverkosten en terugleververgoeding vanaf 2027</a> op ThuisaccuMatch.</li></ul>
 <p>Meer over lonen zonder saldering lees je in <a href="/zonnepanelen-na-2027/">zonnepanelen na 2027</a>. Reken je eigen situatie door met de <a href="/terugverdientijd-berekenen/">terugverdientijd-calculator</a> of de <a href="/besparing-berekenen/">besparingscalculator</a>. Denk je aan een thuisbatterij erbij? Op ThuisaccuMatch staat <a href="https://thuisaccumatch.nl/thuisaccu-kosten/">wat een thuisaccu kost</a>. Volgens Milieu Centraal verdien je een thuisbatterij nu hoogstwaarschijnlijk niet terug.</p>
 <h2>Waar let je op bij een offerte?</h2>
 <ol class="steps"><li><strong>Vraag minstens 3 offertes aan</strong> bij vakbekwame bedrijven. Vraag eventueel prijzen voor twee groottes, bijvoorbeeld 6 en 10 panelen.</li>
