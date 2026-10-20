@@ -1,13 +1,12 @@
 // Ronde 2: rekentools + vergelijkingsoverzicht. Alleen cijfers uit maatregelen.js (Milieu Centraal) en rekenen.js (RVO).
 import { SITE, esc, ORG } from './layout.mjs';
 import { MAATREGELEN, SOURCES, WONINGEN, CHECKED } from './lib/maatregelen.js';
-import { ISDE_ISOLATIE, ISDE_WP, ISDE_CHECKED, MET_CIJFERS, besparing, terugverdientijd, isde, overzicht } from './lib/rekenen.js';
+import { ISDE_ISOLATIE, ISDE_WP, ISDE_CHECKED, MET_CIJFERS, besparing, terugverdientijd, isde, overzicht, jaarTekst as jr } from './lib/rekenen.js';
 import { icoon } from './lib/iconen.js';
 import { fmtDate } from './layout.mjs';
 
 export const ICOON_MAATREGEL = { spouw: 'muur', dak: 'dak', vloer: 'vloer', glas: 'glas', hybride: 'warmtepomp', allelectric: 'stekker', zon: 'zon', batterij: 'batterij' };
 const eur = (n) => '€ ' + Math.round(n).toLocaleString('nl-NL');
-const jr = (x) => (x == null ? '–' : `${String(x).replace('.', ',')} jaar`);
 const bron = (keys, datum) => `<p class="src">Bron: ${keys.map((k) => `<a href="${SOURCES[k].url}" rel="noopener">${esc(SOURCES[k].title)}</a>`).join(' · ')}. Gecontroleerd op <time datetime="${datum}">${fmtDate(datum)}</time>.</p>`;
 const UPDATED = '2026-10-19';
 const woningSelect = (id, def = 'tussen') => `<label class="fld"><span>${icoon('huis')} Woningtype</span><select id="${id}" name="woning">${Object.entries(WONINGEN).map(([k, v]) => `<option value="${k}"${k === def ? ' selected' : ''}>${v}</option>`).join('')}</select></label>`;

@@ -59,6 +59,9 @@ export function terugverdientijd({ kosten, subsidie = 0, besparing }) {
   return { met: Math.max(0, Math.round(((k - Math.min(s, k)) / b) * 10) / 10), zonder: Math.round((k / b) * 10) / 10 };
 }
 
+/** Jaren als tekst, altijd met één decimaal en een Nederlandse komma: 9 -> '9,0 jaar', 6.8 -> '6,8 jaar'. */
+export const jaarTekst = (x) => (x == null || !Number.isFinite(Number(x)) ? '–' : `${Number(x).toFixed(1).replace('.', ',')} jaar`);
+
 /** Rijen voor het vergelijkingsoverzicht. */
 export function overzicht(woning) {
   return Object.entries(MAATREGELEN).map(([id, m]) => {

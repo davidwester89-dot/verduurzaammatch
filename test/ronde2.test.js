@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execSync } from 'node:child_process';
 import { readFileSync, existsSync } from 'node:fs';
-import { isde, besparing, terugverdientijd, overzicht, sorteer, MET_CIJFERS } from '../src/lib/rekenen.js';
+import { isde, besparing, terugverdientijd, overzicht, sorteer, MET_CIJFERS, jaarTekst } from '../src/lib/rekenen.js';
 import { MAATREGELEN } from '../src/lib/maatregelen.js';
 import { match, voorlopig } from '../src/lib/match.js';
 import { icoon, PADEN } from '../src/lib/iconen.js';
@@ -77,4 +77,11 @@ test('check stap voor stap: tussenadvies en vorige-knop in HTML, zonder JS alle 
   assert.match(h, /<noscript><style>\.quiz\.stap fieldset\{display:block\}/); // zonder JS alles zichtbaar, met JS geen layout shift
   assert.match(readFileSync('src/assets/js/quiz.js', 'utf8'), /voorlopig\(/);
   assert.doesNotMatch(readFileSync('src/lib/match.js', 'utf8'), /import[^\n]*partnerlinks/);
+});
+
+test('jaarTekst: altijd één decimaal met komma; /vergelijken/ toont all-electric als 9,0 en 12,0 jaar', () => {
+  assert.equal(jaarTekst(9), '9,0 jaar'); assert.equal(jaarTekst(12), '12,0 jaar'); assert.equal(jaarTekst(6.8), '6,8 jaar');
+  assert.equal(jaarTekst(10.25), '10,3 jaar'); assert.equal(jaarTekst(null), '–'); assert.equal(jaarTekst(undefined), '–');
+  const ae = overzicht('hoek').find((r) => r.id === 'allelectric');
+  assert.equal(jaarTekst(ae.tvMet), '9,0 jaar'); assert.equal(jaarTekst(ae.tvZonder), '12,0 jaar');
 });

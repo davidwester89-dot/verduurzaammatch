@@ -1,8 +1,7 @@
 import { MAATREGELEN } from './lib/maatregelen.js';
-import { besparing, terugverdientijd, isde } from './lib/rekenen.js';
+import { besparing, terugverdientijd, isde, jaarTekst as jr } from './lib/rekenen.js';
 const form = document.querySelector('form.calc'), out = document.getElementById('out');
 const eur = (n) => '€ ' + Math.round(n).toLocaleString('nl-NL');
-const jr = (x) => (x == null ? '–' : `${String(x).replace('.', ',')} jaar`);
 const nums = (arr) => `<div class="nums">${arr.map(([v, l]) => `<div><b>${v}</b><span>${l}</span></div>`).join('')}</div>`;
 const tool = form.dataset.tool;
 const q = new URLSearchParams(location.search);

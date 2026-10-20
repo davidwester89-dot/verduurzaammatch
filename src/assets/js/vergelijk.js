@@ -1,10 +1,9 @@
-import { overzicht, sorteer } from './lib/rekenen.js';
+import { overzicht, sorteer, jaarTekst as jr } from './lib/rekenen.js';
 const tb = document.querySelector('#vt tbody'), sel = document.getElementById('v-woning');
 const tpl = new Map([...tb.rows].map((r, i) => [i, r]));
 let kolom = null, op = true;
 const ids = ['spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon', 'batterij'];
 const eur = (n) => '€ ' + Math.round(n).toLocaleString('nl-NL');
-const jr = (x) => (x == null ? '–' : `${String(x).replace('.', ',')} jaar`);
 function render() {
   let rijen = overzicht(sel.value);
   if (kolom) rijen = sorteer(rijen, kolom, op);
