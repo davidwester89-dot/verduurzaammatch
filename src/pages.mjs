@@ -181,10 +181,15 @@ ${src('spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon', 'batteri
 };
 
 // ---- Subsidie ----
+/** Article-schema met de redactie als auteur (byline "Door Redactie VerduurzaamMatch" op de pagina). */
+const REDACTIE = { '@type': 'Organization', name: SITE.owner, url: SITE.domain + '/over/' };
+const redactieArticle = (path, headline, og, datePublished, dateModified) => ({ '@context': 'https://schema.org', '@type': 'Article', headline, mainEntityOfPage: SITE.domain + path, image: `${SITE.domain}/og/${og}.png`, datePublished, dateModified, author: REDACTIE, publisher: ORG, inLanguage: 'nl' });
+const BYLINE = `<p class="src">Door ${SITE.owner}</p>`;
 export const subsidie = {
+  schema: [redactieArticle('/subsidie-isde/', 'ISDE-subsidie isolatie 2026', 'subsidie-isde', '2026-10-15', '2026-10-19')],
   path: '/subsidie-isde/', title: 'ISDE-subsidie isolatie 2026: bedragen en voorwaarden', h1: 'ISDE-subsidie isolatie 2026', crumb: 'ISDE-subsidie', og: 'subsidie-isde', lastmod: '2026-10-19', stamp: { checked: '2026-10-19', updated: '2026-10-19' },
   description: 'ISDE-subsidie 2026 voor isolatie en glas: bedragen per m², de verdubbeling bij twee maatregelen, voorwaarden en hoe je aanvraagt. Bron: RVO.',
-  body: `<article><h1>ISDE-subsidie isolatie 2026</h1>${img('subsidie-isde', 'Huis met een euroteken en een vinkje voor subsidie')}
+  body: `<article><h1>ISDE-subsidie isolatie 2026</h1>${img('subsidie-isde', 'Huis met een euroteken en een vinkje voor subsidie')}${BYLINE}
 <p class="lead">Met de ISDE krijg je als eigenaar-bewoner geld terug voor isolatie, een warmtepomp of een zonneboiler. Je vraagt het aan ná de installatie, binnen 24 maanden.</p>
 <h2>Isolatie</h2>
 <div class="tbl"><table><thead><tr><th>Maatregel</th><th>Per m²</th><th>Oppervlak</th></tr></thead><tbody>
@@ -212,10 +217,11 @@ ${matchCta}${src('isde', 'isdeIsolatie', 'isdeWp', 'isde2027', 'saldering')}${to
 
 // ---- ISDE 2027 (voorgenomen) ----
 export const isde2027 = {
+  schema: [redactieArticle('/isde-2027/', 'ISDE 2027: dit verandert er', 'subsidie-isde', '2026-10-16', '2026-10-19')],
   path: '/isde-2027/', title: 'ISDE 2027: wat verandert er voor glas en warmtepomp?', h1: 'ISDE 2027', crumb: 'ISDE 2027', og: 'subsidie-isde', lastmod: '2026-10-20', stamp: { checked: '2026-10-16', updated: '2026-10-19' },
   parents: [['/subsidie-isde/', 'ISDE-subsidie']],
   description: 'ISDE 2027 (voorgenomen): hr++-glas € 30 per m², triple glas € 55, lucht-waterwarmtepomp € 120 per kW. Koop vóór 31-12 voor het bedrag van 2026.',
-  body: `<article><h1>ISDE 2027: dit verandert er</h1>
+  body: `<article><h1>ISDE 2027: dit verandert er</h1>${BYLINE}
 <p class="lead">De ISDE verandert per 1 januari 2027. Aanvragen kan vanaf dinsdag 5 januari 2027, 12:00 uur. <strong>Alle bedragen hieronder zijn voorgenomen</strong>: RVO werkt de pagina bij zodra ze definitief zijn.</p>
 <h2>Bedragen 2026 en 2027 (voorgenomen)</h2>
 <div class="tbl"><table><thead><tr><th></th><th>2026</th><th>2027 (voorgenomen)</th></tr></thead><tbody>
@@ -239,9 +245,10 @@ ${matchCta}<p class="src">Bron: <a href="${SOURCES.isde2027.url}" rel="noopener"
 
 // ---- Glasisolatie ----
 export const glasisolatie = {
+  schema: [redactieArticle('/glasisolatie-kosten/', 'Glasisolatie kosten: hr++ of triple glas?', 'glasisolatie-kosten', '2026-10-16', '2026-10-16')],
   path: '/glasisolatie-kosten/', title: 'Glasisolatie kosten 2026: hr++ of triple glas?', h1: 'Glasisolatie kosten', crumb: 'Glasisolatie', og: 'glasisolatie-kosten', lastmod: '2026-10-16', stamp: { checked: '2026-10-16', updated: '2026-10-16' },
   description: 'Wat kost hr++-glas, wat bespaar je en hoeveel ISDE krijg je in 2026 en 2027? Hr++ of triple glas, met cijfers van Milieu Centraal en RVO.',
-  body: `<article><h1>Glasisolatie kosten: hr++ of triple glas?</h1>
+  body: `<article><h1>Glasisolatie kosten: hr++ of triple glas?</h1>${BYLINE}
 <p class="lead">Nog enkel of oud dubbel glas? Dan levert nieuw glas comfort en een lagere energierekening op.</p>
 <h2>Kosten en besparing hr++-glas</h2>
 <p>Volgens Milieu Centraal kost hr++-glas in bestaande kozijnen voor alle ramen van een gemiddelde hoekwoning (22 m²) ongeveer <strong>€ 4.700</strong>. Na subsidie blijft er ongeveer € 4.150 over.</p>
