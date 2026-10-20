@@ -34,3 +34,12 @@ test('thuisbatterij-terugverdienen: doorverwijzing naar ThuisaccuMatch, niet in 
   assert.ok(!r('/sitemap.xml').includes('thuisbatterij-terugverdienen'));
   for (const p of ['/index.html', '/gidsen/index.html', '/vergelijken/index.html', '/blog/huis-verduurzamen-waar-beginnen/index.html']) assert.ok(!r(p).includes('href="/thuisbatterij-terugverdienen/"'), p);
 });
+test('hybride-warmtepomp-kosten: verhuisd naar WarmtepompenMatch, niet in sitemap, geen interne links', () => {
+  const to = 'https://warmtepompenmatch.nl/hybride-warmtepomp-kosten/';
+  const h = r('/hybride-warmtepomp-kosten/index.html');
+  assert.ok(h.includes(`<meta http-equiv="refresh" content="0; url=${to}">`));
+  assert.ok(h.includes(`<link rel="canonical" href="${to}">`));
+  assert.ok(h.includes('<meta name="robots" content="noindex">'));
+  assert.ok(!r('/sitemap.xml').includes('hybride-warmtepomp-kosten'));
+  for (const p of ['/index.html', '/gidsen/index.html', '/isde-2027/index.html', '/rekentools/index.html', '/blog/huis-verduurzamen-waar-beginnen/index.html', '/blog/energiebespaarlening-warmtefonds/index.html']) assert.ok(!r(p).includes('href="/hybride-warmtepomp-kosten/"'), p);
+});

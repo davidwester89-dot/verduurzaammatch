@@ -51,12 +51,12 @@ export const MAATREGELEN = {
     kort: 'Vooral zinvol als je nog enkel of oud dubbel glas hebt.',
   },
   hybride: {
-    naam: 'Hybride warmtepomp', soort: 'warmtepomp', gids: '/hybride-warmtepomp-kosten/', bron: 'hybride', alleenHoek: true,
+    naam: 'Hybride warmtepomp', soort: 'warmtepomp', gids: 'https://warmtepompenmatch.nl/hybride-warmtepomp-kosten/', bron: 'hybride', alleenHoek: true,
     kosten: T(6200, 6200, 6200, 6200), subsidie: T(2125, 2125, 2125, 2125), besparing: T(600, 600, 600, 600),
     kort: 'Werkt samen met je cv-ketel; ook in een matig geïsoleerd huis.',
   },
   allelectric: {
-    naam: 'Volledig elektrische warmtepomp', soort: 'warmtepomp', gids: '/hybride-warmtepomp-kosten/', bron: 'allelectric', alleenHoek: true,
+    naam: 'Volledig elektrische warmtepomp', soort: 'warmtepomp', gids: 'https://warmtepompenmatch.nl/warmtepomp-kosten/', bron: 'allelectric', alleenHoek: true,
     kosten: T(12000, 12000, 12000, 12000), subsidie: T(3025, 3025, 3025, 3025), besparing: T(1000, 1000, 1000, 1000),
     kort: 'Helemaal van het gas af; vraagt minstens redelijke isolatie.',
   },
