@@ -83,18 +83,21 @@ ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(
 <nav class="main" aria-label="Hoofdmenu">${navLinks(p.navPath || p.path)}</nav>
 <details class="menu"><summary><span class="burger" aria-hidden="true"></span><span class="menu-txt">Menu</span></summary><nav aria-label="Hoofdmenu">${navLinks(p.navPath || p.path)}</nav></details>
 </div></header>
-<main id="inhoud"><div class="wrap">
+${p.full ? `<main id="inhoud" class="full">
+${a11yTabellen(p.body)}
+<div class="wrap">${foutGezien(url)}</div>
+</main>` : `<main id="inhoud"><div class="wrap">
 ${crumbs}
 ${a11yTabellen(withStamp(p.body, p.stamp))}
 ${foutGezien(url)}
-</div></main>
+</div></main>`}
 <footer class="site"><div class="wrap">
 <div class="cols">
 <div><a class="logo" href="/">${LOGO}<span>${BRAND}</span></a><p>${esc(SITE.tagline)}</p></div>
-<div><p class="fh">Isoleren</p><ul><li><a href="/spouwmuurisolatie-kosten/">Spouwmuurisolatie</a></li><li><a href="/dakisolatie-kosten/">Dakisolatie</a></li><li><a href="/vloerisolatie-kosten/">Vloerisolatie</a></li></ul></div>
-<div><p class="fh">Energie</p><ul><li><a href="https://warmtepompenmatch.nl/hybride-warmtepomp-kosten/">Hybride warmtepomp</a></li><li><a href="/zonnepanelen-na-2027/">Zonnepanelen na 2027</a></li><li><a href="https://thuisaccumatch.nl/thuisaccu-terugverdientijd/">Thuisbatterij terugverdienen</a></li><li><a href="/subsidie-isde/">ISDE-subsidie</a></li></ul></div>
-<div><p class="fh">Rekenen</p><ul><li><a href="/besparing-berekenen/">Besparing</a></li><li><a href="/terugverdientijd-berekenen/">Terugverdientijd</a></li><li><a href="/isde-subsidie-berekenen/">ISDE berekenen</a></li><li><a href="/vergelijken/">Vergelijken</a></li></ul></div>
-<div><p class="fh">Over</p><ul><li><a href="/over/">Over ons</a></li><li><a href="/bronnen/">Bronnen</a></li><li><a href="/privacy/">Privacy en cookies</a></li>${GA_ID ? '<li><a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a></li>' : ''}<li><a href="/disclaimer/">Disclaimer</a></li><li><a href="mailto:${SITE.email}">Contact</a></li></ul></div>
+<div class="fcol"><div><p class="fh">Isoleren</p><ul><li><a href="/spouwmuurisolatie-kosten/">Spouwmuurisolatie</a></li><li><a href="/dakisolatie-kosten/">Dakisolatie</a></li><li><a href="/vloerisolatie-kosten/">Vloerisolatie</a></li></ul></div>
+<div><p class="fh">Energie</p><ul><li><a href="https://warmtepompenmatch.nl/hybride-warmtepomp-kosten/">Hybride warmtepomp</a></li><li><a href="/zonnepanelen-na-2027/">Zonnepanelen na 2027</a></li><li><a href="https://thuisaccumatch.nl/thuisaccu-terugverdientijd/">Thuisbatterij terugverdienen</a></li><li><a href="/subsidie-isde/">ISDE-subsidie</a></li></ul></div></div>
+<div class="fcol"><div><p class="fh">Rekenen</p><ul><li><a href="/besparing-berekenen/">Besparing</a></li><li><a href="/terugverdientijd-berekenen/">Terugverdientijd</a></li><li><a href="/isde-subsidie-berekenen/">ISDE berekenen</a></li><li><a href="/vergelijken/">Vergelijken</a></li></ul></div>
+<div><p class="fh">Over</p><ul><li><a href="/over/">Over ons</a></li><li><a href="/bronnen/">Bronnen</a></li><li><a href="/privacy/">Privacy en cookies</a></li>${GA_ID ? '<li><a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a></li>' : ''}<li><a href="/disclaimer/">Disclaimer</a></li><li><a href="mailto:${SITE.email}">Contact</a></li></ul></div></div>
 </div>
 ${networkFooter()}
 </div></footer>

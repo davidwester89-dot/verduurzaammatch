@@ -5,6 +5,7 @@ import { icoon } from './lib/iconen.js';
 import { toolLinks } from './tools.mjs';
 import { PRIVACY_UPDATED, cookieTabel, partnerNetwerk, grondslag, doorgifte, bewaartermijnen, rechten } from './privacy-avg.mjs';
 import { PARTNERLINKS } from './lib/partnerlinks.js';
+import { HERO_ART } from './hero-art.mjs';
 const ICOON_VRAAG = { woning: 'huis', bouwjaar: 'kalender', label: 'label', budget: 'euro', doel: 'doel' };
 
 const eur = (n) => '€ ' + n.toLocaleString('nl-NL');
@@ -26,6 +27,8 @@ function tabel(id) {
 // Veelgestelde vragen (optioneel per gids): zichtbaar op de pagina en als FAQPage-schema.
 const faqHtml = (faq) => (faq && faq.length ? `<h2>Veelgestelde vragen</h2>${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('')}` : '');
 const GIDSEN_FAQ = {};
+// Home: dezelfde vragen als uitklapbare FAQ (details/summary).
+const faqAcc = (faq) => `<h2>Veelgestelde vragen</h2>${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}`;
 export const GIDSEN = [
   {
     slug: 'spouwmuurisolatie-kosten', updated: '2026-10-15', id: 'spouw', crumb: 'Spouwmuurisolatie',
@@ -126,21 +129,30 @@ export const home = {
   description: 'Huis verduurzamen in 2026: welke stap eerst, wat het kost en welke subsidie of lening je krijgt. Doe de gratis match en zie besparing en terugverdientijd.',
   // Organization en WebSite staan op elke pagina (layout.mjs, siteGraph). FAQPage hoort bij de zichtbare vragen hieronder.
   schema: [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: homeFaq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }],
-  body: `<section class="hero"><p class="brand">${BRAND}</p><h1 class="tagline">${esc(SITE.tagline)}</h1>
+  full: true,
+  body: `<section class="hero"><div class="wrap hero-in"><div class="hero-txt"><p class="brand">${BRAND}</p><h1 class="tagline">${esc(SITE.tagline)}</h1>
 <p class="lead">Vijf vragen over je huis. Je ziet welke maatregel het meeste oplevert, wat hij kost en hoe snel je hem terugverdient.</p>
 <div class="actions"><a class="btn sun" href="/verduurzaam-match/">Start de match</a><a class="btn ghost" href="/subsidie-isde/">Subsidie bekijken</a></div>
-${img('home', 'Huis met geïsoleerd dak, warmtepomp en zonnepanelen')}</section>
-<h2>Zo werkt het</h2>
-<ol class="steps"><li>Beantwoord 5 vragen over je woning en je doel.</li><li>Zie welke stap eerst, met kosten, subsidie en terugverdientijd.</li><li>Lees de gids en vraag offertes aan.</li></ol>
+<ul class="trust"><li>${icoon('vink')}Cijfers van Milieu Centraal en RVO</li><li>${icoon('vink')}Volgorde op wat het oplevert</li><li>${icoon('vink')}Gratis en zonder account</li></ul></div>
+<div class="hero-art">${HERO_ART}</div></div></section>
+<section class="sec"><div class="wrap">
+<div class="sec-head"><p class="eyebrow">In 2 minuten</p><h2>Zo werkt het</h2></div>
+<ol class="how"><li><span class="hi">${icoon('huis', 'ico big')}</span>Beantwoord 5 vragen over je woning en je doel.</li><li><span class="hi">${icoon('euro', 'ico big')}</span>Zie welke stap eerst, met kosten, subsidie en terugverdientijd.</li><li><span class="hi">${icoon('vink', 'ico big')}</span>Lees de gids en vraag offertes aan.</li></ol>
 <div class="note"><strong>Let op 2027:</strong> de salderingsregeling stopt op 1 januari 2027. En bij de ISDE noemt RVO de wijzigingen voor 2027 voorgenomen, dus nog niet definitief: het bedrag voor lucht-water warmtepompen daalt dan van € 225 naar € 120 per kW; andere warmtepompen houden hetzelfde bedrag per kW. <a href="/isde-2027/">Wat dat betekent</a></div>
+</div></section>
+<section class="sec tint"><div class="wrap narrow">
 <h2>Huis verduurzamen in 4 stappen</h2>
 <p>Je huis verduurzamen hoeft niet in één keer. Volgens Milieu Centraal staat de volgorde ook niet vast. Je kunt instappen op een moment dat voor jou logisch is: als je keuken aan vervanging toe is, je cv-ketel oud wordt of je een aanbouw plaatst.</p>
 <p>De basis is wel altijd hetzelfde: isoleren, ventileren en zon weren. Hoe minder warmte je verliest, hoe minder energie je nodig hebt om je huis warm te houden.</p>
 <ol class="steps"><li><strong>Inzicht.</strong> Kijk hoe je isolatie, ventilatie en zonwering ervoor staan. Is je huis in 2000 of later gebouwd? Dan is het volgens Milieu Centraal al goed geïsoleerd.</li><li><strong>Isoleren en ventileren.</strong> Isoleer wat nog niet geïsoleerd is. Zorg tegelijk voor genoeg verse lucht: een goed geïsoleerd huis mag niet potdicht worden.</li><li><strong>Verwarming.</strong> Kijk hoe oud je cv-ketel is; gemiddeld gaat die twaalf tot vijftien jaar mee. Een hybride warmtepomp komt naast je ketel, en je huis hoeft daarvoor niet perfect geïsoleerd te zijn.</li><li><strong>Zelf opwekken.</strong> Is je dak geschikt, dan kun je aan de slag met zonnepanelen.</li></ol>
 <p>Milieu Centraal werkt dit uit in 7 stappen. De hele volgorde, met uitleg per stap, lees je in onze blog <a href="/blog/huis-verduurzamen-waar-beginnen/">Huis verduurzamen: welke maatregel eerst?</a></p>
+</div></section>
+<section class="sec"><div class="wrap narrow">
 <h2>Wat kost verduurzamen en wat levert het op?</h2>
 <p>Dat hangt af van de maatregel en van je huis. Spouwmuurisolatie in een tussenwoning is iets heel anders dan een warmtepomp in een vrijstaand huis. Daarom noemen we hier geen totaalbedrag.</p>
 <p>In de gidsen hieronder staat per maatregel wat hij kost, hoeveel subsidie je krijgt, wat je per jaar bespaart en hoe snel je hem terugverdient. Steeds per woningtype, met de cijfers van Milieu Centraal. Wil je het voor je eigen huis uitrekenen? Gebruik dan <a href="/besparing-berekenen/">besparing berekenen</a> of <a href="/terugverdientijd-berekenen/">terugverdientijd berekenen</a>.</p>
+</div></section>
+<section class="sec warm"><div class="wrap narrow">
 <h2>Subsidie: ISDE in 2026 en wat er in 2027 verandert</h2>
 <p>Met de ISDE van RVO krijg je geld terug voor een (hybride) warmtepomp, een zonneboiler, isolatie of een aansluiting op een warmtenet. Sinds 2026 kan dat ook voor ventilatie, als je die combineert met een of meer isolatiemaatregelen.</p>
 <p>Als woningeigenaar vraag je de subsidie aan nadat het werk klaar is, binnen 24 maanden na afronding. Je hebt een factuur met meldcode nodig. Bij isolatie lever je per maatregel ook één foto van het werk aan. Doe je binnen 24 maanden meer dan één isolatiemaatregel, of combineer je isolatie met een warmtepomp, zonneboiler of warmtenet? Dan verdubbelt het subsidiebedrag voor isolatie. Alle bedragen staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a>.</p>
@@ -148,17 +160,26 @@ ${img('home', 'Huis met geïsoleerd dak, warmtepomp en zonnepanelen')}</section>
 <h2>Geen spaargeld? De Energiebespaarlening</h2>
 <p>Bij het Nationaal Warmtefonds kun je als eigenaar-bewoner een Energiebespaarlening afsluiten. Is jullie gezamenlijke verzamelinkomen lager dan € 60.000, dan leen je tegen 0% rente. De andere voorwaarden staan op de site van het Warmtefonds.</p>
 <p>Hoe de lening werkt en waar je op let, lees je in <a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a>.</p>
+</div></section>
+<section class="sec"><div class="wrap narrow">
 <h2>Zonnepanelen na de salderingsregeling</h2>
 <p>De salderingsregeling stopt op 1 januari 2027. Daarna kun je stroom die je teruglevert niet meer wegstrepen tegen je verbruik. Je krijgt wel een vergoeding van je energieleverancier: tot 2030 minimaal 50% van het kale leveringstarief, dus het stroomtarief zonder belastingen.</p>
 <p>Leveranciers mogen terugleverkosten rekenen, maar alleen voor de kosten die ze maken om die stroom te verwerken. De ACM houdt daar toezicht op. Volgens de Rijksoverheid gaan zonnepanelen gemiddeld 25 jaar mee en verdienen ze zich ruim binnen die tijd terug, ook na het einde van de saldering. Lees meer in <a href="/zonnepanelen-na-2027/">zonnepanelen na 2027</a>.</p>
 ${srcOp(HOME_CHECKED, 'stappenplan', 'verbeterjehuis', 'isde', 'isde2027', 'warmtefondsNul', 'warmtefondsVoorwaarden', 'saldering')}
+</div></section>
+<section class="sec tint"><div class="wrap">
 <h2>Gidsen</h2>
 <div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="${esc(g.alt)}" loading="lazy"><h3>${esc(g.crumb)}</h3><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
 <p class="src">Verdieping: <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">warmtepomp kiezen op WarmtepompenMatch</a> · <a href="https://thuisaccumatch.nl/thuisaccu-keuzehulp/">thuisaccu kiezen op ThuisaccuMatch</a></p>
-${faqHtml(homeFaq)}
-<p>Klaar om te kiezen? <a href="/verduurzaam-match/">Doe de VerduurzaamMatch</a> en zie welke stap in jouw huis het meeste oplevert.</p>
+</div></section>
+<section class="sec"><div class="wrap faq">
+${faqAcc(homeFaq)}
+</div></section>
+<section class="sec warm"><div class="wrap">
 <h2>Waarom VerduurzaamMatch?</h2>
-<ul><li><strong>Cijfers van Milieu Centraal en RVO</strong>, met bronlink.</li><li><strong>Volgorde op wat het oplevert</strong>, nooit op vergoeding.</li><li><strong>Gratis en zonder account.</strong></li></ul>`,
+<ul class="why"><li>${icoon('tabel', 'ico big')}<strong>Cijfers van Milieu Centraal en RVO</strong>, met bronlink.</li><li>${icoon('doel', 'ico big')}<strong>Volgorde op wat het oplevert</strong>, nooit op vergoeding.</li><li>${icoon('vink', 'ico big')}<strong>Gratis en zonder account.</strong></li></ul>
+<div class="cta-band"><div><h2>Klaar om te kiezen?</h2><p>Doe de VerduurzaamMatch en zie welke stap in jouw huis het meeste oplevert.</p></div><a class="btn sun" href="/verduurzaam-match/">Doe de VerduurzaamMatch</a></div>
+</div></section>`,
 };
 
 // ---- Quiz ----
