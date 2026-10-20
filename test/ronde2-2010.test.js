@@ -21,3 +21,9 @@ test('byline en Article-schema met auteur Redactie VerduurzaamMatch', () => {
     assert.match(a[0].image, /^https:\/\/verduurzaammatch\.nl\/og\/[a-z-]+\.png$/);
   }
 });
+
+test('privacy: vergoeding is een mogelijkheid ("kunnen ... krijgen"), geen zekerheid', () => {
+  const s = read('src/privacy-avg.mjs');
+  assert.doesNotMatch(s, /dan krijgen wij daardoor een vergoeding/);
+  assert.match(s, /dan kunnen wij daardoor een vergoeding krijgen/);
+});
