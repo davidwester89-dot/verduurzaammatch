@@ -300,7 +300,7 @@ export const over = {
   schema: [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'Over VerduurzaamMatch', about: ORG }],
   body: `<article><h1>Over ons</h1><p class="lead">VerduurzaamMatch helpt huiseigenaren kiezen welke verduurzaming eerst. Ons team werkt daar elke week aan.</p>
 <h2>Wat we elke week doen</h2><ul><li><strong>Cijfers checken</strong> bij Milieu Centraal en RVO: kosten, besparing en subsidiebedragen.</li><li><strong>Nieuwe regels volgen</strong>, zoals het einde van de saldering en de ISDE-wijzigingen voor 2027.</li><li><strong>Gidsen bijwerken</strong> zodra er iets verandert.</li><li><strong>De match testen</strong>, zodat het advies klopt met de bronnen.</li></ul>
-<h2>Hoe we werken</h2><ul><li><strong>Alleen officiële bronnen</strong>, met link en controledatum.</li><li><strong>Niets zelf verzonnen.</strong> Is er geen cijfer, dan zeggen we dat.</li><li><strong>Onafhankelijk.</strong> We zijn geen installateur of energiebedrijf.</li><li><strong>Partnerlinks tellen nooit mee</strong> in het advies of de volgorde. Ze hebben altijd het label "partnerlink".</li></ul>
+<h2>Hoe we werken</h2><ul><li><strong>Alleen officiële bronnen</strong>, met link en controledatum.</li><li><strong>Niets zelf verzonnen.</strong> Is er geen cijfer, dan zeggen we dat.</li><li><strong>Onafhankelijk.</strong> We zijn geen installateur of energiebedrijf.</li><li><strong>Partnerlinks tellen nooit mee</strong> in het advies of de volgorde. Ze worden bij de knoppen vermeld met één zin per blok.</li></ul>
 <p>Fout gezien? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p></article>`,
 };
 
