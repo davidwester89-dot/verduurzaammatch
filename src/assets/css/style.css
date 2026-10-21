@@ -277,3 +277,6 @@ main:not(.full){background:linear-gradient(180deg,#eef6f1 0,#fff 440px)}
 .calc{border:1px solid var(--line);border-left:5px solid var(--leaf);border-radius:2px var(--r) var(--r) 2px}
 .hero-img{border-radius:2px 18px 18px 2px}
 table{background:#fff}
+
+/* Partnerzin per blok met partnerlinks (vervangt het label per knop) */
+.pnoot{font-size:.875rem;color:var(--muted);margin:6px 0 0}

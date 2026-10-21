@@ -337,7 +337,7 @@ export const disclaimer = {
   description: 'Uitkomsten op VerduurzaamMatch zijn een indicatie op basis van gemiddelden.',
   body: `<article><h1>Disclaimer</h1><p>Kosten, besparingen en terugverdientijden zijn gemiddelden van Milieu Centraal. Jouw huis en energieprijs kunnen anders uitvallen. Subsidiebedragen kunnen wijzigen; check altijd rvo.nl vóór je koopt.</p>
 <p>VerduurzaamMatch is geen installateur en geeft geen persoonlijk advies. Laat je woning beoordelen door een vakbedrijf.</p>
-<p>Partnerlinks hebben het label "partnerlink" en hebben nooit invloed op het advies of de volgorde.</p></article>`,
+<p>Partnerlinks worden bij de knoppen vermeld en hebben nooit invloed op het advies of de volgorde.</p></article>`,
 };
 
 export const notfound = {
