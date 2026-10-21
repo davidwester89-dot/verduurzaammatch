@@ -18,7 +18,7 @@ const eur = (n) => '€ ' + n.toLocaleString('nl-NL');
 function offerte(id) {
   const ids = Object.keys(AANBIEDERS).filter((a) => PARTNERLINKS[a] && AANBIEDERS[a].voor.includes(id));
   if (!ids.length) return '';
-  return '<p><strong>Offerte aanvragen:</strong> ' + ids.map((a) => { const l = uitgaand(a); return `<a href="${l.href}" rel="${l.rel}" data-vendor="${a}">${l.naam}</a><span class="partner">partnerlink</span>`; }).join(' · ') + '</p>';
+  return '<p><strong>Offerte aanvragen:</strong> ' + ids.map((a) => { const l = uitgaand(a); return `<a href="${l.href}" rel="${l.rel}" data-vendor="${a}">${l.naam}</a>`; }).join(' · ') + '</p>';
 }
 function kaart(r, i) {
   const nums = r.kosten == null ? '' : `<div class="nums"><div><b>${eur(r.kosten)}</b><span>kosten</span></div>${r.subsidie ? `<div><b>${eur(r.subsidie)}</b><span>subsidie</span></div>` : ''}<div><b>${eur(r.besparing)}${r.besparingMax ? '–' + eur(r.besparingMax).slice(2) : ''}</b><span>besparing per jaar</span></div><div><b>${r.terugverdien.join('–')} jaar</b><span>terugverdientijd</span></div></div>`;
