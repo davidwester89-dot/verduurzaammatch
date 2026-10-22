@@ -38,6 +38,7 @@ export const besparingPage = base({
 <p class="src">Hybride en volledig elektrisch sluiten elkaar uit; kies er één.</p></fieldset></form>
 <div class="out" id="out" aria-live="polite"><div class="nums"><div><b>${eur(besDef.kosten)}</b><span>kosten</span></div><div><b>${eur(besDef.subsidie)}</b><span>subsidie</span></div><div><b>${eur(besDef.besparing)}</b><span>besparing per jaar</span></div></div><p class="src">Voorbeeld: tussenwoning, spouwmuur- en dakisolatie.</p></div>
 <h2>Zo rekenen we</h2><ul><li>Kosten, subsidie en besparing zijn de gemiddelden van Milieu Centraal per woningtype; appartement = tussenwoning.</li><li>Besparing bij een gasprijs van € 1,37 per m³ (verwachting Milieu Centraal 2026-2040).</li><li>Glas en warmtepompen: cijfers voor een hoekwoning. Hr++-glas bespaart € 90 vanaf dubbel glas, tot € 350 vanaf enkel glas.</li><li>Stappen versterken elkaar soms: na isoleren bespaart een warmtepomp minder gas. De optelsom is dus een bovengrens.</li></ul>
+<p>Wat je bespaart, hangt ook af van de energiebelasting. Het kabinet wil die in 2027 op gas verhogen en op stroom verlagen. Wat dat voorstel betekent voor je besparing, lees je in <a href="/blog/energiebelasting-2027-isoleren/">energiebelasting 2027 en isoleren</a>.</p>
 <p>Wil je weten welke stap eerst? <a href="/verduurzaam-match/">Doe de check</a> of <a href="/vergelijken/">vergelijk alle maatregelen</a>.</p>
 ${bron(['spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon'], CHECKED)}</article>`,
 });
@@ -58,6 +59,7 @@ ${woningSelect('t-woning')}
 </form>
 <div class="out" id="out" aria-live="polite"><div class="nums"><div><b>${jr(tvDef.met)}</b><span>met subsidie</span></div><div><b>${jr(tvDef.zonder)}</b><span>zonder subsidie</span></div><div><b>${eur(MAATREGELEN.spouw.besparing.tussen)}</b><span>besparing per jaar</span></div></div><p class="src">Voorbeeld: spouwmuurisolatie, tussenwoning, gemiddelde prijs.</p></div>
 <h2>Zo rekenen we</h2><ul><li>Terugverdientijd = (kosten − subsidie) ÷ besparing per jaar.</li><li>De besparing per jaar is altijd het gemiddelde van Milieu Centraal (gasprijs € 1,37 per m³). Een duurdere offerte bespaart niet meer.</li><li>Laat je subsidie leeg, dan rekenen we met het gemiddelde ISDE-bedrag. Precies uitrekenen? Gebruik de <a href="/isde-subsidie-berekenen/">ISDE-rekenhulp</a>.</li></ul>
+<p>De energiebelasting op gas bepaalt mee hoe snel je isolatie terugverdient. Wat het kabinet daarvoor in 2027 voorstelt, lees je in <a href="/blog/energiebelasting-2027-isoleren/">energiebelasting 2027: gas duurder, stroom goedkoper</a>.</p>
 <p>Nog geen offerte voor zonnepanelen? In <a href="/blog/zonnepanelen-kosten-2026/">zonnepanelen kosten in 2026</a> zie je wat een installatie nu kost.</p>
 <p>Alleen een warmtepomp? Reken met je eigen gasverbruik in de <a href="https://warmtepompenmatch.nl/terugverdientijd-berekenen/">terugverdientijd-rekenhulp voor warmtepompen</a> op WarmtepompenMatch.</p>
 ${bron(['spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon'], CHECKED)}</article>`,
@@ -79,6 +81,7 @@ export const isdePage = base({
 <div class="out" id="out" aria-live="polite"><div class="nums"><div><b>${eur(isdeDef.isolatie)}</b><span>isolatie${isdeDef.dubbel ? ' (verdubbeld)' : ''}</span></div><div><b>${eur(isdeDef.warmtepomp)}</b><span>warmtepomp</span></div><div><b>${eur(isdeDef.totaal)}</b><span>totaal ISDE</span></div></div><p class="src">Voorbeeld: 50 m² spouwmuur en 45 m² vloer.</p></div>
 <h2>Zo rekenen we</h2><ul><li>Bedragen per m² en minimale en maximale oppervlakken van RVO, voor uitvoering in 2025 of later. Boven het maximum telt het maximum.</li><li>Vloer en bodem samen minimaal 20 m².</li><li>Twee of meer isolatiemaatregelen, of isolatie met een warmtepomp, binnen 24 maanden: het isolatiebedrag verdubbelt.</li><li>Warmtepomp 2026: € ${ISDE_WP.vast.toLocaleString('nl-NL')} + € ${ISDE_WP.perKw} per kW + € ${ISDE_WP.aplus} bij A+++, minimaal € ${ISDE_WP.minimaal}, volgens het rekenvoorbeeld van RVO. De biobased bonus en meldcode-eisen tellen we niet mee.</li><li>Voor 2027 zijn lagere bedragen voor warmtepompen voorgenomen. Zie <a href="/subsidie-isde/">ISDE-subsidie</a>. Alleen de warmtepomp: <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE warmtepomp 2026</a> op WarmtepompenMatch.</li></ul>
 <p class="note">Dit is een indicatie. RVO beslist over je aanvraag; check de meldcodelijst vóór je koopt.</p>
+<p>Wat je vóór, tijdens en na het werk regelt om dit bedrag ook echt te krijgen, lees je in <a href="/blog/isde-isolatie-aanvragen/">ISDE voor isolatie aanvragen: stappen en eisen</a>.</p>
 ${bron(['isdeIsolatie', 'isdeWp', 'isde2027'], ISDE_CHECKED)}</article>`,
 });
 
