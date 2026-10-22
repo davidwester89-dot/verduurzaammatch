@@ -37,7 +37,7 @@ export default {
 <ul><li>Elke m³ gas die je minder stookt, scheelt 61,63 cent energiebelasting, 1,56 cent meer dan nu.</li>
 <li>Elke kWh stroom die de warmtepomp extra gebruikt, kost 8,80 cent energiebelasting, 0,36 cent minder dan nu.</li></ul>
 <p>Hoeveel dat in euro's scheelt, hangt af van hoeveel gas je warmtepomp vervangt en hoeveel stroom hij daarvoor gebruikt. Dat verschilt per huis, dus daar noemen we geen bedrag voor. Wel geldt: hoe meer gas je vervangt door stroom, hoe meer je hebt aan deze verschuiving.</p>
-<p>Wat een hybride warmtepomp kost, hoeveel subsidie je krijgt en hoe snel je hem terugverdient, lees je in <a href="/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a>. Let ook op de ISDE: het kabinet wil de subsidie voor warmtepompen in 2027 aanpassen. Wat er verandert, staat in <a href="/isde-2027/">ISDE 2027</a>.</p>
+<p>Wat een hybride warmtepomp kost, hoeveel subsidie je krijgt en hoe snel je hem terugverdient, lees je in <a href="https://warmtepompenmatch.nl/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a> (WarmtepompenMatch). Let ook op de ISDE: het kabinet wil de subsidie voor warmtepompen in 2027 aanpassen. Wat er verandert, staat in <a href="/isde-2027/">ISDE 2027</a>.</p>
 <h2>Hoe rekenen onze rekentools?</h2>
 <p>Onze <a href="/besparing-berekenen/">besparingscalculator</a> en <a href="/terugverdientijd-berekenen/">terugverdientijd-calculator</a> gebruiken de besparingen van Milieu Centraal. Milieu Centraal rekent daarin met een gasprijs van € 1,37 per m³: de verwachting voor 2026 tot 2040. Dat is de hele gasprijs, dus niet alleen de energiebelasting. De voorgestelde tarieven voor 2027 veranderen die uitkomsten daarom niet.</p>
 <h2>Wat kun je nu doen?</h2>
