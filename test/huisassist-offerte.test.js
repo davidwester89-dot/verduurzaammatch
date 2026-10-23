@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { PARTNERLINKS, HUISASSIST_ISOLATIE, HUISASSIST_WARMTEPOMP, partnerUrl, uitgaand, offerteBlok, alleUrls, NOOT_HTML } from '../src/lib/partnerlinks.js';
 import { netwerkenVan, partnerNetwerk } from '../src/privacy-avg.mjs';
 
@@ -35,4 +35,11 @@ test('quiz gebruikt het offerteblok uit partnerlinks.js; privacy noemt Daisycon'
   assert.deepEqual(alleUrls().sort(), [HUISASSIST_ISOLATIE, HUISASSIST_WARMTEPOMP].sort());
   assert.deepEqual(netwerkenVan(PARTNERLINKS).map((n) => n.naam), ['Daisycon']);
   assert.match(partnerNetwerk('VerduurzaamMatch', PARTNERLINKS), /affiliatenetwerk \(Daisycon\)/);
+});
+
+test('privacy: lastmod in de sitemap = PRIVACY_UPDATED (2026-10-23), niet SITE.updated', async () => {
+  const { PRIVACY_UPDATED } = await import('../src/privacy-avg.mjs');
+  assert.equal(PRIVACY_UPDATED, '2026-10-23');
+  assert.match(readFileSync('src/pages.mjs', 'utf8'), /path: '\/privacy\/'[^\n]*lastmod: PRIVACY_UPDATED/);
+  if (existsSync('dist/sitemap.xml')) assert.match(readFileSync('dist/sitemap.xml', 'utf8'), /<loc>https:\/\/verduurzaammatch\.nl\/privacy\/<\/loc><lastmod>2026-10-23<\/lastmod>/);
 });

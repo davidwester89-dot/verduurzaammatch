@@ -316,7 +316,7 @@ export const bronnen = {
 };
 
 export const privacy = {
-  path: '/privacy/', title: 'Privacy en cookies | VerduurzaamMatch', h1: 'Privacy en cookies', crumb: 'Privacy', og: 'home', stamp: { updated: PRIVACY_UPDATED },
+  path: '/privacy/', title: 'Privacy en cookies | VerduurzaamMatch', h1: 'Privacy en cookies', crumb: 'Privacy', og: 'home', lastmod: PRIVACY_UPDATED, stamp: { updated: PRIVACY_UPDATED },
   description: 'Hoe VerduurzaamMatch met je gegevens omgaat: geen account, Google Analytics alleen na jouw toestemming en altijd in te trekken.',
   body: `<article><h1>Privacy en cookies</h1>
 <p>Vragen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
