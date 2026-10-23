@@ -1,11 +1,11 @@
 // Aanvullende AVG-blokken voor /privacy/ (audit beveiliging & juridisch 20-10-2026, punt A.6 / F1).
 // Alleen vaststaande feiten: cookielooptijd uit consent.js (cookie_expires), GA4-bewaartermijn uit de property-instelling.
 // "Wie is verantwoordelijk?" staat hier bewust NIET in: dat volgt na het KvK-besluit.
-export const PRIVACY_UPDATED = '2026-10-21';
+export const PRIVACY_UPDATED = '2026-10-23';
 
 const NETWERKEN = [
   { re: /(^|\.)pxf\.io$|impact\.com$/, naam: 'Impact', privacy: 'https://impact.com/privacy-policy/' },
-  { re: /(^|\.)jf79\.net$|ds1\.nl$|daisycon\./, naam: 'Daisycon', privacy: 'https://daisycon.com/en/legal-information/privacy-policy/' },
+  { re: /(^|\.)(jf79|glp8|bdt9)\.net$|ds1\.nl$|daisycon\./, naam: 'Daisycon', privacy: 'https://daisycon.com/en/legal-information/privacy-policy/' },
 ];
 
 /** Privacybeleid van de netwerken (geen affiliate-links; tests laten deze URL's toe). */
@@ -14,7 +14,7 @@ export const NETWERK_PRIVACY = NETWERKEN.map((n) => n.privacy);
 /** Welke affiliatenetwerken zitten achter de huidige partnerlinks? Onbekend netwerk = bouwfout, zodat de tekst nooit achterloopt. */
 export function netwerkenVan(partnerlinks) {
   const uit = [];
-  for (const url of Object.values(partnerlinks || {})) {
+  for (const url of Object.values(partnerlinks || {}).flatMap((pl) => (typeof pl === 'string' ? [pl] : Object.values(pl)))) {
     const host = new URL(url).hostname;
     const n = NETWERKEN.find((x) => x.re.test(host));
     if (!n) throw new Error(`Onbekend affiliatenetwerk voor ${host}: vul privacy-avg.mjs aan`);

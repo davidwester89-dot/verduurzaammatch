@@ -13,8 +13,8 @@ test('zonnestroom-doel bij goed huis: zonnepanelen eerst', () => assert.equal(ma
 test('max 3 resultaten en onvolledig gooit', () => { assert.equal(match(A).length, 3); assert.throws(() => match({ ...A, doel: '' })); });
 test('terugverdientijd spouw hoek = MC-cijfers', () => assert.deepEqual(terugverdien(MAATREGELEN.spouw, 'hoek'), [2, 3]));
 test('MC-cijfers ongewijzigd', () => { assert.equal(MAATREGELEN.dak.kosten.vrij, 10000); assert.equal(MAATREGELEN.hybride.subsidie.hoek, 2125); });
-test('partnerlinks leeg en match leest ze niet', () => {
-  assert.deepEqual(PARTNERLINKS, {});
+test('partnerlinks: alleen Huisassist (goedgekeurd 23-10) en match leest ze niet', () => {
+  assert.deepEqual(Object.keys(PARTNERLINKS), ['huisassist']);
   assert.ok(!readFileSync(new URL('../src/lib/match.js', import.meta.url), 'utf8').includes('partnerlinks'));
   assert.equal(uitgaand('quatt').partner, false);
   assert.equal(uitgaand('quatt', { quatt: 'https://x' }).rel, 'sponsored nofollow noopener');

@@ -2,7 +2,7 @@ import { match, voorlopig } from './lib/match.js';
 import { icoon } from './lib/iconen.js';
 const ICOON = { spouw: 'muur', dak: 'dak', vloer: 'vloer', glas: 'glas', hybride: 'warmtepomp', allelectric: 'stekker', zon: 'zon', batterij: 'batterij' };
 import { SOURCES } from './lib/maatregelen.js';
-import { PARTNERLINKS, AANBIEDERS, uitgaand, metNoot } from './lib/partnerlinks.js';
+import { offerteBlok } from './lib/partnerlinks.js';
 import { bewaar, laad, wis } from './lib/opslag.js';
 import { track } from './consent.js';
 const form = document.getElementById('form');
@@ -15,11 +15,7 @@ form.addEventListener('change', (e) => { if (e.isTrusted) quizStart(); });
 const out = document.getElementById('result');
 const eur = (n) => '€ ' + n.toLocaleString('nl-NL');
 // Offerteblok per maatregel: pas zichtbaar als er een goedgekeurde partnerlink is.
-function offerte(id) {
-  const ids = Object.keys(AANBIEDERS).filter((a) => PARTNERLINKS[a] && AANBIEDERS[a].voor.includes(id));
-  if (!ids.length) return '';
-  return metNoot('<p><strong>Offerte aanvragen:</strong> ' + ids.map((a) => { const l = uitgaand(a); return `<a href="${l.href}" rel="${l.rel}" data-vendor="${a}">${l.naam}</a>`; }).join(' · ') + '</p>');
-}
+const offerte = (id) => offerteBlok(id);
 function kaart(r, i) {
   const nums = r.kosten == null ? '' : `<div class="nums"><div><b>${eur(r.kosten)}</b><span>kosten</span></div>${r.subsidie ? `<div><b>${eur(r.subsidie)}</b><span>subsidie</span></div>` : ''}<div><b>${eur(r.besparing)}${r.besparingMax ? '–' + eur(r.besparingMax).slice(2) : ''}</b><span>besparing per jaar</span></div><div><b>${r.terugverdien.join('–')} jaar</b><span>terugverdientijd</span></div></div>`;
   const noot = r.hoek ? '<p class="src">Cijfers voor een hoekwoning.</p>' : r.app && r.kosten != null ? '<p class="src">Cijfers voor een tussenwoning; overleg met je VvE.</p>' : '';
