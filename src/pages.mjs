@@ -6,6 +6,7 @@ import { toolLinks } from './tools.mjs';
 import { PRIVACY_UPDATED, cookieTabel, partnerNetwerk, grondslag, doorgifte, bewaartermijnen, rechten } from './privacy-avg.mjs';
 import { PARTNERLINKS } from './lib/partnerlinks.js';
 import { HERO_ART } from './hero-art.mjs';
+import { jaarTekst } from './lib/rekenen.js';
 const ICOON_VRAAG = { woning: 'huis', bouwjaar: 'kalender', label: 'label', budget: 'euro', doel: 'doel' };
 
 const eur = (n) => '€ ' + n.toLocaleString('nl-NL');
@@ -29,22 +30,57 @@ const faqHtml = (faq) => (faq && faq.length ? `<h2>Veelgestelde vragen</h2>${faq
 const GIDSEN_FAQ = {};
 // Home: dezelfde vragen als uitklapbare FAQ (details/summary).
 const faqAcc = (faq) => `<h2>Veelgestelde vragen</h2>${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}`;
+// Spouwmuur-deep-dive (29-10-2026): kosten, subsidie en besparing per woningtype van Milieu Centraal (MAATREGELEN.spouw);
+// gasbesparing in m³ per woningtype van dezelfde MC-pagina. Netto en terugverdientijd = onze rekensom.
+const SPOUW_M3 = { tussen: 180, hoek: 400, twee: 400, vrij: 600 };
+const WON4 = () => Object.entries(WONINGEN).filter(([w]) => w !== 'app');
+const spouwKosten = () => { const m = MAATREGELEN.spouw; return `<div class="tbl"><table><thead><tr><th>Woning</th><th>Kosten</th><th>ISDE-subsidie</th><th>Je betaalt netto</th></tr></thead><tbody>${WON4().map(([w, n]) => `<tr><td>${n}</td><td>${eur(m.kosten[w])}</td><td>${eur(m.subsidie[w])}</td><td>${eur(m.kosten[w] - m.subsidie[w])}</td></tr>`).join('')}</tbody></table></div>`; };
+const spouwTerug = () => { const m = MAATREGELEN.spouw; return `<div class="tbl"><table><thead><tr><th>Woning</th><th>Minder gas per jaar</th><th>Besparing per jaar</th><th>Terugverdientijd met subsidie</th><th>Zonder subsidie</th></tr></thead><tbody>${WON4().map(([w, n]) => `<tr><td>${n}</td><td>${SPOUW_M3[w]} m³</td><td>${eur(m.besparing[w])}</td><td>${jaarTekst((m.kosten[w] - m.subsidie[w]) / m.besparing[w])}</td><td>${jaarTekst(m.kosten[w] / m.besparing[w])}</td></tr>`).join('')}</tbody></table></div>`; };
+const SPOUW_FAQ = [
+  ['Kan ik mijn spouwmuur zelf isoleren?', 'Nee. Volgens Milieu Centraal laat je dit altijd doen door een gespecialiseerd isolatiebedrijf. Voor de ISDE moet een bouwbedrijf ook het volledige werk uitvoeren.'],
+  ['Mag ik nog UF-schuim laten gebruiken?', 'GGD\'en en Milieu Centraal raden UF-schuim voorlopig af. Sinds 1 april 2026 krijg je er geen ISDE-subsidie meer voor. Alternatieven zijn bijvoorbeeld EPS-parels of inblaasglaswol.'],
+  ['Hoeveel beter isoleert een gevulde spouw?', 'Een niet-geïsoleerde spouwmuur heeft volgens Milieu Centraal vaak een isolatiewaarde van 0,35. Met 5 cm isolatie komt daar gemiddeld Rd 1,2 bij, en dan is de Rc-waarde van de gevel 1,55.'],
+  ['Kan een geïsoleerde spouwmuur nog beter?', 'Ja. Je kunt spouwmuurisolatie combineren met isolatie aan de binnen- of buitenkant van de gevel. Voor een energieneutraal huis noemt Milieu Centraal minimaal Rc 5, en dat haal je niet met alleen spouwmuurisolatie.'],
+];
 export const GIDSEN = [
   {
-    slug: 'spouwmuurisolatie-kosten', updated: '2026-10-15', id: 'spouw', crumb: 'Spouwmuurisolatie',
+    slug: 'spouwmuurisolatie-kosten', updated: '2026-10-29', checked: '2026-10-29', id: 'spouw', crumb: 'Spouwmuurisolatie',
     title: 'Spouwmuurisolatie kosten: prijs, subsidie en besparing',
     h1: 'Spouwmuurisolatie kosten: prijs, subsidie en besparing',
     description: 'Wat kost spouwmuurisolatie per woningtype, hoeveel ISDE-subsidie krijg je en hoe snel verdien je het terug? Cijfers van Milieu Centraal.',
     alt: 'Doorsnede van een spouwmuur die wordt gevuld met isolatiemateriaal',
+    faq: SPOUW_FAQ,
     body: () => `<p class="lead">Een isolatiebedrijf blaast via kleine gaatjes in de voegen isolatie in de spouw. Klaar in één dag, zonder rommel binnen.</p>
-<h2>Kosten en terugverdientijd</h2>${tabel('spouw')}
-<p>Terugverdientijd: met subsidie – zonder subsidie. Besparing bij een gasprijs van € 1,37 per m³.</p>
+<h2>Kosten per woningtype</h2>${spouwKosten()}
+<p>Gemiddelden van Milieu Centraal voor uitbesteed werk in een standaardsituatie, zonder meerwerk. Milieu Centraal rekent per woningtype met een gemiddelde gevelgrootte en baseert de prijs op een kostenoverzicht van RVO (stand 1 januari 2026). Voor een appartement geeft Milieu Centraal geen apart bedrag.</p>
+<p>De subsidie in de tabel geldt voor één maatregel. Laat je binnen 24 maanden ook je <a href="/vloerisolatie-kosten/">vloer</a> of <a href="/dakisolatie-kosten/">dak</a> isoleren, dan verdubbelt hij: bij een hoekwoning € 900 in plaats van € 450 (onze rekensom).</p>
+<p><strong>Niet in de prijs:</strong> natuurvriendelijk isoleren. Daarvoor noemt Milieu Centraal € 300 tot € 1.000, afhankelijk van je huis. Een eDNA-test op vleermuizen kost volgens Verbeterjehuis rond de € 350 exclusief btw.</p>
+<h2>Prijs per m²</h2>
+<p>Milieu Centraal en Verbeterjehuis noemen geen vaste prijs per m², en ook niet hoeveel m² gevel ze per woningtype rekenen. Wat wel per m² vastligt, is de ISDE-subsidie van RVO:</p>
+<ul><li>€ 5,25 per m² bij één maatregel, dubbel bij een tweede maatregel binnen 24 maanden.</li><li>€ 1,50 per m² extra voor biobased materiaal. Die bonus verdubbelt niet.</li><li>Minimaal 10 m², subsidie over maximaal 170 m².</li><li>Het nieuwe materiaal heeft minimaal Rd 1,1.</li></ul>
+<p><strong>Voorbeeld (onze rekensom):</strong> je laat 50 m² spouwmuur isoleren. Dat geeft 50 × € 5,25 = € 262,50 subsidie, of € 525 met een tweede maatregel. Met biobased materiaal komt er 50 × € 1,50 = € 75 bij.</p>
+<p>Offertes vergelijken? Deel de prijs door het aantal m² op de offerte. Laat dat aantal ook op de factuur zetten; dat raadt RVO aan. Alle bedragen staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a>.</p>
+<h2>Terugverdientijd per woningtype</h2>${spouwTerug()}
+<p>Gasbesparing en besparing per jaar: Milieu Centraal, voor een huis met een hr-combiketel en een gasprijs van € 1,37 per m³ (de verwachte prijs voor 2026–2040). De terugverdientijd is onze rekensom: prijs na subsidie en volle prijs, gedeeld door de besparing per jaar, afgerond op één decimaal.</p>
+<p>Betaal je ook voor natuurvriendelijk isoleren, dan duurt het langer. <strong>Voorbeeld (onze rekensom):</strong> hoekwoning € 1.800 + € 1.000 − € 450 subsidie = € 2.350. Gedeeld door € 575 per jaar is dat ruim 4 jaar. Je bespaart ook minder als je weinig stookt of als er al wat isolatie in de spouw zat.</p>
+<p>Milieu Centraal vergelijkt de winst over 25 jaar met 11 procent rente op een spaarrekening. Reken je eigen offerte door met <a href="/terugverdientijd-berekenen/?m=spouw">terugverdientijd berekenen</a>, of tel meerdere maatregelen op met <a href="/besparing-berekenen/">besparing berekenen</a>.</p>
 <h2>Kan het bij jou?</h2>
-<ul><li>Je hebt een spouw van 4 tot 6 cm. Huizen van voor 1920 hebben vaak geen spouw.</li><li>De spouw is leeg of matig gevuld (bijvullen kan soms).</li><li>Laat de muur vooraf inspecteren, bijvoorbeeld met een camera.</li></ul>
-<h2>Subsidie</h2><p>ISDE geeft € 5,25 per m² (minimaal 10 m²). Combineer je binnen 24 maanden met een tweede maatregel, dan verdubbelt het bedrag. Kies geen UF-schuim: daarvoor stopte de subsidie per 1 april 2026.</p>
-<h2>Offertes</h2><ol class="steps"><li>Vraag minstens 2 gecertificeerde bedrijven (Insula of SKG-IKOB).</li><li>Laat meldcode en m² op de factuur zetten.</li><li>Maak een foto tijdens het werk voor je ISDE-aanvraag.</li></ol>
+<ul><li>Je hebt een spouw van 4 tot 6 cm. Huizen van voor 1920 hebben vaak alleen enkelsteensmuren, zonder spouw.</li><li>Zit er al oude isolatie in die is gezakt, dan kan bijvullen soms. Soms is het beter de spouw eerst te laten schoonmaken.</li><li>Houtskeletbouw: de dunne luchtspouw van ongeveer 2 cm hoef je niet te laten vullen.</li><li>Laat de muur vooraf inspecteren, bijvoorbeeld met een camera.</li></ul>
+<h2>Vleermuizen: wanneer heb je een onderzoek nodig?</h2>
+<p>Voor spouwmuurisolatie heb je geen omgevingsvergunning nodig. Maar in je spouw kunnen vleermuizen zitten, en die zijn beschermd. Volgens de Omgevingswet moet je vóór het isoleren zeker weten dat er geen dieren in je spouw verblijven.</p>
+<p>Daarvoor is er sinds maart 2025 de eDNA-test. Een gecertificeerd bedrijf neemt met een spons een monster af bij de gaten in je spouwmuur. Een laboratorium zoekt daarin naar sporen van vleermuizen.</p>
+<ul><li><strong>Geen sporen:</strong> je mag direct isoleren, zonder extra maatregelen.</li><li><strong>Wel sporen:</strong> meld je bij de provincie. Je hebt dan een omgevingsvergunning nodig en meestal een ecologisch onderzoek. Je kunt ook wachten tot je gemeente een soortenmanagementplan heeft.</li></ul>
+<p>Of natuurvriendelijk isoleren in jouw provincie nog kan, verschilt per provincie. Dat vraag je na bij het Omgevingsloket van je provincie.</p>
+<h2>Subsidie aanvragen</h2><p>Je vraagt de ISDE aan nadat het werk klaar is, binnen 24 maanden. Je hebt de meldcode van het materiaal nodig en een foto van het werk op je adres. Kies geen UF-schuim: daarvoor krijg je sinds 1 april 2026 geen subsidie meer. Elke stap staat in <a href="/blog/isde-isolatie-aanvragen/">ISDE-subsidie voor isolatie aanvragen</a>.</p>
+<h2>Offertes</h2><ol class="steps"><li>Vraag minstens 2 bedrijven om advies bij je thuis, het liefst met een certificaat van Insula of SKG-IKOB.</li><li>Heb je vochtplekken in huis? Meld dat vóór het onderzoek.</li><li>Laat meldcode, m², dikte en isolatiewaarde op de factuur zetten.</li></ol>
 <p>Denk je na het isoleren aan een warmtepomp? Een geïsoleerde spouwmuur is een van de punten die Milieu Centraal noemt voor all-electric. Op WarmtepompenMatch lees je <a href="https://warmtepompenmatch.nl/is-mijn-huis-geschikt-voor-een-warmtepomp/">of je huis geschikt is voor een warmtepomp</a>.</p>
-${matchCta}${src('spouw', 'isdeIsolatie')}`,
+${matchCta}${faqHtml(SPOUW_FAQ)}
+<h2>Bronnen</h2>
+<ul class="src"><li><a href="${SOURCES.spouw.url}" rel="noopener">${esc(SOURCES.spouw.title)}</a></li>
+<li><a href="${SOURCES.isdeIsolatie.url}" rel="noopener">${esc(SOURCES.isdeIsolatie.title)}</a></li>
+<li><a href="https://www.verbeterjehuis.nl/eigen-huis/isoleren-ventileren-en-zon-weren/gevelisolatie" rel="noopener">Verbeterjehuis – Gevelisolatie</a></li>
+<li><a href="https://www.verbeterjehuis.nl/eigen-huis/isoleren-ventileren-en-zon-weren/isoleren-en-natuurbescherming" rel="noopener">Verbeterjehuis – Isoleren en natuurbescherming</a></li>
+<li><a href="https://www.volkshuisvestingnederland.nl/actueel/nieuws/2025/07/21/meer-duidelijkheid-over-isoleren-spouwmuren-door-afspraken-rijk-provincies-en-gemeenten" rel="noopener">Rijksoverheid (Volkshuisvesting Nederland) – Meer duidelijkheid over isoleren spouwmuren</a></li></ul>`,
   },
   {
     slug: 'dakisolatie-kosten', updated: '2026-10-16', id: 'dak', crumb: 'Dakisolatie',
@@ -101,7 +137,7 @@ ${matchCta}${src('zon', 'saldering')}`,
 for (const g of GIDSEN) if (g.faq) GIDSEN_FAQ[g.id] = g.faq;
 export const gidsPages = GIDSEN.map((g) => ({
   path: `/${g.slug}/`, title: g.title, h1: g.h1, crumb: g.crumb, description: g.description, og: g.slug, parents: [['/gidsen/', 'Gidsen']], navPath: '/gidsen/', ogType: 'article', ogAlt: g.alt, lastmod: g.updated,
-  article: { date: '2026-10-15', updated: g.updated }, stamp: { checked: CHECKED, updated: g.updated },
+  article: { date: '2026-10-15', updated: g.updated }, stamp: { checked: g.checked || CHECKED, updated: g.updated },
   schema: [{ '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, image: `${SITE.domain}/og/${g.slug}.png`, datePublished: '2026-10-15', dateModified: g.updated, author: AUTHOR, publisher: ORG, inLanguage: 'nl' }]
     .concat(g.faq ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
   body: `<article><h1>${esc(g.h1)}</h1>${img(g.slug, g.alt)}<p class="src">Door ${SITE.owner} · 15 oktober 2026</p>${g.body()}<p>Weet je nog niet welke stap eerst? Lees <a href="/blog/huis-verduurzamen-waar-beginnen/">Huis verduurzamen: welke maatregel eerst?</a></p>${toolLinks(g.id)}</article>`,

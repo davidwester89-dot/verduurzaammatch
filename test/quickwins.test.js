@@ -34,7 +34,7 @@ test('elke pagina: OG + Twitter, Organization + WebSite, geldige JSON-LD zonder 
 test('controlebadge: op elke gids, ISDE en blog, met echte datums', () => {
   for (const g of GIDSEN) {
     const h = readFileSync(`dist/${g.slug}/index.html`, 'utf8');
-    assert.ok(h.includes(`Gecontroleerd op <time datetime="${CHECKED}">`), g.slug);
+    assert.ok(h.includes(`Gecontroleerd op <time datetime="${g.checked || CHECKED}">`), g.slug);
     assert.ok(h.includes(`Laatst bijgewerkt <time datetime="${g.updated}">`), g.slug);
     assert.match(g.updated, /^2026-\d\d-\d\d$/);
   }
