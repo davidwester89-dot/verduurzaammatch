@@ -4,6 +4,7 @@ export default {
   h1: 'ISDE-subsidie voor isolatie aanvragen: zo doe je het goed',
   description: 'ISDE voor isolatie aanvragen in 2026: wat je vóór, tijdens en na het werk regelt, welke Rd-waarde en m² nodig zijn en hoe je het bedrag verdubbelt.',
   date: '2026-10-22',
+  updated: '2026-10-26',
   checked: '2026-10-22',
   author: 'Redactie VerduurzaamMatch',
   image: 'subsidie-isde',
@@ -30,6 +31,7 @@ export default {
 <tr><td><a href="/glasisolatie-kosten/">Hr++-glas</a></td><td>€ 25</td><td>3 – 45 m²</td><td>U maximaal 1,2</td></tr>
 <tr><td>Triple- of vacuümglas met nieuwe kozijnen</td><td>€ 111</td><td>3 – 45 m²</td><td>U maximaal 0,7</td></tr>
 </tbody></table></div>
+<p>Wat het werk zelf kost, vóór subsidie, lees je per maatregel: <a href="/spouwmuurisolatie-kosten/">spouwmuurisolatie kosten</a>, <a href="/dakisolatie-kosten/">dakisolatie kosten</a> en <a href="/vloerisolatie-kosten/">vloerisolatie kosten</a>. Daar staat ook hoeveel ISDE-subsidie je ervoor krijgt.</p>
 <p>De bedragen gelden voor werk dat in 2025 of later is uitgevoerd. Isoleer je meer dan het maximum, dan krijg je subsidie tot dat maximum. Een paar regels die vaak over het hoofd worden gezien:</p>
 <ul><li><strong>Dak en zoldervloer, vloer en bodem.</strong> Liggen ze boven elkaar in dezelfde ruimte, dan krijg je voor maar één van de twee subsidie. Samen moeten ze minimaal 20 m² zijn, en je vraagt ze in één aanvraag aan.</li>
 <li><strong>Zoldervloer.</strong> De zolder moet onverwarmd zijn. Staat er een radiator, ook als je hem nooit gebruikt, dan telt hij niet.</li>

@@ -210,26 +210,32 @@ ${src('spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon', 'batteri
 const redactieArticle = (path, headline, og, datePublished, dateModified) => ({ '@context': 'https://schema.org', '@type': 'Article', headline, mainEntityOfPage: SITE.domain + path, image: `${SITE.domain}/og/${og}.png`, datePublished, dateModified, author: AUTHOR, publisher: ORG, inLanguage: 'nl' });
 const BYLINE = `<p class="src">Door ${SITE.owner}</p>`;
 export const subsidie = {
-  schema: [redactieArticle('/subsidie-isde/', 'ISDE-subsidie isolatie 2026', 'subsidie-isde', '2026-10-15', '2026-10-19')],
-  path: '/subsidie-isde/', title: 'ISDE-subsidie isolatie 2026: bedragen en voorwaarden', h1: 'ISDE-subsidie isolatie 2026', crumb: 'ISDE-subsidie', og: 'subsidie-isde', lastmod: '2026-10-19', stamp: { checked: '2026-10-19', updated: '2026-10-19' },
+  schema: [redactieArticle('/subsidie-isde/', 'ISDE-subsidie isolatie 2026', 'subsidie-isde', '2026-10-15', '2026-10-26')],
+  path: '/subsidie-isde/', title: 'ISDE-subsidie isolatie 2026: bedragen en voorwaarden', h1: 'ISDE-subsidie isolatie 2026', crumb: 'ISDE-subsidie', og: 'subsidie-isde', lastmod: '2026-10-26', stamp: { checked: '2026-10-26', updated: '2026-10-26' },
   description: 'ISDE-subsidie 2026 voor isolatie en glas: bedragen per m², de verdubbeling bij twee maatregelen, voorwaarden en hoe je aanvraagt. Bron: RVO.',
   body: `<article><h1>ISDE-subsidie isolatie 2026</h1>${img('subsidie-isde', 'Huis met een euroteken en een vinkje voor subsidie')}${BYLINE}
 <p class="lead">Met de ISDE krijg je als eigenaar-bewoner geld terug voor isolatie, een warmtepomp of een zonneboiler. Je vraagt het aan ná de installatie, binnen 24 maanden.</p>
 <h2>Isolatie</h2>
-<div class="tbl"><table><thead><tr><th>Maatregel</th><th>Per m²</th><th>Oppervlak</th></tr></thead><tbody>
-<tr><td>Spouwmuur</td><td>€ 5,25</td><td>10 – 170 m²</td></tr>
-<tr><td>Gevel (binnen of buiten)</td><td>€ 20,25</td><td>10 – 170 m²</td></tr>
-<tr><td>Dak</td><td>€ 16,25</td><td>20 – 200 m²</td></tr>
-<tr><td>Zolder- of vlieringvloer</td><td>€ 4</td><td>20 – 130 m²</td></tr>
-<tr><td>Vloer</td><td>€ 5,50</td><td>20 – 130 m²</td></tr>
-<tr><td>Bodem</td><td>€ 3</td><td>20 – 130 m²</td></tr>
-<tr><td><a href="/glasisolatie-kosten/">Hr++-glas</a></td><td>€ 25</td><td>3 – 45 m²</td></tr>
-<tr><td>Triple- of vacuümglas met nieuwe kozijnen</td><td>€ 111</td><td>3 – 45 m²</td></tr>
+<p>Dit zijn de ISDE-bedragen van RVO voor isolatie die je in 2025 of later laat uitvoeren, dus ook in 2026.</p>
+<div class="tbl"><table><thead><tr><th>Maatregel</th><th>Per m²</th><th>Biobased bonus per m²</th><th>Oppervlak</th></tr></thead><tbody>
+<tr><td>Spouwmuur</td><td>€ 5,25</td><td>€ 1,50</td><td>10 – 170 m²</td></tr>
+<tr><td>Gevel (binnen of buiten)</td><td>€ 20,25</td><td>€ 6</td><td>10 – 170 m²</td></tr>
+<tr><td>Dak</td><td>€ 16,25</td><td>€ 5</td><td>20 – 200 m²</td></tr>
+<tr><td>Zolder- of vlieringvloer</td><td>€ 4</td><td>€ 1,50</td><td>20 – 130 m²</td></tr>
+<tr><td>Vloer</td><td>€ 5,50</td><td>€ 2</td><td>20 – 130 m²</td></tr>
+<tr><td>Bodem</td><td>€ 3</td><td>€ 1</td><td>20 – 130 m²</td></tr>
+<tr><td><a href="/glasisolatie-kosten/">Hr++-glas</a></td><td>€ 25</td><td>–</td><td>3 – 45 m²</td></tr>
+<tr><td>Triple- of vacuümglas met nieuwe kozijnen</td><td>€ 111</td><td>–</td><td>3 – 45 m²</td></tr>
 </tbody></table></div>
-<p><strong>Twee maatregelen = dubbel.</strong> Voer je binnen 24 maanden een tweede isolatiemaatregel uit, of combineer je met een warmtepomp, dan verdubbelt het isolatiebedrag. Biobased materiaal geeft een extra bonus.</p>
+<p><strong>Twee maatregelen = dubbel.</strong> Voer je binnen 24 maanden een tweede isolatiemaatregel uit, of combineer je met een warmtepomp, zonneboiler of warmtenet, dan verdubbelt het isolatiebedrag. De biobased bonus verdubbelt niet. Combineer je isolatie alleen met ventilatie, dan verdubbelt er ook niets.</p>
+<p><strong>Rekenvoorbeeld van RVO.</strong> Je laat 36 m² dak isoleren met biobased materiaal. Dat geeft 36 × € 16,25 = € 585, plus 36 × € 5 = € 180 bonus. Laat je binnen 24 maanden ook een warmtepomp installeren, dan verdubbelt alleen de € 585. Voor het dak krijg je dan € 1.170 + € 180 = € 1.350.</p>
+<h2>Nieuw in 2026: ventilatie</h2>
+<p>Combineer je ventilatie met een of meer isolatiemaatregelen, dan krijg je sinds 2026 eenmalig € 400 voor energiezuinige ventilatie. Voorbeelden van RVO: een afzuigventilator met minimaal 2 CO₂-sensoren, of een wtw-unit die warmte terugwint uit de afgevoerde lucht. Je vraagt het aan binnen 24 maanden na de isolatie, of tegelijk met de isolatie-aanvraag.</p>
 <h2>Warmtepomp</h2>
-<p>Lucht-waterwarmtepomp in 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Een hybride van 4 kW met A+++-label levert zo € 2.125 op. Je krijgt altijd minimaal € 500. Alleen de warmtepomp? Zie <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE-subsidie warmtepomp 2026</a> op WarmtepompenMatch.</p>
-<p class="src">Bedragen per m², minimale en maximale oppervlakken en de biobased bonus: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/isolatiemaatregelen" rel="noopener">ISDE isolatiemaatregelen</a> ("Subsidiebedrag voor uitvoering in 2025 of later"). Warmtepomp (€ 225 per kW en € 200 A+++-bonus in 2026, vast deel € 1.025 in het rekenvoorbeeld) en alle 2027-bedragen: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/isde-wat-wijzigt-er-2027" rel="noopener">ISDE: wat wijzigt er vanaf 2027?</a>. Minimaal € 500: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp" rel="noopener">ISDE warmtepomp</a>. Gecontroleerd op 19 oktober 2026.</p>
+<p>Lucht-waterwarmtepomp in 2026: € 1.025 + € 225 per kW + € 200 bij een A+++-label. Een hybride van 4 kW met A+++-label levert zo € 2.125 op. Je krijgt altijd minimaal € 500. Het startbedrag was in 2025 nog € 1.250. Plaats je een tweede lucht-waterwarmtepomp, dan krijg je daarvoor alleen € 225 per kW, zonder startbedrag en labelbonus: bij 4 kW is dat € 900. Split-warmtepompen met minder dan 3 kg koudemiddel en een GWP boven 750 krijgen sinds 2026 geen subsidie meer. Alleen de warmtepomp? Zie <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE-subsidie warmtepomp 2026</a> op WarmtepompenMatch.</p>
+<h2>Zonneboiler</h2>
+<p>Voor een zonneboiler ligt de ISDE volgens RVO gemiddeld tussen € 300 en € 1.750. Het bedrag hangt af van het collectoroppervlak en de inhoud van het boilervat; staat je zonneboiler op de meldcodelijst, dan zie je daar het bedrag.</p>
+<p class="src">Bedragen per m², minimale en maximale oppervlakken en de biobased bonus: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/isolatiemaatregelen" rel="noopener">ISDE isolatiemaatregelen</a> ("Subsidiebedrag voor uitvoering in 2025 of later"). Warmtepomp (€ 225 per kW en € 200 A+++-bonus in 2026, vast deel € 1.025 in het rekenvoorbeeld) en alle 2027-bedragen: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/isde-wat-wijzigt-er-2027" rel="noopener">ISDE: wat wijzigt er vanaf 2027?</a>. Minimaal € 500: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp" rel="noopener">ISDE warmtepomp</a>. Ventilatie, startbedrag 2025, tweede warmtepomp en split-warmtepompen: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/isde-wat-wijzigt-er-2026" rel="noopener">ISDE: wat is er gewijzigd vanaf 2026?</a>. Zonneboiler: RVO, <a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/zonneboiler" rel="noopener">ISDE zonneboiler</a>. Gecontroleerd op 26 oktober 2026.</p>
 <h2>Wat verandert er in 2027?</h2>
 <p>Vanaf 2027 gaat de ISDE voor lucht-waterwarmtepompen en triple glas omlaag en voor hr++-glas omhoog. Die wijzigingen zijn nog voorgenomen. Alle bedragen en de overgangsregeling staan op <a href="/isde-2027/">ISDE 2027: dit verandert er</a>.</p>
 <h2>Zonnepanelen en thuisbatterij</h2><p>Geen ISDE. Zonnepanelen hebben 0% btw. De salderingsregeling stopt op 1 januari 2027.</p>
@@ -336,11 +342,13 @@ ${rechten(SITE.email)}</article>`,
 };
 
 export const disclaimer = {
-  path: '/disclaimer/', title: 'Disclaimer: zo lees je de cijfers op VerduurzaamMatch', h1: 'Disclaimer', crumb: 'Disclaimer', og: 'home',
+  path: '/disclaimer/', title: 'Disclaimer: zo lees je de cijfers op VerduurzaamMatch', h1: 'Disclaimer', crumb: 'Disclaimer', og: 'home', lastmod: '2026-10-26',
   description: 'Uitkomsten op VerduurzaamMatch zijn een indicatie op basis van gemiddelden.',
   body: `<article><h1>Disclaimer</h1><p>Kosten, besparingen en terugverdientijden zijn gemiddelden van Milieu Centraal. Jouw huis en energieprijs kunnen anders uitvallen. Subsidiebedragen kunnen wijzigen; check altijd rvo.nl vóór je koopt.</p>
 <p>VerduurzaamMatch is geen installateur en geeft geen persoonlijk advies. Laat je woning beoordelen door een vakbedrijf.</p>
-<p>Partnerlinks worden bij de knoppen vermeld en hebben nooit invloed op het advies of de volgorde.</p></article>`,
+<p>Partnerlinks worden bij de knoppen vermeld en hebben nooit invloed op het advies of de volgorde.</p>
+<h2 id="auteursrecht">Auteursrecht en hergebruik</h2><p>Alle rechten voorbehouden. De teksten, tabellen, rekentools, afbeeldingen en het ontwerp van VerduurzaamMatch mag je niet zonder onze schriftelijke toestemming kopiëren, verspreiden of hergebruiken. Wil je iets overnemen? Mail naar <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
+<p>De gemiddelde kosten, besparingen en terugverdientijden in onze tabellen komen van Milieu Centraal en de subsidiebedragen van RVO. Die cijfers zelf vind je bij de bron; onze bewerking en presentatie ervan vallen onder dit voorbehoud.</p></article>`,
 };
 
 export const notfound = {
