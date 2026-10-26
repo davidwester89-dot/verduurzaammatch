@@ -45,14 +45,14 @@ const SPOUW_FAQ = [
 export const GIDSEN = [
   {
     slug: 'spouwmuurisolatie-kosten', updated: '2026-10-29', checked: '2026-10-29', id: 'spouw', crumb: 'Spouwmuurisolatie',
-    title: 'Spouwmuurisolatie kosten: prijs, subsidie en besparing',
-    h1: 'Spouwmuurisolatie kosten: prijs, subsidie en besparing',
-    description: 'Wat kost spouwmuurisolatie per woningtype, hoeveel ISDE-subsidie krijg je en hoe snel verdien je het terug? Cijfers van Milieu Centraal.',
+    title: 'Spouwmuurisolatie kosten 2026: per woningtype en m²',
+    h1: 'Spouwmuurisolatie kosten 2026: per woningtype en m²',
+    description: 'Wat kost spouwmuurisolatie in 2026? Kosten per woningtype en per m², ISDE-subsidie, terugverdientijd en wanneer je een vleermuizenonderzoek nodig hebt.',
     alt: 'Doorsnede van een spouwmuur die wordt gevuld met isolatiemateriaal',
     faq: SPOUW_FAQ,
     body: () => `<p class="lead">Een isolatiebedrijf blaast via kleine gaatjes in de voegen isolatie in de spouw. Klaar in één dag, zonder rommel binnen.</p>
 <h2>Kosten per woningtype</h2>${spouwKosten()}
-<p>Gemiddelden van Milieu Centraal voor uitbesteed werk in een standaardsituatie, zonder meerwerk. Milieu Centraal rekent per woningtype met een gemiddelde gevelgrootte en baseert de prijs op een kostenoverzicht van RVO (stand 1 januari 2026). Voor een appartement geeft Milieu Centraal geen apart bedrag.</p>
+<p>Gemiddelden van Milieu Centraal voor uitbesteed werk in een standaardsituatie, zonder meerwerk. Milieu Centraal rekent per woningtype met een gemiddelde gevelgrootte en baseert de prijs op een kostenoverzicht van RVO (stand 1 januari 2026). Voor een appartement geeft Milieu Centraal geen apart bedrag. Daar is spouwmuurisolatie volgens Verbeterjehuis een zaak van de VvE.</p>
 <p>De subsidie in de tabel geldt voor één maatregel. Laat je binnen 24 maanden ook je <a href="/vloerisolatie-kosten/">vloer</a> of <a href="/dakisolatie-kosten/">dak</a> isoleren, dan verdubbelt hij: bij een hoekwoning € 900 in plaats van € 450 (onze rekensom).</p>
 <p><strong>Niet in de prijs:</strong> natuurvriendelijk isoleren. Daarvoor noemt Milieu Centraal € 300 tot € 1.000, afhankelijk van je huis. Een eDNA-test op vleermuizen kost volgens Verbeterjehuis rond de € 350 exclusief btw.</p>
 <h2>Prijs per m²</h2>
@@ -67,10 +67,10 @@ export const GIDSEN = [
 <h2>Kan het bij jou?</h2>
 <ul><li>Je hebt een spouw van 4 tot 6 cm. Huizen van voor 1920 hebben vaak alleen enkelsteensmuren, zonder spouw.</li><li>Zit er al oude isolatie in die is gezakt, dan kan bijvullen soms. Soms is het beter de spouw eerst te laten schoonmaken.</li><li>Houtskeletbouw: de dunne luchtspouw van ongeveer 2 cm hoef je niet te laten vullen.</li><li>Laat de muur vooraf inspecteren, bijvoorbeeld met een camera.</li></ul>
 <h2>Vleermuizen: wanneer heb je een onderzoek nodig?</h2>
-<p>Voor spouwmuurisolatie heb je geen omgevingsvergunning nodig. Maar in je spouw kunnen vleermuizen zitten, en die zijn beschermd. Volgens de Omgevingswet moet je vóór het isoleren zeker weten dat er geen dieren in je spouw verblijven.</p>
+<p>Voor spouwmuurisolatie heb je geen omgevingsvergunning nodig. Maar in je spouw kunnen vleermuizen zitten, en ook gierzwaluwen en huismussen nestelen er soms. Die zijn beschermd. Volgens de Omgevingswet moet je vóór het isoleren zeker weten dat er geen dieren in je spouw verblijven.</p>
 <p>Daarvoor is er sinds maart 2025 de eDNA-test. Een gecertificeerd bedrijf neemt met een spons een monster af bij de gaten in je spouwmuur. Een laboratorium zoekt daarin naar sporen van vleermuizen.</p>
 <ul><li><strong>Geen sporen:</strong> je mag direct isoleren, zonder extra maatregelen.</li><li><strong>Wel sporen:</strong> meld je bij de provincie. Je hebt dan een omgevingsvergunning nodig en meestal een ecologisch onderzoek. Je kunt ook wachten tot je gemeente een soortenmanagementplan heeft.</li></ul>
-<p>Of natuurvriendelijk isoleren in jouw provincie nog kan, verschilt per provincie. Dat vraag je na bij het Omgevingsloket van je provincie.</p>
+<p>Of natuurvriendelijk isoleren in jouw provincie nog kan, verschilt per provincie. De overheid maakt ook nieuwe afspraken over deze aanpak. Vraag daarom bij het Omgevingsloket van je provincie welke regels voor jouw huis gelden.</p>
 <h2>Subsidie aanvragen</h2><p>Je vraagt de ISDE aan nadat het werk klaar is, binnen 24 maanden. Je hebt de meldcode van het materiaal nodig en een foto van het werk op je adres. Kies geen UF-schuim: daarvoor krijg je sinds 1 april 2026 geen subsidie meer. Elke stap staat in <a href="/blog/isde-isolatie-aanvragen/">ISDE-subsidie voor isolatie aanvragen</a>.</p>
 <h2>Offertes</h2><ol class="steps"><li>Vraag minstens 2 bedrijven om advies bij je thuis, het liefst met een certificaat van Insula of SKG-IKOB.</li><li>Heb je vochtplekken in huis? Meld dat vóór het onderzoek.</li><li>Laat meldcode, m², dikte en isolatiewaarde op de factuur zetten.</li></ol>
 <p>Denk je na het isoleren aan een warmtepomp? Een geïsoleerde spouwmuur is een van de punten die Milieu Centraal noemt voor all-electric. Op WarmtepompenMatch lees je <a href="https://warmtepompenmatch.nl/is-mijn-huis-geschikt-voor-een-warmtepomp/">of je huis geschikt is voor een warmtepomp</a>.</p>
