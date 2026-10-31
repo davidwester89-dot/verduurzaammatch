@@ -144,7 +144,7 @@ export const gidsPages = GIDSEN.map((g) => ({
 }));
 
 export const gidsHub = {
-  path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, glas en zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', lastmod: '2026-10-20', stamp: { updated: GIDSEN.map((g) => g.updated).sort().at(-1) },
+  path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, glas en zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', lastmod: GIDSEN.map((g) => g.updated).sort().at(-1), stamp: { updated: GIDSEN.map((g) => g.updated).sort().at(-1) },
   description: 'Korte gidsen over spouw-, dak-, vloer- en glasisolatie en zonnepanelen na 2027, met verwijzingen naar warmtepomp- en thuisaccugidsen.',
   body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="${esc(g.alt)}" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
 <p class="src">Verdieping: <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">warmtepomp kiezen op WarmtepompenMatch</a> · <a href="https://thuisaccumatch.nl/thuisaccu-keuzehulp/">thuisaccu kiezen op ThuisaccuMatch</a></p>
