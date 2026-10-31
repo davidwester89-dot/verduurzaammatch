@@ -284,8 +284,8 @@ ${matchCta}${src('isde', 'isdeIsolatie', 'isdeWp', 'isde2027', 'saldering')}${to
 
 // ---- ISDE 2027 (voorgenomen) ----
 export const isde2027 = {
-  schema: [redactieArticle('/isde-2027/', 'ISDE 2027: dit verandert er', 'subsidie-isde', '2026-10-16', '2026-10-19')],
-  path: '/isde-2027/', title: 'ISDE 2027: wat verandert er voor glas en warmtepomp?', h1: 'ISDE 2027', crumb: 'ISDE 2027', og: 'subsidie-isde', lastmod: '2026-10-20', stamp: { checked: '2026-10-16', updated: '2026-10-19' },
+  schema: [redactieArticle('/isde-2027/', 'ISDE 2027: dit verandert er', 'subsidie-isde', '2026-10-16', '2026-10-22')],
+  path: '/isde-2027/', title: 'ISDE 2027: wat verandert er voor glas en warmtepomp?', h1: 'ISDE 2027', crumb: 'ISDE 2027', og: 'subsidie-isde', lastmod: '2026-10-22', stamp: { checked: '2026-10-16', updated: '2026-10-22' },
   parents: [['/subsidie-isde/', 'ISDE-subsidie']],
   description: 'ISDE 2027 (voorgenomen): hr++-glas € 30 per m², triple glas € 55, lucht-waterwarmtepomp € 120 per kW. Koop vóór 31-12 voor het bedrag van 2026.',
   body: `<article><h1>ISDE 2027: dit verandert er</h1>${BYLINE}
