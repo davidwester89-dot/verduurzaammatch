@@ -83,7 +83,7 @@ ${matchCta}${faqHtml(SPOUW_FAQ)}
 <li><a href="https://www.volkshuisvestingnederland.nl/actueel/nieuws/2025/07/21/meer-duidelijkheid-over-isoleren-spouwmuren-door-afspraken-rijk-provincies-en-gemeenten" rel="noopener">Rijksoverheid (Volkshuisvesting Nederland) – Meer duidelijkheid over isoleren spouwmuren</a></li></ul>`,
   },
   {
-    slug: 'dakisolatie-kosten', updated: '2026-10-16', id: 'dak', crumb: 'Dakisolatie',
+    slug: 'dakisolatie-kosten', updated: '2026-10-20', id: 'dak', crumb: 'Dakisolatie',
     title: 'Dakisolatie kosten: prijzen, subsidie en terugverdientijd',
     h1: 'Dakisolatie kosten: prijzen, subsidie en terugverdientijd',
     description: 'Kosten van dakisolatie voor een schuin dak per woningtype, de ISDE-subsidie en wat je per jaar bespaart. Met cijfers van Milieu Centraal.',
@@ -98,7 +98,7 @@ ${matchCta}${faqHtml(SPOUW_FAQ)}
 ${matchCta}${src('dak', 'isdeIsolatie')}`,
   },
   {
-    slug: 'vloerisolatie-kosten', updated: '2026-10-15', id: 'vloer', crumb: 'Vloerisolatie',
+    slug: 'vloerisolatie-kosten', updated: '2026-10-20', id: 'vloer', crumb: 'Vloerisolatie',
     title: 'Vloerisolatie kosten 2026: prijs, subsidie, besparing',
     h1: 'Vloerisolatie kosten: wat betaal en bespaar je?',
     description: 'Vloerisolatie per woningtype: kosten, ISDE-subsidie, besparing en terugverdientijd. Plus wanneer je kruipruimte geschikt is.',
@@ -113,7 +113,7 @@ ${matchCta}${src('dak', 'isdeIsolatie')}`,
 ${matchCta}${src('vloer', 'isdeIsolatie')}`,
   },
   {
-    slug: 'zonnepanelen-na-2027', updated: '2026-10-19', id: 'zon', crumb: 'Zonnepanelen na 2027',
+    slug: 'zonnepanelen-na-2027', updated: '2026-10-22', id: 'zon', crumb: 'Zonnepanelen na 2027',
     title: 'Zonnepanelen na 2027: lonen ze zonder saldering?',
     h1: 'Zonnepanelen na 2027: lonen ze zonder saldering?',
     description: 'De salderingsregeling stopt op 1 januari 2027. Wat leveren zonnepanelen daarna op en hoe snel verdien je ze terug? Cijfers van Milieu Centraal.',
