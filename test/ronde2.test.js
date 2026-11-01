@@ -54,7 +54,7 @@ test('nieuwe pagina\'s: in sitemap, eigen OG, bron + controledatum, WebApplicati
     assert.notEqual(og, 'home', p); assert.ok(existsSync(`dist/og/${og}.png`), og);
     assert.match(h, /Bron: <a href="https:\/\/(www\.milieucentraal|www\.rvo)\.nl/); assert.match(h, /Gecontroleerd op <time datetime="2026-10-1\d"/);
     assert.ok(h.match(/<title>(.*?)<\/title>/)[1].length <= 60, p);
-    assert.doesNotMatch(h, /aggregateRating|partnerlink/i);
+    assert.doesNotMatch(h.replace(/<footer[\s\S]*<\/footer>/, ''), /aggregateRating|partnerlink/i, p); // footer-disclosure (3-11) telt niet: test/footer-disclosure-0311.test.js
   }
   for (const p of NIEUW.slice(1, 4)) assert.ok(r(p + 'index.html').includes('"@type":"WebApplication"'));
 });
