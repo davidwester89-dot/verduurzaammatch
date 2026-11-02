@@ -100,7 +100,7 @@ ${foutGezien(url)}
 <div><p class="fh">Over</p><ul><li><a href="/over/">Over ons</a></li><li><a href="/bronnen/">Bronnen</a></li><li><a href="/privacy/">Privacy en cookies</a></li>${GA_ID ? '<li><a href="/privacy/#cookies" data-consent-open>Cookie-instellingen</a></li>' : ''}<li><a href="/disclaimer/">Disclaimer</a></li><li><a href="mailto:${SITE.email}">Contact</a></li></ul></div></div>
 </div>
 ${networkFooter()}
-<p class="fine">© 2026 ${SITE.name}. Partnerlinks hebben nooit invloed op het advies of de volgorde.</p>
+<p class="fine">© 2026 ${SITE.name}. Via sommige links kunnen we een vergoeding krijgen; dat heeft nooit invloed op het advies of de volgorde.</p>
 </div></footer>
 ${hasCta ? `<a class="stickycta" href="/verduurzaam-match/" data-cta="sticky_check">Doe de check in 2 minuten</a>` : ''}
 ${['/js/menu.js', ...(GA_ID ? ['/js/consent.js'] : []), ...(p.scripts || [])].map((s) => `<script type="module" src="${s}"></script>`).join('\n')}
