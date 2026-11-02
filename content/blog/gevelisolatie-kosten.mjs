@@ -1,7 +1,7 @@
 export default {
   slug: 'gevelisolatie-kosten',
-  title: 'Gevelisolatie kosten 2026: buitenkant, binnenkant en per m²',
-  description: 'Wat kost gevelisolatie in 2026? De prijs per m² voor isolatie aan de buiten- en binnenkant, per woningtype, met ISDE-subsidie en terugverdientijd.',
+  title: 'Gevelisolatie kosten 2026: per woningtype en ISDE per m²',
+  description: 'Wat kost gevelisolatie in 2026? Prijzen per woningtype voor de buitenkant, een voorzetwand aan de binnenkant, ISDE-subsidie per m² en terugverdientijd.',
   date: '2026-11-03',
   checked: '2026-11-03',
   author: 'Redactie VerduurzaamMatch',
@@ -31,7 +31,7 @@ export default {
 <li>Mag je de voorkant niet veranderen? Dan kan het soms wel aan de zij- en achtergevel, met een voorzetwand voor de voorgevel.</li>
 <li>Het is een klus voor een gespecialiseerd isolatiebedrijf. Zelf doen is lastig.</li>
 <li>Heb je vochtplekken? Meld dat aan het isolatiebedrijf, want de oorzaak moet eerst worden opgelost.</li></ul>
-<h2>Kosten aan de binnenkant per m²</h2>
+<h2>Kosten aan de binnenkant met een voorzetwand</h2>
 <p>Aan de binnenkant isoleer je met een voorzetwand: een extra wand met isolatie tegen je buitenmuur. Je muur komt zo'n 10 tot 15 centimeter naar binnen. Milieu Centraal rekent met een gemiddelde hoekwoning met circa 35 m² buitenmuur in de woonkamer:</p>
 <div class="tbl"><table><thead><tr><th>Isolatiewaarde</th><th>Zelf doen</th><th>Laten doen</th><th>Subsidie bij laten doen</th></tr></thead><tbody>
 <tr><td>Rd 2</td><td>€ 1.300</td><td>€ 5.500</td><td>Geen subsidie</td></tr>
