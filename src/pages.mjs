@@ -100,9 +100,9 @@ ${matchCta}${faqHtml(SPOUW_FAQ)}
   },
   {
     slug: 'dakisolatie-kosten', updated: '2026-11-05', checked: '2026-11-02', id: 'dak', crumb: 'Dakisolatie',
-    title: 'Dakisolatie kosten: prijzen, subsidie en terugverdientijd',
+    title: 'Dakisolatie kosten 2026: schuin dak, plat dak, zoldervloer',
     h1: 'Dakisolatie kosten: prijzen, subsidie en terugverdientijd',
-    description: 'Kosten van dakisolatie voor een schuin dak per woningtype, de ISDE-subsidie en wat je per jaar bespaart. Met cijfers van Milieu Centraal.',
+    description: 'Dakisolatie kosten per woningtype: schuin dak, plat dak en zoldervloer. Met ISDE-subsidie, besparing en terugverdientijd. Bron: Milieu Centraal en RVO.',
     alt: 'Schuin dak met een dikke laag isolatie onder de pannen',
     faq: DAK_FAQ,
     body: () => `<p class="lead">Warmte stijgt op. Zonder goede dakisolatie verdwijnt een groot deel via het dak.</p>
