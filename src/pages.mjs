@@ -42,6 +42,22 @@ const SPOUW_FAQ = [
   ['Hoeveel beter isoleert een gevulde spouw?', 'Een niet-geïsoleerde spouwmuur heeft volgens Milieu Centraal vaak een isolatiewaarde van 0,35. Met 5 cm isolatie komt daar gemiddeld Rd 1,2 bij, en dan is de Rc-waarde van de gevel 1,55.'],
   ['Kan een geïsoleerde spouwmuur nog beter?', 'Ja. Je kunt spouwmuurisolatie combineren met isolatie aan de binnen- of buitenkant van de gevel. Voor een energieneutraal huis noemt Milieu Centraal minimaal Rc 5, en dat haal je niet met alleen spouwmuurisolatie.'],
 ];
+// Dak-deep-dive (05-11-2026): alle bedragen van Milieu Centraal (dakisolatie, gecontroleerd 02-11-2026); ISDE en SVVE van RVO.
+// Schuin dak = MAATREGELEN.dak; plat dak, zoldervloer en gasbesparing in m³ letterlijk van dezelfde MC-pagina. Rekensommen staan als 'onze rekensom' in de tekst.
+const DAK_M3 = { tussen: 320, hoek: 340, twee: 360, vrij: 550 };
+const PLAT = { tussen: [51, 17000, 800], hoek: [55, 19000, 900], twee: [59, 20000, 1000], vrij: [127, 40000, 2100] };
+const PLAT_BESP = { tussen: [340, 490], hoek: [370, 520], twee: [390, 550], vrij: [900, 1200] };
+const ZOLDER = { tussen: [3100, 150], hoek: [3200, 160], twee: [3400, 170], vrij: [5500, 260] };
+const ZOLDER_BESP = { tussen: [140, 190], hoek: [150, 200], twee: [150, 210], vrij: [240, 320] };
+const dakKosten = () => { const m = MAATREGELEN.dak; return `<div class="tbl"><table><thead><tr><th>Woning</th><th>Schuin dak</th><th>Plat dak (nieuwe dakbedekking)</th><th>Zoldervloer</th></tr></thead><tbody>${WON4().map(([w, n]) => `<tr><td>${n}</td><td>${eur(m.kosten[w])} (subsidie ${eur(m.subsidie[w])})</td><td>${eur(PLAT[w][1])} voor ${PLAT[w][0]} m² (subsidie ${eur(PLAT[w][2])})</td><td>${eur(ZOLDER[w][0])} (subsidie ${eur(ZOLDER[w][1])})</td></tr>`).join('')}</tbody></table></div>`; };
+const dakBesparing = () => { const m = MAATREGELEN.dak; return `<div class="tbl"><table><thead><tr><th>Woning</th><th>Schuin dak</th><th>Plat dak boven de woonkamer</th><th>Zoldervloer</th></tr></thead><tbody>${WON4().map(([w, n]) => `<tr><td>${n}</td><td>${DAK_M3[w]} m³ · ${eur(m.besparing[w])}</td><td>${PLAT_BESP[w][0]} m³ · ${eur(PLAT_BESP[w][1])}</td><td>${ZOLDER_BESP[w][0]} m³ · ${eur(ZOLDER_BESP[w][1])}</td></tr>`).join('')}</tbody></table></div>`; };
+const DAK_FAQ = [
+  ['Moet ik dakisolatie melden of een vergunning aanvragen?', 'Volgens Milieu Centraal heb je alleen een vergunning nodig bij isolatie aan de buitenzijde van het dak, waardoor het dak hoger wordt of de goten aangepast moeten worden. Bij isolatie van binnenuit geldt een meldplicht via het Omgevingsloket, omdat er mogelijk vleermuizen of vogels in het dak zitten.'],
+  ['Kan ik een plat dak van binnenuit isoleren?', 'Milieu Centraal raadt dat af. Het risico op vochtproblemen en rottend dakhout of schimmel is bij een plat dak heel groot, en van binnenuit nog veel groter. Een plat dak laat je aan de buitenkant isoleren door een bedrijf.'],
+  ['Hoe dik moet de isolatie in mijn schuine dak zijn?', 'Milieu Centraal adviseert Rd 3,8 of meer. Daarvoor heb je ongeveer 14 cm glaswol, steenwol, EPS of XPS nodig, 15 cm vlas, houtvezel of cellulose, 9 cm PIR- of PUR-platen of 8 cm resolplaten. Voor de ISDE is minimaal Rd 3,5 nodig.'],
+  ['Heeft het zin om matige dakisolatie te verbeteren?', 'Ja, volgens Milieu Centraal. Het kost ongeveer net zoveel als een dak zonder isolatie isoleren en je bespaart ongeveer een vijfde. Bij een hoekwoning met 5 cm isolatie is dat zo\'n 70 m³ gas en € 100 per jaar. Met matige isolatie krijg je je huis straks niet warm met een warmtepomp of warmtenet op lage temperatuur.'],
+  ['Krijgt een VvE subsidie voor dakisolatie?', 'Voor een VvE is er de SVVE van RVO. Die vraag je aan voordat het werk begint. Voor dakisolatie is dat € 16,25 per m² bij één maatregel en € 32,50 per m² bij twee maatregelen of meer.'],
+];
 export const GIDSEN = [
   {
     slug: 'spouwmuurisolatie-kosten', updated: '2026-10-29', checked: '2026-10-29', id: 'spouw', crumb: 'Spouwmuurisolatie',
@@ -83,19 +99,41 @@ ${matchCta}${faqHtml(SPOUW_FAQ)}
 <li><a href="https://www.volkshuisvestingnederland.nl/actueel/nieuws/2025/07/21/meer-duidelijkheid-over-isoleren-spouwmuren-door-afspraken-rijk-provincies-en-gemeenten" rel="noopener">Rijksoverheid (Volkshuisvesting Nederland) – Meer duidelijkheid over isoleren spouwmuren</a></li></ul>`,
   },
   {
-    slug: 'dakisolatie-kosten', updated: '2026-10-20', id: 'dak', crumb: 'Dakisolatie',
+    slug: 'dakisolatie-kosten', updated: '2026-11-05', checked: '2026-11-02', id: 'dak', crumb: 'Dakisolatie',
     title: 'Dakisolatie kosten: prijzen, subsidie en terugverdientijd',
     h1: 'Dakisolatie kosten: prijzen, subsidie en terugverdientijd',
     description: 'Kosten van dakisolatie voor een schuin dak per woningtype, de ISDE-subsidie en wat je per jaar bespaart. Met cijfers van Milieu Centraal.',
     alt: 'Schuin dak met een dikke laag isolatie onder de pannen',
+    faq: DAK_FAQ,
     body: () => `<p class="lead">Warmte stijgt op. Zonder goede dakisolatie verdwijnt een groot deel via het dak.</p>
-<h2>Kosten en terugverdientijd</h2>${tabel('dak')}
-<p>Isolatie van een schuin dak naar Rd 3,8, uitbesteed. Zelf doen kost bij een hoekwoning zo'n € 1.700 aan materiaal.</p>
-<h2>Welke aanpak?</h2>
-<ul><li><strong>Zolder bewoond:</strong> isoleer het dak, van binnen of bij nieuwe pannen van buiten.</li><li><strong>Zolder alleen opslag:</strong> isoleer de zoldervloer. Evenveel besparing, lagere kosten.</li><li><strong>Plat dak:</strong> altijd van buiten, door een vakbedrijf.</li></ul>
-<h2>Subsidie</h2><p>ISDE: € 16,25 per m² dakisolatie (minimaal 20 m², maximaal 200 m²), € 4 per m² voor een zoldervloer. Bij een tweede maatregel binnen 24 maanden verdubbelt het.</p>
+<p><strong>Kort gezegd:</strong> een schuin dak laten isoleren kost volgens Milieu Centraal € 6.000 tot € 10.000, afhankelijk van je woning. Een plat dak met nieuwe dakbedekking kost € 17.000 tot € 40.000, een zoldervloer € 3.100 tot € 5.500. De ISDE is € 16,25 per m² dak.</p>
+<h2>Kosten per soort dak</h2>${dakKosten()}
+<p>Gemiddelden van Milieu Centraal voor uitbesteed werk in een standaardsituatie, zonder meerwerk. Milieu Centraal rekent per woningtype met een gemiddelde grootte en baseert de kosten per m² op een kostenoverzicht van RVO (stand 1 januari 2026). De subsidie geldt voor één maatregel. Bij een plat dak zitten de kosten vooral in het nieuwe dak: het isolatiemateriaal aanbrengen is volgens Milieu Centraal maar 25 procent van het totaal. Een plat dak van 16 m² boven een leefruimte, vaak een uitbouw, kost € 5.500.</p>
+<p><strong>Niet in de prijs:</strong> natuurvriendelijk isoleren. Daarvoor noemt Milieu Centraal € 300 tot € 1.000, afhankelijk van je huis.</p>
+<h3>Binnenkant of buitenkant</h3>
+<ul><li><strong>Schuin dak, binnenkant:</strong> isolatie tegen de binnenkant van het dak. Dit kun je zelf doen of laten doen.</li><li><strong>Schuin dak, buitenkant:</strong> de pannen gaan eraf, de isolatie komt op het dakbeschot. Dat isoleert zeer goed en is vooral handig als je toch nieuwe pannen nodig hebt. Altijd een klus voor een bedrijf; je dak wordt waarschijnlijk wat hoger.</li><li><strong>Plat dak:</strong> altijd aan de buitenkant, door een bedrijf. Aan de binnenzijde is geen goed idee vanwege de kans op vocht en houtrot.</li><li><strong>Zolder alleen voor opslag:</strong> isoleer de zoldervloer. Dat bespaart ongeveer net zo veel als het dak en kost minder.</li></ul>
+<p>Milieu Centraal geeft geen aparte prijs voor binnen- of buitenkant van een schuin dak, en ook geen dakoppervlak voor het schuine dak. Een prijs per m² is er dus alleen voor het platte dak. <strong>Voorbeeld (onze rekensom):</strong> plat dak hoekwoning € 19.000 / 55 m² = € 345,45 per m², inclusief nieuwe dakbedekking.</p>
+<h2>Terugverdientijd en besparing per m²</h2>
+<p>Besparing per jaar van geen naar goede isolatie (Rd 3,8), volgens Milieu Centraal:</p>${dakBesparing()}
+<p>Voor een huis met een hr-combiketel en een gasprijs van € 1,37 per m³ (de verwachte prijs voor 2026–2040). Milieu Centraal gaat bij het schuine dak uit van een zolder, niet een woonkamer. Ligt het platte dak niet boven de woonkamer, dan is de besparing anderhalf keer zo laag. Bij de zoldervloer rekent Milieu Centraal met een afgesloten, onverwarmde zolder; daarom is die besparing lager dan bij het dak.</p>
+<p><strong>Voorbeeld (onze rekensom), schuin dak:</strong> prijs min subsidie, gedeeld door de besparing per jaar.</p>
+<ul><li>Tussenwoning: (€ 6.000 − € 850) / € 460 = 11,2 jaar, zonder subsidie 13,0 jaar.</li><li>Hoekwoning: (€ 6.500 − € 900) / € 480 = 11,7 jaar, zonder subsidie 13,5 jaar.</li><li>2-onder-1-kap: (€ 6.500 − € 950) / € 510 = 10,9 jaar, zonder subsidie 12,7 jaar.</li><li>Vrijstaand: (€ 10.000 − € 1.500) / € 750 = 11,3 jaar, zonder subsidie 13,3 jaar.</li></ul>
+<p><strong>Voorbeeld (onze rekensom), per m²:</strong> een plat dak van 55 m² boven de woonkamer van een hoekwoning bespaart € 520 / 55 m² = € 9,45 per m² per jaar. De ISDE is 55 × € 16,25 = € 893,75; Milieu Centraal rondt af op € 900.</p>
+<p>Het rendement van dakisolatie is volgens Milieu Centraal vergelijkbaar met 5 procent rente op een spaarrekening. Reken je eigen offerte door met <a href="/terugverdientijd-berekenen/?m=dak">terugverdientijd berekenen</a>, of tel meerdere maatregelen op met <a href="/besparing-berekenen/">besparing berekenen</a>.</p>
+<h2>Subsidie voor dakisolatie</h2>
+<ul><li>€ 16,25 per m² dak, minimaal 20 m², subsidie over maximaal 200 m². Het materiaal heeft minimaal Rd 3,5.</li><li>€ 4 per m² zoldervloer, alleen als de zolder onverwarmd is.</li><li>Dak en zoldervloer boven elkaar: subsidie voor één van de twee.</li><li>Biobased bonus: € 5 per m² dak. Die bonus verdubbelt niet.</li><li>Geen subsidie voor een nieuwe dakkapel of aanbouw.</li></ul>
+<p>Laat je binnen 24 maanden ook je <a href="/spouwmuurisolatie-kosten/">spouwmuur</a>, <a href="/vloerisolatie-kosten/">vloer</a> of <a href="/blog/gevelisolatie-kosten/">gevel</a> isoleren, dan verdubbelt het bedrag per m². Reken je bedrag uit met <a href="/isde-subsidie-berekenen/">ISDE-subsidie berekenen</a>; alle bedragen staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a> en de stappen in <a href="/blog/isde-isolatie-aanvragen/">ISDE-subsidie voor isolatie aanvragen</a>.</p>
+<h2>Zelf doen of laten doen</h2>
+<p>Een schuin dak kun je volgens Milieu Centraal zelf aan de binnenkant isoleren als je handig bent. Bij een hoekwoning ben je dan zo'n € 1.700 kwijt aan materiaal, tegen zo'n € 6.500 via een bedrijf. Een zoldervloer zelf isoleren kost bij een hoekwoning zo'n € 1.500 aan materiaal.</p>
+<ul><li>De buitenkant van een schuin dak, een plat dak en een dakkapel laat je door een bedrijf doen. Bij een plat dak is de kans op vocht, rottend hout en schimmel groot als het verkeerd gaat.</li><li>Kijk eerst onder de pannen wat er in je dak zit; daarvan hangt af welke folie je nodig hebt.</li><li>Ook als je zelf isoleert, meld je het werk bij het Omgevingsloket.</li><li>Huur je? Overleg dan vooraf met de verhuurder.</li></ul>
+<p>Zelf doen betekent wel: geen ISDE. Volgens RVO moet een bouwbedrijf het volledige werk uitvoeren.</p>
 <p>Eerst isoleren, dan een warmtepomp? Voor all-electric noemt Milieu Centraal minimaal Rc 2,5 in het dak. Hoe je daarna <a href="https://warmtepompenmatch.nl/hybride-of-all-electric/">kiest tussen een hybride en een volledig elektrische warmtepomp</a>, lees je op WarmtepompenMatch.</p>
-${matchCta}${src('dak', 'isdeIsolatie')}`,
+${matchCta}${faqHtml(DAK_FAQ)}
+<h2>Bronnen</h2>
+<ul class="src"><li><a href="${SOURCES.dak.url}" rel="noopener">${esc(SOURCES.dak.title)}</a></li>
+<li><a href="https://www.milieucentraal.nl/energie-besparen/isoleren-en-besparen/zelf-dak-isoleren/" rel="noopener">Milieu Centraal – Zelf je dak isoleren</a></li>
+<li><a href="${SOURCES.isdeIsolatie.url}" rel="noopener">${esc(SOURCES.isdeIsolatie.title)}</a></li>
+<li><a href="https://www.rvo.nl/subsidies-financiering/svve/verduurzamingsmaatregelen" rel="noopener">RVO – SVVE: verduurzamingsmaatregelen voor VvE's</a></li></ul>`,
   },
   {
     slug: 'vloerisolatie-kosten', updated: '2026-10-20', id: 'vloer', crumb: 'Vloerisolatie',
