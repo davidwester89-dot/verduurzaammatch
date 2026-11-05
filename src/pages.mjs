@@ -60,7 +60,7 @@ const DAK_FAQ = [
 ];
 export const GIDSEN = [
   {
-    slug: 'spouwmuurisolatie-kosten', updated: '2026-10-29', checked: '2026-10-29', id: 'spouw', crumb: 'Spouwmuurisolatie',
+    slug: 'spouwmuurisolatie-kosten', updated: '2026-11-05', checked: '2026-10-29', id: 'spouw', crumb: 'Spouwmuurisolatie',
     title: 'Spouwmuurisolatie kosten 2026: per woningtype en m²',
     h1: 'Spouwmuurisolatie kosten 2026: per woningtype en m²',
     description: 'Wat kost spouwmuurisolatie in 2026? Kosten per woningtype en per m², ISDE-subsidie, terugverdientijd en wanneer je een vleermuizenonderzoek nodig hebt.',
@@ -81,7 +81,7 @@ export const GIDSEN = [
 <p>Betaal je ook voor natuurvriendelijk isoleren, dan duurt het langer. <strong>Voorbeeld (onze rekensom):</strong> hoekwoning € 1.800 + € 1.000 − € 450 subsidie = € 2.350. Gedeeld door € 575 per jaar is dat ruim 4 jaar. Je bespaart ook minder als je weinig stookt of als er al wat isolatie in de spouw zat.</p>
 <p>Milieu Centraal vergelijkt de winst over 25 jaar met 11 procent rente op een spaarrekening. Reken je eigen offerte door met <a href="/terugverdientijd-berekenen/?m=spouw">terugverdientijd berekenen</a>, of tel meerdere maatregelen op met <a href="/besparing-berekenen/">besparing berekenen</a>.</p>
 <h2>Kan het bij jou?</h2>
-<ul><li>Je hebt een spouw van 4 tot 6 cm. Huizen van voor 1920 hebben vaak alleen enkelsteensmuren, zonder spouw.</li><li>Zit er al oude isolatie in die is gezakt, dan kan bijvullen soms. Soms is het beter de spouw eerst te laten schoonmaken.</li><li>Houtskeletbouw: de dunne luchtspouw van ongeveer 2 cm hoef je niet te laten vullen.</li><li>Laat de muur vooraf inspecteren, bijvoorbeeld met een camera.</li></ul>
+<ul><li>Je hebt een spouw van 4 tot 6 cm. Huizen van voor 1920 hebben vaak alleen enkelsteensmuren, zonder spouw. Dan kun je de gevel aan de binnen- of buitenkant isoleren; zie <a href="/blog/gevelisolatie-kosten/">gevelisolatie kosten</a>.</li><li>Zit er al oude isolatie in die is gezakt, dan kan bijvullen soms. Soms is het beter de spouw eerst te laten schoonmaken.</li><li>Houtskeletbouw: de dunne luchtspouw van ongeveer 2 cm hoef je niet te laten vullen.</li><li>Laat de muur vooraf inspecteren, bijvoorbeeld met een camera.</li></ul>
 <h2>Vleermuizen: wanneer heb je een onderzoek nodig?</h2>
 <p>Voor spouwmuurisolatie heb je geen omgevingsvergunning nodig. Maar in je spouw kunnen vleermuizen zitten, en ook gierzwaluwen en huismussen nestelen er soms. Die zijn beschermd. Volgens de Omgevingswet moet je vóór het isoleren zeker weten dat er geen dieren in je spouw verblijven.</p>
 <p>Daarvoor is er sinds maart 2025 de eDNA-test. Een gecertificeerd bedrijf neemt met een spons een monster af bij de gaten in je spouwmuur. Een laboratorium zoekt daarin naar sporen van vleermuizen.</p>
@@ -322,8 +322,8 @@ ${matchCta}${src('isde', 'isdeIsolatie', 'isdeWp', 'isde2027', 'saldering')}${to
 
 // ---- ISDE 2027 (voorgenomen) ----
 export const isde2027 = {
-  schema: [redactieArticle('/isde-2027/', 'ISDE 2027: dit verandert er', 'subsidie-isde', '2026-10-16', '2026-10-22')],
-  path: '/isde-2027/', title: 'ISDE 2027: wat verandert er voor glas en warmtepomp?', h1: 'ISDE 2027', crumb: 'ISDE 2027', og: 'subsidie-isde', lastmod: '2026-10-22', stamp: { checked: '2026-10-16', updated: '2026-10-22' },
+  schema: [redactieArticle('/isde-2027/', 'ISDE 2027: dit verandert er', 'subsidie-isde', '2026-10-16', '2026-11-05')],
+  path: '/isde-2027/', title: 'ISDE 2027: wat verandert er voor glas en warmtepomp?', h1: 'ISDE 2027', crumb: 'ISDE 2027', og: 'subsidie-isde', lastmod: '2026-11-05', stamp: { checked: '2026-10-16', updated: '2026-11-05' },
   parents: [['/subsidie-isde/', 'ISDE-subsidie']],
   description: 'ISDE 2027 (voorgenomen): hr++-glas € 30 per m², triple glas € 55, lucht-waterwarmtepomp € 120 per kW. Koop vóór 31-12 voor het bedrag van 2026.',
   body: `<article><h1>ISDE 2027: dit verandert er</h1>${BYLINE}
@@ -346,6 +346,7 @@ export const isde2027 = {
 <p>Ga je in 2026 nog isoleren? Hoe je de ISDE dan aanvraagt en het bedrag verdubbelt, lees je in <a href="/blog/isde-isolatie-aanvragen/">ISDE voor isolatie aanvragen in 2026</a>.</p>
 <h2>Elektrische kookvoorziening</h2><p>Gekocht vóór 1 januari 2027? Dan kun je nog subsidie aanvragen, binnen 24 maanden na aanschaf.</p>
 <p>De bedragen en voorwaarden van nu staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a>. Wat een warmtepomp kost: <a href="https://warmtepompenmatch.nl/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a> op WarmtepompenMatch. Alleen de warmtepomp-ISDE, inclusief 2027: <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE-subsidie warmtepomp 2026</a> op WarmtepompenMatch.</p>
+<p>Wat een zonneboiler kost en hoeveel ISDE je ervoor krijgt, lees je in <a href="/blog/zonneboiler-kosten/">zonneboiler kosten</a>.</p>
 ${matchCta}<p class="src">Bron: <a href="${SOURCES.isde2027.url}" rel="noopener">${esc(SOURCES.isde2027.title)}</a> (door RVO gecontroleerd op 14 oktober 2026). Door ons gecontroleerd op 16 oktober 2026.</p>${toolLinks('isde')}</article>`,
 };
 
