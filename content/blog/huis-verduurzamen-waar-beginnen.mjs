@@ -4,7 +4,7 @@ export default {
   h1: 'Huis verduurzamen: welke maatregel eerst?',
   description: 'Waar begin je met verduurzamen? De slimste volgorde: eerst isoleren, dan pas warmtepomp of zonnepanelen. Met kosten, subsidie en jouw eerste stap.',
   date: '2026-10-17',
-  updated: '2026-10-19',
+  updated: '2026-11-12',
   checked: '2026-10-17',
   author: 'Redactie VerduurzaamMatch',
   image: 'huis-verduurzamen-waar-beginnen',
@@ -29,7 +29,7 @@ export default {
 <p>Spouwmuurisolatie is meestal de goedkoopste stap met de snelste terugverdientijd. Het dak levert veel op, omdat daar veel warmte weglekt. Vloerisolatie geeft warmere voeten en minder vocht uit de kruipruimte. Kies volgens Milieu Centraal meteen een goede isolatiewaarde, dan hoef je later niet opnieuw.</p>
 <p><strong>Vergeet ventileren niet.</strong> Een beter geïsoleerd huis wordt ook dichter. Zonder goede ventilatie wordt de lucht sneller vochtig en vervuild, met kans op schimmel en houtrot. Pak ventilatie daarom samen met isolatie aan. En zonwering aan de buitenkant houdt je huis in de zomer koel.</p>
 <h2>Eerst isoleren, dan warmtepomp?</h2>
-<p>Ja, in de meeste gevallen. Maar je hoeft niet te wachten tot alles perfect is.</p>
+<p>Ja, in de meeste gevallen. Maar je hoeft niet te wachten tot alles perfect is. Hoe je de volgorde voor jouw huis bepaalt, lees je in <a href="/blog/warmtepomp-of-isolatie-eerst/">eerst isoleren, dan warmtepomp?</a></p>
 <ul><li><strong>Hybride warmtepomp:</strong> werkt samen met je cv-ketel en kan volgens Milieu Centraal ook in een matig geïsoleerd huis. Hij scheelt zo'n 60 à 70 procent gas voor verwarming. Voor een matig geïsoleerde hoekwoning: € 6.200, met € 2.125 ISDE, en zo'n € 600 besparing per jaar. Zie op WarmtepompenMatch <a href="https://warmtepompenmatch.nl/hybride-warmtepomp-kosten/">hybride warmtepomp kosten</a> en <a href="https://warmtepompenmatch.nl/is-mijn-huis-geschikt-voor-een-warmtepomp/">is mijn huis geschikt?</a> en <a href="https://warmtepompenmatch.nl/hybride-of-all-electric/">hybride of all-electric</a>.</li>
 <li><strong>Volledig elektrische warmtepomp:</strong> pas als je huis redelijk tot goed geïsoleerd is en je radiatoren groot of krachtig genoeg zijn.</li></ul>
 <p>Isoleren of warmtepomp, als je moet kiezen? Is je cv-ketel nog goed, begin dan met isoleren. Een cv-ketel gaat gemiddeld twaalf tot vijftien jaar mee. Is die van jou bijna op? Dan is dat het moment om naar een hybride of volledige warmtepomp te kijken.</p>
