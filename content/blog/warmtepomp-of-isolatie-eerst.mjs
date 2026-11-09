@@ -1,6 +1,6 @@
 export default {
   slug: 'warmtepomp-of-isolatie-eerst',
-  title: 'Eerst isoleren dan warmtepomp? Zo bepaal je de volgorde',
+  title: 'Eerst isoleren, dan warmtepomp? Zo bepaal je de volgorde',
   h1: 'Eerst isoleren, dan warmtepomp? Zo bepaal je de volgorde',
   description: 'Eerst isoleren of meteen een warmtepomp? Wat Milieu Centraal en RVO zeggen over de volgorde, wanneer een hybride eerder kan en welke subsidie je pakt.',
   date: '2026-11-12',
@@ -27,7 +27,7 @@ export default {
 <ul><li><strong>Gebouwd vóór 1975, na de bouw niets geïsoleerd:</strong> een hybride is geschikt. Start met isoleren en stap over als je cv-ketel stukgaat.</li>
 <li><strong>Gebouwd vóór 1975 en deels na-geïsoleerd, of gebouwd tussen 1975 en 1992:</strong> een hybride is geschikt. Verbeter ook je isolatie, bijvoorbeeld bij onderhoud of een verbouwing.</li>
 <li><strong>Gebouwd vanaf 1992, of overal goed na-geïsoleerd:</strong> geschikt voor een volledig elektrische warmtepomp. Vervang wel nog dubbel glas door hr++- of triple glas.</li></ul>
-<p>Wil je later toch helemaal van het gas af? Dan noemt Milieu Centraal een all-electric ready warmtepomp een slimme tussenstap. Dat is een hybride met extra vermogen. Is je isolatie op orde, dan komt er een voorraadvat bij en kan de cv-ketel eruit. Komt er misschien een warmtenet in je wijk? Kijk dan eerst in het warmteplan van je gemeente.</p>
+<p>Wil je later toch helemaal van het gas af? Dan noemt Milieu Centraal een all-electric ready warmtepomp een slimme tussenstap. Dat is een hybride met extra vermogen. Is je isolatie op orde, dan komt er een voorraadvat bij en kan de cv-ketel eruit. Komt er misschien een warmtenet in je wijk? Kijk dan eerst naar de tijdsplanning van je gemeente.</p>
 <p>Welke warmtepomp bij jouw huis past, zoek je uit met de <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">warmtepomp keuzehulp</a> op WarmtepompenMatch, ook van ons.</p>
 <h2>Wat je huis nodig heeft voor all-electric</h2>
 <p>Milieu Centraal noemt vijf punten. Kun je ze alle vijf afvinken, dan is je huis geschikt voor een volledig elektrische warmtepomp:</p>
@@ -47,7 +47,7 @@ export default {
 <h2>Zo pak je het aan</h2>
 <ol class="steps"><li><strong>Kijk wat er al geïsoleerd is:</strong> dak, spouwmuur, vloer en glas. Het bouwjaar geeft een eerste indruk.</li>
 <li><strong>Doe de Verwarmingstest</strong> deze winter, met je cv-ketel op 50 graden.</li>
-<li><strong>Check je cv-ketel en je wijk:</strong> hoe oud is je ketel, en wat staat er in het warmteplan van je gemeente?</li>
+<li><strong>Check je cv-ketel en je wijk:</strong> hoe oud is je ketel, en komt er misschien een warmtenet in je buurt? Kijk dan naar de tijdsplanning van je gemeente.</li>
 <li><strong>Plan isolatie en warmtepomp binnen 24 maanden,</strong> zodat je het hogere isolatiebedrag krijgt.</li>
 <li><strong>Vraag offertes aan</strong> voor de stap die eerst komt.</li></ol>
 <p>Wil je het hele plaatje, ook met zonnepanelen en een thuisbatterij? Lees <a href="/blog/huis-verduurzamen-waar-beginnen/">huis verduurzamen: waar beginnen</a>. Of doe de <a href="/verduurzaam-match/">VerduurzaamMatch</a>: vijf vragen over je woning, en je ziet welke stap eerst komt.</p>
