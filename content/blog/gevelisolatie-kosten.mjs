@@ -6,10 +6,10 @@ export default {
   checked: '2026-11-03',
   author: 'Redactie VerduurzaamMatch',
   body: `<p>Je huis heeft geen spouw, of een spouw die niet te vullen is. Dan blijft gevelisolatie over: aan de buitenkant van je muren of met een voorzetwand aan de binnenkant. Maar wat kost dat, en is een offerte van € 20.000 normaal? Hier lees je de bedragen van Milieu Centraal, de ISDE-subsidie van RVO en hoe snel je het terugverdient.</p>
-<p><strong>Kort gezegd:</strong> isoleren aan de buitenkant kost volgens Milieu Centraal ongeveer € 10.000 voor een tussenwoning tot € 34.000 voor een vrijstaande woning. Een voorzetwand aan de binnenkant van een hoekwoning (woonkamer) kost ongeveer € 6.500 als je hem laat plaatsen. De ISDE is € 20,25 per m² bij één maatregel.</p>
+<p><strong>Kort gezegd:</strong> isoleren aan de buitenkant kost ongeveer € 10.000 voor een tussenwoning tot € 34.000 voor een vrijstaande woning. Een voorzetwand aan de binnenkant van een hoekwoning (woonkamer) kost ongeveer € 6.500 als je hem laat plaatsen. De ISDE is € 20,25 per m² bij één maatregel.</p>
 <p>Weet je nog niet welke stap bij jouw huis past? Doe de <a href="/verduurzaam-match/">VerduurzaamMatch</a>.</p>
 <h2>Gevelisolatie of spouwmuurisolatie?</h2>
-<p>Heb je een spouwmuur, dan is spouwmuurisolatie volgens Milieu Centraal een goede keuze. Het is véél goedkoper dan buitengevelisolatie. Wat dat kost, lees je in <a href="/spouwmuurisolatie-kosten/">spouwmuurisolatie kosten</a>.</p>
+<p>Heb je een spouwmuur, dan is spouwmuurisolatie een goede keuze. Het is véél goedkoper dan buitengevelisolatie. Wat dat kost, lees je in <a href="/spouwmuurisolatie-kosten/">spouwmuurisolatie kosten</a>.</p>
 <p>Milieu Centraal noemt een paar redenen om toch de buitengevel te isoleren:</p>
 <ul><li>Je huis heeft geen spouw. Dat is het geval als je woning vóór 1920 is gebouwd.</li>
 <li>Je spouw is smaller dan 4 centimeter, of er zitten te veel cementresten in.</li>
@@ -40,7 +40,7 @@ export default {
 <p>Kies je Rd 3,5 en laat je het werk doen, dan kom je in aanmerking voor subsidie. Ook hier noemt Milieu Centraal geen vaste prijs per m². Check wel eerst of je muur geschikt is. Een voorzetwand maakt de oude muur kouder, en bij vocht of houten balken in de buitenmuur kan dat problemen geven. Bij een muur zonder spouw raadt Milieu Centraal aan altijd een expert te laten kijken.</p>
 <h2>Voorbeeld per woningtype</h2>
 <p>De ISDE voor gevelisolatie is een vast bedrag per m². Milieu Centraal geeft per woningtype ook de gemiddelde geveloppervlakte. Daarmee kun je de subsidie zelf narekenen.</p>
-<p><strong>Voorbeeld (onze rekensom):</strong> een hoekwoning heeft volgens Milieu Centraal gemiddeld 88 m² gevel. Bij één maatregel is de ISDE dan 88 × € 20,25 = € 1.782. Isoleer je binnen 24 maanden ook je dak of vloer, dan verdubbelt het bedrag: 88 × € 40,50 = € 3.564. Voor een tussenwoning met 39 m² is dat 39 × € 20,25 = € 789,75 bij één maatregel.</p>
+<p><strong>Voorbeeld (onze rekensom):</strong> een hoekwoning heeft gemiddeld 88 m² gevel. Bij één maatregel is de ISDE dan 88 × € 20,25 = € 1.782. Isoleer je binnen 24 maanden ook je dak of vloer, dan verdubbelt het bedrag: 88 × € 40,50 = € 3.564. Voor een tussenwoning met 39 m² is dat 39 × € 20,25 = € 789,75 bij één maatregel.</p>
 <p>Je eigen bedrag hangt af van het aantal m² op je offerte. Reken het na met <a href="/isde-subsidie-berekenen/">ISDE-subsidie berekenen</a>.</p>
 <h2>ISDE-subsidie voor gevelisolatie</h2>
 <p>De voorwaarden van RVO in het kort:</p>
@@ -59,8 +59,8 @@ export default {
 <tr><td>2-onder-1-kap</td><td>90 m²</td><td>550 m³</td><td>€ 750</td><td>29,5 jaar</td></tr>
 <tr><td>Vrijstaande woning</td><td>129 m²</td><td>800 m³</td><td>€ 1.100</td><td>28,5 jaar</td></tr>
 </tbody></table></div>
-<p>De terugverdientijd is onze rekensom: netto prijs gedeeld door de besparing per jaar, op één decimaal. Voor een hoekwoning is dat € 21.250 / € 750 = 28,3 jaar. Een voorzetwand met Rd 3,5 bespaart volgens Milieu Centraal 260 m³ gas, ongeveer € 360 per jaar. Laat je hem plaatsen, dan is dat (€ 6.500 − € 700) / € 360 = 16,1 jaar.</p>
-<p>Daar staat volgens Milieu Centraal tegenover dat je buitenmuren er weer jaren goed uitzien en je huis waarschijnlijk meer waard wordt. Reken je eigen offerte door met <a href="/terugverdientijd-berekenen/">terugverdientijd berekenen</a>, of tel meerdere maatregelen op met <a href="/besparing-berekenen/">besparing berekenen</a>.</p>
+<p>De terugverdientijd is onze rekensom: netto prijs gedeeld door de besparing per jaar, op één decimaal. Voor een hoekwoning is dat € 21.250 / € 750 = 28,3 jaar. Een voorzetwand met Rd 3,5 bespaart 260 m³ gas, ongeveer € 360 per jaar. Laat je hem plaatsen, dan is dat (€ 6.500 − € 700) / € 360 = 16,1 jaar.</p>
+<p>Daar staat tegenover dat je buitenmuren er weer jaren goed uitzien en je huis waarschijnlijk meer waard wordt. Reken je eigen offerte door met <a href="/terugverdientijd-berekenen/">terugverdientijd berekenen</a>, of tel meerdere maatregelen op met <a href="/besparing-berekenen/">besparing berekenen</a>.</p>
 <h2>Offertes vergelijken</h2>
 <ol class="steps"><li>Vraag bij minstens 2 bedrijven een offerte, het liefst bij een bedrijf dat natuurvriendelijk kan isoleren.</li>
 <li>Vraag naar het aantal m², de dikte, de Rd-waarde en de afwerking. Zo vergelijk je offertes eerlijk.</li>
