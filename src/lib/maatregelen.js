@@ -69,7 +69,7 @@ export const MAATREGELEN = {
   batterij: {
     naam: 'Thuisbatterij', soort: 'batterij', gids: 'https://thuisaccumatch.nl/thuisaccu-terugverdientijd/', bron: 'batterij',
     kosten: null, subsidie: null, besparing: null,
-    kort: 'Volgens Milieu Centraal verdien je hem nu hoogstwaarschijnlijk niet terug.',
+    kort: 'Je verdient hem nu hoogstwaarschijnlijk niet terug.',
   },
 };
 
