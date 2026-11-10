@@ -4,7 +4,7 @@ export default {
   h1: 'ISDE-subsidie voor isolatie aanvragen: zo doe je het goed',
   description: 'ISDE voor isolatie aanvragen in 2026: wat je vóór, tijdens en na het werk regelt, welke Rd-waarde en m² nodig zijn en hoe je het bedrag verdubbelt.',
   date: '2026-10-22',
-  updated: '2026-10-26',
+  updated: '2026-11-13',
   checked: '2026-10-22',
   author: 'Redactie VerduurzaamMatch',
   image: 'subsidie-isde',
@@ -13,7 +13,7 @@ export default {
 <p><strong>Kort gezegd:</strong> check vóór je koopt of het isolatiemateriaal op de meldcodelijst staat. Laat het werk door een bedrijf doen en maak tijdens het werk een foto op je adres. Zorg dat de meldcode en het aantal m² op de factuur staan, en vraag binnen 24 maanden aan met DigiD. Doe je binnen 24 maanden twee isolatiemaatregelen, of isolatie plus een warmtepomp, dan verdubbelt het isolatiebedrag.</p>
 <p>Weet je nog niet welke isolatie bij jouw huis het meeste oplevert? Doe eerst de <a href="/verduurzaam-match/">VerduurzaamMatch</a>.</p>
 <h2>Kom je in aanmerking?</h2>
-<p>De ISDE voor isolatie is voor eigenaar-bewoners: je bent eigenaar van de woning en woont er zelf. Verder geldt volgens RVO:</p>
+<p>De ISDE voor isolatie is voor eigenaar-bewoners: je bent eigenaar van de woning en woont er zelf. RVO stelt daarnaast deze voorwaarden:</p>
 <ul><li>Je woning is gebouwd vóór 1 januari 2019, of de omgevingsvergunning is vóór 1 juli 2018 aangevraagd.</li>
 <li>Je isoleert het bestaande oppervlak. Voor een aanbouw, nieuwe verdieping, nieuwe dakkapel of een garage die je bij de woning trekt, krijg je geen subsidie.</li>
 <li>Een bouw- of installatiebedrijf voert het volledige werk uit. Zelf isoleren telt niet.</li>
