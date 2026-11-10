@@ -49,7 +49,7 @@ export default {
 <li><strong>Doe de Verwarmingstest</strong> deze winter, met je cv-ketel op 50 graden.</li>
 <li><strong>Check je cv-ketel en je wijk:</strong> hoe oud is je ketel, en komt er misschien een warmtenet in je buurt? Kijk dan naar de tijdsplanning van je gemeente.</li>
 <li><strong>Plan isolatie en warmtepomp binnen 24 maanden,</strong> zodat je het hogere isolatiebedrag krijgt.</li>
-<li><strong>Vraag offertes aan</strong> voor de stap die eerst komt.</li></ol>
+<li><strong>Vraag offertes aan</strong> voor de stap die eerst komt. Zo vergelijk je ze goed: <a href="/blog/isolatie-offertes-vergelijken/">isolatie-offertes vergelijken</a>.</li></ol>
 <p>Wil je het hele plaatje, ook met zonnepanelen en een thuisbatterij? Lees <a href="/blog/huis-verduurzamen-waar-beginnen/">huis verduurzamen: waar beginnen</a>. Of doe de <a href="/verduurzaam-match/">VerduurzaamMatch</a>: vijf vragen over je woning, en je ziet welke stap eerst komt.</p>
 <h2>Bronnen</h2>
 <ul class="src"><li><a href="https://www.milieucentraal.nl/energie-besparen/duurzaam-verwarmen-en-koelen/hybride-warmtepomp/" rel="noopener">Milieu Centraal – Hybride warmtepomp</a></li>
