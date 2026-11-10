@@ -22,5 +22,5 @@ test('subsidie-isde: inhoudswijziging 29-10 (L7): dateModified, zichtbaar bijgew
   assert.equal(subsidie.stamp.updated, '2026-10-29');
   assert.equal(subsidie.stamp.checked, '2026-10-26');
   assert.equal(subsidie.schema[0].dateModified, '2026-10-29');
-  if (existsSync('dist/sitemap.xml')) assert.match(readFileSync('dist/sitemap.xml', 'utf8'), /<loc>https:\/\/verduurzaammatch\.nl\/subsidie-isde\/<\/loc><lastmod>2026-10-29<\/lastmod>/);
+  if (existsSync('dist/sitemap.xml')) assert.match(readFileSync('dist/sitemap.xml', 'utf8'), /<loc>https:\/\/verduurzaammatch\.nl\/subsidie-isde\/<\/loc><lastmod>2026-11-13<\/lastmod>/);
 });
