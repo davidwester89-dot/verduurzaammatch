@@ -63,6 +63,7 @@ export default {
 <li><a href="https://www.milieucentraal.nl/energie-besparen/isoleren-en-besparen/spouwmuurisolatie/" rel="noopener">Milieu Centraal – Spouwmuurisolatie</a></li>
 <li><a href="https://www.milieucentraal.nl/energie-besparen/isoleren-en-besparen/vloerisolatie/" rel="noopener">Milieu Centraal – Vloerisolatie</a></li>
 <li><a href="https://www.milieucentraal.nl/energie-besparen/isoleren-en-besparen/triple-hr-of-vacuumglas/" rel="noopener">Milieu Centraal – Triple-, hr++- of vacuümglas</a></li>
+<li><a href="https://www.milieucentraal.nl/klimaat-en-aarde/milieuproblemen/natuurbescherming-in-de-omgevingswet/" rel="noopener">Milieu Centraal – Natuurbescherming in de Omgevingswet</a></li>
 <li><a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/isolatiemaatregelen" rel="noopener">RVO – ISDE: Isolatiemaatregelen woningeigenaren</a></li>
 <li><a href="https://www.warmtefonds.nl/particulieren" rel="noopener">Warmtefonds – Energiebespaarlening voor particulieren</a></li></ul>`,
 };
