@@ -1,7 +1,14 @@
 // Siteconfig voor scripts/l7check.mjs (L7-datumcheck, naamgrep, repo-root-404). Wijzigingen in exempt/BEKEND_* alleen met SC-OK.
 import { execSync, execFileSync } from 'node:child_process';
 import { join } from 'node:path';
+import { rekentoolClientData } from './rekentool-client.mjs';
 export const CFG = {
+  // Bestaande L7-clientOutput-hook: ongebruikte batterij.kort is geen rekentoolwijziging.
+  // Prijzen, opties, functies en echte render-/rekencode blijven onder de check vallen.
+  clientOutput: Object.fromEntries(['/besparing-berekenen/', '/isde-subsidie-berekenen/', '/terugverdientijd-berekenen/']
+    .map(path => [path, { covers: /^js\/lib\/maatregelen\.js$/, run: rekentoolClientData }])),
+  // Geen datumlift door alleen een gewijzigd kind; bij eigen body geldt de gewone L7-plicht.
+  bodyOnlyHubs: ["/blog/", "/gidsen/"],
   build: (dir, env) => { execSync('node build.mjs', { cwd: dir, env, stdio: 'ignore' }); return join(dir, 'dist'); },
   hubs: [{ hub: '/gidsen/', children: /^\/[^/]+\/$/ }],
   // Alleen ONTBREKENDE velden die de template van deze pagina niet heeft. Een aanwezig veld moet altijd kloppen.

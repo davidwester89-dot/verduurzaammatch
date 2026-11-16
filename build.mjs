@@ -1,3 +1,4 @@
+import { nuchterDatum } from './src/nuchter-datums.mjs';
 import { mkdirSync, writeFileSync, cpSync, rmSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { layout, SITE } from './src/layout.mjs';
@@ -7,7 +8,7 @@ import { toolPages } from './src/tools.mjs';
 const OUT = 'dist';
 rmSync(OUT, { recursive: true, force: true });
 const write = (p, s) => { mkdirSync(dirname(p), { recursive: true }); writeFileSync(p, s); };
-export const pages = [P.home, P.quiz, P.subsidie, P.isde2027, P.glasisolatie, P.gidsHub, ...P.gidsPages, blogHub, ...blogPages, ...toolPages, P.over, P.bronnen, P.privacy, P.disclaimer, P.notfound];
+export const pages = [P.home, P.quiz, P.subsidie, P.isde2027, P.glasisolatie, P.gidsHub, ...P.gidsPages, blogHub, ...blogPages, ...toolPages, P.over, P.bronnen, P.privacy, P.disclaimer, P.notfound].map(nuchterDatum);
 // GitHub Pages kent geen server-side 301: oude URL's krijgen een doorverwijspagina (meta refresh 0 + canonical + noindex), buiten de sitemap.
 export const REDIRECTS = [
   ['/thuisbatterij-terugverdienen/', 'https://thuisaccumatch.nl/thuisaccu-terugverdientijd/', 'Thuisaccu terugverdientijd op ThuisaccuMatch'],

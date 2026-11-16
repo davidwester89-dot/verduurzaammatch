@@ -1,3 +1,4 @@
+import { revisieDatum } from './nuchter-datums-helper.mjs'; // Latere stijlrevisie, exacte datumtests blijven gelden.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execSync } from 'node:child_process';
@@ -35,7 +36,7 @@ test('controlebadge: op elke gids, ISDE en blog, met echte datums', () => {
   for (const g of GIDSEN) {
     const h = readFileSync(`dist/${g.slug}/index.html`, 'utf8');
     assert.ok(h.includes(`Gecontroleerd op <time datetime="${g.checked || CHECKED}">`), g.slug);
-    assert.ok(h.includes(`Laatst bijgewerkt <time datetime="${g.updated}">`), g.slug);
+    assert.ok(h.includes(`Laatst bijgewerkt <time datetime="${revisieDatum(`/${g.slug}/`, g.updated)}">`), g.slug);
     assert.match(g.updated, /^2026-\d\d-\d\d$/);
   }
   for (const p of ['subsidie-isde', 'blog/energiebespaarlening-warmtefonds']) assert.match(readFileSync(`dist/${p}/index.html`, 'utf8'), /class="stamp"><span class="badge-ok">/);
