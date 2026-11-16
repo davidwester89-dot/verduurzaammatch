@@ -49,6 +49,12 @@ test('ISDE-rekenhulp: warmtepomp-H2 met RVO-bedragen, gelabeld rekenvoorbeeld en
   assert.match(html, /Rekenvoorbeeld van VerduurzaamMatch/);
   assert.match(html, /€ 1\.025 \+ 5 × € 225 \+ € 200 = <strong>€ 2\.350<\/strong>/);
   assert.match(html, /€ 1\.025 \+ 5 × € 120 \+ € 250 = € 1\.875/);
-  for (const l of ['/subsidie-isde/', '/isde-2027/', '/blog/isde-isolatie-aanvragen/', '/rekentools/', '/verduurzaam-match/', 'https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/']) assert.ok(html.includes(`href="${l}"`), l);
+  assert.match(html, /Het rekenvoorbeeld van RVO voor 2026: € 1\.025 \+ 4 × € 225 \+ € 200 = € 2\.125/);
+  assert.match(html, /Koop je de warmtepomp vóór of op 31 december 2026 en laat je die in 2027 installeren, dan geldt het bedrag per kW van 2026/);
+  assert.match(html, /De bonus voor slimme aansturing en de hogere A\+\+\+-bonus van 2027 krijg je dan niet/);
+  assert.doesNotMatch(html, /Vraag je vóór of op 31 december 2026 aan/);
+  assert.doesNotMatch(html, /\bvolgens\b|\baldus\b/i);
+  for (const l of ['/subsidie-isde/', '/isde-2027/', '/blog/isde-isolatie-aanvragen/', '/rekentools/', '/verduurzaam-match/', 'https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/', 'https://www.rvo.nl/subsidies-financiering/isde/isde-wat-wijzigt-er-2026']) assert.ok(html.includes(`href="${l}"`), l);
+  assert.match(html, /RVO – ISDE: wat is er gewijzigd vanaf 2026\?/);
   assert.match(html, /<title>ISDE-subsidie isolatie berekenen 2026/);
 });
