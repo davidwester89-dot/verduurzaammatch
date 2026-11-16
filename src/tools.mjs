@@ -66,6 +66,11 @@ ${bron(['spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon'], CHECK
 });
 
 // ---- ISDE ----
+// Wk47-upgrade (L7 20-11): H2 'Subsidie warmtepomp berekenen'. Bedragen alleen van rvo.nl (warmtepomp- en 2027-pagina, 16-11).
+const ISDE_UPD = '2026-11-20';
+const WP2027 = { perKw: 120, aplus: 250, slim: 200 }; // RVO 'ISDE: wat wijzigt er vanaf 2027?' (voorgenomen)
+const HK_WP2026 = ISDE_WP.vast + 5 * ISDE_WP.perKw + ISDE_WP.aplus;
+const HK_WP2027 = ISDE_WP.vast + 5 * WP2027.perKw + WP2027.aplus;
 const isdeDef = isde({ m2: { spouw: 50, vloer: 45 } });
 export const isdePage = base({
   path: TOOLS[2].path, og: TOOLS[2].og, crumb: TOOLS[2].crumb, h1: TOOLS[2].h1, checked: ISDE_CHECKED,
@@ -82,7 +87,15 @@ export const isdePage = base({
 <h2>Zo rekenen we</h2><ul><li>Bedragen per m² en minimale en maximale oppervlakken van RVO, voor uitvoering in 2025 of later. Boven het maximum telt het maximum.</li><li>Vloer en bodem samen minimaal 20 m².</li><li>Twee of meer isolatiemaatregelen, of isolatie met een warmtepomp, binnen 24 maanden: het isolatiebedrag verdubbelt.</li><li>Warmtepomp 2026: € ${ISDE_WP.vast.toLocaleString('nl-NL')} + € ${ISDE_WP.perKw} per kW + € ${ISDE_WP.aplus} bij A+++, minimaal € ${ISDE_WP.minimaal}, volgens het rekenvoorbeeld van RVO. De biobased bonus en meldcode-eisen tellen we niet mee.</li><li>Voor 2027 zijn lagere bedragen voor warmtepompen voorgenomen. Zie <a href="/subsidie-isde/">ISDE-subsidie</a>. Alleen de warmtepomp: <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE warmtepomp 2026</a> op WarmtepompenMatch.</li></ul>
 <p class="note">Dit is een indicatie. RVO beslist over je aanvraag; check de meldcodelijst vóór je koopt.</p>
 <p>Wat je vóór, tijdens en na het werk regelt om dit bedrag ook echt te krijgen, lees je in <a href="/blog/isde-isolatie-aanvragen/">ISDE voor isolatie aanvragen: stappen en eisen</a>.</p>
+<h2>Subsidie warmtepomp berekenen</h2>
+<p>Voor een lucht-waterwarmtepomp bestaat het ISDE-bedrag uit drie delen. Je krijgt een vast bedrag van € ${ISDE_WP.vast.toLocaleString('nl-NL')}, plus € ${ISDE_WP.perKw} per kW vermogen in 2026. Heeft de warmtepomp een A+++-label, dan komt er € ${ISDE_WP.aplus} bij. Voor een (hybride) warmtepomp krijg je altijd minimaal € ${ISDE_WP.minimaal}.</p>
+<ul><li><strong>Meldcode.</strong> Je warmtepomp moet op de meldcodelijst van RVO staan. Op die lijst zie je ook een indicatie van het subsidiebedrag per type.</li><li><strong>Tweede warmtepomp.</strong> Installeer je in 2026 een tweede of volgende lucht-waterwarmtepomp, dan krijg je daarvoor een lager bedrag.</li><li><strong>Split-warmtepompen.</strong> Vanaf 2026 is er geen subsidie meer voor split lucht-waterwarmtepompen met een vulgewicht onder de 3 kilogram en een GWP hoger dan 750.</li><li><strong>Samen met isolatie.</strong> Isoleer je binnen 24 maanden ook, dan verdubbelt het subsidiebedrag voor de isolatie. Vul dat hierboven in.</li></ul>
+<p><strong>Rekenvoorbeeld van VerduurzaamMatch</strong>, met de bedragen van RVO: een lucht-waterwarmtepomp van 5 kW met A+++-label in 2026 geeft € ${ISDE_WP.vast.toLocaleString('nl-NL')} + 5 × € ${ISDE_WP.perKw} + € ${ISDE_WP.aplus} = <strong>${eur(HK_WP2026)}</strong>.</p>
+<p>Voor 2027 is een lager bedrag voorgenomen: € ${WP2027.perKw} per kW, met een A+++-bonus van € ${WP2027.aplus} en een bonus van € ${WP2027.slim} voor slimme aansturing. Dezelfde warmtepomp zonder slimme aansturing geeft dan € ${ISDE_WP.vast.toLocaleString('nl-NL')} + 5 × € ${WP2027.perKw} + € ${WP2027.aplus} = ${eur(HK_WP2027)}. Vraag je vóór of op 31 december 2026 aan, dan gelden de voorwaarden van 2026. Meer in <a href="/isde-2027/">ISDE 2027</a> en <a href="/subsidie-isde/">ISDE-subsidie</a>.</p>
+<p>RVO heeft ook een eigen <a href="https://www.rvo.nl/onderwerpen/isde/woningeigenaren/rekentool" rel="noopener">ISDE-rekentool</a>. Weet je nog niet of een warmtepomp of isolatie de beste eerste stap is? <a href="/verduurzaam-match/">Doe de check</a> of bekijk alle <a href="/rekentools/">rekentools</a>.</p>
+<p><strong>Ook van ons:</strong> alles over de warmtepomp-ISDE lees je in <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE-subsidie warmtepomp 2026</a> op WarmtepompenMatch.</p>
 ${bron(['isdeIsolatie', 'isdeWp', 'isde2027'], ISDE_CHECKED)}</article>`,
+  lastmod: ISDE_UPD, stamp: { checked: ISDE_CHECKED, updated: ISDE_UPD },
 });
 
 export const toolsHub = {
