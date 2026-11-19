@@ -1,0 +1,21 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { dateFields, readSitemap } from '../scripts/l7check.mjs';
+// Techronde 19-11 (SC): inlinks naar /blog/huis-isoleren-kosten/ en /blog/warmtepomp-of-isolatie-eerst/, push 23-11.
+const html = (pad) => readFileSync('dist' + pad + 'index.html', 'utf8');
+test('techronde 19-11: inlinks in bestaande zinnen, één per bronpagina', () => {
+  assert.match(html('/blog/isolatie-offertes-vergelijken/'), /de een noemt een <a href="\/blog\/huis-isoleren-kosten\/">totaalbedrag<\/a>, de ander/);
+  assert.match(html('/blog/huis-isoleren-kosten/'), /Combineer je isolatie binnen 24 maanden met <a href="\/blog\/warmtepomp-of-isolatie-eerst\/">een warmtepomp<\/a>, dan/);
+});
+test('techronde 19-11: bronpagina\'s dragen pushdatum 2026-11-23, /blog/ houdt zijn eigen datum', () => {
+  const sm = readSitemap('dist');
+  for (const pad of ['/blog/isolatie-offertes-vergelijken/', '/blog/huis-isoleren-kosten/']) {
+    const f = dateFields(html(pad));
+    assert.equal(f.visible, '2026-11-23', pad + ': zichtbaar');
+    assert.equal(sm.get(pad), '2026-11-23', pad + ': sitemap');
+    for (const d of [...f.ld, ...f.og]) assert.equal(d, '2026-11-23', pad + ': dateModified');
+  }
+  assert.equal(sm.get('/blog/'), '2026-11-18', '/blog/: lastmod');
+  assert.equal(dateFields(html('/blog/')).visible, '2026-11-18', '/blog/: zichtbaar');
+});

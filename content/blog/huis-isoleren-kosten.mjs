@@ -3,6 +3,7 @@ export default {
   title: 'Huis isoleren kosten: dak, spouw, vloer en glas',
   description: 'Wat kost je huis isoleren? Kosten per maatregel voor dak, spouwmuur, vloer en glas, wat ISDE scheelt en waar je begint, met bronnen van Milieu Centraal.',
   date: '2026-11-18',
+  updated: '2026-11-23',
   checked: '2026-11-18',
   author: 'Redactie VerduurzaamMatch',
   body: `<p>Je wilt je huis isoleren, maar wat gaat dat kosten? Voordat je offertes aanvraagt, is het handig om een budget te hebben. Hier zie je per maatregel wat isoleren gemiddeld kost, hoe je het optelt als je alles tegelijk aanpakt en hoeveel de ISDE-subsidie scheelt.</p>
@@ -50,7 +51,7 @@ export default {
 <li><strong>Dak:</strong> een groot deel van de warmte verdwijnt via het dak. Gebruik je de zolder alleen voor opslag, dan is de zoldervloer isoleren goedkoper.</li>
 <li><strong>Nog enkel glas?</strong> Vervang het altijd. Vanaf enkel glas bespaar je met hr++ ongeveer € 350 per jaar, vanaf dubbel glas ongeveer € 90.</li>
 <li><strong>Vloer:</strong> warmere voeten en minder vocht uit de kruipruimte.</li></ul>
-<p>Plan je een warmtepomp? Lees dan eerst <a href="/blog/huis-verduurzamen-waar-beginnen/">huis verduurzamen: waar begin je?</a> Combineer je isolatie binnen 24 maanden met een warmtepomp, dan verdubbelt de ISDE voor de isolatie ook.</p>
+<p>Plan je een warmtepomp? Lees dan eerst <a href="/blog/huis-verduurzamen-waar-beginnen/">huis verduurzamen: waar begin je?</a> Combineer je isolatie binnen 24 maanden met <a href="/blog/warmtepomp-of-isolatie-eerst/">een warmtepomp</a>, dan verdubbelt de ISDE voor de isolatie ook.</p>
 <h2>Offertes vergelijken</h2>
 <ol class="steps"><li>Vraag bij minstens twee bedrijven een offerte. Het energieloket van je gemeente kan je in contact brengen met bedrijven.</li>
 <li>Vergelijk het aantal m², de Rd-waarde en het materiaal, niet alleen de eindprijs.</li>

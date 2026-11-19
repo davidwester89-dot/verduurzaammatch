@@ -4,9 +4,10 @@ export default {
   h1: 'Isolatie-offertes vergelijken: checklist voor spouw, dak en vloer',
   description: 'Waar let je op bij isolatie-offertes? Spouw, dak en vloer naast elkaar, ISDE-subsidie en hoe je offertes eerlijk vergelijkt zonder alleen op prijs.',
   date: '2026-11-10',
+  updated: '2026-11-23',
   checked: '2026-11-05',
   author: 'Redactie VerduurzaamMatch',
-  body: `<p>Je wilt je spouwmuur, dak of vloer laten isoleren en hebt twee of drie offertes binnen. Ze zien er allemaal anders uit: de een noemt een totaalbedrag, de ander een prijs per m², een derde zegt niets over garantie. Hoe vergelijk je die eerlijk? In dit stuk zetten we de checklists van Milieu Centraal naast elkaar en lees je wat je vóór de start regelt voor de ISDE-subsidie van RVO.</p>
+  body: `<p>Je wilt je spouwmuur, dak of vloer laten isoleren en hebt twee of drie offertes binnen. Ze zien er allemaal anders uit: de een noemt een <a href="/blog/huis-isoleren-kosten/">totaalbedrag</a>, de ander een prijs per m², een derde zegt niets over garantie. Hoe vergelijk je die eerlijk? In dit stuk zetten we de checklists van Milieu Centraal naast elkaar en lees je wat je vóór de start regelt voor de ISDE-subsidie van RVO.</p>
 <p><strong>Kort gezegd:</strong> nodig minimaal 2 bedrijven uit voor een vrijblijvend adviesgesprek bij je thuis. Laat in elke offerte de werkzaamheden van start tot schoonmaak, de materialen, het aantal m², de isolatiewaarde en de garantie zetten. Vergelijk daarna pas de prijs.</p>
 <p>Weet je nog niet welke maatregel bij jouw huis past? Doe eerst de <a href="/verduurzaam-match/">VerduurzaamMatch</a>.</p>
 <h2>Wat in elke isolatie-offerte moet staan</h2>

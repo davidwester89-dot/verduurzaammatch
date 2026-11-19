@@ -1,11 +1,11 @@
 // Onafhankelijke verwachting voor de stijlrelease van 13 november 2026.
+// /blog/isolatie-offertes-vergelijken/ kreeg op 23-11 een eigen bodywijziging (techronde 19-11, inlink); zie test/tech-1911.test.js.
 export const STIJL_PADEN = new Set([
   "/",
   "/blog/energiebelasting-2027-isoleren/",
   "/blog/gevelisolatie-kosten/",
   "/blog/huis-verduurzamen-waar-beginnen/",
   "/blog/isde-isolatie-aanvragen/",
-  "/blog/isolatie-offertes-vergelijken/",
   "/blog/warmtepomp-of-isolatie-eerst/",
   "/blog/zonneboiler-kosten/",
   "/blog/zonnepanelen-kosten-2026/",
