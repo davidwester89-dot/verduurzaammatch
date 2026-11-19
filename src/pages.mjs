@@ -60,7 +60,7 @@ const DAK_FAQ = [
 ];
 export const GIDSEN = [
   {
-    slug: 'spouwmuurisolatie-kosten', updated: '2026-11-05', checked: '2026-10-29', id: 'spouw', crumb: 'Spouwmuurisolatie',
+    slug: 'spouwmuurisolatie-kosten', updated: '2026-11-23', checked: '2026-10-29', id: 'spouw', crumb: 'Spouwmuurisolatie',
     title: 'Spouwmuurisolatie kosten 2026: per woningtype en m²',
     h1: 'Spouwmuurisolatie kosten 2026: per woningtype en m²',
     description: 'Wat kost spouwmuurisolatie in 2026? Kosten per woningtype en per m², ISDE-subsidie, terugverdientijd en wanneer je een vleermuizenonderzoek nodig hebt.',
@@ -69,7 +69,7 @@ export const GIDSEN = [
     body: () => `<p class="lead">Een isolatiebedrijf blaast via kleine gaatjes in de voegen isolatie in de spouw. Klaar in één dag, zonder rommel binnen.</p>
 <h2>Kosten per woningtype</h2>${spouwKosten()}
 <p>Milieu Centraal geeft gemiddelden voor uitbesteed werk in een standaardsituatie, zonder meerwerk, en baseert de prijs op een kostenoverzicht van RVO (stand 1 januari 2026). Per woningtype hoort daar een gemiddelde gevelgrootte bij. Voor een appartement is er geen apart bedrag.</p><p>Verbeterjehuis legt de spouwmuurisolatie bij een appartement bij de VvE.</p>
-<p>De subsidie in de tabel geldt voor één maatregel. Laat je binnen 24 maanden ook je <a href="/vloerisolatie-kosten/">vloer</a> of <a href="/dakisolatie-kosten/">dak</a> isoleren, dan verdubbelt hij: bij een hoekwoning € 900 in plaats van € 450 (onze rekensom).</p>
+<p>De subsidie in de tabel geldt voor één maatregel; wat meerdere maatregelen samen kosten, zie je bij <a href="/blog/huis-isoleren-kosten/">huis isoleren kosten</a>. Laat je binnen 24 maanden ook je <a href="/vloerisolatie-kosten/">vloer</a> of <a href="/dakisolatie-kosten/">dak</a> isoleren, dan verdubbelt hij: bij een hoekwoning € 900 in plaats van € 450 (onze rekensom).</p>
 <p><strong>Niet in de prijs:</strong> natuurvriendelijk isoleren. Daarvoor noemt Milieu Centraal € 300 tot € 1.000, afhankelijk van je huis. Verbeterjehuis noemt voor een eDNA-test op vleermuizen rond de € 350 exclusief btw.</p>
 <h2>Prijs per m²</h2>
 <p>Milieu Centraal en Verbeterjehuis noemen geen vaste prijs per m², en ook niet hoeveel m² gevel ze per woningtype rekenen. Wat wel per m² vastligt, is de ISDE-subsidie van RVO:</p>
@@ -182,7 +182,8 @@ export const gidsPages = GIDSEN.map((g) => ({
 }));
 
 export const gidsHub = {
-  path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, glas en zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', lastmod: GIDSEN.map((g) => g.updated).sort().at(-1), stamp: { updated: GIDSEN.map((g) => g.updated).sort().at(-1) },
+  // Hubdatum volgt alleen de eigen body (bodyOnlyHubs, zoals /blog/): een latere update van een gids tilt /gidsen/ niet. Laatste eigen bodywijziging: 2026-11-05.
+  path: '/gidsen/', title: 'Gidsen verduurzamen: isolatie, glas en zonnepanelen', h1: 'Gidsen', crumb: 'Gidsen', og: 'home', lastmod: '2026-11-05', stamp: { updated: '2026-11-05' },
   description: 'Korte gidsen over spouw-, dak-, vloer- en glasisolatie en zonnepanelen na 2027, met verwijzingen naar warmtepomp- en thuisaccugidsen.',
   body: `<h1>Gidsen</h1><div class="grid">${GIDSEN.map((g) => `<a class="card link" href="/${g.slug}/"><img src="/img/${g.slug}-600.webp" width="600" height="315" alt="${esc(g.alt)}" loading="lazy"><h2 class="h3">${esc(g.crumb)}</h2><p>${esc(MAATREGELEN[g.id].kort)}</p></a>`).join('')}</div>
 <p class="src">Verdieping: <a href="https://warmtepompenmatch.nl/warmtepomp-keuzehulp/">warmtepomp kiezen op WarmtepompenMatch</a> · <a href="https://thuisaccumatch.nl/thuisaccu-keuzehulp/">thuisaccu kiezen op ThuisaccuMatch</a></p>
