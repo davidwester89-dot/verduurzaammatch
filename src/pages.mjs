@@ -60,7 +60,7 @@ const DAK_FAQ = [
 ];
 export const GIDSEN = [
   {
-    slug: 'spouwmuurisolatie-kosten', updated: '2026-11-23', checked: '2026-10-29', id: 'spouw', crumb: 'Spouwmuurisolatie',
+    slug: 'spouwmuurisolatie-kosten', updated: '2026-11-25', checked: '2026-10-29', id: 'spouw', crumb: 'Spouwmuurisolatie',
     title: 'Spouwmuurisolatie kosten 2026: per woningtype en m²',
     h1: 'Spouwmuurisolatie kosten 2026: per woningtype en m²',
     description: 'Wat kost spouwmuurisolatie in 2026? Kosten per woningtype en per m², ISDE-subsidie, terugverdientijd en wanneer je een vleermuizenonderzoek nodig hebt.',

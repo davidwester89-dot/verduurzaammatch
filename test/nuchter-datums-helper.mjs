@@ -1,6 +1,6 @@
 // Onafhankelijke verwachting voor de stijlrelease van 13 november 2026.
-// /blog/isolatie-offertes-vergelijken/ kreeg op 23-11 een eigen bodywijziging (techronde 19-11, inlink); zie test/tech-1911.test.js.
-// /spouwmuurisolatie-kosten/ kreeg op 23-11 een eigen bodywijziging (techronde 19-11 SC-fix, inlink); zie test/tech-1911.test.js.
+// /blog/isolatie-offertes-vergelijken/ kreeg op 25-11 een eigen bodywijziging (techronde 19-11, inlink); zie test/tech-1911.test.js.
+// /spouwmuurisolatie-kosten/ kreeg op 25-11 een eigen bodywijziging (techronde 19-11 SC-fix, inlink); zie test/tech-1911.test.js.
 export const STIJL_PADEN = new Set([
   "/",
   "/blog/energiebelasting-2027-isoleren/",

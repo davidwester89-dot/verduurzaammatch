@@ -3,7 +3,7 @@ export default {
   title: 'Huis isoleren kosten: dak, spouw, vloer en glas',
   description: 'Wat kost je huis isoleren? Kosten per maatregel voor dak, spouwmuur, vloer en glas, wat ISDE scheelt en waar je begint, met bronnen van Milieu Centraal.',
   date: '2026-11-18',
-  updated: '2026-11-23',
+  updated: '2026-11-25',
   checked: '2026-11-18',
   author: 'Redactie VerduurzaamMatch',
   body: `<p>Je wilt je huis isoleren, maar wat gaat dat kosten? Voordat je offertes aanvraagt, is het handig om een budget te hebben. Hier zie je per maatregel wat isoleren gemiddeld kost, hoe je het optelt als je alles tegelijk aanpakt en hoeveel de ISDE-subsidie scheelt.</p>
