@@ -67,8 +67,8 @@ ${bron(['spouw', 'dak', 'vloer', 'glas', 'hybride', 'allelectric', 'zon'], CHECK
 });
 
 // ---- ISDE ----
-// Wk47-upgrade (L7 20-11): H2 'Subsidie warmtepomp berekenen'. Bedragen alleen van rvo.nl (warmtepomp- en 2027-pagina, 16-11).
-const ISDE_UPD = '2026-11-20';
+// Wk47-upgrade (L7 24-11): H2 'Subsidie warmtepomp berekenen'. Bedragen alleen van rvo.nl (warmtepomp- en 2027-pagina, 16-11).
+const ISDE_UPD = '2026-11-24';
 const WP2027 = { perKw: 120, aplus: 250, slim: 200 }; // RVO 'ISDE: wat wijzigt er vanaf 2027?' (voorgenomen)
 const HK_WP2026 = ISDE_WP.vast + 5 * ISDE_WP.perKw + ISDE_WP.aplus;
 const HK_WP2026_RVO = ISDE_WP.vast + 4 * ISDE_WP.perKw + ISDE_WP.aplus; // officieel 4 kW-voorbeeld op de RVO-pagina 2026

@@ -28,7 +28,7 @@ test('stijl-datumvloer regresseert een latere inhoudelijke paginadatum niet', ()
 // Een gewijzigde dependency zonder andere zichtbare rekentool-output is geen paginarevisie.
 test('ongewijzigde rekentools behouden alle eigen datumvelden van 19 oktober', () => {
   const sitemap = readSitemap('dist');
-  // /isde-subsidie-berekenen/ kreeg in wk47 een eigen bodywijziging (L7 2026-11-20); zie test hieronder.
+  // /isde-subsidie-berekenen/ kreeg in wk47 een eigen bodywijziging (L7 2026-11-24); zie test hieronder.
   for (const pad of ['/besparing-berekenen/', '/terugverdientijd-berekenen/']) {
     assert.equal(STIJL_PADEN.has(pad), false);
     const fields = dateFields(readFileSync('dist' + pad + 'index.html', 'utf8'));
@@ -39,12 +39,12 @@ test('ongewijzigde rekentools behouden alle eigen datumvelden van 19 oktober', (
   }
 });
 
-// Wk47: H2 'Subsidie warmtepomp berekenen' op /isde-subsidie-berekenen/ = eigen bodywijziging, dus pushdatum 2026-11-20.
-test('ISDE-rekenhulp: warmtepomp-H2 met RVO-bedragen, gelabeld rekenvoorbeeld en datum 2026-11-20', () => {
+// Wk47: H2 'Subsidie warmtepomp berekenen' op /isde-subsidie-berekenen/ = eigen bodywijziging, dus pushdatum 2026-11-24.
+test('ISDE-rekenhulp: warmtepomp-H2 met RVO-bedragen, gelabeld rekenvoorbeeld en datum 2026-11-24', () => {
   const html = readFileSync('dist/isde-subsidie-berekenen/index.html', 'utf8');
   const fields = dateFields(html);
-  assert.equal(fields.visible, '2026-11-20');
-  assert.equal(readSitemap('dist').get('/isde-subsidie-berekenen/'), '2026-11-20');
+  assert.equal(fields.visible, '2026-11-24');
+  assert.equal(readSitemap('dist').get('/isde-subsidie-berekenen/'), '2026-11-24');
   assert.match(html, /<h2>Subsidie warmtepomp berekenen<\/h2>/);
   assert.match(html, /Rekenvoorbeeld van VerduurzaamMatch/);
   assert.match(html, /€ 1\.025 \+ 5 × € 225 \+ € 200 = <strong>€ 2\.350<\/strong>/);
