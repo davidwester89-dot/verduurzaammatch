@@ -17,5 +17,7 @@ export const blogPages = POSTS.map((b) => ({
 export const blogHub = {
   path: '/blog/', title: 'Verduurzamen nieuws en subsidie | VerduurzaamMatch', h1: 'Blog', crumb: 'Blog', og: 'home', lastmod: POSTS.length ? POSTS.map((b) => b.date).sort().at(-1) : undefined, stamp: POSTS.length ? { updated: POSTS.map((b) => b.date).sort().at(-1) } : null, noindex: POSTS.length === 0,
   description: 'Wekelijks nieuws en uitleg over isoleren, warmtepompen, zonnepanelen, thuisbatterijen en subsidie zoals de ISDE.',
+  // L7 (SEO 23-11): elke lastmod-lift ook als dateModified in JSON-LD; hub-dateModified = lastmod = zichtbare stempel (nieuwste publicatiedatum).
+  schema: POSTS.length ? [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Blog', url: `${SITE.domain}/blog/`, dateModified: POSTS.map((b) => b.date).sort().at(-1), publisher: ORG, inLanguage: 'nl' }] : [],
   body: `<h1>Blog</h1>${POSTS.length ? `<div class="grid">${POSTS.map((b) => `<a class="card link" href="/blog/${b.slug}/">${b.image ? `<img src="/img/${b.image}-600.webp" width="600" height="315" alt="${esc(b.alt || b.title)}" loading="lazy">` : ''}<h2 class="h3">${esc(b.title)}</h2><p>${datum(b.date)} · ${esc(b.description)}</p></a>`).join('')}</div>` : '<p>Binnenkort verschijnt hier elke week een nieuw artikel. Lees intussen de <a href="/gidsen/">gidsen</a>.</p>'}`,
 };
