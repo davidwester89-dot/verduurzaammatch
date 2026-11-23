@@ -74,10 +74,11 @@ const HK_WP2026 = ISDE_WP.vast + 5 * ISDE_WP.perKw + ISDE_WP.aplus;
 const HK_WP2026_RVO = ISDE_WP.vast + 4 * ISDE_WP.perKw + ISDE_WP.aplus; // officieel 4 kW-voorbeeld op de RVO-pagina 2026
 const HK_WP2027 = ISDE_WP.vast + 5 * WP2027.perKw + WP2027.aplus;
 const isdeDef = isde({ m2: { spouw: 50, vloer: 45 } });
+const ISDE_DESC = 'Bereken je ISDE-subsidie 2026 voor spouw-, dak- en vloerisolatie en glas, met de verdubbeling bij twee maatregelen. Ook de warmtepomp. Tarieven van RVO.';
 export const isdePage = base({
   path: TOOLS[2].path, og: TOOLS[2].og, crumb: TOOLS[2].crumb, h1: TOOLS[2].h1, checked: ISDE_CHECKED,
   title: 'ISDE-subsidie isolatie berekenen 2026',
-  description: 'Bereken je ISDE-subsidie 2026 voor spouw-, dak- en vloerisolatie en glas, met de verdubbeling bij twee maatregelen. Ook de warmtepomp. Tarieven van RVO.',
+  description: ISDE_DESC,
   scripts: ['/js/rekentools.js'],
   body: `<article><h1>${icoon('rekenmachine', 'ico h')} ISDE-subsidie berekenen</h1><p class="lead">Vul de m² in per maatregel. Je ziet direct de ISDE-indicatie voor 2026, met de verdubbeling bij twee maatregelen.</p>
 <form class="calc" data-tool="isde" novalidate>
@@ -98,6 +99,7 @@ export const isdePage = base({
 <p><strong>Ook van ons:</strong> alles over de warmtepomp-ISDE lees je in <a href="https://warmtepompenmatch.nl/isde-subsidie-warmtepomp-2026/">ISDE-subsidie warmtepomp 2026</a> op WarmtepompenMatch.</p>
 ${bron(['isdeIsolatie', 'isdeWp', 'isde2027'], ISDE_CHECKED, [ISDE_2026_BRON])}</article>`,
   lastmod: ISDE_UPD, stamp: { checked: ISDE_CHECKED, updated: ISDE_UPD },
+  schema: [{ ...app(TOOLS[2].h1, TOOLS[2].path, ISDE_DESC), dateModified: ISDE_UPD }],
 });
 
 export const toolsHub = {

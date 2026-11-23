@@ -45,6 +45,12 @@ test('ISDE-rekenhulp: warmtepomp-H2 met RVO-bedragen, gelabeld rekenvoorbeeld en
   const fields = dateFields(html);
   assert.equal(fields.visible, '2026-11-24');
   assert.equal(readSitemap('dist').get('/isde-subsidie-berekenen/'), '2026-11-24');
+  assert.deepEqual(fields.ld, ['2026-11-24']);
+  const apps = [...html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g)]
+    .map((m) => JSON.parse(m[1])).filter((j) => j['@type'] === 'WebApplication');
+  assert.equal(apps.length, 1);
+  assert.equal(apps[0].dateModified, '2026-11-24');
+  assert.equal('datePublished' in apps[0], false);
   assert.match(html, /<h2>Subsidie warmtepomp berekenen<\/h2>/);
   assert.match(html, /Rekenvoorbeeld van VerduurzaamMatch/);
   assert.match(html, /€ 1\.025 \+ 5 × € 225 \+ € 200 = <strong>€ 2\.350<\/strong>/);
