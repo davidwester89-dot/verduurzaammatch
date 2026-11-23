@@ -58,6 +58,16 @@ const DAK_FAQ = [
   ['Heeft het zin om matige dakisolatie te verbeteren?', 'Ja, volgens Milieu Centraal. Het kost ongeveer net zoveel als een dak zonder isolatie isoleren en je bespaart ongeveer een vijfde. Bij een hoekwoning met 5 cm isolatie is dat zo\'n 70 m³ gas en € 100 per jaar. Met matige isolatie krijg je je huis straks niet warm met een warmtepomp of warmtenet op lage temperatuur.'],
   ['Krijgt een VvE subsidie voor dakisolatie?', 'Voor een VvE is er de SVVE van RVO. Die vraag je aan voordat het werk begint. Voor dakisolatie is dat € 16,25 per m² bij één maatregel en € 32,50 per m² bij twee maatregelen of meer.'],
 ];
+// Vloer-upgrade (27-11-2026): kosten, subsidie, gasbesparing en besparing per woningtype van Milieu Centraal (vloerisolatie);
+// bodemisolatie (alleen hoekwoning, 50 m²) van de MC-pagina bodemisolatie. Netto en terugverdientijd = onze rekensom.
+const VLOER_M3 = { tussen: 80, hoek: 130, twee: 170, vrij: 250 };
+const vloerKosten = () => { const m = MAATREGELEN.vloer; return `<div class="tbl"><table><thead><tr><th>Woning</th><th>Kosten</th><th>ISDE-subsidie</th><th>Je betaalt netto</th></tr></thead><tbody>${WON4().map(([w, n]) => `<tr><td>${n}</td><td>${eur(m.kosten[w])}</td><td>${eur(m.subsidie[w])}</td><td>${eur(m.kosten[w] - m.subsidie[w])}</td></tr>`).join('')}</tbody></table></div>`; };
+const vloerTerug = () => { const m = MAATREGELEN.vloer; return `<div class="tbl"><table><thead><tr><th>Woning</th><th>Minder gas per jaar</th><th>Besparing per jaar</th><th>Terugverdientijd met subsidie</th><th>Zonder subsidie</th></tr></thead><tbody>${WON4().map(([w, n]) => `<tr><td>${n}</td><td>${VLOER_M3[w]} m³</td><td>${eur(m.besparing[w])}</td><td>${jaarTekst((m.kosten[w] - m.subsidie[w]) / m.besparing[w])}</td><td>${jaarTekst(m.kosten[w] / m.besparing[w])}</td></tr>`).join('')}</tbody></table></div>`; };
+const BODEM_HOEK = { kosten: 1600, subsidie: 150, m3: 100, besparing: 130 };
+const vloerBodem = () => { const v = MAATREGELEN.vloer, b = BODEM_HOEK; const rij = (n, k, s, m3, bs) => `<tr><td>${n}</td><td>${eur(k)}</td><td>${eur(s)}</td><td>${m3} m³</td><td>${eur(bs)}</td><td>${jaarTekst((k - s) / bs)}</td></tr>`; return `<div class="tbl"><table><thead><tr><th>Hoekwoning (Rd 3,5)</th><th>Kosten</th><th>ISDE-subsidie</th><th>Minder gas per jaar</th><th>Besparing per jaar</th><th>Terugverdientijd met subsidie</th></tr></thead><tbody>${rij('Vloerisolatie', v.kosten.hoek, v.subsidie.hoek, VLOER_M3.hoek, v.besparing.hoek)}${rij('Bodemisolatie', b.kosten, b.subsidie, b.m3, b.besparing)}</tbody></table></div>`; };
+const VLOER_FAQ = [
+  ['Hoe snel verdien je vloerisolatie terug?', 'Bij een hoekwoning in ongeveer 11 jaar: € 2.240 min € 280 subsidie, gedeeld door € 180 besparing per jaar (onze rekensom met de cijfers van Milieu Centraal). Bij een 2-onder-1-kap en een vrijstaand huis is dat ook zo\'n 11 jaar, bij een tussenwoning ruim 17 jaar. Isoleer je zelf, dan betaal je bij een hoekwoning zo\'n € 1.100 aan materiaal, maar krijg je geen ISDE.'],
+];
 export const GIDSEN = [
   {
     slug: 'spouwmuurisolatie-kosten', updated: '2026-11-25', checked: '2026-10-29', id: 'spouw', crumb: 'Spouwmuurisolatie',
@@ -136,19 +146,33 @@ ${matchCta}${faqHtml(DAK_FAQ)}
 <li><a href="https://www.rvo.nl/subsidies-financiering/svve/verduurzamingsmaatregelen" rel="noopener">RVO – SVVE: verduurzamingsmaatregelen voor VvE's</a></li></ul>`,
   },
   {
-    slug: 'vloerisolatie-kosten', updated: '2026-10-20', id: 'vloer', crumb: 'Vloerisolatie',
+    slug: 'vloerisolatie-kosten', updated: '2026-11-27', checked: '2026-11-27', id: 'vloer', crumb: 'Vloerisolatie',
     title: 'Vloerisolatie kosten 2026: prijs, subsidie, besparing',
     h1: 'Vloerisolatie kosten: wat betaal en bespaar je?',
     description: 'Vloerisolatie per woningtype: kosten, ISDE-subsidie, besparing en terugverdientijd. Plus wanneer je kruipruimte geschikt is.',
     alt: 'Kruipruimte met isolatieplaten tegen de onderkant van de vloer',
+    faq: VLOER_FAQ,
     body: () => `<p class="lead">Isolatie onder de vloer houdt kou en vocht uit de kruipruimte tegen. Je merkt het meteen aan je voeten.</p>
-<h2>Kosten en terugverdientijd</h2>${tabel('vloer')}
-<p>Uitbesteed, naar Rd 3,5. Zelf doen kost bij een hoekwoning zo'n € 1.100 aan materiaal.</p>
+<h2>Kosten per woningtype</h2>${vloerKosten()}
+<p>Gemiddelden van Milieu Centraal voor uitbesteed werk, naar Rd 3,5. Zelf doen kost bij een hoekwoning zo'n € 1.100 aan materiaal, maar dan krijg je geen ISDE.</p>
+<h2>Terugverdientijd en besparing per jaar</h2>
+<p>Milieu Centraal berekent deze besparing van geen naar goede vloerisolatie (Rd 3,5):</p>${vloerTerug()}
+<p>Voor een huis met een hr-combiketel en een gasprijs van € 1,37 per m³ (de verwachte prijs voor 2026–2040). De terugverdientijd is onze rekensom: prijs na subsidie en volle prijs, gedeeld door de besparing per jaar, afgerond op één decimaal.</p>
+<p><strong>Voorbeeld (onze rekensom), hoekwoning:</strong> (€ 2.240 − € 280) / € 180 = 10,9 jaar, zonder subsidie 12,4 jaar. Bij een tussenwoning duurt het langer, omdat de besparing lager is: 17,2 jaar met subsidie.</p>
+<p><strong>Vloerverwarming:</strong> heb je die op een vloer zonder isolatie, dan bespaar je met goede isolatie 190 m³ gas, ofwel € 270 per jaar. Milieu Centraal adviseert dan Rd 5.</p>
+<h3>Bodemisolatie apart</h3>
+<p>Is je kruipruimte lager dan 35 cm en kan uitgraven niet? Dan kun je kiezen voor bodemisolatie: de isolatie komt op de bodem van de kruipruimte. Dat isoleert minder goed, want er blijft een koude, geventileerde luchtlaag onder de vloer. Milieu Centraal rekent voor een gemiddelde hoekwoning met 50 m² vloer:</p>${vloerBodem()}
+<p>De terugverdientijd is onze rekensom. Bodemisolatie bespaart minder en geeft minder subsidie. Is je vloer al geïsoleerd, dan levert bodemisolatie nog maar weinig op. Wel helpt een bodemafsluiter tegen vocht uit de grond.</p>
+<p>Reken je eigen offerte door met <a href="/terugverdientijd-berekenen/?m=vloer">terugverdientijd berekenen</a>, of tel meerdere maatregelen op met <a href="/besparing-berekenen/">besparing berekenen</a>. Wat vloer, dak en spouw samen kosten, zie je bij <a href="/blog/huis-isoleren-kosten/">huis isoleren kosten</a>.</p>
 <h2>Is je kruipruimte geschikt?</h2>
 <ul><li>Minstens 35 cm hoog onder de balken.</li><li>Een luik waar je door kunt.</li><li>Lager of geen kruipruimte? Dan kan bodemisolatie of isolatie op de vloer.</li></ul>
-<h2>Subsidie</h2><p>ISDE: € 5,50 per m² vloerisolatie of € 3 per m² bodemisolatie (samen minimaal 20 m²). Samen met spouwmuurisolatie binnen 24 maanden krijg je het dubbele.</p>
+<h2>Subsidie</h2><p>ISDE: € 5,50 per m² vloerisolatie of € 3 per m² bodemisolatie (samen minimaal 20 m², subsidie over maximaal 130 m²). Met biobased materiaal komt er € 2 (vloer) of € 1 (bodem) per m² bij. Isoleer je binnen 24 maanden nog iets, zoals je spouwmuur, dan krijg je het dubbele. Alle bedragen staan op <a href="/subsidie-isde/">ISDE-subsidie 2026</a>.</p>
 <p>Ook voor de vloer noemt Milieu Centraal Rc 2,5 als minimum voor een all-electric warmtepomp. Is je huis nog matig geïsoleerd, dan kan een hybride. Zie <a href="https://warmtepompenmatch.nl/hybride-of-all-electric/">hybride of all-electric: wat past na het isoleren</a> op WarmtepompenMatch.</p>
-${matchCta}${src('vloer', 'isdeIsolatie')}`,
+${matchCta}${faqHtml(VLOER_FAQ)}
+<h2>Bronnen</h2>
+<ul class="src"><li><a href="${SOURCES.vloer.url}" rel="noopener">${esc(SOURCES.vloer.title)}</a></li>
+<li><a href="https://www.milieucentraal.nl/energie-besparen/isoleren-en-besparen/bodemisolatie/" rel="noopener">Milieu Centraal – Bodemisolatie</a></li>
+<li><a href="${SOURCES.isdeIsolatie.url}" rel="noopener">${esc(SOURCES.isdeIsolatie.title)}</a></li></ul>`,
   },
   {
     slug: 'zonnepanelen-na-2027', updated: '2026-10-22', id: 'zon', crumb: 'Zonnepanelen na 2027',
