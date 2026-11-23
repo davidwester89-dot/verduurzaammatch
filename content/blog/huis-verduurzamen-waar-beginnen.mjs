@@ -4,7 +4,7 @@ export default {
   h1: 'Huis verduurzamen: welke maatregel eerst?',
   description: 'Waar begin je met verduurzamen? De slimste volgorde: eerst isoleren, dan pas warmtepomp of zonnepanelen. Met kosten, subsidie en jouw eerste stap.',
   date: '2026-10-17',
-  updated: '2026-11-17',
+  updated: '2026-11-26',
   checked: '2026-10-17',
   author: 'Redactie VerduurzaamMatch',
   image: 'huis-verduurzamen-waar-beginnen',
@@ -46,7 +46,7 @@ export default {
 <li><strong>Lenen:</strong> geen geld liggen? Met de <a href="/blog/energiebespaarlening-warmtefonds/">Energiebespaarlening van het Warmtefonds</a> kun je isolatie en een warmtepomp financieren, onder een bepaald inkomen tegen 0% rente.</li></ul>
 <p>Alle bedragen en voorwaarden staan in <a href="/subsidie-isde/">ISDE-subsidie 2026</a>.</p>
 <h2>Jouw eerste stap bepalen</h2>
-<ol class="steps"><li><strong>Check je energielabel</strong> op mijnoverheid.nl. Is het al oud en heb je daarna dingen verbeterd, dan is je huis waarschijnlijk beter dan het label zegt.</li>
+<ol class="steps"><li><strong>Check je energielabel</strong> op mijnoverheid.nl. Is het al oud en heb je daarna dingen verbeterd, dan is je huis waarschijnlijk beter dan het label zegt. Wat een beter label kost, lees je in <a href="/blog/energielabel-verbeteren-kosten/">energielabel verbeteren: kosten</a>.</li>
 <li><strong>Kijk wat nog niet geïsoleerd is:</strong> dak, spouwmuur, vloer en glas. Het bouwjaar geeft een eerste indruk.</li>
 <li><strong>Check je ventilatie en je cv-ketel:</strong> hoe oud is hij, en zijn je radiatoren geschikt voor water van 50 graden of minder?</li>
 <li><strong>Kijk naar je wijk:</strong> wat staat er in het warmteplan van je gemeente?</li></ol>
