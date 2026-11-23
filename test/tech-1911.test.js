@@ -17,8 +17,9 @@ test('techronde 19-11: bronpagina\'s dragen pushdatum 2026-11-25, /blog/ houdt z
     assert.equal(sm.get(pad), '2026-11-25', pad + ': sitemap');
     for (const d of [...f.ld, ...f.og]) assert.equal(d, '2026-11-25', pad + ': dateModified');
   }
-  assert.equal(sm.get('/blog/'), '2026-11-18', '/blog/: lastmod');
-  assert.equal(dateFields(html('/blog/')).visible, '2026-11-18', '/blog/: zichtbaar');
+  // /blog/ volgt alleen de nieuwste publicatiedatum (vanaf wk48: energielabel-post 26-11), nooit een bronpagina-update.
+  assert.equal(sm.get('/blog/'), '2026-11-26', '/blog/: lastmod');
+  assert.equal(dateFields(html('/blog/')).visible, '2026-11-26', '/blog/: zichtbaar');
   assert.equal(sm.get('/gidsen/'), '2026-11-05', '/gidsen/: lastmod (bodyOnlyHub, spouw-update tilt hem niet)');
   assert.equal(dateFields(html('/gidsen/')).visible, '2026-11-05', '/gidsen/: zichtbaar');
 });
