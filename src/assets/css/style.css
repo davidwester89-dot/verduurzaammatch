@@ -1,9 +1,11 @@
 /* VerduurzaamMatch: teal/groen, serif koppen, rechte kaarten met groene rand. Geen externe fonts. */
 :root{--bg:#f2f7f4;--card:#fff;--ink:#14302c;--muted:#4b625d;--teal:#0e6b63;--teal-d:#0a4f49;--leaf:#3c9a5f;--mint:#dcefe6;--sun:#f2b632;--line:#cfe0d8}
+@font-face{font-family:Inter;font-style:normal;font-weight:700 900;font-display:swap;src:url(/fonts/inter-800.woff2) format("woff2")}
+@font-face{font-family:"Inter Fallback";src:local("Arial");ascent-override:90.49%;descent-override:22.56%;line-gap-override:0%;size-adjust:107.06%}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
-h1,h2,h3,.logo span{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"DejaVu Serif",serif;letter-spacing:-.01em}
+h1,h2,h3{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"DejaVu Serif",serif;letter-spacing:-.01em}
 h1{font-size:clamp(30px,6vw,46px);line-height:1.15;margin:.3em 0 .35em}
 h1,h2{overflow-wrap:break-word;hyphens:auto}
 @media(max-width:400px){h1{font-size:clamp(1.6rem,7.5vw,1.875rem)}}
@@ -17,7 +19,7 @@ img{max-width:100%;height:auto;display:block}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 header.site{background:var(--teal-d);color:#fff}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap}
-.logo{display:inline-flex;align-items:center;gap:10px;color:inherit;text-decoration:none;font-size:22px}
+.logo{display:inline-flex;align-items:center;gap:10px;color:inherit;text-decoration:none;font:800 1.2rem/1 Inter,"Inter Fallback",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:-.01em;min-height:48px}
 .logo svg{width:34px;height:34px;flex:none}
 .logo b{color:var(--sun);font-weight:800}
 footer .logo b,.hero .brand b{color:var(--leaf)}
@@ -108,8 +110,8 @@ details.menu nav a[aria-current]{box-shadow:inset 0 -3px var(--sun)}
 details.menu nav a.nav-cta{grid-column:1/-1;justify-content:center;background:var(--sun);color:#1b2a1f;font-weight:700;border-color:var(--sun)}
 @media (max-width:760px){nav.main{display:none}details.menu{display:block}header.site .wrap{flex-wrap:nowrap}}
 details.menu{flex:none}
-@media (max-width:480px){header.site .wrap{gap:10px}header.site .logo{font-size:19px;gap:8px}header.site .logo svg{width:30px;height:30px}details.menu summary{width:48px;padding:0;justify-content:center}details.menu .menu-txt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
-@media (max-width:359px){header.site .logo{font-size:17px}}
+@media (max-width:480px){header.site .wrap{gap:10px}header.site .logo{font-size:1.1rem;gap:8px}header.site .logo svg{width:30px;height:30px}details.menu summary{width:48px;padding:0;justify-content:center}details.menu .menu-txt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+@media (max-width:359px){header.site .logo{font-size:1rem}}
 @media (max-width:400px){th,td{padding:8px}}
 /* Quick wins 16-10: voortgang, bewaarde antwoorden, delen, controlebadge, Fout gezien?, vaste mobiele knop */
 .qprog{margin:0 0 18px}.qprog p{margin:0 0 6px;font-weight:700}

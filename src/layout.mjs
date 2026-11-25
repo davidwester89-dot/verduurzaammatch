@@ -13,8 +13,10 @@ export const SITE = {
 };
 export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 export const BRAND = 'Verduurzaam<b>Match</b>.nl';
-// Logo: huisje met blad, teal vlak.
-export const LOGO = '<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="4" fill="#3c9a5f"/><path d="M8 20 20 9l12 11v12H8z" fill="#fff"/><path d="M15 30c0-7 4-11 11-12-1 7-4 11-11 12z" fill="#0e6b63"/><path d="M15 30l6-7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>';
+// Logo in de stijl van WarmtepompenMatch/BoekhoudMatch: 40x40-tegel rx 11, wit huisje, amber stip; VM: teal tegel, blad in het huisje.
+// Woordmerk in de header/footer zonder .nl (zoals WPM/BM), Inter 800; de hero houdt BRAND met .nl.
+export const LOGO_TEXT = 'Verduurzaam<b>Match</b>';
+export const LOGO = '<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="#0e6b63"/><path d="M8 19.5 20 10l12 9.5V31a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2z" fill="#fff"/><path d="M14.5 29c0-6.6 4.1-10.6 11-11.6-.7 6.9-4.5 10.8-11 11.6z" fill="#0e6b63"/><path d="m14.5 29 6-6.2" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="32" cy="8" r="4" fill="#e7a33e"/></svg>';
 
 const NAV = [
   ['/verduurzaam-match/', 'Start de match', 'nav-cta'],
@@ -72,14 +74,14 @@ ${p.noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" 
 ${p.article ? `<meta property="article:published_time" content="${p.article.date}"><meta property="article:modified_time" content="${p.article.updated}">` : ''}
 <meta name="theme-color" content="${SITE.theme}">
 <meta name="e08923fead07e26" content="c805cc3c2262098e1a99fce841da04b0" />
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/inter-800.woff2" as="font" type="font/woff2" crossorigin><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>${CSS}</style>
 ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head>
 <body${hasCta ? ' class="has-cta"' : ''}${GA_ID ? ` data-ga="${GA_ID}"` : ''}>
 <a class="skip" href="#inhoud">Naar de inhoud</a>
 <header class="site"><div class="wrap">
-<a class="logo" href="/">${LOGO}<span>${BRAND}</span></a>
+<a class="logo" href="/">${LOGO}<span>${LOGO_TEXT}</span></a>
 <nav class="main" aria-label="Hoofdmenu">${navLinks(p.navPath || p.path)}</nav>
 <details class="menu"><summary><span class="burger" aria-hidden="true"></span><span class="menu-txt">Menu</span></summary><nav aria-label="Hoofdmenu">${navLinks(p.navPath || p.path)}</nav></details>
 </div></header>
@@ -93,7 +95,7 @@ ${foutGezien(url)}
 </div></main>`}
 <footer class="site"><div class="wrap">
 <div class="cols">
-<div><a class="logo" href="/">${LOGO}<span>${BRAND}</span></a><p>${esc(SITE.tagline)}</p></div>
+<div><a class="logo" href="/">${LOGO}<span>${LOGO_TEXT}</span></a><p>${esc(SITE.tagline)}</p></div>
 <div class="fcol"><div><p class="fh">Isoleren</p><ul><li><a href="/spouwmuurisolatie-kosten/">Spouwmuurisolatie</a></li><li><a href="/dakisolatie-kosten/">Dakisolatie</a></li><li><a href="/vloerisolatie-kosten/">Vloerisolatie</a></li></ul></div>
 <div><p class="fh">Energie</p><ul><li><a href="https://warmtepompenmatch.nl/hybride-warmtepomp-kosten/">Hybride warmtepomp</a></li><li><a href="/zonnepanelen-na-2027/">Zonnepanelen na 2027</a></li><li><a href="https://thuisaccumatch.nl/thuisaccu-terugverdientijd/">Thuisbatterij terugverdienen</a></li><li><a href="/subsidie-isde/">ISDE-subsidie</a></li></ul></div></div>
 <div class="fcol"><div><p class="fh">Rekenen</p><ul><li><a href="/besparing-berekenen/">Besparing</a></li><li><a href="/terugverdientijd-berekenen/">Terugverdientijd</a></li><li><a href="/isde-subsidie-berekenen/">ISDE berekenen</a></li><li><a href="/vergelijken/">Vergelijken</a></li></ul></div>

@@ -38,7 +38,7 @@ for k,svg in art.items():
     if k not in ('match','rekentools','besparing-berekenen','terugverdientijd-berekenen','isde-subsidie-berekenen','vergelijken'):
         im=Image.open(png).convert('RGB')
         for w in (1200,600): im.resize((w,int(w*630/1200)),Image.LANCZOS).save(f'src/assets/img/{k}-{w}.webp','WEBP',quality=82)
-logo='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="4" fill="#3c9a5f"/><path d="M8 20 20 9l12 11v12H8z" fill="#fff"/><path d="M15 30c0-7 4-11 11-12-1 7-4 11-11 12z" fill="#0e6b63"/></svg>'
+logo='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#0e6b63"/><path d="M8 19.5 20 10l12 9.5V31a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2z" fill="#fff"/><path d="M14.5 29c0-6.6 4.1-10.6 11-11.6-.7 6.9-4.5 10.8-11 11.6z" fill="#0e6b63"/><path d="m14.5 29 6-6.2" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="32" cy="8" r="4" fill="#e7a33e"/></svg>'
 open('src/assets/icons/favicon.svg','w').write(logo)
 f=os.path.join(tmp,'i.html');open(f,'w').write(f'<html><body style="margin:0">{logo.replace("<svg ","<svg width=180 height=180 ")}</body></html>')
 subprocess.run(['google-chrome','--headless=new','--no-sandbox','--disable-gpu','--hide-scrollbars','--window-size=180,180','--screenshot=src/assets/icons/apple-touch-icon.png','file://'+f],capture_output=True)
