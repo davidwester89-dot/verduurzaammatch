@@ -16,6 +16,15 @@ test('stijlrelease 13-11: exacte bijgewerkt-/lastmod-/dateModified-datums, uitsl
 });
 
 import { nuchterDatum } from '../src/nuchter-datums.mjs';
+// /verduurzaam-match/ verliet de stijlpin: quiz.js toont nieuwe partnerlinks (client-side, push 27-11).
+test('verduurzaam-match: offerteblok-wijziging draagt pushdatum 2026-11-27, zonder dateModified in dit template', () => {
+  assert.equal(STIJL_PADEN.has('/verduurzaam-match/'), false);
+  const fields = dateFields(readFileSync('dist/verduurzaam-match/index.html', 'utf8'));
+  assert.equal(fields.visible, '2026-11-27');
+  assert.equal(readSitemap('dist').get('/verduurzaam-match/'), '2026-11-27');
+  assert.deepEqual(fields.ld, []);
+  assert.deepEqual(fields.og, []);
+});
 test('stijl-datumvloer regresseert een latere inhoudelijke paginadatum niet', () => {
   const pad = [...STIJL_PADEN][0];
   const p = nuchterDatum({ path: pad, updated: '2027-01-02', lastmod: '2027-01-02', body: '<p>Updated <time datetime="2027-01-02">2 January 2027</time></p>', schema: [{ dateModified: '2027-01-02' }] });

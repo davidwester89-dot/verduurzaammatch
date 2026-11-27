@@ -5,7 +5,8 @@ export const PRIVACY_UPDATED = '2026-10-23';
 
 const NETWERKEN = [
   { re: /(^|\.)pxf\.io$|impact\.com$/, naam: 'Impact', privacy: 'https://impact.com/privacy-policy/' },
-  { re: /(^|\.)(jf79|glp8|bdt9)\.net$|ds1\.nl$|daisycon\./, naam: 'Daisycon', privacy: 'https://daisycon.com/en/legal-information/privacy-policy/' },
+  // Daisycon-trackinghosts, inclusief custom trackingdomein partner.homewizard.com (niet www.homewizard.com).
+  { re: /(^|\.)(jf79|glp8|bdt9|lt45)\.net$|ds1\.nl$|daisycon\.|(^|\.)partner\.homewizard\.com$/, naam: 'Daisycon', privacy: 'https://daisycon.com/en/legal-information/privacy-policy/' },
 ];
 
 /** Privacybeleid van de netwerken (geen affiliate-links; tests laten deze URL's toe). */

@@ -6,8 +6,17 @@
 export const HUISASSIST_ISOLATIE = 'https://glp8.net/c/?si=22344&li=1962824&wi=438420&ws=&dl=isolatie%2Fvergelijk%2F';
 // Daisycon-trackinglink, deeplink /warmtepomp/vergelijk/ (huisassist.nl/warmtepomp/vergelijk/).
 export const HUISASSIST_WARMTEPOMP = 'https://glp8.net/c/?si=22344&li=1962824&wi=438420&ws=&dl=warmtepomp%2Fvergelijk%2F';
+// HomeWizard: Daisycon 18407, media VerduurzaamMatch 438420. Eén trackinglink; geldt voor batterij (`voor`).
+export const HOMEWIZARD_URL = 'https://partner.homewizard.com/c/?si=18407&li=1796814&wi=438420&ws=';
+// Essent Isolatie: Daisycon 19832, media VerduurzaamMatch 438420. Eén trackinglink; geldt voor spouw, dak, vloer en glas (`voor`).
+export const ESSENT_ISOLATIE_URL = 'https://glp8.net/c/?si=19832&li=1847641&wi=438420&ws=';
+// energiedirect: Daisycon 924, media VerduurzaamMatch 438420. Eén trackinglink bij zonnepanelen (energiecontract).
+export const ENERGIEDIRECT_URL = 'https://lt45.net/c/?si=924&li=1782260&wi=438420&ws=';
 export const PARTNERLINKS = {
   huisassist: { spouw: HUISASSIST_ISOLATIE, dak: HUISASSIST_ISOLATIE, vloer: HUISASSIST_ISOLATIE, hybride: HUISASSIST_WARMTEPOMP, allelectric: HUISASSIST_WARMTEPOMP },
+  essent_isolatie: ESSENT_ISOLATIE_URL,
+  homewizard: HOMEWIZARD_URL,
+  energiedirect: ENERGIEDIRECT_URL,
 };
 
 /** Partnerlink van een aanbieder voor een maatregel (of null). Een losse URL geldt voor elke maatregel. */
@@ -27,6 +36,7 @@ export const AANBIEDERS = {
   quatt: { naam: 'Quatt', url: 'https://www.quatt.io/', voor: ['hybride'] },
   coen: { naam: 'Coen+', url: 'https://www.coenplus.nl/', voor: ['hybride', 'allelectric'] },
   offertevergelijker: { naam: 'Offertevergelijker', url: 'https://www.offertevergelijker.nl/', voor: ['zon', 'spouw', 'dak', 'vloer', 'glas'] },
+  energiedirect: { naam: 'energiedirect', url: 'https://www.energiedirect.nl/', voor: ['zon'] },
   nextenergy: { naam: 'NextEnergy', url: 'https://www.nextenergy.nl/', voor: ['batterij'] },
   homewizard: { naam: 'HomeWizard', url: 'https://www.homewizard.com/nl/', voor: ['batterij'] },
 };

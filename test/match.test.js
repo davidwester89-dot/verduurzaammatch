@@ -13,9 +13,13 @@ test('zonnestroom-doel bij goed huis: zonnepanelen eerst', () => assert.equal(ma
 test('max 3 resultaten en onvolledig gooit', () => { assert.equal(match(A).length, 3); assert.throws(() => match({ ...A, doel: '' })); });
 test('terugverdientijd spouw hoek = MC-cijfers', () => assert.deepEqual(terugverdien(MAATREGELEN.spouw, 'hoek'), [2, 3]));
 test('MC-cijfers ongewijzigd', () => { assert.equal(MAATREGELEN.dak.kosten.vrij, 10000); assert.equal(MAATREGELEN.hybride.subsidie.hoek, 2125); });
-test('partnerlinks: alleen Huisassist (goedgekeurd 23-10) en match leest ze niet', () => {
-  assert.deepEqual(Object.keys(PARTNERLINKS), ['huisassist']);
-  assert.ok(!readFileSync(new URL('../src/lib/match.js', import.meta.url), 'utf8').includes('partnerlinks'));
+test('partnerlinks: goedgekeurde campagnes, match leest ze niet en sorteert niet op vergoeding', () => {
+  assert.deepEqual(Object.keys(PARTNERLINKS), ['huisassist', 'essent_isolatie', 'homewizard', 'energiedirect']);
+  const matchSrc = readFileSync(new URL('../src/lib/match.js', import.meta.url), 'utf8');
+  assert.ok(!matchSrc.includes('partnerlinks'));
+  assert.doesNotMatch(matchSrc, /import[^\n]*partnerlinks|PARTNERLINKS|partnerUrl|\bcommissie\b/);
   assert.equal(uitgaand('quatt').partner, false);
+  assert.equal(uitgaand('nextenergy').partner, false);
+  assert.equal(uitgaand('offertevergelijker').partner, false);
   assert.equal(uitgaand('quatt', { quatt: 'https://x' }).rel, 'sponsored nofollow noopener');
 });
