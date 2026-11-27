@@ -263,6 +263,8 @@ const fs = Object.entries(VRAGEN).map(([k, v], i) => `<fieldset data-q="${k}"${i
 export const quiz = {
   path: '/verduurzaam-match/', title: 'VerduurzaamMatch: welke stap eerst voor jouw huis?', h1: 'VerduurzaamMatch', crumb: 'VerduurzaamMatch', og: 'match',
   description: 'Vijf vragen over je woning. Direct advies welke verduurzaming eerst, met kosten, ISDE-subsidie en terugverdientijd.',
+  // L7: quiz.js leest partnerlinks.js. Nieuwe Daisycon-links in het offerteblok zijn client-side data (push 27-11-2026).
+  lastmod: '2026-11-27', stamp: { updated: '2026-11-27' },
   scripts: ['/js/quiz.js'],
   schema: [{ '@context': 'https://schema.org', '@type': 'WebApplication', name: 'VerduurzaamMatch', applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' }, url: SITE.domain + '/verduurzaam-match/' }],
   body: `<h1>VerduurzaamMatch</h1><p class="lead">Welke stap levert in jouw huis het meeste op?</p>
